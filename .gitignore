@@ -5,23 +5,48 @@ node_modules/
 # Build artifacts
 dist/
 build/
-*.tsbuildinfo
+*.js
+*.ts
+*.tsx
 
 # Environment
 .env
 .env.local
-.env.*
+*.env.*
 
 # Editors
 .vscode/
 .idea/
 
-# Python (if applicable)
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+
+# Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-.Python
-venv/
-.venv/
+
+# Compiled files
+*.o
+*.obj
+*.out
+*.dll
+*.so
+*.a
+
+# Coverage
+coverage/
+htmlcov/
+.coverage
+
+# Testing
+.mypy_cache/
+.pytest_cache/
+
+# OS
+.DS_Store
+Thumbs.db
 ```

@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, AnchorHTMLAttributes } from 'react'
+import type { ButtonHTMLAttributes, AnchorHTMLAttributes } from 'react'
 import { cn } from '@/lib/utils'
 
 interface BaseButtonProps {
