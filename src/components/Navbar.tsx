@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { useScrolled, useSmoothScroll } from '@/hooks/useScroll'
 
 interface NavbarProps {
   activeSection: string
@@ -14,17 +15,12 @@ const navItems = [
 ]
 
 export default function Navbar({ activeSection }: NavbarProps) {
-  const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const scrolled = useScrolled(50)
+  const scrollTo = useSmoothScroll()
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+  const handleScrollTo = (id: string) => {
+    scrollTo(id)
     setMobileOpen(false)
   }
 
@@ -34,7 +30,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
     }`}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
-          <button onClick={() => scrollTo('home')} className="text-xl font-bold text-primary-light hover:text-primary transition-colors">
+          <button onClick={() => handleScrollTo('home')} className="text-xl font-bold text-primary-light hover:text-primary transition-colors">
             GJ
           </button>
 
@@ -84,7 +80,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
             {navItems.map(item => (
               <button
                 key={item.id}
-                onClick={() => scrollTo(item.id)}
+                onClick={() => handleScrollTo(item.id)}
                 className={`block w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-all ${
                   activeSection === item.id
                     ? 'text-primary-light bg-primary/10'

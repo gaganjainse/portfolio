@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useScrollSpy } from '@/hooks/useScroll'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -8,26 +8,10 @@ import Experience from './components/Experience'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
-function App() {
-  const [activeSection, setActiveSection] = useState('home')
+const SECTION_IDS = ['home', 'about', 'skills', 'projects', 'experience', 'contact']
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['home', 'about', 'skills', 'projects', 'experience', 'contact']
-      for (const section of sections) {
-        const el = document.getElementById(section)
-        if (el) {
-          const rect = el.getBoundingClientRect()
-          if (rect.top <= 150 && rect.bottom > 150) {
-            setActiveSection(section)
-            break
-          }
-        }
-      }
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+function App() {
+  const activeSection = useScrollSpy(SECTION_IDS)
 
   return (
     <div className="min-h-screen bg-bg">
