@@ -80,6 +80,15 @@ export default function Hero() {
               View Projects
             </a>
             <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 rounded-lg font-medium border border-accent/30 text-accent hover:bg-accent/10 transition-all hover:-translate-y-0.5"
+              aria-label="Download resume PDF (opens in new tab)"
+            >
+              Resume
+            </a>
+            <a
               href="https://github.com/gaganjainse"
               target="_blank"
               rel="noopener noreferrer"
