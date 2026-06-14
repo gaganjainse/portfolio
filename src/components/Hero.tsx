@@ -34,7 +34,7 @@ export default function Hero() {
                 <img
                   src="/profile.jpg"
                   alt="Gagan Jain — Software Engineer"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-center"
                   loading="eager"
                   width={112}
                   height={112}
