@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -18,7 +18,6 @@ const sectionVariants = {
 function App() {
   const [activeSection, setActiveSection] = useState('home')
   const [isLoading, setIsLoading] = useState(true)
-  const observerRef = useRef<IntersectionObserver | null>(null)
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 800)
@@ -26,42 +25,31 @@ function App() {
   }, [])
 
   useEffect(() => {
-    // Clean up previous observer
-    if (observerRef.current) {
-      observerRef.current.disconnect()
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + window.innerHeight / 3
+
+      // Check each section in reverse order (bottom to top)
+      for (let i = NAV_ITEMS.length - 1; i >= 0; i--) {
+        const { id } = NAV_ITEMS[i]
+        const element = document.getElementById(id)
+        if (element) {
+          const { offsetTop, offsetHeight } = element
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(id)
+            return
+          }
+        }
+      }
+
+      // If we're at the very top, set to home
+      if (window.scrollY < 100) {
+        setActiveSection('home')
+      }
     }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        // Find the most visible section
-        let maxRatio = 0
-        let currentSection = activeSection
-
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
-            maxRatio = entry.intersectionRatio
-            currentSection = entry.target.id
-          }
-        })
-
-        if (maxRatio > 0) {
-          setActiveSection(currentSection)
-        }
-      },
-      {
-        rootMargin: '-20% 0px -60% 0px',
-        threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
-      }
-    )
-
-    observerRef.current = observer
-
-    NAV_ITEMS.forEach(({ id }: { id: string }) => {
-      const el = document.getElementById(id)
-      if (el) observer.observe(el)
-    })
-
-    return () => observer.disconnect()
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll() // Initial check
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   if (isLoading) {
@@ -104,4 +92,3 @@ function App() {
 }
 
 export default App
-// 14 Jun 2026 15:10:08
