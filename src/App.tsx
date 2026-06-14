@@ -8,7 +8,7 @@ import Projects from './components/Projects'
 import Experience from './components/Experience'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
-import { NAV_ITEMS } from '../data'
+import { NAV_ITEMS } from './data'
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 24 },
@@ -56,7 +56,7 @@ function App() {
 
     observerRef.current = observer
 
-    NAV_ITEMS.forEach(({ id }) => {
+    NAV_ITEMS.forEach(({ id }: { id: string }) => {
       const el = document.getElementById(id)
       if (el) observer.observe(el)
     })
