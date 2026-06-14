@@ -61,7 +61,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'glass shadow-lg' : 'bg-transparent'
+        scrolled ? 'bg-bg/95 backdrop-blur-md shadow-lg border-b border-border/50' : 'bg-transparent'
       }`}
       role="navigation"
       aria-label="Main navigation"
