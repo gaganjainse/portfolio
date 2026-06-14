@@ -79,7 +79,6 @@ function App() {
         </AnimatePresence>
       </main>
       <Footer />
-      <SpeedInsights />
     </div>
   )
 }
