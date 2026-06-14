@@ -88,7 +88,7 @@ export default function Hero() {
               GitHub
             </a>
             <a
-              href="https://linkedin.com/in/gagan-jain-se"
+              href="https://linkedin.com/in/gaganjainse"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 rounded-lg font-medium border border-border text-text hover:border-primary/50 hover:text-primary-light transition-all hover:-translate-y-0.5"
