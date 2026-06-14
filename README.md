@@ -30,7 +30,7 @@ src/
 
 ## 🌐 Live Site
 
-[https://gaganjain.vercel.app](https://gaganjain.vercel.app)
+[https://portfolio-eight-lovat-20.vercel.app](portfolio-eight-lovat-20.vercel.app)
 
 ## 📄 License
 
