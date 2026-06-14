@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { SITE_CONFIG, SOCIAL_LINKS } from '../data'
 
@@ -13,40 +12,13 @@ const item = {
 }
 
 export default function Hero() {
-  const [scrollY, setScrollY] = useState(0)
-
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY)
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  // Glow fades out as user scrolls down (1 at top, 0 at 600px)
-  const glowOpacity = Math.max(0, 1 - scrollY / 600)
-  // Glow positions shift slightly with scroll for parallax effect
-  const glowShift = scrollY * 0.15
-
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden" aria-label="Hero">
-      {/* Background glow effects — fade and shift with scroll */}
+      {/* Background glow effects */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        <div
-          className="absolute w-96 h-96 bg-primary/10 rounded-full blur-3xl transition-opacity duration-100"
-          style={{
-            top: `calc(25% - ${glowShift}px)`,
-            left: `calc(25% - ${glowShift * 0.5}px)`,
-            opacity: glowOpacity * 0.6,
-          }}
-        />
-        <div
-          className="absolute w-96 h-96 bg-accent/10 rounded-full blur-3xl transition-opacity duration-100"
-          style={{
-            bottom: `calc(25% + ${glowShift}px)`,
-            right: `calc(25% + ${glowShift * 0.5}px)`,
-            opacity: glowOpacity * 0.6,
-          }}
-        />
-        {/* Grid pattern — static */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-glow" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '1.5s' }} />
+        {/* Grid pattern */}
         <div className="absolute inset-0 opacity-[0.03]" style={{
           backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
           backgroundSize: '60px 60px',
