@@ -35,18 +35,18 @@ export interface SocialLink {
 export const SITE_CONFIG = {
   name: "Gagan Jain",
   title: "Software Engineer",
-  tagline: "Building full-stack apps, developer tooling, and AI/LLM projects",
-  description: "Computer Science student at VIT Vellore building full-stack web applications, developer tooling, and AI/LLM projects. Creator of Vyākṛti — a Sanskrit-oriented programming language with a browser-based IDE.",
+  tagline: "Software Engineer building full-stack apps, developer tooling, and AI/LLM projects — including Vyākṛti, my own programming language and web IDE.",
+  description: "I craft seamless web experiences with modern technologies. Specializing in full stack development, I build applications that are both intuitive and powerful.",
   email: "gagan.jain.se@gmail.com",
   location: "Vellore, India",
   availability: "Open to SWE roles · Open to relocation",
   graduation: "Expected July 2026",
-  cgpa: "7.5/10",
+  cgpa: "7.5+/10",
 };
 
 export const SOCIAL_LINKS: SocialLink[] = [
   { name: "GitHub", url: "https://github.com/gaganjainse", icon: "github" },
-  { name: "LinkedIn", url: "https://linkedin.com/in/gaganjainse", icon: "linkedin" },
+  { name: "LinkedIn", url: "https://linkedin.com/in/gagan-jain-a88aab345", icon: "linkedin" },
   { name: "Email", url: "mailto:gagan.jain.se@gmail.com", icon: "email" },
 ];
 
