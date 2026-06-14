@@ -27,19 +27,23 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
         <motion.div variants={container} initial="hidden" animate="visible">
-          {/* Photo placeholder */}
+          {/* Photo */}
           <motion.div variants={item} className="mb-8 flex justify-center">
             <div className="relative">
-              <div className="w-28 h-28 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 border-2 border-border flex items-center justify-center overflow-hidden">
-                <svg className="w-12 h-12 text-text-muted/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
+              <div className="w-28 h-28 rounded-full border-2 border-primary/30 overflow-hidden bg-bg-card">
+                <img
+                  src="/profile.jpg"
+                  alt="Gagan Jain — Software Engineer"
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                  width={112}
+                  height={112}
+                />
               </div>
               <div className="absolute -bottom-1 -right-1 w-8 h-8 bg-success rounded-full border-4 border-bg flex items-center justify-center" title="Available for roles">
                 <span className="text-[10px] font-bold text-white">✓</span>
               </div>
             </div>
-            <span className="sr-only">Profile photo placeholder — professional headshot coming soon</span>
           </motion.div>
 
           {/* Availability badge */}
