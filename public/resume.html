@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gagan Jain — Resume</title>
+<style>
+  @media print {
+    @page { margin: 0.5in; size: letter; }
+    body { font-size: 10.5pt; line-height: 1.4; }
+    a { text-decoration: none; color: #1a1a1a; }
+    .page-break { page-break-before: always; }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Calibri', 'Segoe UI', Arial, sans-serif;
+    font-size: 11pt;
+    line-height: 1.45;
+    color: #1a1a1a;
+    max-width: 8.5in;
+    margin: 0 auto;
+    padding: 0.5in 0.6in;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 16px;
+    border-bottom: 1.5px solid #2563eb;
+    padding-bottom: 10px;
+  }
+
+  .header h1 {
+    font-size: 22pt;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+  }
+
+  .header .subtitle {
+    font-size: 11pt;
+    color: #2563eb;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+
+  .header .contact {
+    font-size: 9.5pt;
+    color: #444;
+  }
+
+  .header .contact a { color: #2563eb; }
+
+  /* Section headings */
+  .section {
+    margin-top: 14px;
+  }
+
+  .section-title {
+    font-size: 12pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #2563eb;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 3px;
+    margin-bottom: 8px;
+  }
+
+  /* Summary */
+  .summary {
+    font-size: 10.5pt;
+    color: #333;
+    text-align: justify;
+  }
+
+  /* Skills */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px 20px;
+  }
+
+  .skill-row {
+    font-size: 10pt;
+  }
+
+  .skill-label {
+    font-weight: 700;
+    color: #333;
+  }
+
+  /* Projects & Experience */
+  .entry {
+    margin-bottom: 10px;
+  }
+
+  .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .entry-title {
+    font-weight: 700;
+    font-size: 11pt;
+    color: #1a1a1a;
+  }
+
+  .entry-meta {
+    font-size: 9.5pt;
+    color: #555;
+    font-style: italic;
+  }
+
+  .entry-stack {
+    font-size: 9.5pt;
+    color: #2563eb;
+    font-weight: 600;
+    margin-bottom: 3px;
+  }
+
+  ul {
+    margin-left: 18px;
+    margin-top: 3px;
+  }
+
+  ul li {
+    font-size: 10pt;
+    color: #333;
+    margin-bottom: 2px;
+  }
+
+  /* Education */
+  .edu-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  .edu-school {
+    font-weight: 700;
+    font-size: 11pt;
+  }
+
+  .edu-details {
+    font-size: 10pt;
+    color: #555;
+  }
+
+  /* Supporting projects */
+  .compact-list {
+    font-size: 10pt;
+    color: #333;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <h1>GAGAN JAIN</h1>
+  <div class="subtitle">Software Engineer · Full Stack &amp; AI/LLM Developer</div>
+  <div class="contact">
+    Vellore, Tamil Nadu, India (open to relocation) &middot; +91 95872 55792 &middot;
+    <a href="mailto:gagan.jain.se@gmail.com">gagan.jain.se@gmail.com</a> &middot;
+    <a href="https://linkedin.com/in/gaganjainse">linkedin.com/in/gaganjainse</a> &middot;
+    <a href="https://github.com/gaganjainse">github.com/gaganjainse</a>
+  </div>
+</div>
+
+<!-- SUMMARY -->
+<div class="section">
+  <div class="section-title">Summary</div>
+  <p class="summary">
+    Computer Science student (B.Tech, VIT Vellore, expected July 2026, CGPA 7.5+) with hands-on project experience across full-stack web development, developer tooling, and systems programming. Designed and implemented a custom programming language with a complete compiler pipeline (lexer, parser, type checker, bytecode compiler, VM) and a browser-based IDE. Built a production-hardened Flask application with Argon2id auth, CI/CD, Docker deployment, and monitoring. Completed an Industry 5.0 industrial automation training internship. Seeking entry-level software engineering roles.
+  </p>
+</div>
+
+<!-- SKILLS -->
+<div class="section">
+  <div class="section-title">Technical Skills</div>
+  <div class="skills-grid">
+    <div class="skill-row"><span class="skill-label">Languages:</span> C, C++, Python, JavaScript, TypeScript, Rust, HTML, CSS</div>
+    <div class="skill-row"><span class="skill-label">Frontend:</span> React, React Native, Tailwind CSS, Bootstrap</div>
+    <div class="skill-row"><span class="skill-label">Backend:</span> Node.js, Express, Flask, Axum (Rust), REST APIs</div>
+    <div class="skill-row"><span class="skill-label">Databases:</span> MySQL, MongoDB Atlas</div>
+    <div class="skill-row"><span class="skill-label">DevOps &amp; Tools:</span> Git, Docker, VS Code, Monaco Editor, Linux</div>
+    <div class="skill-row"><span class="skill-label">AI/ML &amp; Other:</span> YOLO, Computer Vision, NLP, Ollama, IoT (Raspberry Pi, Arduino)</div>
+  </div>
+</div>
+
+<!-- PROJECTS -->
+<div class="section">
+  <div class="section-title">Projects</div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-title">Vyākṛti — Programming Language &amp; Web-Based IDE</span>
+    </div>
+    <div class="entry-stack">Rust, React, TypeScript, Monaco Editor, Zustand, Tailwind CSS, Axum</div>
+    <ul>
+      <li>Designed and implemented a custom Sanskrit-oriented programming language: 38+ token type lexer, recursive-descent parser, kāraka-driven semantic type checker, bytecode compiler (34 opcodes), stack-based VM</li>
+      <li>Built an integrated browser-based IDE with React and Monaco Editor supporting code editing, compilation, and interactive REPL via WebSocket</li>
+      <li>Engineered a Rust (axum) backend providing compile, REPL, LSP, and file-management endpoints</li>
+      <li>123 tests covering the full pipeline; self-hosting corpus with language parsing its own source</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-title">AIM — Attendance Information Manager</span>
+    </div>
+    <div class="entry-stack">Python, Flask, MySQL, Bootstrap, Chart.js, Docker, GitHub Actions</div>
+    <ul>
+      <li>Built a production-hardened full-stack attendance management app with layered architecture (routes → services → repositories → models)</li>
+      <li>Implemented Argon2id password hashing, CSRF protection, brute-force lockout, breached-password detection, rate limiting, and security headers (CSP/HSTS)</li>
+      <li>Added reporting with Chart.js visualizations, FullCalendar integration, responsive light/dark themes, CSV import/export, encrypted backup/restore</li>
+      <li>Configured Prometheus monitoring, structured JSON logging, 84 tests, Docker Compose deployment, and GitHub Actions CI/CD</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-title">Food Delivery App</span>
+    </div>
+    <div class="entry-stack">React Native, Node.js, MongoDB Atlas</div>
+    <ul>
+      <li>Built a cross-platform mobile app with authentication, restaurant browsing, ordering, and order tracking on a Node.js + MongoDB backend</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-title">Selected Additional Projects</span>
+    </div>
+    <div class="compact-list">
+      Sentiment Analysis using Facial Recognition (YOLO/CV) &middot; IoT House Security (Raspberry Pi) &middot; RFID Access Control with Behavioral Intelligence (Arduino + Python ML) &middot; File Integrity Checking System (checksums/hashing)
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="section">
+  <div class="section-title">Experience</div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-title">Industry 5.0 Industrial Automation Trainee (Training Internship)</span>
+      <span class="entry-meta">Aug – Nov 2025</span>
+    </div>
+    <div class="entry-stack">CodenPlay Robotics &middot; VIT Vellore / Online &middot; Mentor: Dr. Konguvel E</div>
+    <ul>
+      <li>Built and debugged PLC automation logic using ladder logic and structured text in CODESYS</li>
+      <li>Simulated industrial process workflows in Factory I/O and implemented flow-based control/integration in Node-RED</li>
+      <li>Covered HMI design concepts, industrial communication protocols, process monitoring, and the debugging–testing–deployment workflow</li>
+    </ul>
+  </div>
+</div>
+
+<!-- EDUCATION -->
+<div class="section">
+  <div class="section-title">Education</div>
+  <div class="edu-row">
+    <div>
+      <span class="edu-school">B.Tech, Computer Science — VIT Vellore</span>
+      <span class="edu-details"> &middot; CGPA 7.5+</span>
+    </div>
+    <span class="entry-meta">Expected July 2026</span>
+  </div>
+</div>
+
+</body>
+</html>
