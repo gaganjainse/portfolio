@@ -35,7 +35,7 @@ export interface SocialLink {
 export const SITE_CONFIG = {
   name: "Gagan Jain",
   title: "Software Engineer",
-  tagline: "Software Engineer building full-stack apps, developer tooling, and AI/LLM projects — including Vyākṛti, my own programming language and web IDE.",
+  tagline: "Computer Science student at VIT Vellore building compilers, full-stack apps, and AI/LLM systems — including Vyākṛti, my own programming language with a browser-based IDE.",
   description: "I craft seamless web experiences with modern technologies. Specializing in full stack development, I build applications that are both intuitive and powerful.",
   email: "gagan.jain.se@gmail.com",
   location: "Vellore, India",
@@ -46,7 +46,7 @@ export const SITE_CONFIG = {
 
 export const SOCIAL_LINKS: SocialLink[] = [
   { name: "GitHub", url: "https://github.com/gaganjainse", icon: "github" },
-  { name: "LinkedIn", url: "https://linkedin.com/in/gagan-jain-a88aab345", icon: "linkedin" },
+  { name: "LinkedIn", url: "https://linkedin.com/in/gaganjainse", icon: "linkedin" },
   { name: "Email", url: "mailto:gagan.jain.se@gmail.com", icon: "email" },
 ];
 
@@ -84,36 +84,45 @@ export const PROJECTS: Project[] = [
     image: "/images/aim.png",
   },
   {
-    name: "Food Delivery App",
-    tag: "MOBILE",
-    description: "Cross-platform mobile app with authentication, restaurant browsing, ordering, and tracking.",
-    stack: ["React Native", "Node.js", "MongoDB Atlas"],
-    github: "https://github.com/gaganjainse",
-    image: "/images/food-delivery.png",
+    name: "Food Waste Reduction System",
+    tag: "FULL STACK",
+    description: "Full-stack Laravel platform for managing food inventory, donations, and waste tracking.",
+    details: [
+      "Food listing and inventory management system with donation workflow",
+      "User roles (Admin, Food Provider, Receiver, Volunteer) with authorization",
+      "Location-based food bank search using Folium interactive maps",
+      "Laravel 11 backend with SQLite, real-time notifications via Laravel Reverb",
+    ],
+    stack: ["PHP", "Laravel 11", "SQLite", "Laravel Reverb", "Folium", "Tailwind CSS"],
+    github: "https://github.com/gaganjainse/Food_Waste_Reduction_System",
+    featured: true,
   },
   {
-    name: "Sentiment Analysis",
-    tag: "AI/ML",
-    description: "Facial-recognition-based emotion detection using YOLO and computer vision.",
-    stack: ["Python", "YOLO", "OpenCV", "Machine Learning"],
-    github: "https://github.com/gaganjainse",
-    image: "/images/sentiment.png",
+    name: "GameVault",
+    tag: "FULL STACK",
+    description: "Game discovery and management platform with intelligent search, sorting, and curation.",
+    details: [
+      "Next.js full-stack app with React Server Components and API routes",
+      "Advanced game search with tag-based filtering and sorting",
+      "Responsive design with dark theme and smooth interactions",
+    ],
+    stack: ["Next.js", "TypeScript", "React", "Tailwind CSS"],
+    github: "https://github.com/gaganjainse/GameVault",
+    featured: true,
   },
   {
-    name: "IoT House Security",
-    tag: "IoT",
-    description: "Raspberry Pi security node with sensors and cameras for real-time monitoring.",
-    stack: ["Raspberry Pi", "Python", "Sensors", "Camera"],
-    github: "https://github.com/gaganjainse",
-    image: "/images/iot-security.png",
-  },
-  {
-    name: "RFID Access Control",
-    tag: "IoT + ML",
-    description: "Embedded access-control prototype with Python ML for behavioral analysis.",
-    stack: ["Arduino", "RFID", "Python", "Machine Learning"],
-    github: "https://github.com/gaganjainse",
-    image: "/images/rfid.png",
+    name: "Grievance Portal",
+    tag: "PRODUCTION-READY",
+    description: "Production-grade grievance management system with Dockerized deployment and role-based access.",
+    details: [
+      "Laravel 11 backend with MySQL, Docker Compose, and Nginx reverse proxy",
+      "Role-based access: Admin, Staff, and User with granular permissions",
+      "File uploads, status tracking, and email notifications",
+      "Database migration ordering with proper foreign key constraint management",
+    ],
+    stack: ["PHP", "Laravel 11", "MySQL", "Docker", "Nginx", "Bootstrap"],
+    github: "https://github.com/gaganjainse/grievance-portal",
+    featured: true,
   },
 ];
 
@@ -125,6 +134,8 @@ export const SKILLS: Skill[] = [
   { name: "Rust", level: 70, category: "Languages" },
   { name: "C++", level: 65, category: "Languages" },
   { name: "C", level: 60, category: "Languages" },
+  { name: "PHP", level: 75, category: "Languages" },
+  { name: "HTML/CSS", level: 90, category: "Languages" },
   
   // Frontend
   { name: "React", level: 90, category: "Frontend" },
@@ -132,6 +143,7 @@ export const SKILLS: Skill[] = [
   { name: "Tailwind CSS", level: 85, category: "Frontend" },
   { name: "Bootstrap", level: 80, category: "Frontend" },
   { name: "Monaco Editor", level: 75, category: "Frontend" },
+  { name: "Next.js", level: 70, category: "Frontend" },
   
   // Backend
   { name: "Node.js", level: 80, category: "Backend" },
@@ -140,6 +152,8 @@ export const SKILLS: Skill[] = [
   { name: "Axum (Rust)", level: 70, category: "Backend" },
   { name: "REST APIs", level: 85, category: "Backend" },
   { name: "WebSockets", level: 70, category: "Backend" },
+  { name: "Laravel", level: 75, category: "Backend" },
+  { name: "Supabase", level: 60, category: "Backend" },
   
   // Databases
   { name: "MySQL", level: 85, category: "Databases" },
@@ -160,6 +174,8 @@ export const SKILLS: Skill[] = [
   { name: "NLP", level: 60, category: "AI/ML" },
   { name: "Ollama", level: 65, category: "AI/ML" },
   { name: "Computer Vision", level: 65, category: "AI/ML" },
+  { name: "PuLP (Linear Programming)", level: 55, category: "AI/ML" },
+  { name: "Folium", level: 55, category: "AI/ML" },
 ];
 
 export const EXPERIENCES: Experience[] = [
