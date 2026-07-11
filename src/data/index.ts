@@ -79,7 +79,7 @@ export const PROJECTS: Project[] = [
     ],
     stack: ["Python", "Flask", "MySQL", "Bootstrap", "Chart.js", "Docker", "GitHub Actions"],
     github: "https://github.com/gaganjainse/AIM",
-    demo: "https://aim-demo.vercel.app",
+    demo: "https://aim-live.vercel.app",
     featured: true,
     image: "/images/aim.png",
   },
