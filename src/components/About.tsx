@@ -16,7 +16,8 @@ export default function About() {
           <p>
             My degree ran longer than the standard four years — time I used to build{' '}
             <span className="text-primary-light font-medium">Vyākṛti</span> (a complete programming language with compiler and web IDE),{' '}
-            <span className="text-primary-light font-medium">AIM</span> (a production-hardened attendance management system with 101 tests and CI/CD), and several other full-stack applications.
+            <span className="text-primary-light font-medium">AIM</span> (a production-hardened attendance system with 101 tests and CI/CD),{' '}
+            <span className="text-primary-light font-medium">FWRS</span> (a Laravel food waste reduction platform), and several other full-stack applications.
           </p>
           <p>
             I've also completed an Industry 5.0 industrial automation training internship, working with PLCs (CODESYS), process simulation (Factory I/O), and Node-RED.

@@ -2,11 +2,12 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { PROJECTS } from '../data'
 
-const FILTERS = ['All', 'FLAGSHIP', 'PRODUCTION-READY', 'MOBILE', 'AI/ML', 'IoT']
+const FILTERS = ['All', 'FLAGSHIP', 'PRODUCTION-READY', 'FULL STACK', 'MOBILE', 'AI/ML', 'IoT']
 
 const TAG_COLORS: Record<string, string> = {
   FLAGSHIP: 'bg-primary/20 text-primary-light',
   'PRODUCTION-READY': 'bg-green-500/20 text-green-400',
+  'FULL STACK': 'bg-indigo-500/20 text-indigo-400',
   MOBILE: 'bg-blue-500/20 text-blue-400',
   'AI/ML': 'bg-pink-500/20 text-pink-400',
   IoT: 'bg-amber-500/20 text-amber-400',
