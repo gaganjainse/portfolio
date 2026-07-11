@@ -125,12 +125,17 @@ export const PROJECTS: Project[] = [
     featured: true,
   },
   {
-    name: "Food Delivery App",
+    name: "VillageClinicLedger",
     tag: "MOBILE",
-    description: "Cross-platform mobile app with authentication, restaurant browsing, ordering, and tracking.",
-    stack: ["React Native", "Node.js", "MongoDB Atlas"],
-    github: "https://github.com/gaganjainse",
-    image: "/images/food-delivery.png",
+    description: "Android app for managing village clinic records, built with Kotlin and Jetpack Compose.",
+    details: [
+      "Patient registration, visit history, and medical record management",
+      "Built with Kotlin and Jetpack Compose for modern Android UI",
+      "SQLite local storage with offline-first architecture",
+    ],
+    stack: ["Kotlin", "Jetpack Compose", "SQLite", "Android"],
+    github: "https://github.com/gaganjainse/VillageClinicLedger",
+    image: "/images/village-clinic-ledger.png",
   },
   {
     name: "Sentiment Analysis",
