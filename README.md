@@ -7,12 +7,27 @@
 
 Personal portfolio website of **Gagan Jain** — AI / LLM Engineer. Built with [Astro 7](https://astro.build), [Tailwind CSS v4](https://tailwindcss.com), and [GSAP](https://gsap.com). Focused on production-grade GenAI systems: multi-agent orchestration, LLM fine-tuning, RAG pipelines, agentic AI platforms, and AI governance.
 
+## About
+
+CS @ VIT Vellore (expected graduation 2026, CGPA 7.7/10). I build practical AI systems: LLM-powered apps, RAG pipelines, autonomous agents, and production-ready GenAI platforms. Strong Python foundation with end-to-end deployment experience.
+
+Key projects include **NexusAOS** (governance-first agentic OS with multi-agent swarm orchestration and QLoRA fine-tuning), **nexus-kernel** (Rust microkernel with 981 tests and event-sourced governance), and **SeshaOS** (local-first AI OS with specialist models).
+
+Looking for **GenAI / LLM Engineer**, **Agentic AI Engineer**, or **AI Engineer** roles. Based in Jaipur, Rajasthan, India and open to relocation.
+
 ## Highlights
 
 - **NexusAOS** — Governance-first agentic OS with multi-agent swarm orchestration, QLoRA fine-tuning, and 30+ MCP tools
 - **nexus-kernel** — Production-ready Rust AI microkernel with event-sourced governance, OpenAI/Anthropic streaming, and 981 tests
 - **SeshaOS** — Local-first AI OS with specialist models (Gemma 4, Qwen3) and LiteLLM-compatible routing
 - **Vyākṛti** — Sanskrit-oriented programming language with complete compiler pipeline and browser IDE
+
+## Contact
+
+- **Email:** gagan.jain.se@gmail.com
+- **LinkedIn:** [gaganjainse](https://linkedin.com/in/gaganjainse)
+- **GitHub:** [gaganjainse](https://github.com/gaganjainse)
+- **Location:** Jaipur, Rajasthan, India
 
 ## 🚀 Quick Start
 
