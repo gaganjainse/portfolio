@@ -5,7 +5,14 @@
 ![GSAP](https://img.shields.io/badge/GSAP-3.12.5-88CE02?logo=greensock)
 ![Vercel](https://img.shields.io/badge/Deploy-Vercel-000?logo=vercel)
 
-Personal portfolio website of **Gagan Jain** — AI / LLM Engineer. Built with [Astro 7](https://astro.build), [Tailwind CSS v4](https://tailwindcss.com), and [GSAP](https://gsap.com). Focused on production-grade GenAI systems: multi-agent orchestration, LLM fine-tuning, RAG pipelines, and agentic AI platforms.
+Personal portfolio website of **Gagan Jain** — AI / LLM Engineer. Built with [Astro 7](https://astro.build), [Tailwind CSS v4](https://tailwindcss.com), and [GSAP](https://gsap.com). Focused on production-grade GenAI systems: multi-agent orchestration, LLM fine-tuning, RAG pipelines, agentic AI platforms, and AI governance.
+
+## Highlights
+
+- **NexusAOS** — Governance-first agentic OS with multi-agent swarm orchestration, QLoRA fine-tuning, and 30+ MCP tools
+- **nexus-kernel** — Production-ready Rust AI microkernel with event-sourced governance, OpenAI/Anthropic streaming, and 981 tests
+- **SeshaOS** — Local-first AI OS with specialist models (Gemma 4, Qwen3) and LiteLLM-compatible routing
+- **Vyākṛti** — Sanskrit-oriented programming language with complete compiler pipeline and browser IDE
 
 ## 🚀 Quick Start
 
