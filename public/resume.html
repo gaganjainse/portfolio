@@ -7,7 +7,7 @@
   <style>
     @page {
       size: A4;
-      margin: 0;
+      margin: 18mm 16mm 18mm 16mm;
     }
     * {
       margin: 0;
@@ -24,7 +24,6 @@
     .container {
       max-width: 210mm;
       margin: 0 auto;
-      padding: 18mm 16mm;
     }
     header {
       border-bottom: 2px solid #7c3aed;
@@ -56,6 +55,7 @@
     }
     section {
       margin-bottom: 12px;
+      page-break-inside: avoid;
     }
     h2 {
       font-size: 11pt;
@@ -88,6 +88,7 @@
     }
     .project {
       margin-bottom: 10px;
+      page-break-inside: avoid;
     }
     .project-header {
       display: flex;
@@ -133,6 +134,7 @@
     }
     .experience {
       margin-bottom: 8px;
+      page-break-inside: avoid;
     }
     .experience-header {
       display: flex;
@@ -168,6 +170,7 @@
     }
     .education {
       margin-bottom: 8px;
+      page-break-inside: avoid;
     }
     .education-header {
       display: flex;
@@ -194,6 +197,17 @@
     .education-details {
       font-size: 9pt;
       color: #475569;
+    }
+    .page-number:after {
+      content: counter(page);
+    }
+    .page-footer {
+      font-size: 8pt;
+      color: #64748b;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 5px;
+      margin-top: 14px;
+      text-align: center;
     }
   </style>
 </head>
@@ -316,6 +330,9 @@
         <div class="education-details">CGPA: 7.7 / 10.0 | Relevant Coursework: Data Structures & Algorithms, Operating Systems, Database Systems, Computer Networks, Web Technologies, Artificial Intelligence, Machine Learning</div>
       </div>
     </section>
+    <div class="page-footer">
+      Page <span class="page-number"></span>
+    </div>
   </div>
 </body>
 </html>
