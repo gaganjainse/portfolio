@@ -1,3 +1,5 @@
+import { useRef } from 'react'
+import { useInView } from 'framer-motion'
 import { SKILLS } from '../data'
 
 const CATEGORY_BAR_COLORS: Record<string, string> = {
@@ -18,6 +20,8 @@ function getProficiencyLabel(level: number): string {
 }
 
 export default function Skills() {
+  const ref = useRef<HTMLDivElement>(null)
+  const inView = useInView(ref, { once: true, margin: "-50px" })
   const categories = [...new Set(SKILLS.map((s) => s.category))]
 
   return (
@@ -28,9 +32,9 @@ export default function Skills() {
         </h2>
         <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mb-12" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((category) => (
-            <div key={category} className="bg-bg-card border border-border rounded-xl p-6 hover:border-primary/30 transition-all">
+            <div key={category} className="gradient-border p-6 transition-all">
               <h3 className="text-lg font-semibold text-text mb-4 flex items-center gap-2">
                 <span className={`w-3 h-3 rounded-full ${CATEGORY_BAR_COLORS[category]?.replace('bg-', 'bg-') || 'bg-primary'}`} aria-hidden="true" />
                 {category}
@@ -45,7 +49,7 @@ export default function Skills() {
                     <div className="h-1.5 bg-bg rounded-full overflow-hidden" role="progressbar" aria-valuenow={skill.level} aria-valuemin={0} aria-valuemax={100} aria-label={`${skill.name}: ${getProficiencyLabel(skill.level)}`}>
                       <div
                         className={`h-full rounded-full skill-bar-fill ${CATEGORY_BAR_COLORS[category] || 'bg-primary'}`}
-                        style={{ width: `${skill.level}%` }}
+                        style={{ width: inView ? `${skill.level}%` : '0%' }}
                       />
                     </div>
                   </div>

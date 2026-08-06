@@ -28,6 +28,7 @@ const SectionFallback = () => (
 function App() {
   const [activeSection, setActiveSection] = useState('home')
   const [isLoading, setIsLoading] = useState(true)
+  const [scrollProgress, setScrollProgress] = useState(0)
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 800)
@@ -36,9 +37,13 @@ function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + window.innerHeight / 3
+      const scrollTop = window.scrollY
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0
+      setScrollProgress(progress)
 
-      // Check each section in reverse order (bottom to top)
+      const scrollPosition = scrollTop + window.innerHeight / 3
+
       for (let i = NAV_ITEMS.length - 1; i >= 0; i--) {
         const { id } = NAV_ITEMS[i]
         const element = document.getElementById(id)
@@ -51,14 +56,13 @@ function App() {
         }
       }
 
-      // If we're at the very top, set to home
       if (window.scrollY < 100) {
         setActiveSection('home')
       }
     }
 
     window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll() // Initial check
+    handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -74,6 +78,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-bg">
+      <div className="scroll-progress" style={{ width: `${scrollProgress}%` }} aria-hidden="true" />
       <a href="#mainContent" className="skip-link">Skip to content</a>
       <Navbar activeSection={activeSection} />
       <main id="mainContent">

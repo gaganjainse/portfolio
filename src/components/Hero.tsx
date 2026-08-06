@@ -1,36 +1,70 @@
 import { motion } from 'framer-motion'
 import { SITE_CONFIG, SOCIAL_LINKS } from '../data'
+import { useRef } from 'react'
 
 const container = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.2 },
+  },
 }
 
 const item = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
+  },
 }
 
+const avatarVariants = {
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const, delay: 0.1 },
+  },
+}
+
+const ctaVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] as const },
+  },
+}
+
+const STATS = [
+  { label: "AI Projects", value: "12+" },
+  { label: "GitHub Repos", value: "16" },
+  { label: "Tests Written", value: "1,200+" },
+  { label: "CGPA", value: "7.7/10" },
+]
+
 export default function Hero() {
+  const statsRef = useRef<HTMLDivElement>(null)
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden" aria-label="Hero">
-      {/* Background glow effects */}
+      {/* Background effects */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-glow" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: '1.5s' }} />
-        {/* Grid pattern */}
         <div className="absolute inset-0 opacity-[0.03]" style={{
           backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)',
           backgroundSize: '60px 60px',
         }} />
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
         <motion.div variants={container} initial="hidden" animate="visible">
-          {/* Photo */}
-          <motion.div variants={item} className="mb-8 flex justify-center">
-            <div className="relative">
-              <div className="w-28 h-28 rounded-full border-2 border-primary/30 overflow-hidden bg-bg-card">
+          {/* Photo with animated gradient border */}
+          <motion.div variants={avatarVariants} className="mb-8 flex justify-center">
+            <div className="relative p-1 rounded-full bg-gradient-to-br from-primary via-accent to-primary animate-spin-slow">
+              <div className="w-28 h-28 rounded-full overflow-hidden bg-bg-card border-4 border-bg">
                 <img
                   src="/profile.jpg"
                   alt="Gagan Jain — AI / LLM Engineer"
@@ -40,50 +74,58 @@ export default function Hero() {
                   height={112}
                 />
               </div>
-              <div className="absolute -bottom-1 -right-1 w-8 h-8 bg-success rounded-full border-4 border-bg flex items-center justify-center" title="Available for roles">
-                <span className="text-[10px] font-bold text-white">✓</span>
-              </div>
             </div>
           </motion.div>
 
           {/* Availability badge */}
           <motion.div variants={item} className="mb-6">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium bg-success/10 text-success border border-success/20">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium bg-success/10 text-success border border-success/20 backdrop-blur-sm">
               <span className="w-2 h-2 rounded-full bg-success animate-pulse" aria-hidden="true" />
               {SITE_CONFIG.availability}
             </span>
           </motion.div>
 
           {/* Name */}
-          <motion.h1 variants={item} className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 leading-tight">
+          <motion.h1 variants={item} className="text-5xl sm:text-6xl md:text-7xl font-bold mb-4 leading-tight tracking-tight">
             Hi, I'm{' '}
             <span className="gradient-text">{SITE_CONFIG.name}</span>
           </motion.h1>
 
           {/* Tagline */}
-          <motion.p variants={item} className="text-xl sm:text-2xl text-text-muted mb-4 max-w-2xl mx-auto">
+          <motion.p variants={item} className="text-xl sm:text-2xl text-text-muted mb-4 max-w-3xl mx-auto leading-relaxed">
             {SITE_CONFIG.tagline}
           </motion.p>
 
           {/* Subtitle */}
-          <motion.p variants={item} className="text-base text-text-muted/70 mb-8 max-w-xl mx-auto">
+          <motion.p variants={item} className="text-base text-text-muted/70 mb-10 max-w-xl mx-auto">
             CS @ VIT Vellore · GenAI / LLM / Agentic AI — RAG, fine-tuning, multi-agent orchestration, and production AI platforms
           </motion.p>
 
+          {/* Stats */}
+          <motion.div variants={item} ref={statsRef} className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 max-w-3xl mx-auto mb-10">
+            {STATS.map((stat) => (
+              <div key={stat.label} className="glass rounded-xl p-4 sm:p-5">
+                <div className="text-2xl sm:text-3xl font-bold gradient-text stat-value">{stat.value}</div>
+                <div className="text-xs sm:text-sm text-text-muted mt-1">{stat.label}</div>
+              </div>
+            ))}
+          </motion.div>
+
           {/* CTAs */}
-          <motion.div variants={item} className="flex flex-wrap items-center justify-center gap-4">
+          <motion.div variants={ctaVariants} className="flex flex-wrap items-center justify-center gap-4">
             <a
               href="#projects"
               onClick={(e) => { e.preventDefault(); document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' }) }}
-              className="px-6 py-3 rounded-lg font-medium bg-primary text-white hover:bg-primary-light transition-all hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5"
+              className="group relative px-8 py-3.5 rounded-xl font-medium bg-primary text-white hover:bg-primary-light transition-all hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 overflow-hidden"
             >
-              View Projects
+              <span className="relative z-10">View Projects</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-primary-light to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>
             <a
               href="/resume.html"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 rounded-lg font-medium border border-accent/30 text-accent hover:bg-accent/10 transition-all hover:-translate-y-0.5"
+              className="px-8 py-3.5 rounded-xl font-medium border border-accent/30 text-accent hover:bg-accent/10 transition-all hover:-translate-y-0.5 backdrop-blur-sm"
               aria-label="Open resume HTML (opens in new tab)"
             >
               Resume
@@ -92,7 +134,7 @@ export default function Hero() {
               href="https://github.com/gaganjainse"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 rounded-lg font-medium border border-border text-text hover:border-primary/50 hover:text-primary-light transition-all hover:-translate-y-0.5"
+              className="px-8 py-3.5 rounded-xl font-medium border border-border text-text hover:border-primary/50 hover:text-primary-light transition-all hover:-translate-y-0.5 backdrop-blur-sm"
               aria-label="GitHub profile (opens in new tab)"
             >
               GitHub
@@ -101,14 +143,14 @@ export default function Hero() {
               href="https://linkedin.com/in/gaganjainse"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 rounded-lg font-medium border border-border text-text hover:border-primary/50 hover:text-primary-light transition-all hover:-translate-y-0.5"
+              className="px-8 py-3.5 rounded-xl font-medium border border-border text-text hover:border-primary/50 hover:text-primary-light transition-all hover:-translate-y-0.5 backdrop-blur-sm"
               aria-label="LinkedIn profile (opens in new tab)"
             >
               LinkedIn
             </a>
             <a
               href={`mailto:${SITE_CONFIG.email}`}
-              className="px-6 py-3 rounded-lg font-medium border border-accent/30 text-accent hover:bg-accent/10 transition-all hover:-translate-y-0.5"
+              className="px-8 py-3.5 rounded-xl font-medium border border-accent/30 text-accent hover:bg-accent/10 transition-all hover:-translate-y-0.5 backdrop-blur-sm"
               aria-label={`Email ${SITE_CONFIG.email}`}
             >
               Contact
@@ -123,7 +165,7 @@ export default function Hero() {
                 href={link.url}
                 target={link.url.startsWith('mailto') ? undefined : '_blank'}
                 rel={link.url.startsWith('mailto') ? undefined : 'noopener noreferrer'}
-                className="p-2 text-text-muted hover:text-primary-light transition-colors rounded-lg hover:bg-bg-card"
+                className="p-3 text-text-muted hover:text-primary-light transition-all rounded-xl hover:bg-bg-card hover:scale-110"
                 aria-label={link.name}
               >
                 {link.icon === 'github' && (
@@ -151,14 +193,14 @@ export default function Hero() {
           className="absolute bottom-8 left-1/2 -translate-x-1/2"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
+          transition={{ delay: 2 }}
           aria-hidden="true"
         >
           <div className="w-6 h-10 rounded-full border-2 border-border flex items-start justify-center p-1">
             <motion.div
               className="w-1.5 h-1.5 rounded-full bg-primary"
               animate={{ y: [0, 16, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
             />
           </div>
         </motion.div>
