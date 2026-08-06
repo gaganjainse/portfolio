@@ -6,5 +6,37 @@ description: "NexusAOS project documentation"
 
 <div class="max-w-4xl mx-auto px-4 sm:px-6 py-24">
   <h1 class="text-4xl font-bold mb-6 gradient-text">NexusAOS</h1>
-  <p class="text-text-muted mb-4">Governance-first agentic operating system with multi-agent swarm orchestration, LLM fine-tuning, and 30+ MCP tools.</p>
+  <p class="text-text-muted mb-6">
+    Governance-first agentic operating system with multi-agent swarm orchestration, LLM integration, and MCP tooling.
+  </p>
+
+  <div class="gradient-border p-6 mb-6">
+    <h2 class="text-2xl font-bold text-text mb-3">Overview</h2>
+    <p class="text-text-muted mb-4">
+      NexusAOS is a governance-first agentic OS that orchestrates multiple AI agents in a swarm architecture. It features collision detection, namespace isolation, quorum voting, and atomic fission—all built in Python + asyncio.
+    </p>
+  </div>
+
+  <div class="gradient-border p-6 mb-6">
+    <h2 class="text-2xl font-bold text-text mb-3">LLM Integration</h2>
+    <p class="text-text-muted mb-4">
+      Local LLM inference pipeline integrated with Phi-4-Mini QLoRA adapters, AB/AP balance enforcement, and constitution-guided routing. Includes curriculum learning, evaluation harness, and model benchmarking.
+    </p>
+  </div>
+
+  <div class="gradient-border p-6 mb-6">
+    <h2 class="text-2xl font-bold text-text mb-3">MCP Tooling</h2>
+    <p class="text-text-muted mb-4">
+      Exposed 30+ MCP tools via FastMCP for metabolic, planning, immune, and physical substrate control. Enables structured tool use and external system integration.
+    </p>
+  </div>
+
+  <div class="gradient-border p-6">
+    <h2 class="text-2xl font-bold text-text mb-3">Tech Stack</h2>
+    <div class="flex flex-wrap gap-2">
+      {["Python", "FastMCP", "QLoRA", "Unsloth", "Multi-Agent", "MCP", "AsyncIO", "Rust", "Zig"].map((tech) => (
+        <span key={tech} class="px-2.5 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border">{tech}</span>
+      ))}
+    </div>
+  </div>
 </div>

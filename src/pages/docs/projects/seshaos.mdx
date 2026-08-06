@@ -6,5 +6,37 @@ description: "SeshaOS project documentation"
 
 <div class="max-w-4xl mx-auto px-4 sm:px-6 py-24">
   <h1 class="text-4xl font-bold mb-6 gradient-text">SeshaOS</h1>
-  <p class="text-text-muted mb-4">NexusAOS v2 — governance-first, local-first AI OS with specialist local models and LiteLLM-compatible routing.</p>
+  <p class="text-text-muted mb-6">
+    NexusAOS v2 — governance-first, local-first AI OS with specialist local models (Gemma 4, Qwen3) and LiteLLM-compatible routing.
+  </p>
+
+  <div class="gradient-border p-6 mb-6">
+    <h2 class="text-2xl font-bold text-text mb-3">Overview</h2>
+    <p class="text-text-muted mb-4">
+      SeshaOS is the evolution of NexusAOS, designed as a governance-first, local-first AI OS. It uses specialist local models and maintains offline-first execution with reversible, permissioned actions.
+    </p>
+  </div>
+
+  <div class="gradient-border p-6 mb-6">
+    <h2 class="text-2xl font-bold text-text mb-3">Specialist Models</h2>
+    <p class="text-text-muted mb-4">
+      <strong>Gemma 4 12B</strong> serves as the Planner, <strong>Qwen3-Coder 30B</strong> handles Implementation, and <strong>Qwen3.5 9B</strong> manages Vision tasks. This separation of concerns improves reliability and performance.
+    </p>
+  </div>
+
+  <div class="gradient-border p-6 mb-6">
+    <h2 class="text-2xl font-bold text-text mb-3">Governance & Routing</h2>
+    <p class="text-text-muted mb-4">
+      Kernel-centric governance where models propose actions and the kernel validates/records every state change. LiteLLM-compatible proxy support enables seamless integration with NVIDIA NIM and other providers.
+    </p>
+  </div>
+
+  <div class="gradient-border p-6">
+    <h2 class="text-2xl font-bold text-text mb-3">Tech Stack</h2>
+    <div class="flex flex-wrap gap-2">
+      {["Rust", "LiteLLM", "Gemma", "Qwen", "Local LLMs", "Governance", "Event Sourcing", "Ubuntu"].map((tech) => (
+        <span key={tech} class="px-2.5 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border">{tech}</span>
+      ))}
+    </div>
+  </div>
 </div>
