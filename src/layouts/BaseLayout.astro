@@ -64,7 +64,7 @@ import '../styles/global.css'
               class="text-xl font-bold gradient-text hover:opacity-80 transition-opacity"
               aria-label="Go to top"
             >
-              GJ
+              Gagan Jain
             </a>
 
             <div class="hidden md:flex items-center gap-1" role="menubar">
@@ -197,6 +197,22 @@ import '../styles/global.css'
       }, observerOptions)
 
       sections.forEach(section => observer.observe(section))
+
+      const nav = document.querySelector('nav')
+      if (nav) {
+        let lastScroll = 0
+        window.addEventListener('scroll', () => {
+          const currentScroll = window.scrollY
+          if (currentScroll > 50) {
+            nav.style.backdropFilter = 'blur(20px)'
+            nav.style.borderBottomColor = 'rgba(30, 41, 59, 0.8)'
+          } else {
+            nav.style.backdropFilter = 'blur(12px)'
+            nav.style.borderBottomColor = 'rgba(30, 41, 59, 0.6)'
+          }
+          lastScroll = currentScroll
+        }, { passive: true })
+      }
     </script>
   </body>
 </html>
