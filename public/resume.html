@@ -7,10 +7,7 @@
   <style>
     @page {
       size: A4;
-      margin: 18mm 16mm 18mm 16mm;
-    }
-    @page :first {
-      margin: 18mm 16mm 18mm 16mm;
+      margin: 0;
     }
     * {
       margin: 0;
@@ -19,25 +16,20 @@
     }
     body {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      font-size: 10pt;
-      line-height: 1.45;
+      font-size: 10.5pt;
+      line-height: 1.5;
       color: #1a1a2e;
       background: #ffffff;
     }
     .container {
       max-width: 210mm;
       margin: 0 auto;
+      padding: 18mm 16mm;
     }
-    .page-footer {
-      font-size: 8pt;
-      color: #64748b;
-      border-top: 1px solid #e2e8f0;
-      padding-top: 5px;
-      margin-top: 14px;
-      text-align: center;
-    }
-    .page-header {
-      page-break-after: avoid;
+    header {
+      border-bottom: 2px solid #7c3aed;
+      padding-bottom: 10px;
+      margin-bottom: 14px;
     }
     h1 {
       font-size: 20pt;
@@ -63,34 +55,32 @@
       font-weight: 500;
     }
     section {
-      margin-bottom: 14px;
-      page-break-inside: avoid;
+      margin-bottom: 12px;
     }
     h2 {
-      font-size: 10.5pt;
+      font-size: 11pt;
       font-weight: 700;
       color: #7c3aed;
       text-transform: uppercase;
       letter-spacing: 0.8px;
       margin-bottom: 6px;
       padding-bottom: 3px;
-      border-bottom: 1.5px solid #e2e8f0;
-      page-break-after: avoid;
+      border-bottom: 1px solid #e2e8f0;
     }
     .summary {
-      font-size: 9.5pt;
+      font-size: 10pt;
       color: #334155;
-      line-height: 1.5;
+      line-height: 1.55;
     }
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 3px 14px;
+      gap: 4px 16px;
     }
     .skill-item {
-      font-size: 9pt;
+      font-size: 9.5pt;
       color: #1e293b;
-      line-height: 1.4;
+      line-height: 1.45;
     }
     .skill-item strong {
       color: #0f172a;
@@ -98,32 +88,24 @@
     }
     .project {
       margin-bottom: 10px;
-      padding-bottom: 8px;
-      border-bottom: 1px dashed #e2e8f0;
-      page-break-inside: avoid;
-    }
-    .project:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
     }
     .project-header {
       display: flex;
       align-items: baseline;
       gap: 8px;
-      margin-bottom: 2px;
+      margin-bottom: 3px;
     }
     .project-title {
       font-weight: 700;
-      font-size: 10pt;
+      font-size: 10.5pt;
       color: #0f172a;
     }
     .project-tag {
-      font-size: 7.5pt;
+      font-size: 8pt;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      padding: 1px 5px;
+      padding: 1px 6px;
       border-radius: 3px;
       background: #fce7f3;
       color: #be185d;
@@ -135,101 +117,89 @@
       border-color: #fde68a;
     }
     .project-meta {
-      font-size: 8.5pt;
+      font-size: 9pt;
       color: #64748b;
       margin-bottom: 3px;
     }
     .project-list {
       list-style: disc;
-      padding-left: 13px;
+      padding-left: 14px;
       color: #334155;
-      font-size: 9pt;
-      line-height: 1.4;
+      font-size: 9.5pt;
+      line-height: 1.5;
     }
     .project-list li {
-      margin-bottom: 1.5px;
+      margin-bottom: 2px;
     }
     .experience {
       margin-bottom: 8px;
-      padding-bottom: 6px;
-      border-bottom: 1px dashed #e2e8f0;
-      page-break-inside: avoid;
-    }
-    .experience:last-child {
-      border-bottom: none;
-      margin-bottom: 0;
-      padding-bottom: 0;
     }
     .experience-header {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 1px;
+      margin-bottom: 2px;
     }
     .experience-role {
       font-weight: 700;
-      font-size: 10pt;
+      font-size: 10.5pt;
       color: #0f172a;
     }
     .experience-date {
-      font-size: 8.5pt;
+      font-size: 9pt;
       color: #64748b;
       font-weight: 500;
     }
     .experience-company {
-      font-size: 9.5pt;
+      font-size: 10pt;
       color: #7c3aed;
       font-weight: 600;
-      margin-bottom: 2px;
+      margin-bottom: 3px;
     }
     .experience-list {
       list-style: disc;
-      padding-left: 13px;
+      padding-left: 14px;
       color: #334155;
-      font-size: 9pt;
-      line-height: 1.4;
+      font-size: 9.5pt;
+      line-height: 1.5;
     }
     .experience-list li {
-      margin-bottom: 1.5px;
+      margin-bottom: 2px;
     }
     .education {
-      margin-bottom: 6px;
-      page-break-inside: avoid;
+      margin-bottom: 8px;
     }
     .education-header {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 1px;
+      margin-bottom: 2px;
     }
     .education-school {
       font-weight: 700;
-      font-size: 10pt;
+      font-size: 10.5pt;
       color: #0f172a;
     }
     .education-date {
-      font-size: 8.5pt;
+      font-size: 9pt;
       color: #64748b;
       font-weight: 500;
     }
     .education-degree {
-      font-size: 9.5pt;
+      font-size: 10pt;
       color: #7c3aed;
       font-weight: 600;
-      margin-bottom: 1px;
+      margin-bottom: 2px;
     }
     .education-details {
-      font-size: 8.5pt;
+      font-size: 9pt;
       color: #475569;
-    }
-    .page-number:after {
-      content: counter(page);
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <header class="page-header">
+    <header>
       <h1>Gagan Jain</h1>
       <div class="title">AI / LLM Engineer</div>
       <div class="contact">
@@ -346,10 +316,6 @@
         <div class="education-details">CGPA: 7.7 / 10.0 | Relevant Coursework: Data Structures & Algorithms, Operating Systems, Database Systems, Computer Networks, Web Technologies, Artificial Intelligence, Machine Learning</div>
       </div>
     </section>
-
-    <div class="page-footer">
-      Page <span class="page-number"></span>
-    </div>
   </div>
 </body>
 </html>
