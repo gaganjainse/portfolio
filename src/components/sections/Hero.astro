@@ -9,7 +9,14 @@ import { SITE_CONFIG, SOCIAL_LINKS } from '../../data/config.js'
     <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 60px 60px;" />
   </div>
 
-  <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
+  <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center pt-24 sm:pt-28">
+    <div class="mb-6">
+      <img
+        src="/profile.jpg"
+        alt="Gagan Jain"
+        class="w-28 h-28 sm:w-36 sm:h-36 rounded-full mx-auto object-cover border-4 border-primary/30 shadow-2xl shadow-primary/20"
+      />
+    </div>
     <div class="hero-badge mb-6">
       <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium bg-success/10 text-success border border-success/20 backdrop-blur-sm">
         <span class="w-2 h-2 rounded-full bg-success animate-pulse" aria-hidden="true" />
@@ -60,25 +67,28 @@ import { SITE_CONFIG, SOCIAL_LINKS } from '../../data/config.js'
         href="/resume"
         target="_blank"
         rel="noopener noreferrer"
-        class="px-8 py-3.5 rounded-xl font-medium border border-accent/30 text-accent hover:bg-accent/10 transition-all hover:-translate-y-0.5 backdrop-blur-sm"
+        class="group relative px-8 py-3.5 rounded-xl font-medium bg-primary text-white hover:bg-primary-light transition-all hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 overflow-hidden"
       >
-        Resume
+        <span class="relative z-10">Resume</span>
+        <div class="absolute inset-0 bg-gradient-to-r from-primary-light to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
       </a>
       <a
         href="https://github.com/gaganjainse"
         target="_blank"
         rel="noopener noreferrer"
-        class="px-8 py-3.5 rounded-xl font-medium border border-border text-text hover:border-primary/50 hover:text-primary-light transition-all hover:-translate-y-0.5 backdrop-blur-sm"
+        class="group relative px-8 py-3.5 rounded-xl font-medium bg-primary text-white hover:bg-primary-light transition-all hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 overflow-hidden"
       >
-        GitHub
+        <span class="relative z-10">GitHub</span>
+        <div class="absolute inset-0 bg-gradient-to-r from-primary-light to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
       </a>
       <a
         href="https://linkedin.com/in/gaganjainse"
         target="_blank"
         rel="noopener noreferrer"
-        class="px-8 py-3.5 rounded-xl font-medium border border-border text-text hover:border-primary/50 hover:text-primary-light transition-all hover:-translate-y-0.5 backdrop-blur-sm"
+        class="group relative px-8 py-3.5 rounded-xl font-medium bg-primary text-white hover:bg-primary-light transition-all hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 overflow-hidden"
       >
-        LinkedIn
+        <span class="relative z-10">LinkedIn</span>
+        <div class="absolute inset-0 bg-gradient-to-r from-primary-light to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
       </a>
     </div>
 

@@ -61,7 +61,7 @@ import '../styles/global.css'
           <div class="flex items-center justify-between h-16">
             <a
               href="#home"
-              class="text-xl font-bold gradient-text hover:opacity-80 transition-opacity"
+              class="text-lg sm:text-xl font-bold gradient-text hover:opacity-80 transition-opacity flex-shrink-0 truncate max-w-[140px] sm:max-w-none"
               aria-label="Go to top"
             >
               Gagan Jain
@@ -80,7 +80,7 @@ import '../styles/global.css'
               ))}
               <a
                 href="/resume"
-                class="nav-link ml-2 px-4 py-2 rounded-lg text-sm font-medium bg-primary/10 text-primary hover:bg-primary/20 transition-all border border-primary/20"
+                class="nav-link ml-2 px-4 py-2 rounded-lg text-sm font-medium border border-border text-text hover:border-primary/50 hover:text-primary-light transition-all"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -114,7 +114,7 @@ import '../styles/global.css'
               ))}
               <a
                 href="/resume"
-                class="nav-link block w-full text-left px-4 py-3 rounded-lg text-base font-medium text-primary hover:bg-primary/10 transition-all"
+                class="nav-link block w-full text-left px-4 py-3 rounded-lg text-base font-medium border border-border text-text hover:border-primary/50 hover:text-primary-light transition-all"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -136,11 +136,11 @@ import '../styles/global.css'
           &copy; {new Date().getFullYear()} Gagan Jain &middot; Built with Astro + GSAP + Tailwind CSS
         </p>
         <div class="flex items-center justify-center gap-4 text-sm">
-          <a href="/resume" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent/80 transition-colors font-medium">
+          <a href="/resume" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg border border-border text-text hover:border-primary/50 hover:text-primary-light transition-all">
             Resume
           </a>
           <span class="text-border">&middot;</span>
-          <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="text-text-muted hover:text-text transition-colors">
+          <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="px-4 py-2 rounded-lg border border-border text-text hover:border-primary/50 hover:text-primary-light transition-all">
             Back to top
           </button>
         </div>
