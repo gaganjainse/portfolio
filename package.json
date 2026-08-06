@@ -25,7 +25,6 @@
     "tailwindcss": "4.3.3"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.10",
     "@eslint/js": "^10.0.1",
     "@types/gsap": "^3.0.0",
     "eslint": "^10.8.0",
