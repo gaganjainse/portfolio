@@ -1,12 +1,13 @@
 import { SKILLS } from '../data'
 
 const CATEGORY_BAR_COLORS: Record<string, string> = {
+  "AI / LLM": 'bg-pink-500',
+  "Vision / ML": 'bg-orange-500',
   Languages: 'bg-blue-500',
   Frontend: 'bg-green-500',
   Backend: 'bg-purple-500',
   Databases: 'bg-amber-500',
   DevOps: 'bg-cyan-500',
-  'AI/ML': 'bg-pink-500',
 }
 
 function getProficiencyLabel(level: number): string {

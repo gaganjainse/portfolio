@@ -10,7 +10,7 @@ export default function Contact() {
         <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mb-8 mx-auto" />
 
         <p className="text-text-muted text-lg mb-8 max-w-2xl mx-auto">
-          I'm currently looking for software engineering roles. If you're hiring or just want to connect, feel free to reach out.
+          I'm currently looking for GenAI / LLM / Agentic AI roles. If you're hiring or just want to connect, feel free to reach out.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
