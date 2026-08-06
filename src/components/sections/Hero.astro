@@ -85,7 +85,6 @@ import { SITE_CONFIG, SOCIAL_LINKS } from '../../data/config.js'
     <div class="mt-10 flex items-center justify-center gap-4">
       {SOCIAL_LINKS.map((link) => (
         <a
-          key={link.name}
           href={link.url}
           target={link.url.startsWith('mailto') ? undefined : '_blank'}
           rel={link.url.startsWith('mailto') ? undefined : 'noopener noreferrer'}
