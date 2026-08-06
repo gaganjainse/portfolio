@@ -7,10 +7,16 @@
   <style>
     @page {
       size: A4;
-      margin: 0;
+      margin: 15mm 16mm 18mm 16mm;
     }
     @page :first {
-      margin: 0;
+      margin: 15mm 16mm 18mm 16mm;
+    }
+    @page :left {
+      margin: 15mm 16mm 18mm 16mm;
+    }
+    @page :right {
+      margin: 15mm 16mm 18mm 16mm;
     }
     * {
       margin: 0;
@@ -27,7 +33,6 @@
     .container {
       max-width: 210mm;
       margin: 0 auto;
-      padding: 18mm 16mm;
     }
     .running-header {
       font-size: 9pt;
@@ -35,6 +40,7 @@
       font-weight: 600;
       border-bottom: 1.5px solid #7c3aed;
       padding-bottom: 4px;
+      margin-bottom: 12px;
     }
     .running-footer {
       font-size: 8pt;
@@ -53,6 +59,7 @@
       border-bottom: 2px solid #7c3aed;
       padding-bottom: 10px;
       margin-bottom: 14px;
+      page-break-after: avoid;
     }
     h1 {
       font-size: 20pt;
@@ -78,7 +85,7 @@
       font-weight: 500;
     }
     section {
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
     h2 {
       font-size: 11pt;
@@ -86,9 +93,10 @@
       color: #7c3aed;
       text-transform: uppercase;
       letter-spacing: 0.8px;
-      margin-bottom: 10px;
-      padding-bottom: 5px;
+      margin-bottom: 8px;
+      padding-bottom: 4px;
       border-bottom: 1.5px solid #e2e8f0;
+      page-break-after: avoid;
     }
     .summary {
       font-size: 10pt;
@@ -110,9 +118,10 @@
       font-weight: 600;
     }
     .project {
-      margin-bottom: 14px;
-      padding-bottom: 12px;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
       border-bottom: 1px dashed #e2e8f0;
+      page-break-inside: avoid;
     }
     .project:last-child {
       border-bottom: none;
@@ -165,6 +174,7 @@
       margin-bottom: 10px;
       padding-bottom: 8px;
       border-bottom: 1px dashed #e2e8f0;
+      page-break-inside: avoid;
     }
     .experience:last-child {
       border-bottom: none;
@@ -205,6 +215,7 @@
     }
     .education {
       margin-bottom: 8px;
+      page-break-inside: avoid;
     }
     .education-header {
       display: flex;
