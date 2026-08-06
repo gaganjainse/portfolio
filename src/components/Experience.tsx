@@ -16,7 +16,7 @@ export default function Experience() {
   const inView = useInView(ref, { once: true, margin: "-50px" })
 
   return (
-    <section className="py-24 px-4 sm:px-6 bg-bg-card/30" aria-labelledby="experience-heading">
+    <section className="py-24 px-4 sm:px-6 bg-bg" aria-labelledby="experience-heading">
       <div className="max-w-4xl mx-auto">
         <h2 id="experience-heading" className="text-3xl sm:text-4xl font-bold mb-2">
           <span className="gradient-text">Experience</span>

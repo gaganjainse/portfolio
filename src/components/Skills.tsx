@@ -25,7 +25,7 @@ export default function Skills() {
   const categories = [...new Set(SKILLS.map((s) => s.category))]
 
   return (
-    <section className="py-24 px-4 sm:px-6 bg-bg-card/30" aria-labelledby="skills-heading">
+    <section className="py-24 px-4 sm:px-6 bg-bg-elevated/30" aria-labelledby="skills-heading">
       <div className="max-w-6xl mx-auto">
         <h2 id="skills-heading" className="text-3xl sm:text-4xl font-bold mb-2">
           Technical <span className="gradient-text">Skills</span>

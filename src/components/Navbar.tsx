@@ -7,14 +7,7 @@ interface NavbarProps {
 }
 
 export default function Navbar({ activeSection }: NavbarProps) {
-  const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50)
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   useEffect(() => {
     if (mobileOpen) {
@@ -25,7 +18,6 @@ export default function Navbar({ activeSection }: NavbarProps) {
     return () => { document.body.style.overflow = '' }
   }, [mobileOpen])
 
-  // Close mobile menu on outside click
   useEffect(() => {
     if (!mobileOpen) return
     const handleClickOutside = (e: MouseEvent) => {
@@ -38,7 +30,6 @@ export default function Navbar({ activeSection }: NavbarProps) {
     return () => document.removeEventListener('click', handleClickOutside)
   }, [mobileOpen])
 
-  // Close mobile menu on resize to desktop
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) setMobileOpen(false)
@@ -51,7 +42,6 @@ export default function Navbar({ activeSection }: NavbarProps) {
     setMobileOpen(false)
     const el = document.getElementById(id)
     if (el) {
-      // Use requestAnimationFrame to ensure mobile menu closes first
       requestAnimationFrame(() => {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' })
       })
@@ -60,9 +50,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-bg/95 backdrop-blur-md shadow-lg border-b border-border/50' : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass border-b border-border/60`}
       role="navigation"
       aria-label="Main navigation"
     >
@@ -89,8 +77,8 @@ export default function Navbar({ activeSection }: NavbarProps) {
                 aria-current={activeSection === item.id ? 'page' : undefined}
                 className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
                   activeSection === item.id
-                    ? 'text-primary-light bg-primary/10'
-                    : 'text-text-muted hover:text-text hover:bg-bg-card'
+                    ? 'text-primary-light bg-primary/15'
+                    : 'text-text-muted hover:text-text hover:bg-bg-card/80'
                 }`}
               >
                 {item.label}
@@ -100,7 +88,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden p-2 text-text-muted hover:text-text rounded-lg hover:bg-bg-card transition-colors"
+            className="md:hidden p-2 text-text-muted hover:text-text rounded-lg hover:bg-bg-card/80 transition-colors"
             onClick={(e) => { e.stopPropagation(); setMobileOpen(!mobileOpen) }}
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
@@ -125,7 +113,7 @@ export default function Navbar({ activeSection }: NavbarProps) {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden pb-4 border-t border-border mt-2 pt-2 overflow-hidden"
+              className="md:hidden pb-4 border-t border-border mt-2 pt-2 overflow-hidden glass rounded-b-xl"
               role="menu"
             >
               {NAV_ITEMS.map((item) => (
@@ -137,8 +125,8 @@ export default function Navbar({ activeSection }: NavbarProps) {
                   aria-current={activeSection === item.id ? 'page' : undefined}
                   className={`block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all ${
                     activeSection === item.id
-                      ? 'text-primary-light bg-primary/10'
-                      : 'text-text-muted hover:text-text hover:bg-bg-card'
+                      ? 'text-primary-light bg-primary/15'
+                      : 'text-text-muted hover:text-text hover:bg-bg-card/80'
                   }`}
                 >
                   {item.label}

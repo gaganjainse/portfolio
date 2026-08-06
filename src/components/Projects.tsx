@@ -30,7 +30,7 @@ export default function Projects() {
     : PROJECTS.filter((p) => p.tag === activeFilter)
 
   return (
-    <section className="py-24 px-4 sm:px-6" aria-labelledby="projects-heading">
+    <section className="py-24 px-4 sm:px-6 bg-bg" aria-labelledby="projects-heading">
       <div className="max-w-6xl mx-auto">
         <h2 id="projects-heading" className="text-3xl sm:text-4xl font-bold mb-2">
           <span className="gradient-text">Projects</span>
