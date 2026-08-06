@@ -9,6 +9,9 @@
       size: A4;
       margin: 0;
     }
+    @page :first {
+      margin: 0;
+    }
     * {
       margin: 0;
       padding: 0;
@@ -25,6 +28,26 @@
       max-width: 210mm;
       margin: 0 auto;
       padding: 18mm 16mm;
+    }
+    .running-header {
+      font-size: 9pt;
+      color: #7c3aed;
+      font-weight: 600;
+      border-bottom: 1.5px solid #7c3aed;
+      padding-bottom: 4px;
+    }
+    .running-footer {
+      font-size: 8pt;
+      color: #64748b;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 4px;
+      text-align: center;
+    }
+    .page-header {
+      display: none;
+    }
+    .page-footer {
+      display: none;
     }
     header {
       border-bottom: 2px solid #7c3aed;
@@ -209,11 +232,21 @@
       font-size: 9pt;
       color: #475569;
     }
+    .page-number:after {
+      content: counter(page);
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <header>
+    <div class="running-header">
+      Gagan Jain — AI / LLM Engineer &nbsp;|&nbsp; gagan.jain.se@gmail.com &nbsp;|&nbsp; +91 95872 55792
+    </div>
+    <div class="running-footer">
+      Page <span class="page-number"></span> &nbsp;|&nbsp; https://gaganjain.vercel.app
+    </div>
+
+    <header class="page-header">
       <h1>Gagan Jain</h1>
       <div class="title">AI / LLM Engineer</div>
       <div class="contact">

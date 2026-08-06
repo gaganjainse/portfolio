@@ -20,7 +20,9 @@ async function generatePdf() {
     path: pdfPath,
     format: 'A4',
     printBackground: true,
-    margin: { top: '0', right: '0', bottom: '0', left: '0' },
+    margin: { top: '20mm', right: '0', bottom: '15mm', left: '0' },
+    headerTemplate: '<div style="font-size: 9pt; color: #7c3aed; font-weight: 600; border-bottom: 1.5px solid #7c3aed; padding-bottom: 4px; padding-top: 10mm; padding-left: 16mm; padding-right: 16mm;">Gagan Jain — AI / LLM Engineer | gagan.jain.se@gmail.com | +91 95872 55792</div>',
+    footerTemplate: '<div style="font-size: 8pt; color: #64748b; border-top: 1px solid #e2e8f0; padding-top: 4px; text-align: center; padding-bottom: 10mm;">Page <span class="pageNumber"></span> | https://gaganjain.vercel.app</div>',
   })
   await browser.close()
   console.log(`PDF generated: ${pdfPath}`)
