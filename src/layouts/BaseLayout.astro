@@ -16,10 +16,10 @@ import '../styles/global.css'
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-    <title>{Astro.props.title ? `${Astro.props.title} | ${SITE_CONFIG.title}` : SITE_CONFIG.title}</title>
+    <title>{Astro.props.frontmatter?.title ? `${Astro.props.frontmatter.title} | ${SITE_CONFIG.title}` : (Astro.props.title ? `${Astro.props.title} | ${SITE_CONFIG.title}` : SITE_CONFIG.title)}</title>
 
-    <meta property="og:title" content={Astro.props.title ? `${Astro.props.title} | ${SITE_CONFIG.title}` : SITE_CONFIG.title} />
-    <meta property="og:description" content={Astro.props.description || SITE_CONFIG.description} />
+    <meta property="og:title" content={Astro.props.frontmatter?.title ? `${Astro.props.frontmatter.title} | ${SITE_CONFIG.title}` : (Astro.props.title ? `${Astro.props.title} | ${SITE_CONFIG.title}` : SITE_CONFIG.title)} />
+    <meta property="og:description" content={Astro.props.frontmatter?.description || Astro.props.description || SITE_CONFIG.description} />
     <meta property="og:image" content={`https://gaganjain.vercel.app/og-image.png`} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://gaganjain.vercel.app" />
