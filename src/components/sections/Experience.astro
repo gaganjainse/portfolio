@@ -1,0 +1,77 @@
+---
+import { SITE_CONFIG } from '../../data/config.js'
+---
+
+<section id="experience" class="py-24 px-4 sm:px-6 bg-bg" aria-labelledby="experience-heading">
+  <div class="max-w-4xl mx-auto">
+    <h2 id="experience-heading" class="text-3xl sm:text-4xl font-bold mb-2">
+      <span class="gradient-text">Experience</span>
+    </h2>
+    <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mb-12" />
+
+    <div class="timeline">
+      <article class="timeline-item gradient-border p-6 sm:p-8">
+        <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+          <div>
+            <h3 class="text-xl font-bold text-text">Industry 5.0 Industrial Automation Trainee</h3>
+            <p class="text-primary-light font-medium">CodenPlay Robotics</p>
+          </div>
+          <span class="px-3 py-1 rounded-full text-sm bg-bg border border-border text-text-muted shrink-0">
+            Aug – Nov 2025
+          </span>
+        </div>
+
+        <p class="text-text-muted text-sm mb-4">VIT Vellore / Online &middot; Built and debugged PLC automation logic and simulated process workflows.</p>
+
+        <ul class="space-y-3 mb-6">
+          <li class="text-text-muted flex items-start gap-3">
+            <span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span>
+            <span>Built and debugged PLC automation logic (ladder logic, structured text) in CODESYS</span>
+          </li>
+          <li class="text-text-muted flex items-start gap-3">
+            <span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span>
+            <span>Simulated industrial process workflows in Factory I/O</span>
+          </li>
+          <li class="text-text-muted flex items-start gap-3">
+            <span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span>
+            <span>Implemented flow-based control/integration in Node-RED</span>
+          </li>
+          <li class="text-text-muted flex items-start gap-3">
+            <span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span>
+            <span>Covered HMI design, industrial communication, process monitoring, and the debugging→testing→deployment workflow</span>
+          </li>
+        </ul>
+
+        <div class="flex flex-wrap gap-2">
+          {["CODESYS", "Factory I/O", "Node-RED", "PLC", "HMI", "Industrial IoT"].map((tag) => (
+            <span key={tag} class="px-2.5 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<script>
+  import gsap from 'gsap'
+  import { ScrollTrigger } from 'gsap/ScrollTrigger'
+  gsap.registerPlugin(ScrollTrigger)
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (!prefersReducedMotion) {
+    gsap.from('.timeline-item', {
+      scrollTrigger: {
+        trigger: '.timeline',
+        start: 'top 80%',
+        once: true,
+      },
+      opacity: 0,
+      x: -20,
+      duration: 0.6,
+      stagger: 0.2,
+      ease: 'power3.out',
+    })
+  }
+</script>

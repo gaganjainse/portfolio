@@ -1,0 +1,144 @@
+---
+import { SITE_CONFIG } from '../../data/config.js'
+---
+
+<section id="projects" class="py-24 px-4 sm:px-6 bg-bg" aria-labelledby="projects-heading">
+  <div class="max-w-6xl mx-auto">
+    <h2 id="projects-heading" class="text-3xl sm:text-4xl font-bold mb-2">
+      <span class="gradient-text">Projects</span>
+    </h2>
+    <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mb-8" />
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <article class="project-card card-glow gradient-border p-6 sm:p-8 transition-all">
+        <div class="flex flex-wrap items-center gap-3 mb-3">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-pink-500/20 text-pink-400">AI/AGENTIC</span>
+          <h3 class="text-xl sm:text-2xl font-bold text-text">NexusAOS</h3>
+        </div>
+        <p class="text-text-muted mb-4">Governance-first agentic operating system with multi-agent swarm orchestration, LLM integration, and MCP tooling.</p>
+        <ul class="space-y-2 mb-4">
+          <li class="text-sm text-text-muted flex items-start gap-2"><span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span><span>Built multi-agent swarm executor with collision detection, namespace isolation, quorum voting, and atomic fission in Python + asyncio</span></li>
+          <li class="text-sm text-text-muted flex items-start gap-2"><span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span><span>Integrated local LLM inference pipeline with Phi-4-Mini QLoRA adapters, AB/AP balance enforcement, and constitution-guided routing</span></li>
+          <li class="text-sm text-text-muted flex items-start gap-2"><span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span><span>Exposed 30+ MCP tools via FastMCP for metabolic, planning, immune, and physical substrate control</span></li>
+          <li class="text-sm text-text-muted flex items-start gap-2"><span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span><span>Designed adapter-routed inference system with curriculum learning, evaluation harness, and model benchmarking</span></li>
+        </ul>
+        <div class="flex flex-wrap gap-2 mb-4">
+          {["Python", "FastMCP", "QLoRA", "Unsloth", "Multi-Agent", "MCP", "AsyncIO", "Rust", "Zig"].map((tech) => (
+            <span key={tech} class="px-2.5 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border hover:border-primary/30 hover:text-text transition-colors">{tech}</span>
+          ))}
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="https://github.com/gaganjainse/NexusAOS" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm text-text-muted hover:text-primary-light transition-colors">Source Code</a>
+        </div>
+      </article>
+
+      <article class="project-card card-glow gradient-border p-6 sm:p-8 transition-all">
+        <div class="flex flex-wrap items-center gap-3 mb-3">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-pink-500/20 text-pink-400">AI/AGENTIC</span>
+          <h3 class="text-xl sm:text-2xl font-bold text-text">nexus-kernel</h3>
+        </div>
+        <p class="text-text-muted mb-4">Production-ready Rust microkernel for local-first AI with event-sourced governance, OpenAI/Anthropic streaming, and 981 tests.</p>
+        <ul class="space-y-2 mb-4">
+          <li class="text-sm text-text-muted flex items-start gap-2"><span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span><span>Built Rust 2024 microkernel with 12 workspace crates, 981 passing tests, 0 clippy warnings, and full CI/CD</span></li>
+          <li class="text-sm text-text-muted flex items-start gap-2"><span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span><span>Implemented event-sourced append-only audit trail, policy engine with trust tiers, and provider-swappable model interface</span></li>
+          <li class="text-sm text-text-muted flex items-start gap-2"><span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span><span>Integrated OpenAI-compatible and Anthropic streaming with real-time token streaming into TUI/GUI</span></li>
+          <li class="text-sm text-text-muted flex items-start gap-2"><span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span><span>Delivered native terminal emulation (PTY + VT100 + Zig parser), SSH multiplexing, and multi-interface CLI/TUI/GUI/RPC</span></li>
+        </ul>
+        <div class="flex flex-wrap gap-2 mb-4">
+          {["Rust", "Tokio", "OpenAI", "Anthropic", "SQLite", "Ratatui", "Iced", "SSH", "Event Sourcing"].map((tech) => (
+            <span key={tech} class="px-2.5 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border hover:border-primary/30 hover:text-text transition-colors">{tech}</span>
+          ))}
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="https://github.com/gaganjainse/nexus-kernel" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm text-text-muted hover:text-primary-light transition-colors">Source Code</a>
+        </div>
+      </article>
+
+      <article class="project-card card-glow gradient-border p-6 sm:p-8 transition-all">
+        <div class="flex flex-wrap items-center gap-3 mb-3">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-pink-500/20 text-pink-400">AI/AGENTIC</span>
+          <h3 class="text-xl sm:text-2xl font-bold text-text">SeshaOS</h3>
+        </div>
+        <p class="text-text-muted mb-4">NexusAOS v2 — governance-first, local-first AI OS with specialist local models (Gemma 4, Qwen3) and LiteLLM-compatible routing.</p>
+        <ul class="space-y-2 mb-4">
+          <li class="text-sm text-text-muted flex items-start gap-2"><span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span><span>Architected specialist model stack: Gemma 4 12B (Planner), Qwen3-Coder 30B (Implementation), Qwen3.5 9B (Vision)</span></li>
+          <li class="text-sm text-text-muted flex items-start gap-2"><span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span><span>Designed kernel-centric governance where models propose actions and the kernel validates/records every state change</span></li>
+          <li class="text-sm text-text-muted flex items-start gap-2"><span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span><span>Implemented LiteLLM-compatible proxy support for NVIDIA NIM and other model providers</span></li>
+          <li class="text-sm text-text-muted flex items-start gap-2"><span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span><span>Maintained event-sourced architecture with reversible, permissioned actions and offline-first execution</span></li>
+        </ul>
+        <div class="flex flex-wrap gap-2 mb-4">
+          {["Rust", "LiteLLM", "Gemma", "Qwen", "Local LLMs", "Governance", "Event Sourcing", "Ubuntu"].map((tech) => (
+            <span key={tech} class="px-2.5 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border hover:border-primary/30 hover:text-text transition-colors">{tech}</span>
+          ))}
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="https://github.com/gaganjainse/SeshaOS" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm text-text-muted hover:text-primary-light transition-colors">Source Code</a>
+        </div>
+      </article>
+
+      <article class="project-card card-glow gradient-border p-6 sm:p-8 transition-all">
+        <div class="flex flex-wrap items-center gap-3 mb-3">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary/20 text-primary-light">FLAGSHIP</span>
+          <h3 class="text-xl sm:text-2xl font-bold text-text">Vyākṛti</h3>
+        </div>
+        <p class="text-text-muted mb-4">Sanskrit-oriented programming language with complete compiler pipeline and browser-based IDE. 123 tests.</p>
+        <ul class="space-y-2 mb-4">
+          <li class="text-sm text-text-muted flex items-start gap-2"><span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span><span>Complete compiler pipeline: lexer → parser → type checker → bytecode compiler — all built from scratch in Rust</span></li>
+          <li class="text-sm text-text-muted flex items-start gap-2"><span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span><span>Browser-based IDE with React, Monaco Editor, syntax highlighting, autocomplete, and diagnostics</span></li>
+          <li class="text-sm text-text-muted flex items-start gap-2"><span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span><span>Rust (axum) backend with compile, REPL, LSP, and file management endpoints via REST + WebSocket</span></li>
+          <li class="text-sm text-text-muted flex items-start gap-2"><span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span><span>123 tests covering the full pipeline, including a self-hosting corpus</span></li>
+        </ul>
+        <div class="flex flex-wrap gap-2 mb-4">
+          {["Rust", "React", "TypeScript", "Monaco Editor", "Zustand", "Tailwind CSS", "Axum"].map((tech) => (
+            <span key={tech} class="px-2.5 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border hover:border-primary/30 hover:text-text transition-colors">{tech}</span>
+          ))}
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="https://github.com/gaganjainse/Vyakrti" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm text-text-muted hover:text-primary-light transition-colors">Source Code</a>
+        </div>
+      </article>
+
+      <article class="project-card card-glow gradient-border p-6 sm:p-8 transition-all">
+        <div class="flex flex-wrap items-center gap-3 mb-3">
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-500/20 text-green-400">PRODUCTION-READY</span>
+          <h3 class="text-xl sm:text-2xl font-bold text-text">AIM — Attendance Information Manager</h3>
+        </div>
+        <p class="text-text-muted mb-4">Production-grade attendance management system with Argon2id auth, Prometheus monitoring, and CI/CD.</p>
+        <ul class="space-y-2 mb-4">
+          <li class="text-sm text-text-muted flex items-start gap-2"><span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span><span>Production-grade Flask + MySQL platform with Argon2id auth, CSRF protection, brute-force lockout, breached-password scanning, JWT sessions, and strict CSP/HSTS headers</span></li>
+          <li class="text-sm text-text-muted flex items-start gap-2"><span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span><span>Deployed Prometheus metrics, structured JSON logging, Chart.js analytics, FullCalendar scheduling, Docker Compose, and GitHub Actions CI/CD; 101 automated pytest tests</span></li>
+        </ul>
+        <div class="flex flex-wrap gap-2 mb-4">
+          {["Python", "Flask", "MySQL", "Bootstrap", "Chart.js", "Docker", "GitHub Actions"].map((tech) => (
+            <span key={tech} class="px-2.5 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border hover:border-primary/30 hover:text-text transition-colors">{tech}</span>
+          ))}
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="https://github.com/gaganjainse/AIM" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm text-text-muted hover:text-primary-light transition-colors">Source Code</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<script>
+  import gsap from 'gsap'
+  import { ScrollTrigger } from 'gsap/ScrollTrigger'
+  gsap.registerPlugin(ScrollTrigger)
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (!prefersReducedMotion) {
+    gsap.from('.project-card', {
+      scrollTrigger: {
+        trigger: '#projects',
+        start: 'top 80%',
+        once: true,
+      },
+      opacity: 0,
+      y: 30,
+      duration: 0.6,
+      stagger: 0.1,
+      ease: 'power3.out',
+    })
+  }
+</script>
