@@ -12,7 +12,7 @@ const itemVariants = {
 
 export default function Contact() {
   return (
-    <section className="py-24 px-4 sm:px-6" aria-labelledby="contact-heading">
+    <section className="py-24 px-4 sm:px-6 bg-bg-elevated/50" aria-labelledby="contact-heading">
       <div className="max-w-4xl mx-auto text-center">
         <h2 id="contact-heading" className="text-3xl sm:text-4xl font-bold mb-2">
           Get In <span className="gradient-text">Touch</span>

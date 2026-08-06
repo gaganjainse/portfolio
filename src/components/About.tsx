@@ -12,7 +12,7 @@ const itemVariants = {
 
 export default function About() {
   return (
-    <section className="py-24 px-4 sm:px-6" aria-labelledby="about-heading">
+    <section className="py-24 px-4 sm:px-6 bg-bg-elevated/50" aria-labelledby="about-heading">
       <div className="max-w-4xl mx-auto">
         <h2 id="about-heading" className="text-3xl sm:text-4xl font-bold mb-2">
           About <span className="gradient-text">Me</span>

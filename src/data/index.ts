@@ -35,13 +35,13 @@ export interface SocialLink {
 export const SITE_CONFIG = {
   name: "Gagan Jain",
   title: "AI / LLM Engineer",
-  tagline: "CS @ VIT Vellore building GenAI, LLM, and agentic AI systems — from RAG pipelines and fine-tuned models to multi-agent orchestration and production AI platforms.",
+  tagline: "CS @ VIT Vellore building production-grade GenAI systems — from multi-agent orchestration and LLM fine-tuning to RAG pipelines and agentic AI platforms.",
   description: "I build practical AI systems: LLM-powered apps, RAG pipelines, autonomous agents, and production-ready GenAI platforms. Strong Python foundation with end-to-end deployment experience.",
   email: "gagan.jain.se@gmail.com",
   location: "Jaipur, Rajasthan, India",
   availability: "Open to AI/LLM roles · Open to relocation",
   graduation: "2026",
-  cgpa: "7.7+/10",
+  cgpa: "7.7/10",
 };
 
 export const SOCIAL_LINKS: SocialLink[] = [
@@ -54,35 +54,35 @@ export const PROJECTS: Project[] = [
   {
     name: "NexusAOS",
     tag: "AI/AGENTIC",
-    description: "Governance-first agentic operating system with multi-agent swarm orchestration, LLM integration, and MCP tooling.",
+    description: "Governance-first agentic operating system with multi-agent swarm orchestration, LLM fine-tuning, and 30+ MCP tools.",
     details: [
       "Built multi-agent swarm executor with collision detection, namespace isolation, quorum voting, and atomic fission in Python + asyncio",
-      "Integrated local LLM inference pipeline with Phi-4-Mini QLoRA adapters, AB/AP balance enforcement, and constitution-guided routing",
+      "Integrated local LLM inference with Phi-4-Mini QLoRA adapters, AB/AP balance enforcement, and constitution-guided routing",
       "Exposed 30+ MCP tools via FastMCP for metabolic, planning, immune, and physical substrate control",
-      "Designed adapter-routed inference system with curriculum learning, evaluation harness, and model benchmarking",
+      "Designed adapter-routed inference with curriculum learning, evaluation harness, and model benchmarking",
     ],
-    stack: ["Python", "FastMCP", "LLM Fine-tuning", "QLoRA", "Unsloth", "Multi-Agent", "MCP", "AsyncIO", "Rust", "Zig"],
+    stack: ["Python", "FastMCP", "QLoRA", "Unsloth", "Multi-Agent", "MCP", "AsyncIO", "Rust", "Zig"],
     github: "https://github.com/gaganjainse/NexusAOS",
     featured: true,
   },
   {
     name: "nexus-kernel",
     tag: "AI/AGENTIC",
-    description: "Governance-first, event-sourced AI operating environment for Ubuntu Linux with local LLM inference and policy enforcement.",
+    description: "Production-ready Rust microkernel for local-first AI with event-sourced governance, OpenAI/Anthropic streaming, and 981 tests.",
     details: [
       "Built Rust 2024 microkernel with 12 workspace crates, 981 passing tests, 0 clippy warnings, and full CI/CD",
       "Implemented event-sourced append-only audit trail, policy engine with trust tiers, and provider-swappable model interface",
       "Integrated OpenAI-compatible and Anthropic streaming with real-time token streaming into TUI/GUI",
       "Delivered native terminal emulation (PTY + VT100 + Zig parser), SSH multiplexing, and multi-interface CLI/TUI/GUI/RPC",
     ],
-    stack: ["Rust", "Tokio", "OpenAI", "Anthropic", "SQLite", "Ratatui", "Iced", "SSH", "Event Sourcing", "Policy Engine"],
+    stack: ["Rust", "Tokio", "OpenAI", "Anthropic", "SQLite", "Ratatui", "Iced", "SSH", "Event Sourcing"],
     github: "https://github.com/gaganjainse/nexus-kernel",
     featured: true,
   },
   {
     name: "SeshaOS",
     tag: "AI/AGENTIC",
-    description: "NexusAOS v2 — governance-first, local-first AI OS with specialist local models and LiteLLM-compatible routing.",
+    description: "NexusAOS v2 — governance-first, local-first AI OS with specialist local models (Gemma 4, Qwen3) and LiteLLM-compatible routing.",
     details: [
       "Architected specialist model stack: Gemma 4 12B (Planner), Qwen3-Coder 30B (Implementation), Qwen3.5 9B (Vision)",
       "Designed kernel-centric governance where models propose actions and the kernel validates/records every state change",
@@ -96,7 +96,7 @@ export const PROJECTS: Project[] = [
   {
     name: "Vyākṛti",
     tag: "FLAGSHIP",
-    description: "Sanskrit-oriented programming language with complete compiler pipeline and browser-based IDE.",
+    description: "Sanskrit-oriented programming language with complete compiler pipeline and browser-based IDE. 123 tests.",
     details: [
       "Complete compiler pipeline: lexer → parser → type checker → bytecode compiler — all built from scratch in Rust",
       "Browser-based IDE with React, Monaco Editor, syntax highlighting, autocomplete, and diagnostics",
@@ -120,22 +120,20 @@ export const PROJECTS: Project[] = [
     ],
     stack: ["React", "TypeScript", "Monaco Editor", "Vite", "Tailwind CSS", "WebSocket"],
     github: "https://github.com/gaganjainse/vyakrti-ide",
-    demo: "https://vyakrti-ide.vercel.app",
     featured: false,
   },
   {
     name: "AIM",
     tag: "PRODUCTION-READY",
-    description: "Production-grade attendance management system with security, monitoring, and CI/CD.",
+    description: "Production-grade attendance management system with Argon2id auth, Prometheus monitoring, and CI/CD.",
     details: [
       "Argon2id auth (OWASP 2025), CSRF protection, brute-force lockout, breached-password detection",
       "Reporting with Chart.js, FullCalendar, light/dark themes, CSV import/export, encrypted backups",
-      "Prometheus monitoring, 101 tests, Docker Compose deployment, full CI/CD pipeline",
+      "Prometheus monitoring, 84 tests, Docker Compose deployment, full CI/CD pipeline",
       "WCAG 2.1 AA accessibility compliant with ARIA live regions and keyboard navigation",
     ],
     stack: ["Python", "Flask", "MySQL", "Bootstrap", "Chart.js", "Docker", "GitHub Actions"],
     github: "https://github.com/gaganjainse/AIM",
-    demo: "https://aim-live.vercel.app",
     featured: true,
   },
   {
@@ -195,19 +193,6 @@ export const PROJECTS: Project[] = [
     featured: false,
   },
   {
-    name: "VillageClinicLedger",
-    tag: "MOBILE",
-    description: "Android app for managing village clinic records, built with Kotlin and Jetpack Compose. Archived.",
-    details: [
-      "Patient registration, visit history, and medical record management",
-      "Built with Kotlin and Jetpack Compose for modern Android UI",
-      "SQLite local storage with offline-first architecture",
-    ],
-    stack: ["Kotlin", "Jetpack Compose", "SQLite", "Android"],
-    github: "https://github.com/gaganjainse/VillageClinicLedger",
-    featured: false,
-  },
-  {
     name: "Auto-desktopenv",
     tag: "DEVOPS",
     description: "Usability-first Hyprland dotfiles with AI integrations, Quickshell widgets, and Material themes.",
@@ -238,7 +223,7 @@ export const SKILLS: Skill[] = [
   { name: "Evaluation & Observability", level: 65, category: "AI / LLM" },
   { name: "AI Governance", level: 70, category: "AI / LLM" },
   { name: "Local LLM Deployment", level: 70, category: "AI / LLM" },
-  
+
   { name: "Python", level: 90, category: "Languages" },
   { name: "TypeScript", level: 80, category: "Languages" },
   { name: "JavaScript", level: 85, category: "Languages" },
@@ -247,14 +232,14 @@ export const SKILLS: Skill[] = [
   { name: "C", level: 60, category: "Languages" },
   { name: "PHP", level: 75, category: "Languages" },
   { name: "HTML/CSS", level: 90, category: "Languages" },
-  
+
   { name: "React", level: 90, category: "Frontend" },
   { name: "React Native", level: 70, category: "Frontend" },
   { name: "Tailwind CSS", level: 85, category: "Frontend" },
   { name: "Bootstrap", level: 80, category: "Frontend" },
   { name: "Monaco Editor", level: 75, category: "Frontend" },
   { name: "Next.js", level: 70, category: "Frontend" },
-  
+
   { name: "Node.js", level: 80, category: "Backend" },
   { name: "Flask", level: 90, category: "Backend" },
   { name: "Express", level: 75, category: "Backend" },
@@ -264,19 +249,19 @@ export const SKILLS: Skill[] = [
   { name: "WebSockets", level: 70, category: "Backend" },
   { name: "Laravel", level: 75, category: "Backend" },
   { name: "Supabase", level: 60, category: "Backend" },
-  
+
   { name: "MySQL", level: 85, category: "Databases" },
   { name: "MongoDB", level: 75, category: "Databases" },
   { name: "Redis", level: 60, category: "Databases" },
   { name: "SQLite", level: 75, category: "Databases" },
-  
+
   { name: "Docker", level: 80, category: "DevOps" },
   { name: "GitHub Actions", level: 80, category: "DevOps" },
   { name: "Nginx", level: 70, category: "DevOps" },
   { name: "Gunicorn", level: 70, category: "DevOps" },
   { name: "Prometheus", level: 65, category: "DevOps" },
   { name: "Linux", level: 75, category: "DevOps" },
-  
+
   { name: "YOLO", level: 70, category: "Vision / ML" },
   { name: "OpenCV", level: 65, category: "Vision / ML" },
   { name: "NLP", level: 60, category: "Vision / ML" },
