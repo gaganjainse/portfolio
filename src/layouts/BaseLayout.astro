@@ -1,0 +1,139 @@
+---
+import { SITE_CONFIG, NAV_ITEMS, SOCIAL_LINKS } from '../data/config.js'
+import { scrollProgress } from '../utils/gsap'
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={Astro.props.description || SITE_CONFIG.description} />
+    <meta name="author" content={SITE_CONFIG.name} />
+    <meta name="theme-color" content="#7c3aed" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <title>{Astro.props.title ? `${Astro.props.title} | ${SITE_CONFIG.title}` : SITE_CONFIG.title}</title>
+
+    <meta property="og:title" content={Astro.props.title ? `${Astro.props.title} | ${SITE_CONFIG.title}` : SITE_CONFIG.title} />
+    <meta property="og:description" content={Astro.props.description || SITE_CONFIG.description} />
+    <meta property="og:image" content={`https://gaganjain.vercel.app/og-image.png`} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://gaganjain.vercel.app" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={Astro.props.title ? `${Astro.props.title} | ${SITE_CONFIG.title}` : SITE_CONFIG.title} />
+    <meta name="twitter:description" content={Astro.props.description || SITE_CONFIG.description} />
+    <meta name="twitter:image" content={`https://gaganjain.vercel.app/og-image.png`} />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Gagan Jain",
+      "jobTitle": "AI / LLM Engineer",
+      "url": "https://gaganjain.vercel.app",
+      "sameAs": [
+        "https://github.com/gaganjainse",
+        "https://linkedin.com/in/gaganjainse"
+      ],
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "VIT Vellore"
+      },
+      "knowsAbout": ["GenAI", "LLMs", "Agentic AI", "RAG", "Multi-Agent Systems", "MCP", "Fine-tuning", "QLoRA", "Prompt Engineering", "Python", "Rust", "FastAPI", "Flask", "React"]
+    }
+    </script>
+  </head>
+  <body>
+    <div class="scroll-progress" aria-hidden="true" />
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <header>
+      <nav
+        class="fixed top-0 left-0 right-0 z-50 glass border-b border-border/60 transition-all duration-300"
+        aria-label="Main navigation"
+      >
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+          <div class="flex items-center justify-between h-16">
+            <a
+              href="#home"
+              class="text-xl font-bold gradient-text hover:opacity-80 transition-opacity"
+              aria-label="Go to top"
+            >
+              GJ
+            </a>
+
+            <div class="hidden md:flex items-center gap-1" role="menubar">
+              {NAV_ITEMS.map((item) => (
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  role="menuitem"
+                  class="px-3 py-2 rounded-lg text-sm font-medium transition-all text-text-muted hover:text-text hover:bg-bg-card/80"
+                  data-nav={item.id}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+
+            <button
+              id="mobile-menu-btn"
+              class="md:hidden p-2 text-text-muted hover:text-text rounded-lg hover:bg-bg-card/80 transition-colors"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="mobile-menu"
+            >
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
+
+          <div id="mobile-menu" class="md:hidden hidden pb-4 border-t border-border mt-2 pt-2 overflow-hidden glass rounded-b-xl">
+            {NAV_ITEMS.map((item) => (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                class="block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all text-text-muted hover:text-text hover:bg-bg-card/80"
+                data-nav={item.id}
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <footer class="py-8 px-4 sm:px-6 border-t border-border" role="contentinfo">
+      <div class="max-w-6xl mx-auto text-center">
+        <p class="text-text-muted text-sm mb-3">
+          &copy; {new Date().getFullYear()} Gagan Jain &middot; Built with Astro + GSAP + Tailwind CSS
+        </p>
+        <div class="flex items-center justify-center gap-4 text-sm">
+          <a href="/resume" target="_blank" rel="noopener noreferrer" class="text-accent hover:text-accent/80 transition-colors">
+            Resume
+          </a>
+          <span class="text-border">&middot;</span>
+          <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="text-text-muted hover:text-text transition-colors">
+            Back to top
+          </button>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      import { scrollProgress } from '../utils/gsap.ts'
+      scrollProgress()
+    </script>
+  </body>
+</html>

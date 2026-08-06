@@ -1,0 +1,68 @@
+---
+import { SITE_CONFIG, SOCIAL_LINKS } from '../../data/config.js'
+---
+
+<section id="contact" class="py-24 px-4 sm:px-6 bg-bg-elevated/50" aria-labelledby="contact-heading">
+  <div class="max-w-4xl mx-auto text-center contact-section">
+    <h2 id="contact-heading" class="text-3xl sm:text-4xl font-bold mb-2">
+      Get In <span class="gradient-text">Touch</span>
+    </h2>
+    <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mb-8 mx-auto" />
+
+    <p class="text-text-muted text-lg mb-8 max-w-2xl mx-auto">
+      I'm currently looking for GenAI / LLM / Agentic AI roles. If you're hiring or just want to connect, feel free to reach out.
+    </p>
+
+    <div class="flex flex-wrap items-center justify-center gap-4 mb-12">
+      <a
+        href={`mailto:${SITE_CONFIG.email}`}
+        class="group relative px-8 py-3.5 rounded-xl font-medium bg-primary text-white hover:bg-primary-light transition-all hover:shadow-lg hover:shadow-primary/25 overflow-hidden"
+      >
+        <span class="relative z-10 flex items-center gap-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+          </svg>
+          {SITE_CONFIG.email}
+        </span>
+        <div class="absolute inset-0 bg-gradient-to-r from-primary-light to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
+      </a>
+      {SOCIAL_LINKS.filter(l => l.name !== 'Email').map((link) => (
+        <a
+          key={link.name}
+          href={link.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="px-8 py-3.5 rounded-xl font-medium border border-border text-text hover:border-primary/50 hover:text-primary-light transition-all backdrop-blur-sm"
+        >
+          {link.name}
+        </a>
+      ))}
+    </div>
+
+    <p class="text-text-muted text-sm">
+      {SITE_CONFIG.location} &middot; Open to relocation
+    </p>
+  </div>
+</section>
+
+<script>
+  import gsap from 'gsap'
+  import { ScrollTrigger } from 'gsap/ScrollTrigger'
+  gsap.registerPlugin(ScrollTrigger)
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (!prefersReducedMotion) {
+    gsap.from('.contact-section > *', {
+      scrollTrigger: {
+        trigger: '.contact-section',
+        start: 'top 80%',
+        once: true,
+      },
+      opacity: 0,
+      y: 30,
+      duration: 0.7,
+      stagger: 0.15,
+      ease: 'power3.out',
+    })
+  }
+</script>
