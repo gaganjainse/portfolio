@@ -41,7 +41,7 @@ export const SITE_CONFIG = {
   location: "Jaipur, Rajasthan, India",
   availability: "Open to AI/LLM roles · Open to relocation",
   graduation: "2026",
-  cgpa: "7.5+/10",
+  cgpa: "7.7+/10",
 };
 
 export const SOCIAL_LINKS: SocialLink[] = [
