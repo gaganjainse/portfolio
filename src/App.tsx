@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { Analytics } from '@vercel/analytics/react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
-import Skills from './components/Skills'
-import Projects from './components/Projects'
 import Experience from './components/Experience'
+import Projects from './components/Projects'
+import Skills from './components/Skills'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import { NAV_ITEMS } from './data'
@@ -72,14 +73,14 @@ function App() {
           <motion.section id="about" variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-50px' }}>
             <About />
           </motion.section>
-          <motion.section id="skills" variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-50px' }}>
-            <Skills />
+          <motion.section id="experience" variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-50px' }}>
+            <Experience />
           </motion.section>
           <motion.section id="projects" variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-50px' }}>
             <Projects />
           </motion.section>
-          <motion.section id="experience" variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-50px' }}>
-            <Experience />
+          <motion.section id="skills" variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-50px' }}>
+            <Skills />
           </motion.section>
           <motion.section id="contact" variants={sectionVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: '-50px' }}>
             <Contact />
@@ -87,6 +88,7 @@ function App() {
         </AnimatePresence>
       </main>
       <Footer />
+      <Analytics />
     </div>
   )
 }
