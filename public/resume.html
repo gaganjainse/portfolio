@@ -7,16 +7,10 @@
   <style>
     @page {
       size: A4;
-      margin: 15mm 16mm 18mm 16mm;
+      margin: 18mm 16mm 18mm 16mm;
     }
     @page :first {
-      margin: 15mm 16mm 18mm 16mm;
-    }
-    @page :left {
-      margin: 15mm 16mm 18mm 16mm;
-    }
-    @page :right {
-      margin: 15mm 16mm 18mm 16mm;
+      margin: 18mm 16mm 18mm 16mm;
     }
     * {
       margin: 0;
@@ -25,8 +19,8 @@
     }
     body {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      font-size: 10.5pt;
-      line-height: 1.5;
+      font-size: 10pt;
+      line-height: 1.45;
       color: #1a1a2e;
       background: #ffffff;
     }
@@ -39,26 +33,21 @@
       color: #7c3aed;
       font-weight: 600;
       border-bottom: 1.5px solid #7c3aed;
-      padding-bottom: 4px;
-      margin-bottom: 12px;
+      padding-bottom: 5px;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
     }
     .running-footer {
       font-size: 8pt;
       color: #64748b;
       border-top: 1px solid #e2e8f0;
-      padding-top: 4px;
+      padding-top: 5px;
+      margin-top: 14px;
       text-align: center;
     }
     .page-header {
-      display: none;
-    }
-    .page-footer {
-      display: none;
-    }
-    header {
-      border-bottom: 2px solid #7c3aed;
-      padding-bottom: 10px;
-      margin-bottom: 14px;
       page-break-after: avoid;
     }
     h1 {
@@ -85,41 +74,42 @@
       font-weight: 500;
     }
     section {
-      margin-bottom: 16px;
+      margin-bottom: 14px;
+      page-break-inside: avoid;
     }
     h2 {
-      font-size: 11pt;
+      font-size: 10.5pt;
       font-weight: 700;
       color: #7c3aed;
       text-transform: uppercase;
       letter-spacing: 0.8px;
-      margin-bottom: 8px;
-      padding-bottom: 4px;
+      margin-bottom: 6px;
+      padding-bottom: 3px;
       border-bottom: 1.5px solid #e2e8f0;
       page-break-after: avoid;
     }
     .summary {
-      font-size: 10pt;
+      font-size: 9.5pt;
       color: #334155;
-      line-height: 1.55;
+      line-height: 1.5;
     }
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 4px 16px;
+      gap: 3px 14px;
     }
     .skill-item {
-      font-size: 9.5pt;
+      font-size: 9pt;
       color: #1e293b;
-      line-height: 1.45;
+      line-height: 1.4;
     }
     .skill-item strong {
       color: #0f172a;
       font-weight: 600;
     }
     .project {
-      margin-bottom: 12px;
-      padding-bottom: 10px;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
       border-bottom: 1px dashed #e2e8f0;
       page-break-inside: avoid;
     }
@@ -132,19 +122,19 @@
       display: flex;
       align-items: baseline;
       gap: 8px;
-      margin-bottom: 3px;
+      margin-bottom: 2px;
     }
     .project-title {
       font-weight: 700;
-      font-size: 10.5pt;
+      font-size: 10pt;
       color: #0f172a;
     }
     .project-tag {
-      font-size: 8pt;
+      font-size: 7.5pt;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      padding: 1px 6px;
+      padding: 1px 5px;
       border-radius: 3px;
       background: #fce7f3;
       color: #be185d;
@@ -156,23 +146,23 @@
       border-color: #fde68a;
     }
     .project-meta {
-      font-size: 9pt;
+      font-size: 8.5pt;
       color: #64748b;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
     .project-list {
       list-style: disc;
-      padding-left: 14px;
+      padding-left: 13px;
       color: #334155;
-      font-size: 9.5pt;
-      line-height: 1.5;
+      font-size: 9pt;
+      line-height: 1.4;
     }
     .project-list li {
-      margin-bottom: 2px;
+      margin-bottom: 1.5px;
     }
     .experience {
-      margin-bottom: 10px;
-      padding-bottom: 8px;
+      margin-bottom: 8px;
+      padding-bottom: 6px;
       border-bottom: 1px dashed #e2e8f0;
       page-break-inside: avoid;
     }
@@ -185,62 +175,62 @@
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 2px;
+      margin-bottom: 1px;
     }
     .experience-role {
       font-weight: 700;
-      font-size: 10.5pt;
+      font-size: 10pt;
       color: #0f172a;
     }
     .experience-date {
-      font-size: 9pt;
+      font-size: 8.5pt;
       color: #64748b;
       font-weight: 500;
     }
     .experience-company {
-      font-size: 10pt;
+      font-size: 9.5pt;
       color: #7c3aed;
       font-weight: 600;
-      margin-bottom: 3px;
+      margin-bottom: 2px;
     }
     .experience-list {
       list-style: disc;
-      padding-left: 14px;
+      padding-left: 13px;
       color: #334155;
-      font-size: 9.5pt;
-      line-height: 1.5;
+      font-size: 9pt;
+      line-height: 1.4;
     }
     .experience-list li {
-      margin-bottom: 2px;
+      margin-bottom: 1.5px;
     }
     .education {
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       page-break-inside: avoid;
     }
     .education-header {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
-      margin-bottom: 2px;
+      margin-bottom: 1px;
     }
     .education-school {
       font-weight: 700;
-      font-size: 10.5pt;
+      font-size: 10pt;
       color: #0f172a;
     }
     .education-date {
-      font-size: 9pt;
+      font-size: 8.5pt;
       color: #64748b;
       font-weight: 500;
     }
     .education-degree {
-      font-size: 10pt;
+      font-size: 9.5pt;
       color: #7c3aed;
       font-weight: 600;
-      margin-bottom: 2px;
+      margin-bottom: 1px;
     }
     .education-details {
-      font-size: 9pt;
+      font-size: 8.5pt;
       color: #475569;
     }
     .page-number:after {
@@ -250,13 +240,6 @@
 </head>
 <body>
   <div class="container">
-    <div class="running-header">
-      Gagan Jain — AI / LLM Engineer &nbsp;|&nbsp; gagan.jain.se@gmail.com &nbsp;|&nbsp; +91 95872 55792
-    </div>
-    <div class="running-footer">
-      Page <span class="page-number"></span> &nbsp;|&nbsp; https://gaganjain.vercel.app
-    </div>
-
     <header class="page-header">
       <h1>Gagan Jain</h1>
       <div class="title">AI / LLM Engineer</div>
@@ -267,6 +250,11 @@
         <a href="https://gaganjain.vercel.app">Portfolio</a>
       </div>
     </header>
+
+    <div class="running-header">
+      <span>Gagan Jain — AI / LLM Engineer</span>
+      <span>gagan.jain.se@gmail.com &nbsp;|&nbsp; +91 95872 55792</span>
+    </div>
 
     <section>
       <h2>Professional Summary</h2>
@@ -374,6 +362,10 @@
         <div class="education-details">CGPA: 7.7 / 10.0 | Relevant Coursework: Data Structures & Algorithms, Operating Systems, Database Systems, Computer Networks, Web Technologies, Artificial Intelligence, Machine Learning</div>
       </div>
     </section>
+
+    <div class="running-footer">
+      Page <span class="page-number"></span> &nbsp;|&nbsp; https://gaganjain.vercel.app
+    </div>
   </div>
 </body>
 </html>
