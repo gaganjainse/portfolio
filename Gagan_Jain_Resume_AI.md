@@ -55,5 +55,5 @@ Industry 5.0 Industrial Automation Trainee — CodenPlay Robotics | Aug 2025 –
 
 EDUCATION
 VIT Vellore — B.Tech in Computer Science and Engineering | Completed 2026
-CGPA: 7.5 / 10.0 | Relevant Coursework: Data Structures & Algorithms, Operating Systems, Database Systems,
+CGPA: 7.7 / 10.0 | Relevant Coursework: Data Structures & Algorithms, Operating Systems, Database Systems,
 Computer Networks, Web Technologies, Artificial Intelligence, Machine Learning
