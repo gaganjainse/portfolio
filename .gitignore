@@ -11,6 +11,3 @@ dist/
 
 # Logs
 *.log
-
-# Backup original rule
-*.log
