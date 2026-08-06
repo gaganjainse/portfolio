@@ -11,7 +11,15 @@ Personal portfolio website of **Gagan Jain** — AI / LLM Engineer. Built with [
 
 CS @ VIT Vellore (expected graduation 2026, CGPA 7.7/10). I build practical AI systems: LLM-powered apps, RAG pipelines, autonomous agents, and production-ready GenAI platforms. Strong Python foundation with end-to-end deployment experience.
 
-Key projects include **NexusAOS** (governance-first agentic OS with multi-agent swarm orchestration and QLoRA fine-tuning), **nexus-kernel** (Rust microkernel with 981 tests and event-sourced governance), and **SeshaOS** (local-first AI OS with specialist models).
+**AI/LLM Projects:**
+- **NexusAOS** — Governance-first agentic OS with multi-agent swarm orchestration, QLoRA fine-tuning, and 30+ MCP tools
+- **nexus-kernel** — Production-ready Rust AI microkernel with event-sourced governance, OpenAI/Anthropic streaming, and 981 tests
+- **SeshaOS** — Local-first AI OS with specialist models (Gemma 4, Qwen3) and LiteLLM-compatible routing
+
+**Other Projects:**
+- **Vyākṛti** — Sanskrit-oriented programming language with complete compiler pipeline and browser IDE
+- **AIM** — Production-grade attendance system with Argon2id auth, Prometheus monitoring, and 101 tests
+- **FWRS** — Food waste optimization platform using linear programming
 
 Looking for **GenAI / LLM Engineer**, **Agentic AI Engineer**, or **AI Engineer** roles. Based in Jaipur, Rajasthan, India and open to relocation.
 
