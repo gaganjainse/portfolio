@@ -331,3 +331,22 @@ body {
   margin: 0 auto;
   max-width: 600px;
 }
+
+.nav-link {
+  position: relative;
+}
+.nav-link.active {
+  color: var(--color-text);
+  background: var(--color-bg-card);
+}
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 16px;
+  height: 2px;
+  background: var(--color-primary);
+  border-radius: 1px;
+}

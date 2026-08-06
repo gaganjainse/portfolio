@@ -150,6 +150,53 @@ import '../styles/global.css'
     <script>
       import { scrollProgress } from '../utils/gsap.ts'
       scrollProgress()
+
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn')
+      const mobileMenu = document.getElementById('mobile-menu')
+      const navLinks = document.querySelectorAll('.nav-link')
+
+      if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+          const isHidden = mobileMenu.classList.contains('hidden')
+          if (isHidden) {
+            mobileMenu.classList.remove('hidden')
+            mobileMenuBtn.setAttribute('aria-expanded', 'true')
+          } else {
+            mobileMenu.classList.add('hidden')
+            mobileMenuBtn.setAttribute('aria-expanded', 'false')
+          }
+        })
+      }
+
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (mobileMenu) mobileMenu.classList.add('hidden')
+          if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'false')
+        })
+      })
+
+      const sections = document.querySelectorAll('section[id]')
+      const observerOptions = {
+        root: null,
+        rootMargin: '-20% 0px -80% 0px',
+        threshold: 0
+      }
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id')
+            navLinks.forEach(link => {
+              link.classList.remove('active')
+              if (link.getAttribute('data-nav') === id) {
+                link.classList.add('active')
+              }
+            })
+          }
+        })
+      }, observerOptions)
+
+      sections.forEach(section => observer.observe(section))
     </script>
   </body>
 </html>
