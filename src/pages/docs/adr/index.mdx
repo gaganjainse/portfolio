@@ -6,5 +6,41 @@ description: "Architecture Decision Records"
 
 <div class="max-w-4xl mx-auto px-4 sm:px-6 py-24">
   <h1 class="text-4xl font-bold mb-6 gradient-text">Architecture Decision Records</h1>
-  <p class="text-text-muted">Key decisions shaping my AI systems.</p>
+  <p class="text-text-muted mb-8">
+    Key decisions shaping the AI systems and portfolio architecture.
+  </p>
+
+  <div class="space-y-4">
+    <article class="gradient-border p-6">
+      <h2 class="text-xl font-bold text-text mb-2">ADR-001: Astro 7 + Tailwind v4 + GSAP</h2>
+      <p class="text-text-muted text-sm mb-3">
+        Migrated from React 19 to Astro 7.2.0 for better performance, static generation, and ecosystem integrations. Chose GSAP over Framer Motion for ScrollTrigger capabilities and finer control over scroll-based animations.
+      </p>
+      <span class="text-xs text-text-muted">Status: Accepted</span>
+    </article>
+
+    <article class="gradient-border p-6">
+      <h2 class="text-xl font-bold text-text mb-2">ADR-002: MDX for Content Pages</h2>
+      <p class="text-text-muted text-sm mb-3">
+        Used MDX for resume and docs pages to enable component usage within markdown while maintaining frontmatter metadata for SEO.
+      </p>
+      <span class="text-xs text-text-muted">Status: Accepted</span>
+    </article>
+
+    <article class="gradient-border p-6">
+      <h2 class="text-xl font-bold text-text mb-2">ADR-003: Vercel ISR Caching</h2>
+      <p class="text-text-muted text-sm mb-3">
+        Enabled ISR with 24-hour expiration on Vercel for optimal performance while keeping content fresh.
+      </p>
+      <span class="text-xs text-text-muted">Status: Accepted</span>
+    </article>
+
+    <article class="gradient-border p-6">
+      <h2 class="text-xl font-bold text-text mb-2">ADR-004: Partytown for Third-Party Scripts</h2>
+      <p class="text-text-muted text-sm mb-3">
+        Offloaded Google Fonts to Partytown web worker to reduce main-thread blocking and improve LCP.
+      </p>
+      <span class="text-xs text-text-muted">Status: Accepted</span>
+    </article>
+  </div>
 </div>

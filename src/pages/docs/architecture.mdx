@@ -6,7 +6,60 @@ description: "Architecture overview of key AI systems"
 
 <div class="max-w-4xl mx-auto px-4 sm:px-6 py-24">
   <h1 class="text-4xl font-bold mb-6 gradient-text">Architecture</h1>
-  <p class="text-text-muted mb-4">
-    Overview of the architecture patterns used across my AI projects.
+  <p class="text-text-muted mb-6">
+    Overview of the architecture patterns used across my AI and systems projects.
   </p>
+
+  <div class="space-y-8">
+    <section class="gradient-border p-6">
+      <h2 class="text-2xl font-bold text-text mb-3">NexusAOS — Governance-First Agentic OS</h2>
+      <p class="text-text-muted mb-4">
+        Multi-agent swarm executor with collision detection, namespace isolation, quorum voting, and atomic fission in Python + asyncio.
+      </p>
+      <ul class="list-disc list-inside text-text-muted space-y-1">
+        <li>Local LLM inference pipeline with Phi-4-Mini QLoRA adapters</li>
+        <li>30+ MCP tools via FastMCP for metabolic, planning, immune, and physical substrate control</li>
+        <li>Adapter-routed inference with curriculum learning and evaluation harness</li>
+      </ul>
+    </section>
+
+    <section class="gradient-border p-6">
+      <h2 class="text-2xl font-bold text-text mb-3">nexus-kernel — Rust AI Microkernel</h2>
+      <p class="text-text-muted mb-4">
+        Production-ready Rust 2024 microkernel with 12 workspace crates, 981 passing tests, and full CI/CD.
+      </p>
+      <ul class="list-disc list-inside text-text-muted space-y-1">
+        <li>Event-sourced append-only audit trail and policy engine with trust tiers</li>
+        <li>OpenAI-compatible and Anthropic streaming with real-time token streaming</li>
+        <li>Native terminal emulation (PTY + VT100 + Zig parser), SSH multiplexing</li>
+        <li>Multi-interface: CLI / TUI / GUI / RPC</li>
+      </ul>
+    </section>
+
+    <section class="gradient-border p-6">
+      <h2 class="text-2xl font-bold text-text mb-3">SeshaOS — Local-First AI OS</h2>
+      <p class="text-text-muted mb-4">
+        NexusAOS v2 with specialist local models and LiteLLM-compatible routing.
+      </p>
+      <ul class="list-disc list-inside text-text-muted space-y-1">
+        <li>Specialist model stack: Gemma 4 12B (Planner), Qwen3-Coder 30B (Implementation), Qwen3.5 9B (Vision)</li>
+        <li>Kernel-centric governance where models propose actions and the kernel validates/records state changes</li>
+        <li>LiteLLM-compatible proxy support for NVIDIA NIM and other providers</li>
+        <li>Event-sourced architecture with reversible, permissioned actions and offline-first execution</li>
+      </ul>
+    </section>
+
+    <section class="gradient-border p-6">
+      <h2 class="text-2xl font-bold text-text mb-3">Vyākṛti — Compiler + IDE</h2>
+      <p class="text-text-muted mb-4">
+        Sanskrit-oriented programming language with complete compiler pipeline and browser-based IDE.
+      </p>
+      <ul class="list-disc list-inside text-text-muted space-y-1">
+        <li>Complete compiler pipeline: lexer → parser → type checker → bytecode compiler in Rust</li>
+        <li>Browser IDE with React, Monaco Editor, syntax highlighting, autocomplete, and diagnostics</li>
+        <li>Rust (axum) backend with compile, REPL, LSP, and file management endpoints</li>
+        <li>123 tests covering the full pipeline, including a self-hosting corpus</li>
+      </ul>
+    </section>
+  </div>
 </div>
