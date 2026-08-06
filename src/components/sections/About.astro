@@ -1,6 +1,4 @@
 ---
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { SITE_CONFIG } from '../../data/config.js'
 ---
 
@@ -42,7 +40,7 @@ import { SITE_CONFIG } from '../../data/config.js'
         SITE_CONFIG.location,
         'Open to relocation',
       ].map((tag) => (
-        <span key={tag} class="px-3 py-1 rounded-full text-sm bg-bg-card border border-border text-text-muted hover:border-primary/30 hover:text-text transition-all">
+        <span class="px-3 py-1 rounded-full text-sm bg-bg-card border border-border text-text-muted hover:border-primary/30 hover:text-text transition-all">
           {tag}
         </span>
       ))}

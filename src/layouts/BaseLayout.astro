@@ -1,6 +1,5 @@
 ---
-import { SITE_CONFIG, NAV_ITEMS, SOCIAL_LINKS } from '../data/config.js'
-import { scrollProgress } from '../utils/gsap'
+import { SITE_CONFIG, NAV_ITEMS } from '../data/config.js'
 ---
 
 <html lang="en">
@@ -29,7 +28,7 @@ import { scrollProgress } from '../utils/gsap'
     <meta name="twitter:description" content={Astro.props.description || SITE_CONFIG.description} />
     <meta name="twitter:image" content={`https://gaganjain.vercel.app/og-image.png`} />
 
-    <script type="application/ld+json">
+    <script type="application/ld+json" is:inline>
     {
       "@context": "https://schema.org",
       "@type": "Person",
@@ -70,7 +69,6 @@ import { scrollProgress } from '../utils/gsap'
             <div class="hidden md:flex items-center gap-1" role="menubar">
               {NAV_ITEMS.map((item) => (
                 <a
-                  key={item.id}
                   href={`#${item.id}`}
                   role="menuitem"
                   class="px-3 py-2 rounded-lg text-sm font-medium transition-all text-text-muted hover:text-text hover:bg-bg-card/80"
@@ -97,7 +95,6 @@ import { scrollProgress } from '../utils/gsap'
           <div id="mobile-menu" class="md:hidden hidden pb-4 border-t border-border mt-2 pt-2 overflow-hidden glass rounded-b-xl">
             {NAV_ITEMS.map((item) => (
               <a
-                key={item.id}
                 href={`#${item.id}`}
                 class="block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all text-text-muted hover:text-text hover:bg-bg-card/80"
                 data-nav={item.id}

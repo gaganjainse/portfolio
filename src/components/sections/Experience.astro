@@ -1,7 +1,3 @@
----
-import { SITE_CONFIG } from '../../data/config.js'
----
-
 <section id="experience" class="py-24 px-4 sm:px-6 bg-bg" aria-labelledby="experience-heading">
   <div class="max-w-4xl mx-auto">
     <h2 id="experience-heading" class="text-3xl sm:text-4xl font-bold mb-2">
@@ -44,7 +40,7 @@ import { SITE_CONFIG } from '../../data/config.js'
 
         <div class="flex flex-wrap gap-2">
           {["CODESYS", "Factory I/O", "Node-RED", "PLC", "HMI", "Industrial IoT"].map((tag) => (
-            <span key={tag} class="px-2.5 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border">
+            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border">
               {tag}
             </span>
           ))}

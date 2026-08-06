@@ -28,7 +28,6 @@ import { SITE_CONFIG, SOCIAL_LINKS } from '../../data/config.js'
       </a>
       {SOCIAL_LINKS.filter(l => l.name !== 'Email').map((link) => (
         <a
-          key={link.name}
           href={link.url}
           target="_blank"
           rel="noopener noreferrer"
