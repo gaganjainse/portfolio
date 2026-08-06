@@ -107,7 +107,6 @@ export const PROJECTS: Project[] = [
     github: "https://github.com/gaganjainse/Vyakrti",
     demo: "https://vyakrti.vercel.app",
     featured: true,
-    image: "/images/vyakrti.png",
   },
   {
     name: "vyakrti-ide",
@@ -138,7 +137,6 @@ export const PROJECTS: Project[] = [
     github: "https://github.com/gaganjainse/AIM",
     demo: "https://aim-live.vercel.app",
     featured: true,
-    image: "/images/aim.png",
   },
   {
     name: "Food Waste Reduction System (FWRS)",

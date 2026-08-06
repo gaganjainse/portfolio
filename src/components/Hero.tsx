@@ -33,7 +33,7 @@ export default function Hero() {
               <div className="w-28 h-28 rounded-full border-2 border-primary/30 overflow-hidden bg-bg-card">
                 <img
                   src="/profile.jpg"
-                  alt="Gagan Jain — Software Engineer"
+                  alt="Gagan Jain — AI / LLM Engineer"
                   className="w-full h-full object-cover object-center"
                   loading="eager"
                   width={112}
