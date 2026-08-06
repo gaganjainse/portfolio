@@ -67,7 +67,7 @@ export default function Hero() {
 
           {/* Subtitle */}
           <motion.p variants={item} className="text-base text-text-muted/70 mb-8 max-w-xl mx-auto">
-            CS @ VIT Vellore · Building Vyākṛti — a programming language with a web IDE
+            CS @ VIT Vellore · GenAI / LLM / Agentic AI — RAG, fine-tuning, multi-agent orchestration, and production AI platforms
           </motion.p>
 
           {/* CTAs */}
@@ -80,11 +80,11 @@ export default function Hero() {
               View Projects
             </a>
             <a
-              href="/resume.pdf"
+              href="/resume.html"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 rounded-lg font-medium border border-accent/30 text-accent hover:bg-accent/10 transition-all hover:-translate-y-0.5"
-              aria-label="Download resume PDF (opens in new tab)"
+              aria-label="Open resume HTML (opens in new tab)"
             >
               Resume
             </a>

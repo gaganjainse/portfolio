@@ -11,19 +11,21 @@ export default function About() {
 
         <div className="space-y-4 text-text-muted text-lg leading-relaxed">
           <p>
-            I'm a Computer Science student at <span className="text-text font-medium">VIT Vellore</span> (expected graduation {SITE_CONFIG.graduation}, CGPA {SITE_CONFIG.cgpa}) who builds real, working software — from full-stack web apps to my own programming language and developer tooling.
+            I'm a Computer Science student at <span className="text-text font-medium">VIT Vellore</span> (expected graduation {SITE_CONFIG.graduation}, CGPA {SITE_CONFIG.cgpa}) focused on <span className="text-text font-medium">GenAI, LLMs, and agentic AI systems</span> — from RAG pipelines and fine-tuned models to multi-agent orchestration and production AI platforms.
           </p>
           <p>
-            My degree ran longer than the standard four years — time I used to build{' '}
-            <span className="text-primary-light font-medium">Vyākṛti</span> (a complete programming language with compiler and web IDE),{' '}
-            <span className="text-primary-light font-medium">AIM</span> (a production-hardened attendance system with 101 tests and CI/CD),{' '}
-            <span className="text-primary-light font-medium">FWRS</span> (a food waste optimization platform using linear programming), and several other full-stack applications.
+            My key AI projects include <span className="text-primary-light font-medium">NexusAOS</span> (a governance-first agentic OS with multi-agent swarm orchestration, LLM fine-tuning with QLoRA, and 30+ MCP tools),{' '}
+            <span className="text-primary-light font-medium">nexus-kernel</span> (a production-ready Rust AI microkernel with 981 tests, event-sourced governance, and OpenAI/Anthropic streaming), and{' '}
+            <span className="text-primary-light font-medium">SeshaOS</span> (a local-first AI OS with specialist models: Gemma 4 12B, Qwen3-Coder 30B, Qwen3.5 9B).{' '}
+            I've also built <span className="text-primary-light font-medium">Vyākṛti</span> (a complete programming language with compiler and web IDE),{' '}
+            <span className="text-primary-light font-medium">AIM</span> (a production-hardened attendance system with 101 tests and CI/CD), and{' '}
+            <span className="text-primary-light font-medium">FWRS</span> (a food waste optimization platform using linear programming).
           </p>
           <p>
             I've also completed an Industry 5.0 industrial automation training internship, working with PLCs (CODESYS), process simulation (Factory I/O), and Node-RED.
           </p>
           <p>
-            I'm looking for <span className="text-text">Software Engineer</span>, <span className="text-text">Full Stack Developer</span>, or <span className="text-text">AI/LLM Developer</span> roles. Based in {SITE_CONFIG.location} and open to relocation.
+            I'm looking for <span className="text-text">GenAI / LLM Engineer</span>, <span className="text-text">Agentic AI Engineer</span>, or <span className="text-text">AI Engineer</span> roles. Based in {SITE_CONFIG.location} and open to relocation.
           </p>
         </div>
 
