@@ -8,7 +8,13 @@ import { SITE_CONFIG } from '../data/config.js'
 
 <div class="max-w-4xl mx-auto px-4 sm:px-6 py-24">
   <div class="text-center mb-12">
-    <h1 class="text-4xl sm:text-5xl font-bold mb-4 gradient-text">Gagan Jain</h1>
+    <a href="/" class="inline-flex items-center gap-2 text-sm text-text-muted hover:text-text transition-colors mb-6">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+      Back to Portfolio
+    </a>
+    <h1 class="text-4xl sm:text-5xl font-bold mb-4 gradient-text break-words">Gagan Jain</h1>
     <p class="text-xl text-text-muted mb-2">AI / LLM Engineer</p>
     <p class="text-text-muted">
       Jaipur, India &middot; +91 95872 55792 &middot; <a href={`mailto:${SITE_CONFIG.email}`} class="text-accent hover:underline">{SITE_CONFIG.email}</a>
@@ -86,6 +92,9 @@ import { SITE_CONFIG } from '../data/config.js'
             <span key={tech} class="px-2 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border">{tech}</span>
           ))}
         </div>
+        <div class="flex items-center gap-4 mt-3">
+          <a href="https://github.com/gaganjainse/NexusAOS" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm text-text-muted hover:text-primary-light transition-colors">Source Code</a>
+        </div>
       </div>
 
       <div class="gradient-border p-6">
@@ -104,6 +113,9 @@ import { SITE_CONFIG } from '../data/config.js'
           {["Rust", "Tokio", "OpenAI", "Anthropic", "SQLite", "Ratatui", "Iced", "SSH", "Event Sourcing"].map((tech) => (
             <span key={tech} class="px-2 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border">{tech}</span>
           ))}
+        </div>
+        <div class="flex items-center gap-4 mt-3">
+          <a href="https://github.com/gaganjainse/nexus-kernel" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm text-text-muted hover:text-primary-light transition-colors">Source Code</a>
         </div>
       </div>
 
@@ -124,6 +136,9 @@ import { SITE_CONFIG } from '../data/config.js'
             <span key={tech} class="px-2 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border">{tech}</span>
           ))}
         </div>
+        <div class="flex items-center gap-4 mt-3">
+          <a href="https://github.com/gaganjainse/SeshaOS" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm text-text-muted hover:text-primary-light transition-colors">Source Code</a>
+        </div>
       </div>
 
       <div class="gradient-border p-6">
@@ -143,6 +158,9 @@ import { SITE_CONFIG } from '../data/config.js'
             <span key={tech} class="px-2 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border">{tech}</span>
           ))}
         </div>
+        <div class="flex items-center gap-4 mt-3">
+          <a href="https://github.com/gaganjainse/Vyakrti" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm text-text-muted hover:text-primary-light transition-colors">Source Code</a>
+        </div>
       </div>
 
       <div class="gradient-border p-6">
@@ -159,6 +177,9 @@ import { SITE_CONFIG } from '../data/config.js'
           {["Python", "Flask", "MySQL", "Bootstrap", "Chart.js", "Docker", "GitHub Actions"].map((tech) => (
             <span key={tech} class="px-2 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border">{tech}</span>
           ))}
+        </div>
+        <div class="flex items-center gap-4 mt-3">
+          <a href="https://github.com/gaganjainse/AIM" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm text-text-muted hover:text-primary-light transition-colors">Source Code</a>
         </div>
       </div>
     </div>
