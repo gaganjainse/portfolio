@@ -13,6 +13,15 @@ const TAG_COLORS: Record<string, string> = {
   DEVOPS: 'bg-amber-500/20 text-amber-400',
 }
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.08, duration: 0.5, ease: [0.16, 1, 0.3, 1] as const },
+  }),
+}
+
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('All')
 
@@ -38,7 +47,7 @@ export default function Projects() {
               aria-selected={activeFilter === filter}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                 activeFilter === filter
-                  ? 'bg-primary text-white'
+                  ? 'bg-primary text-white shadow-lg shadow-primary/25'
                   : 'bg-bg-card border border-border text-text-muted hover:text-text hover:border-primary/30'
               }`}
             >
@@ -57,10 +66,14 @@ export default function Projects() {
             transition={{ duration: 0.3 }}
             className="grid grid-cols-1 lg:grid-cols-2 gap-6"
           >
-            {filtered.map((project) => (
-              <article
+            {filtered.map((project, i) => (
+              <motion.article
                 key={project.name}
-                className="project-card bg-bg-card border border-border rounded-xl p-6 sm:p-8 hover:border-primary/30 transition-all"
+                custom={i}
+                variants={cardVariants}
+                initial="hidden"
+                animate="visible"
+                className="card-glow gradient-border p-6 sm:p-8 transition-all"
               >
                 <div className="flex flex-wrap items-center gap-3 mb-3">
                   <span className={`px-2.5 py-0.5 rounded-full text-xs font-bold ${TAG_COLORS[project.tag] || 'bg-bg-card text-text-muted border border-border'}`}>
@@ -84,7 +97,7 @@ export default function Projects() {
 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.stack.map((tech) => (
-                    <span key={tech} className="px-2.5 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border">
+                    <span key={tech} className="px-2.5 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border hover:border-primary/30 hover:text-text transition-colors">
                       {tech}
                     </span>
                   ))}
@@ -118,7 +131,7 @@ export default function Projects() {
                     </a>
                   )}
                 </div>
-              </article>
+              </motion.article>
             ))}
           </motion.div>
         </AnimatePresence>
