@@ -116,12 +116,16 @@ import { SITE_CONFIG, SOCIAL_LINKS } from '../../data/config.js'
         href="/resume.pdf"
         target="_blank"
         rel="noopener noreferrer"
-        class="px-3 py-3.5 rounded-xl font-medium border border-border text-text hover:border-primary/50 hover:text-primary-light transition-all"
+        class="group relative px-3 py-3.5 rounded-xl font-medium bg-primary text-white hover:bg-primary-light transition-all hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 overflow-hidden"
         aria-label="Download Resume PDF"
       >
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-        </svg>
+        <span class="relative z-10 flex items-center gap-2">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          Resume
+        </span>
+        <div class="absolute inset-0 bg-gradient-to-r from-primary-light to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
       </a>
     </div>
   </div>
