@@ -85,7 +85,7 @@ import '../styles/global.css'
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Resume
+                Résumé
               </a>
             </div>
 
@@ -119,7 +119,7 @@ import '../styles/global.css'
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Resume
+                Résumé
               </a>
             </div>
           </div>
@@ -200,6 +200,7 @@ import '../styles/global.css'
       sections.forEach(section => observer.observe(section))
 
       window.addEventListener('scroll', () => {
+        if (window.location.pathname === '/resume') return
         if (window.scrollY < 100) {
           navLinks.forEach(link => {
             link.classList.remove('active')
