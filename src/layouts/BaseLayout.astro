@@ -80,7 +80,7 @@ import '../styles/global.css'
               ))}
               <a
                 href="/resume"
-                class="nav-link ml-2 px-4 py-2 rounded-lg text-sm font-medium border border-border text-text hover:border-primary/50 hover:text-primary-light transition-all"
+                class="nav-link ml-2 px-3 py-2 rounded-lg text-sm font-medium transition-all text-text-muted hover:text-text hover:bg-bg-card/80"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -114,7 +114,7 @@ import '../styles/global.css'
               ))}
               <a
                 href="/resume"
-                class="nav-link block w-full text-left px-4 py-3 rounded-lg text-base font-medium border border-border text-text hover:border-primary/50 hover:text-primary-light transition-all"
+                class="nav-link block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all text-text-muted hover:text-text hover:bg-bg-card/80"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -126,7 +126,7 @@ import '../styles/global.css'
       </nav>
     </header>
 
-    <main id="main-content">
+    <main id="main-content" class="scroll-mt-16">
       <slot />
     </main>
 
@@ -136,11 +136,11 @@ import '../styles/global.css'
           &copy; {new Date().getFullYear()} Gagan Jain &middot; Built with Astro + GSAP + Tailwind CSS
         </p>
         <div class="flex items-center justify-center gap-4 text-sm">
-          <a href="/resume" target="_blank" rel="noopener noreferrer" class="px-4 py-2 rounded-lg border border-border text-text hover:border-primary/50 hover:text-primary-light transition-all">
+          <a href="/resume" target="_blank" rel="noopener noreferrer" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all text-text-muted hover:text-text hover:bg-bg-card/80">
             Resume
           </a>
           <span class="text-border">&middot;</span>
-          <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="px-4 py-2 rounded-lg border border-border text-text hover:border-primary/50 hover:text-primary-light transition-all">
+          <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all text-text-muted hover:text-text hover:bg-bg-card/80">
             Back to top
           </button>
         </div>
@@ -200,7 +200,6 @@ import '../styles/global.css'
 
       const nav = document.querySelector('nav')
       if (nav) {
-        let lastScroll = 0
         window.addEventListener('scroll', () => {
           const currentScroll = window.scrollY
           if (currentScroll > 50) {
@@ -210,7 +209,6 @@ import '../styles/global.css'
             nav.style.backdropFilter = 'blur(12px)'
             nav.style.borderBottomColor = 'rgba(30, 41, 59, 0.6)'
           }
-          lastScroll = currentScroll
         }, { passive: true })
       }
     </script>
