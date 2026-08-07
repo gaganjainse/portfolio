@@ -12,7 +12,7 @@ import { useScrollReveal } from '../../utils/gsap.ts'
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
       {PROJECTS.map((project) => (
-        <article class="project-card gradient-border p-6 sm:p-8 transition-all">
+        <article class="project-card gradient-border p-6 sm:p-8 transition-all card-glow">
           <div class="flex flex-wrap items-center gap-3 mb-3">
             <span class={`px-2.5 py-0.5 rounded-full text-xs font-bold ${getTagClasses(project.tagColor)}`}>
               {project.tag}
@@ -30,7 +30,7 @@ import { useScrollReveal } from '../../utils/gsap.ts'
           </ul>
           <div class="flex flex-wrap gap-2 mb-4">
             {project.tech.map((tech) => (
-              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border hover:border-primary/30 hover:text-text transition-colors">{tech}</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border hover:border-primary/30 hover:text-text transition-colors cursor-default">{tech}</span>
             ))}
           </div>
           <div class="flex items-center gap-4">
