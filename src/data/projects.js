@@ -1,6 +1,17 @@
+const GITHUB_BASE = 'https://github.com/gaganjainse'
+
+export const TAG_CLASSES = {
+  pink: 'bg-pink-500/20 text-pink-400',
+  green: 'bg-green-500/20 text-green-400',
+  primary: 'bg-primary/20 text-primary-light',
+}
+
+export function getTagClasses(tagColor) {
+  return TAG_CLASSES[tagColor] || TAG_CLASSES.primary
+}
+
 export const PROJECTS = [
   {
-    slug: 'NexusAOS',
     title: 'NexusAOS',
     tag: 'AI/AGENTIC',
     tagColor: 'pink',
@@ -12,10 +23,9 @@ export const PROJECTS = [
       'Designed adapter-routed inference with curriculum learning, evaluation harness, and model benchmarking',
     ],
     tech: ['Python', 'FastMCP', 'QLoRA', 'Unsloth', 'Multi-Agent', 'MCP', 'AsyncIO', 'Rust', 'Zig'],
-    github: 'https://github.com/gaganjainse/NexusAOS',
+    github: `${GITHUB_BASE}/NexusAOS`,
   },
   {
-    slug: 'nexus-kernel',
     title: 'nexus-kernel',
     tag: 'AI/AGENTIC',
     tagColor: 'pink',
@@ -27,10 +37,9 @@ export const PROJECTS = [
       'Delivered native terminal emulation (PTY + VT100 + Zig parser), SSH multiplexing, and multi-interface CLI/TUI/GUI/RPC',
     ],
     tech: ['Rust', 'Tokio', 'OpenAI', 'Anthropic', 'SQLite', 'Ratatui', 'Iced', 'SSH', 'Event Sourcing'],
-    github: 'https://github.com/gaganjainse/nexus-kernel',
+    github: `${GITHUB_BASE}/nexus-kernel`,
   },
   {
-    slug: 'SeshaOS',
     title: 'SeshaOS',
     tag: 'AI/AGENTIC',
     tagColor: 'pink',
@@ -42,10 +51,9 @@ export const PROJECTS = [
       'Maintained event-sourced architecture with reversible, permissioned actions and offline-first execution',
     ],
     tech: ['Rust', 'LiteLLM', 'Gemma', 'Qwen', 'Local LLMs', 'Governance', 'Event Sourcing', 'Ubuntu'],
-    github: 'https://github.com/gaganjainse/SeshaOS',
+    github: `${GITHUB_BASE}/SeshaOS`,
   },
   {
-    slug: 'Vyakrti',
     title: 'Vyākṛti',
     tag: 'FLAGSHIP',
     tagColor: 'primary',
@@ -57,10 +65,9 @@ export const PROJECTS = [
       '123 tests covering the full pipeline, including a self-hosting corpus',
     ],
     tech: ['Rust', 'React', 'TypeScript', 'Monaco Editor', 'Zustand', 'Tailwind CSS', 'Axum'],
-    github: 'https://github.com/gaganjainse/Vyakrti',
+    github: `${GITHUB_BASE}/Vyakrti`,
   },
   {
-    slug: 'AIM',
     title: 'AIM — Attendance Information Manager',
     tag: 'PRODUCTION-READY',
     tagColor: 'green',
@@ -70,6 +77,7 @@ export const PROJECTS = [
       'Deployed Prometheus metrics, structured JSON logging, Chart.js analytics, FullCalendar scheduling, Docker Compose, and GitHub Actions CI/CD; 101 automated pytest tests',
     ],
     tech: ['Python', 'Flask', 'MySQL', 'Bootstrap', 'Chart.js', 'Docker', 'GitHub Actions'],
-    github: 'https://github.com/gaganjainse/AIM',
+    github: `${GITHUB_BASE}/AIM`,
   },
 ]
+

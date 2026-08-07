@@ -1,5 +1,5 @@
 ---
-import { PROJECTS } from '../../data/projects.js'
+import { PROJECTS, getTagClasses } from '../../data/projects.js'
 import { useScrollReveal } from '../../utils/gsap.ts'
 ---
 
@@ -14,7 +14,7 @@ import { useScrollReveal } from '../../utils/gsap.ts'
       {PROJECTS.map((project) => (
         <article class="project-card gradient-border p-6 sm:p-8 transition-all">
           <div class="flex flex-wrap items-center gap-3 mb-3">
-            <span class={`px-2.5 py-0.5 rounded-full text-xs font-bold ${project.tagColor === 'pink' ? 'bg-pink-500/20 text-pink-400' : project.tagColor === 'green' ? 'bg-green-500/20 text-green-400' : 'bg-primary/20 text-primary-light'}`}>
+            <span class={`px-2.5 py-0.5 rounded-full text-xs font-bold ${getTagClasses(project.tagColor)}`}>
               {project.tag}
             </span>
             <h3 class="text-xl sm:text-2xl font-bold text-text">{project.title}</h3>
@@ -42,7 +42,7 @@ import { useScrollReveal } from '../../utils/gsap.ts'
   </div>
 </section>
 
-<script>
+<script client:load>
   import { useScrollReveal } from '../../utils/gsap.ts'
 
   useScrollReveal({

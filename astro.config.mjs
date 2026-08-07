@@ -12,7 +12,6 @@ export default defineConfig({
     sitemap({
       changefreq: 'weekly',
       priority: 0.7,
-      lastmod: new Date(),
       serialize(item) {
         if (item.url === 'https://gaganjain.vercel.app/') {
           item.priority = 1.0
