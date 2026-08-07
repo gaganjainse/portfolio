@@ -105,7 +105,7 @@ import '../styles/global.css'
             </button>
           </div>
 
-          <div id="mobile-menu" class="md:hidden hidden absolute top-16 right-4 w-64 glass rounded-xl border border-border shadow-2xl shadow-black/20 z-50">
+          <div id="mobile-menu" class="md:hidden hidden absolute top-16 right-4 min-w-[160px] glass rounded-xl border border-border shadow-2xl shadow-black/20 z-50">
             <div class="space-y-1 p-2">
               {NAV_ITEMS.map((item) => (
                 <a
@@ -220,6 +220,19 @@ import '../styles/global.css'
               link.classList.add('active')
             }
           })
+        } else {
+          const contactSection = document.querySelector('#contact')
+          if (contactSection) {
+            const rect = contactSection.getBoundingClientRect()
+            if (rect.top < window.innerHeight * 0.8) {
+              navLinks.forEach(link => {
+                link.classList.remove('active')
+                if (link.getAttribute('data-nav') === 'contact') {
+                  link.classList.add('active')
+                }
+              })
+            }
+          }
         }
       }, { passive: true })
 
