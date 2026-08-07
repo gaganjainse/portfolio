@@ -1,9 +1,9 @@
 const GITHUB_BASE = 'https://github.com/gaganjainse'
 
 export const TAG_CLASSES = {
-  pink: 'bg-pink-500/20 text-pink-400',
-  green: 'bg-green-500/20 text-green-400',
-  primary: 'bg-primary/20 text-primary-light',
+  pink: 'bg-pink-500/20 text-pink-400 cursor-default hover:shadow-[0_0_8px_rgba(236,72,153,0.4)] hover:border-pink-500/50 transition-all',
+  green: 'bg-green-500/20 text-green-400 cursor-default hover:shadow-[0_0_8px_rgba(16,185,129,0.4)] hover:border-green-500/50 transition-all',
+  primary: 'bg-primary/20 text-primary-light cursor-default hover:shadow-[0_0_8px_rgba(124,58,237,0.4)] hover:border-primary/50 transition-all',
 }
 
 export function getTagClasses(tagColor) {
