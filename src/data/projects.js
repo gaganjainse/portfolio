@@ -79,5 +79,19 @@ export const PROJECTS = [
     tech: ['Python', 'Flask', 'MySQL', 'Bootstrap', 'Chart.js', 'Docker', 'GitHub Actions'],
     github: `${GITHUB_BASE}/AIM`,
   },
+  {
+    title: 'FWRS — Food Waste Reduction System',
+    tag: 'PRODUCTION-READY',
+    tagColor: 'green',
+    description: 'Food waste optimization platform using linear programming and route optimization.',
+    bullets: [
+      'Built linear programming models to minimize food waste and optimize distribution routes',
+      'Implemented route optimization algorithms for efficient collection and delivery scheduling',
+      'Integrated Folium-based mapping and visualization for route planning and monitoring',
+      'Deployed as a full-stack platform with real-time tracking and analytics dashboard',
+    ],
+    tech: ['Python', 'PuLP', 'Folium', 'Flask', 'MySQL', 'Bootstrap'],
+    github: `${GITHUB_BASE}/FWRS`,
+  },
 ]
 
