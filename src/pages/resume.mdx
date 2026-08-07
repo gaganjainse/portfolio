@@ -5,21 +5,22 @@ description: "Resume of Gagan Jain, AI / LLM Engineer"
 ---
 
 import { SITE_CONFIG } from '../data/config.js'
+import { PROJECTS } from '../data/projects.js'
 
-<div class="max-w-4xl mx-auto px-4 sm:px-6 py-24">
-  <div class="text-center mb-12">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 pb-16">
+  <div class="text-center mb-10">
     <a href="/" class="inline-flex items-center gap-2 text-sm text-text-muted hover:text-text transition-colors mb-6">
       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
       </svg>
       Back to Portfolio
     </a>
-    <h1 class="text-4xl sm:text-5xl font-bold mb-4 gradient-text break-words">Gagan Jain</h1>
-    <p class="text-xl text-text-muted mb-2">AI / LLM Engineer</p>
+    <h1 class="text-3xl sm:text-4xl font-bold mb-3 gradient-text">Gagan Jain</h1>
+    <p class="text-lg text-text-muted mb-2">AI / LLM Engineer</p>
     <p class="text-text-muted">
       Jaipur, India &middot; +91 95872 55792 &middot; <a href={`mailto:${SITE_CONFIG.email}`} class="text-accent hover:underline">{SITE_CONFIG.email}</a>
     </p>
-    <div class="flex items-center justify-center gap-4 mt-4 text-sm">
+    <div class="flex flex-wrap items-center justify-center gap-3 mt-3 text-sm">
       <a href="https://linkedin.com/in/gaganjainse" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">linkedin.com/in/gaganjainse</a>
       <span class="text-border">&middot;</span>
       <a href="https://github.com/gaganjainse" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">github.com/gaganjainse</a>
@@ -28,18 +29,18 @@ import { SITE_CONFIG } from '../data/config.js'
     </div>
   </div>
 
-  <section class="mb-12">
-    <h2 class="text-2xl font-bold gradient-text mb-4">Professional Summary</h2>
+  <section class="mb-10 scroll-mt-24">
+    <h2 class="text-xl font-bold gradient-text mb-3">Professional Summary</h2>
     <p class="text-text-muted leading-relaxed">
       AI/LLM Engineer with hands-on experience building and deploying production-grade GenAI systems, agentic AI frameworks, and LLM-powered applications. Core strengths include RAG pipelines, multi-agent orchestration, LLM fine-tuning (QLoRA/LoRA), prompt and context engineering, MCP tooling, and evaluation/observability. Strong Python foundation with end-to-end deployment experience using Docker, CI/CD, and cloud platforms.
     </p>
   </section>
 
-  <section class="mb-12">
-    <h2 class="text-2xl font-bold gradient-text mb-4">Technical Skills</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="gradient-border p-6">
-        <h3 class="text-lg font-semibold text-text mb-3">AI / LLM</h3>
+  <section class="mb-10 scroll-mt-24">
+    <h2 class="text-xl font-bold gradient-text mb-3">Technical Skills</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="border border-border rounded-xl p-5">
+        <h3 class="text-base font-semibold text-text mb-2">AI / LLM</h3>
         <ul class="space-y-1 text-sm text-text-muted">
           <li>LLM Integration, RAG Pipelines, Agentic AI Frameworks</li>
           <li>Prompt Engineering, Context Engineering, Multi-Agent Systems</li>
@@ -48,22 +49,22 @@ import { SITE_CONFIG } from '../data/config.js'
           <li>Vector Databases, Evaluation &amp; Observability, AI Governance</li>
         </ul>
       </div>
-      <div class="gradient-border p-6">
-        <h3 class="text-lg font-semibold text-text mb-3">Languages</h3>
+      <div class="border border-border rounded-xl p-5">
+        <h3 class="text-base font-semibold text-text mb-2">Languages</h3>
         <ul class="space-y-1 text-sm text-text-muted">
           <li>Python, TypeScript, JavaScript, Rust</li>
           <li>PHP, C, C++, HTML/CSS</li>
         </ul>
       </div>
-      <div class="gradient-border p-6">
-        <h3 class="text-lg font-semibold text-text mb-3">Backend &amp; APIs</h3>
+      <div class="border border-border rounded-xl p-5">
+        <h3 class="text-base font-semibold text-text mb-2">Backend &amp; APIs</h3>
         <ul class="space-y-1 text-sm text-text-muted">
           <li>Flask, FastAPI, Node.js, Express, Laravel</li>
           <li>REST APIs, WebSockets, FastMCP</li>
         </ul>
       </div>
-      <div class="gradient-border p-6">
-        <h3 class="text-lg font-semibold text-text mb-3">Databases &amp; DevOps</h3>
+      <div class="border border-border rounded-xl p-5">
+        <h3 class="text-base font-semibold text-text mb-2">Databases &amp; DevOps</h3>
         <ul class="space-y-1 text-sm text-text-muted">
           <li>MySQL, MongoDB, Redis, SQLite</li>
           <li>Docker, GitHub Actions, Nginx, Gunicorn, Prometheus, Linux</li>
@@ -72,132 +73,44 @@ import { SITE_CONFIG } from '../data/config.js'
     </div>
   </section>
 
-  <section class="mb-12">
-    <h2 class="text-2xl font-bold gradient-text mb-4">Projects</h2>
-    <div class="space-y-6">
-      <div class="gradient-border p-6">
-        <div class="flex flex-wrap items-center gap-3 mb-2">
-          <h3 class="text-xl font-bold text-text">NexusAOS</h3>
-          <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-pink-500/20 text-pink-400">AI/AGENTIC</span>
+  <section class="mb-10 scroll-mt-24">
+    <h2 class="text-xl font-bold gradient-text mb-4">Projects</h2>
+    <div class="space-y-5">
+      {PROJECTS.map((project) => (
+        <div class="border border-border rounded-xl p-5">
+          <div class="flex flex-wrap items-center gap-2 mb-2">
+            <h3 class="text-lg font-bold text-text">{project.title}</h3>
+            <span class={`px-2 py-0.5 rounded-full text-xs font-bold ${project.tagColor === 'pink' ? 'bg-pink-500/20 text-pink-400' : project.tagColor === 'green' ? 'bg-green-500/20 text-green-400' : 'bg-primary/20 text-primary-light'}`}>
+              {project.tag}
+            </span>
+          </div>
+          <p class="text-text-muted text-sm mb-2">{project.description}</p>
+          <ul class="space-y-1 text-sm text-text-muted mb-3">
+            {project.bullets.map((bullet) => (
+              <li>&bull; {bullet}</li>
+            ))}
+          </ul>
+          <div class="flex flex-wrap items-center gap-3 mt-3">
+            <a href={project.github} target="_blank" rel="noopener noreferrer" class="text-sm text-primary-light hover:text-text transition-colors">Source Code</a>
+          </div>
         </div>
-        <p class="text-text-muted text-sm mb-3">Governance-first agentic OS with multi-agent swarm orchestration, LLM fine-tuning, and 30+ MCP tools.</p>
-        <ul class="space-y-2 text-sm text-text-muted">
-          <li>&bull; Built multi-agent swarm executor with collision detection, namespace isolation, quorum voting, and atomic fission in Python + asyncio</li>
-          <li>&bull; Integrated local LLM inference with Phi-4-Mini QLoRA adapters, AB/AP balance enforcement, and constitution-guided routing</li>
-          <li>&bull; Exposed 30+ MCP tools via FastMCP for metabolic, planning, immune, and physical substrate control</li>
-          <li>&bull; Designed adapter-routed inference with curriculum learning, evaluation harness, and model benchmarking</li>
-        </ul>
-        <div class="flex flex-wrap gap-2 mt-3">
-          {["Python", "FastMCP", "QLoRA", "Unsloth", "Multi-Agent", "MCP", "AsyncIO", "Rust", "Zig"].map((tech) => (
-            <span key={tech} class="px-2 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border">{tech}</span>
-          ))}
-        </div>
-        <div class="flex items-center gap-4 mt-3">
-          <a href="https://github.com/gaganjainse/NexusAOS" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm text-text-muted hover:text-primary-light transition-colors">Source Code</a>
-        </div>
-      </div>
-
-      <div class="gradient-border p-6">
-        <div class="flex flex-wrap items-center gap-3 mb-2">
-          <h3 class="text-xl font-bold text-text">nexus-kernel</h3>
-          <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-pink-500/20 text-pink-400">AI/AGENTIC</span>
-        </div>
-        <p class="text-text-muted text-sm mb-3">Production-ready Rust microkernel for local-first AI with event-sourced governance, OpenAI/Anthropic streaming, and 981 tests.</p>
-        <ul class="space-y-2 text-sm text-text-muted">
-          <li>&bull; Built Rust 2024 microkernel with 12 workspace crates, 981 passing tests, 0 clippy warnings, and full CI/CD</li>
-          <li>&bull; Implemented event-sourced append-only audit trail, policy engine with trust tiers, and provider-swappable model interface</li>
-          <li>&bull; Integrated OpenAI-compatible and Anthropic streaming with real-time token streaming into TUI/GUI</li>
-          <li>&bull; Delivered native terminal emulation (PTY + VT100 + Zig parser), SSH multiplexing, and multi-interface CLI/TUI/GUI/RPC</li>
-        </ul>
-        <div class="flex flex-wrap gap-2 mt-3">
-          {["Rust", "Tokio", "OpenAI", "Anthropic", "SQLite", "Ratatui", "Iced", "SSH", "Event Sourcing"].map((tech) => (
-            <span key={tech} class="px-2 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border">{tech}</span>
-          ))}
-        </div>
-        <div class="flex items-center gap-4 mt-3">
-          <a href="https://github.com/gaganjainse/nexus-kernel" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm text-text-muted hover:text-primary-light transition-colors">Source Code</a>
-        </div>
-      </div>
-
-      <div class="gradient-border p-6">
-        <div class="flex flex-wrap items-center gap-3 mb-2">
-          <h3 class="text-xl font-bold text-text">SeshaOS</h3>
-          <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-pink-500/20 text-pink-400">AI/AGENTIC</span>
-        </div>
-        <p class="text-text-muted text-sm mb-3">NexusAOS v2 — governance-first, local-first AI OS with specialist local models and LiteLLM-compatible routing.</p>
-        <ul class="space-y-2 text-sm text-text-muted">
-          <li>&bull; Architected specialist model stack: Gemma 4 12B (Planner), Qwen3-Coder 30B (Implementation), Qwen3.5 9B (Vision)</li>
-          <li>&bull; Designed kernel-centric governance where models propose actions and the kernel validates/records every state change</li>
-          <li>&bull; Implemented LiteLLM-compatible proxy support for NVIDIA NIM and other model providers</li>
-          <li>&bull; Maintained event-sourced architecture with reversible, permissioned actions and offline-first execution</li>
-        </ul>
-        <div class="flex flex-wrap gap-2 mt-3">
-          {["Rust", "LiteLLM", "Gemma", "Qwen", "Local LLMs", "Governance", "Event Sourcing", "Ubuntu"].map((tech) => (
-            <span key={tech} class="px-2 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border">{tech}</span>
-          ))}
-        </div>
-        <div class="flex items-center gap-4 mt-3">
-          <a href="https://github.com/gaganjainse/SeshaOS" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm text-text-muted hover:text-primary-light transition-colors">Source Code</a>
-        </div>
-      </div>
-
-      <div class="gradient-border p-6">
-        <div class="flex flex-wrap items-center gap-3 mb-2">
-          <h3 class="text-xl font-bold text-text">Vyākṛti</h3>
-          <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary/20 text-primary-light">FLAGSHIP</span>
-        </div>
-        <p class="text-text-muted text-sm mb-3">Sanskrit-oriented programming language with complete compiler pipeline and browser-based IDE. 123 tests.</p>
-        <ul class="space-y-2 text-sm text-text-muted">
-          <li>&bull; Complete compiler pipeline: lexer → parser → type checker → bytecode compiler — all built from scratch in Rust</li>
-          <li>&bull; Browser-based IDE with React, Monaco Editor, syntax highlighting, autocomplete, and diagnostics</li>
-          <li>&bull; Rust (axum) backend with compile, REPL, LSP, and file management endpoints via REST + WebSocket</li>
-          <li>&bull; 123 tests covering the full pipeline, including a self-hosting corpus</li>
-        </ul>
-        <div class="flex flex-wrap gap-2 mt-3">
-          {["Rust", "React", "TypeScript", "Monaco Editor", "Zustand", "Tailwind CSS", "Axum"].map((tech) => (
-            <span key={tech} class="px-2 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border">{tech}</span>
-          ))}
-        </div>
-        <div class="flex items-center gap-4 mt-3">
-          <a href="https://github.com/gaganjainse/Vyakrti" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm text-text-muted hover:text-primary-light transition-colors">Source Code</a>
-        </div>
-      </div>
-
-      <div class="gradient-border p-6">
-        <div class="flex flex-wrap items-center gap-3 mb-2">
-          <h3 class="text-xl font-bold text-text">AIM — Attendance Information Manager</h3>
-          <span class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-green-500/20 text-green-400">PRODUCTION-READY</span>
-        </div>
-        <p class="text-text-muted text-sm mb-3">Production-grade Flask + MySQL platform with Argon2id auth, Prometheus monitoring, and CI/CD.</p>
-        <ul class="space-y-2 text-sm text-text-muted">
-          <li>&bull; Production-grade Flask + MySQL platform with Argon2id auth, CSRF protection, brute-force lockout, breached-password scanning, JWT sessions, and strict CSP/HSTS headers</li>
-          <li>&bull; Deployed Prometheus metrics, structured JSON logging, Chart.js analytics, FullCalendar scheduling, Docker Compose, and GitHub Actions CI/CD; 101 automated pytest tests</li>
-        </ul>
-        <div class="flex flex-wrap gap-2 mt-3">
-          {["Python", "Flask", "MySQL", "Bootstrap", "Chart.js", "Docker", "GitHub Actions"].map((tech) => (
-            <span key={tech} class="px-2 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border">{tech}</span>
-          ))}
-        </div>
-        <div class="flex items-center gap-4 mt-3">
-          <a href="https://github.com/gaganjainse/AIM" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm text-text-muted hover:text-primary-light transition-colors">Source Code</a>
-        </div>
-      </div>
+      ))}
     </div>
   </section>
 
-  <section class="mb-12">
-    <h2 class="text-2xl font-bold gradient-text mb-4">Experience</h2>
+  <section class="mb-10 scroll-mt-24">
+    <h2 class="text-xl font-bold gradient-text mb-4">Experience</h2>
     <div class="timeline">
-      <div class="timeline-item gradient-border p-6">
-        <div class="flex flex-wrap items-start justify-between gap-4 mb-2">
+      <div class="timeline-item border border-border rounded-xl p-5">
+        <div class="flex flex-wrap items-start justify-between gap-3 mb-2">
           <div>
-            <h3 class="text-xl font-bold text-text">Industry 5.0 Industrial Automation Trainee</h3>
+            <h3 class="text-lg font-bold text-text">Industry 5.0 Industrial Automation Trainee</h3>
             <p class="text-primary-light font-medium">CodenPlay Robotics</p>
           </div>
           <span class="px-3 py-1 rounded-full text-sm bg-bg border border-border text-text-muted shrink-0">Aug 2025 – Nov 2025</span>
         </div>
-        <p class="text-text-muted text-sm mb-3">VIT Vellore / Online</p>
-        <ul class="space-y-2 text-sm text-text-muted">
+        <p class="text-text-muted text-sm mb-2">VIT Vellore / Online</p>
+        <ul class="space-y-1 text-sm text-text-muted">
           <li>&bull; Programmed PLC control logic for automated production workflows using CODESYS structured text and ladder logic</li>
           <li>&bull; Designed HMI monitoring dashboards and multi-device communication networks using Node-RED</li>
           <li>&bull; Validated automation sequences against Factory I/O digital-twin simulations prior to hardware deployment</li>
@@ -206,17 +119,17 @@ import { SITE_CONFIG } from '../data/config.js'
     </div>
   </section>
 
-  <section>
-    <h2 class="text-2xl font-bold gradient-text mb-4">Education</h2>
-    <div class="gradient-border p-6">
-      <div class="flex flex-wrap items-start justify-between gap-4">
+  <section class="scroll-mt-24">
+    <h2 class="text-xl font-bold gradient-text mb-4">Education</h2>
+    <div class="border border-border rounded-xl p-5">
+      <div class="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <h3 class="text-xl font-bold text-text">VIT Vellore</h3>
+          <h3 class="text-lg font-bold text-text">VIT Vellore</h3>
           <p class="text-primary-light font-medium">B.Tech in Computer Science and Engineering</p>
         </div>
         <span class="px-3 py-1 rounded-full text-sm bg-bg border border-border text-text-muted shrink-0">Completed 2026</span>
       </div>
-      <p class="text-text-muted text-sm mt-3">
+      <p class="text-text-muted text-sm mt-2">
         CGPA: 7.7 / 10.0 &middot; Relevant Coursework: Data Structures &amp; Algorithms, Operating Systems, Database Systems, Computer Networks, Web Technologies, Artificial Intelligence, Machine Learning
       </p>
     </div>
