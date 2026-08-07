@@ -257,6 +257,30 @@ body {
   background-color: var(--bar-color, var(--color-primary));
 }
 
+.hero-badge,
+.hero-name,
+.hero-tagline,
+.hero-stats,
+.hero-cta {
+  opacity: 0;
+}
+
+.project-card {
+  opacity: 0;
+}
+
+.timeline-item {
+  opacity: 0;
+}
+
+.contact-section > * {
+  opacity: 0;
+}
+
+.about-section > * {
+  opacity: 0;
+}
+
 .stat-value {
   font-variant-numeric: tabular-nums;
 }
