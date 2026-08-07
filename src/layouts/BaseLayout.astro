@@ -105,7 +105,7 @@ import '../styles/global.css'
             </button>
           </div>
 
-          <div id="mobile-menu" class="md:hidden hidden absolute top-16 right-4 min-w-[160px] glass rounded-xl border border-border shadow-2xl shadow-black/20 z-50">
+          <div id="mobile-menu" class="md:hidden hidden absolute top-16 right-4 min-w-[160px] bg-bg/95 backdrop-blur-xl rounded-xl border border-border shadow-2xl shadow-black/30 z-50">
             <div class="space-y-1 p-2">
               {NAV_ITEMS.map((item) => (
                 <a
@@ -142,6 +142,10 @@ import '../styles/global.css'
         <div class="flex items-center justify-center gap-4 text-sm">
           <a href="/resume" target="_blank" rel="noopener noreferrer" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20">
             Résumé
+          </a>
+          <span class="text-border">&middot;</span>
+          <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20">
+            Sitemap
           </a>
           <span class="text-border">&middot;</span>
           <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20">
@@ -184,7 +188,14 @@ import '../styles/global.css'
       navLinks.forEach(link => {
         link.addEventListener('click', () => {
           if (mobileMenu) mobileMenu.classList.add('hidden')
-          if (mobileMenuBtn) mobileMenuBtn.setAttribute('aria-expanded', 'false')
+          if (mobileMenuBtn) {
+            mobileMenuBtn.setAttribute('aria-expanded', 'false')
+            mobileMenuBtn.setAttribute('aria-label', 'Open menu')
+            const menuIconOpen = document.getElementById('menu-icon-open')
+            const menuIconClose = document.getElementById('menu-icon-close')
+            if (menuIconOpen) menuIconOpen.classList.remove('hidden')
+            if (menuIconClose) menuIconClose.classList.add('hidden')
+          }
         })
       })
 
