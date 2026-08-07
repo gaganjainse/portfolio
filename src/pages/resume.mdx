@@ -79,11 +79,11 @@ import { PROJECTS, getTagClasses } from '../data/projects.js'
   <section class="mb-10 scroll-mt-24">
     <h2 class="text-xl font-bold gradient-text mb-4">Projects</h2>
     <div class="space-y-5">
-      {PROJECTS.map((project) => (
-        <div class="border border-border rounded-xl p-5">
+       {PROJECTS.map((project) => (
+         <div class="border border-border rounded-xl p-5 card-glow">
           <div class="flex flex-wrap items-center gap-2 mb-2">
             <h3 class="text-lg font-bold text-text">{project.title}</h3>
-            <span class={`px-2 py-0.5 rounded-full text-xs font-bold ${getTagClasses(project.tagColor)}`}>
+            <span class={`px-2 py-0.5 rounded-full text-xs font-bold ${getTagClasses(project.tagColor)} cursor-default`}>
               {project.tag}
             </span>
           </div>
@@ -104,13 +104,13 @@ import { PROJECTS, getTagClasses } from '../data/projects.js'
   <section class="mb-10 scroll-mt-24">
     <h2 class="text-xl font-bold gradient-text mb-4">Experience</h2>
     <div class="timeline">
-      <div class="timeline-item border border-border rounded-xl p-5">
+      <div class="timeline-item border border-border rounded-xl p-5 card-glow">
         <div class="flex flex-wrap items-start justify-between gap-3 mb-2">
           <div>
             <h3 class="text-lg font-bold text-text">Industry 5.0 Industrial Automation Trainee</h3>
             <p class="text-primary-light font-medium">CodenPlay Robotics</p>
           </div>
-          <span class="px-3 py-1 rounded-full text-sm bg-bg border border-border text-text-muted shrink-0">Aug 2025 – Nov 2025</span>
+          <span class="px-3 py-1 rounded-full text-sm bg-bg border border-border text-text-muted shrink-0 cursor-default">Aug 2025 – Nov 2025</span>
         </div>
         <p class="text-text-muted text-sm mb-2">VIT Vellore / Online</p>
         <ul class="space-y-1 text-sm text-text-muted">
@@ -124,13 +124,13 @@ import { PROJECTS, getTagClasses } from '../data/projects.js'
 
   <section class="scroll-mt-24">
     <h2 class="text-xl font-bold gradient-text mb-4">Education</h2>
-    <div class="border border-border rounded-xl p-5">
+    <div class="border border-border rounded-xl p-5 card-glow">
       <div class="flex flex-wrap items-start justify-between gap-3">
         <div>
           <h3 class="text-lg font-bold text-text">VIT Vellore</h3>
           <p class="text-primary-light font-medium">B.Tech in Computer Science and Engineering</p>
         </div>
-        <span class="px-3 py-1 rounded-full text-sm bg-bg border border-border text-text-muted shrink-0">Graduated 2026</span>
+        <span class="px-3 py-1 rounded-full text-sm bg-bg border border-border text-text-muted shrink-0 cursor-default">Graduated 2026</span>
       </div>
       <p class="text-text-muted text-sm mt-2">
         CGPA: 7.7 / 10.0 &middot; Relevant Coursework: Data Structures &amp; Algorithms, Operating Systems, Database Systems, Computer Networks, Web Technologies, Artificial Intelligence, Machine Learning

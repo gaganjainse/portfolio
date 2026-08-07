@@ -204,6 +204,11 @@ body {
   position: relative;
   border-radius: 1rem;
   background: var(--color-bg-card);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.gradient-border:hover {
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.15), 0 0 40px rgba(6, 182, 212, 0.1);
+  transform: translateY(-2px);
 }
 .gradient-border::before {
   content: "";
@@ -221,6 +226,14 @@ body {
 }
 .gradient-border:hover::before {
   opacity: 1;
+}
+
+.card-glow {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+.card-glow:hover {
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.15), 0 0 40px rgba(6, 182, 212, 0.1);
+  transform: translateY(-2px);
 }
 
 .timeline {
