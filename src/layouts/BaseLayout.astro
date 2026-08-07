@@ -200,52 +200,43 @@ import '../styles/global.css'
       })
 
       const sections = document.querySelectorAll('section[id]')
-      const observerOptions = {
-        root: null,
-        rootMargin: '-10% 0px -70% 0px',
-        threshold: 0
-      }
+      const navItems = [...document.querySelectorAll('.nav-link')]
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('id')
-            navLinks.forEach(link => {
-              link.classList.remove('active')
-              if (link.getAttribute('data-nav') === id) {
-                link.classList.add('active')
-              }
-            })
-          }
-        })
-      }, observerOptions)
-
-      sections.forEach(section => observer.observe(section))
-
-      window.addEventListener('scroll', () => {
-        if (window.location.pathname === '/resume') return
-        if (window.scrollY < 100) {
-          navLinks.forEach(link => {
+      function updateActiveSection() {
+        if (window.location.pathname === '/resume') {
+          navItems.forEach(link => {
             link.classList.remove('active')
-            if (link.getAttribute('href') === '/' || link.getAttribute('href') === '/#home') {
+            if (link.getAttribute('href') === '/resume') {
               link.classList.add('active')
             }
           })
-        } else {
-          const contactSection = document.querySelector('#contact')
-          if (contactSection) {
-            const rect = contactSection.getBoundingClientRect()
-            if (rect.top < window.innerHeight * 0.8) {
-              navLinks.forEach(link => {
-                link.classList.remove('active')
-                if (link.getAttribute('data-nav') === 'contact') {
-                  link.classList.add('active')
-                }
-              })
-            }
-          }
+          return
         }
-      }, { passive: true })
+
+        let currentSection = null
+        const scrollPos = window.scrollY + 150
+
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop
+          const sectionHeight = section.offsetHeight
+          if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+            currentSection = section.getAttribute('id')
+          }
+        })
+
+        navItems.forEach(link => {
+          link.classList.remove('active')
+          if (link.getAttribute('data-nav') === currentSection) {
+            link.classList.add('active')
+          }
+          if (currentSection === null && (link.getAttribute('href') === '/' || link.getAttribute('href') === '/#home')) {
+            link.classList.add('active')
+          }
+        })
+      }
+
+      window.addEventListener('scroll', updateActiveSection, { passive: true })
+      updateActiveSection()
 
       if (window.location.pathname === '/resume') {
         navLinks.forEach(link => {
