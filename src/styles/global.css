@@ -180,6 +180,7 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  -webkit-text-stroke: 0.5px transparent;
 }
 
 .glass {
