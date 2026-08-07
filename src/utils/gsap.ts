@@ -3,17 +3,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-export function initScrollAnimations() {
-  if (typeof window === 'undefined') return
-
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  if (prefersReducedMotion) return
-
-  return () => {
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
-  }
-}
-
 export function scrollProgress() {
   if (typeof window === 'undefined') return { kill: () => {} }
 

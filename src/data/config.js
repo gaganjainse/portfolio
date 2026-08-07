@@ -8,8 +8,6 @@ export const SITE_CONFIG = {
   location: "Jaipur, India",
   availability: "Open to AI/LLM roles · Open to relocation",
   graduation: "2026",
-  graduated: "2026",
-  cgpa: "7.7/10",
 }
 
 export const SOCIAL_LINKS = [
