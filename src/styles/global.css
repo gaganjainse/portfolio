@@ -283,7 +283,7 @@ body {
 }
 .nav-link.active {
   color: var(--color-text);
-  background: var(--color-bg-card);
+  background: linear-gradient(90deg, rgba(124, 58, 237, 0.2), rgba(6, 182, 212, 0.2));
 }
 .nav-link.active::after {
   content: "";
@@ -293,7 +293,7 @@ body {
   transform: translateX(-50%);
   width: 16px;
   height: 2px;
-  background: var(--color-primary);
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
   border-radius: 1px;
 }
 .nav-link::after {

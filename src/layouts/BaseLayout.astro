@@ -80,7 +80,7 @@ import '../styles/global.css'
                 </a>
               ))}
               <a
-                href="/resume.pdf"
+                href="/resume"
                 class="nav-link ml-2 px-3 py-2 rounded-lg text-sm font-medium transition-all text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -114,7 +114,7 @@ import '../styles/global.css'
                 </a>
               ))}
               <a
-                href="/resume.pdf"
+                href="/resume"
                 class="nav-link block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -137,7 +137,7 @@ import '../styles/global.css'
           &copy; {new Date().getFullYear()} Gagan Jain &middot; Built with Astro + GSAP + Tailwind CSS
         </p>
         <div class="flex items-center justify-center gap-4 text-sm">
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20">
+          <a href="/resume" target="_blank" rel="noopener noreferrer" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20">
             Resume
           </a>
           <span class="text-border">&middot;</span>
@@ -179,7 +179,7 @@ import '../styles/global.css'
       const sections = document.querySelectorAll('section[id]')
       const observerOptions = {
         root: null,
-        rootMargin: '-15% 0px -15% 0px',
+        rootMargin: '-10% 0px -70% 0px',
         threshold: 0
       }
 
@@ -198,6 +198,17 @@ import '../styles/global.css'
       }, observerOptions)
 
       sections.forEach(section => observer.observe(section))
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY < 100) {
+          navLinks.forEach(link => {
+            link.classList.remove('active')
+            if (link.getAttribute('href') === '/' || link.getAttribute('href') === '/#home') {
+              link.classList.add('active')
+            }
+          })
+        }
+      }, { passive: true })
 
       if (window.location.pathname === '/resume') {
         navLinks.forEach(link => {
