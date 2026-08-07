@@ -60,7 +60,7 @@ import '../styles/global.css'
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
           <div class="flex items-center justify-between h-16">
             <a
-              href="#home"
+              href="/"
               class="text-lg sm:text-xl font-bold gradient-text hover:opacity-80 transition-opacity flex-shrink-0 truncate max-w-[140px] sm:max-w-none"
               aria-label="Go to top"
             >
@@ -70,7 +70,7 @@ import '../styles/global.css'
             <div class="hidden md:flex items-center gap-1" role="menubar">
               {NAV_ITEMS.map((item) => (
                 <a
-                  href={`#${item.id}`}
+                  href={`/#${item.id}`}
                   role="menuitem"
                   class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all text-text-muted hover:text-text hover:bg-bg-card/80"
                   data-nav={item.id}
@@ -105,7 +105,7 @@ import '../styles/global.css'
             <div class="space-y-1">
               {NAV_ITEMS.map((item) => (
                 <a
-                  href={`#${item.id}`}
+                  href={`/#${item.id}`}
                   class="nav-link block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all text-text-muted hover:text-text hover:bg-bg-card/80"
                   data-nav={item.id}
                 >
