@@ -74,8 +74,14 @@ export function getProficiencyLabel(level) {
 
 export function groupByCategory(skills) {
   return skills.reduce((acc, skill) => {
-    if (!acc[skill.category]) acc[skill.category] = []
-    acc[skill.category].push(skill)
+    if (!acc[skill.category]) {
+      acc[skill.category] = {
+        name: skill.category,
+        color: CATEGORY_COLORS[skill.category] || '#7c3aed',
+        skills: [],
+      }
+    }
+    acc[skill.category].skills.push(skill)
     return acc
   }, {})
 }

@@ -1,11 +1,5 @@
 ---
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { CATEGORY_COLORS, SKILLS, getProficiencyLabel, groupByCategory } from '../../data/skills.js'
-
-gsap.registerPlugin(ScrollTrigger)
-
-const grouped = groupByCategory(SKILLS)
+import { groupByCategory, CATEGORY_COLORS, SKILLS, getProficiencyLabel } from '../../data/skills.js'
 ---
 
 <section id="skills" class="py-24 px-4 sm:px-6 bg-bg-elevated/30" aria-labelledby="skills-heading">
@@ -16,47 +10,45 @@ const grouped = groupByCategory(SKILLS)
     <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mb-12" />
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {Object.entries(grouped).map(([category, skills]) => {
-        const color = (CATEGORY_COLORS as any)[category] || '#7c3aed'
-        return (
-          <div class="gradient-border p-6 transition-all">
-            <h3 class="text-lg font-semibold text-text mb-4 flex items-center gap-2">
-              <span class="w-3 h-3 rounded-full" style={{ backgroundColor: color }} aria-hidden="true" />
-              {category}
-            </h3>
-            <div class="space-y-3">
-              {(skills as any[]).map((skill) => (
-                <div>
-                  <div class="flex items-center justify-between mb-1">
-                    <span class="text-sm text-text">{skill.name}</span>
-                    <span class="text-xs text-text-muted">{getProficiencyLabel(skill.level)}</span>
-                  </div>
-                  <div class="h-1.5 bg-bg rounded-full overflow-hidden" role="progressbar" aria-valuenow={skill.level} aria-valuemin={0} aria-valuemax={100} aria-label={`${skill.name}: ${getProficiencyLabel(skill.level)}`}>
-                    <div
-                      class="h-full rounded-full skill-bar-fill"
-                      style={{ width: '0%', backgroundColor: color }}
-                      data-width={`${skill.level}%`}
-                    />
-                  </div>
+      {Object.entries(groupByCategory(SKILLS)).map(([category, data]) => (
+        <div class="gradient-border p-6 transition-all">
+          <h3 class="text-lg font-semibold text-text mb-4 flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full" style={{ backgroundColor: data.color }} aria-hidden="true" />
+            {data.name}
+          </h3>
+          <div class="space-y-3">
+            {data.skills.map((skill) => (
+              <div>
+                <div class="flex items-center justify-between mb-1">
+                  <span class="text-sm text-text">{skill.name}</span>
+                  <span class="text-xs text-text-muted">{getProficiencyLabel(skill.level)}</span>
                 </div>
-              ))}
-            </div>
+                <div class="h-1.5 bg-bg rounded-full overflow-hidden" role="progressbar" aria-valuenow={skill.level} aria-valuemin={0} aria-valuemax={100} aria-label={`${skill.name}: ${getProficiencyLabel(skill.level)}`}>
+                  <div
+                    class="h-full rounded-full skill-bar-fill"
+                    style={{ '--target-width': `${skill.level}%`, '--bar-color': data.color, width: '0%' }}
+                    data-width={`${skill.level}%`}
+                  />
+                </div>
+              </div>
+            ))}
           </div>
-        )
-      })}
+        </div>
+      ))}
     </div>
   </div>
 </section>
 
-<script>
+<script client:load>
   import gsap from 'gsap'
   import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
   gsap.registerPlugin(ScrollTrigger)
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
   if (!prefersReducedMotion) {
     document.querySelectorAll('.skill-bar-fill').forEach((bar) => {
-      const target = (bar as HTMLElement).dataset.width
+      const target = bar.dataset.width
       if (!target) return
 
       gsap.fromTo(bar,
