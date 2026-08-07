@@ -73,15 +73,15 @@ import '../styles/global.css'
                 <a
                   href={`/#${item.id}`}
                   role="menuitem"
-                  class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all text-text-muted hover:text-text hover:bg-bg-card/80"
+                  class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
                   data-nav={item.id}
                 >
                   {item.label}
                 </a>
               ))}
               <a
-                href="/resume"
-                class="nav-link ml-2 px-3 py-2 rounded-lg text-sm font-medium transition-all text-text-muted hover:text-text hover:bg-bg-card/80"
+                href="/resume.pdf"
+                class="nav-link ml-2 px-3 py-2 rounded-lg text-sm font-medium transition-all text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -91,7 +91,7 @@ import '../styles/global.css'
 
             <button
               id="mobile-menu-btn"
-              class="md:hidden p-2 text-text-muted hover:text-text rounded-lg hover:bg-bg-card/80 transition-colors"
+              class="md:hidden p-2 text-text-muted hover:text-text rounded-lg hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20 transition-colors"
               aria-label="Open menu"
               aria-expanded="false"
               aria-controls="mobile-menu"
@@ -107,15 +107,15 @@ import '../styles/global.css'
               {NAV_ITEMS.map((item) => (
                 <a
                   href={`/#${item.id}`}
-                  class="nav-link block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all text-text-muted hover:text-text hover:bg-bg-card/80"
+                  class="nav-link block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
                   data-nav={item.id}
                 >
                   {item.label}
                 </a>
               ))}
               <a
-                href="/resume"
-                class="nav-link block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all text-text-muted hover:text-text hover:bg-bg-card/80"
+                href="/resume.pdf"
+                class="nav-link block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -137,11 +137,11 @@ import '../styles/global.css'
           &copy; {new Date().getFullYear()} Gagan Jain &middot; Built with Astro + GSAP + Tailwind CSS
         </p>
         <div class="flex items-center justify-center gap-4 text-sm">
-          <a href="/resume" target="_blank" rel="noopener noreferrer" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all text-text-muted hover:text-text hover:bg-bg-card/80">
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20">
             Resume
           </a>
           <span class="text-border">&middot;</span>
-          <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all text-text-muted hover:text-text hover:bg-bg-card/80">
+          <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20">
             Back to top
           </button>
         </div>
@@ -179,7 +179,7 @@ import '../styles/global.css'
       const sections = document.querySelectorAll('section[id]')
       const observerOptions = {
         root: null,
-        rootMargin: '-20% 0px -80% 0px',
+        rootMargin: '-15% 0px -15% 0px',
         threshold: 0
       }
 
