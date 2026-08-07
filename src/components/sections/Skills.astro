@@ -50,6 +50,11 @@ import { groupByCategory, CATEGORY_COLORS, SKILLS, getProficiencyLabel } from '.
       const target = bar.dataset.width
       if (!target) return
 
+      gsap.killTweensOf(bar)
+      ScrollTrigger.getAll().forEach((st) => {
+        if (st.trigger === bar) st.kill()
+      })
+
       gsap.fromTo(bar,
         { width: '0%' },
         {
