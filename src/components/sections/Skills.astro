@@ -55,19 +55,18 @@ import { groupByCategory, CATEGORY_COLORS, SKILLS, getProficiencyLabel } from '.
         if (st.trigger === bar) st.kill()
       })
 
-      gsap.fromTo(bar,
-        { width: '0%' },
-        {
-          width: target,
-          duration: 1.2,
-          ease: 'power3.out',
-          scrollTrigger: {
-            trigger: bar,
-            start: 'top 90%',
-            once: true,
-          },
-        }
-      )
+      gsap.set(bar, { width: '0%' })
+
+      gsap.to(bar, {
+        width: target,
+        duration: 1.2,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: bar,
+          start: 'top 90%',
+          once: true,
+        },
+      })
     })
   }
 </script>

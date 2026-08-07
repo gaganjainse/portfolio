@@ -255,6 +255,7 @@ body {
 .skill-bar-fill {
   width: var(--target-width, 0%);
   background-color: var(--bar-color, var(--color-primary));
+  will-change: width;
 }
 
 .stat-value {
