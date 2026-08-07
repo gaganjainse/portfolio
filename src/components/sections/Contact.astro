@@ -20,13 +20,19 @@ import { SITE_CONFIG, SOCIAL_LINKS } from '../../data/config.js'
       >
         <span class="relative z-10 flex items-center gap-2">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 002 2v10a2 2 0 002 2z" />
           </svg>
           {SITE_CONFIG.email}
         </span>
         <div class="absolute inset-0 bg-gradient-to-r from-primary-light to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
       </a>
-      {SOCIAL_LINKS.filter(l => l.name !== 'Email').map((link) => (
+      <a
+        href={`tel:${SITE_CONFIG.phone}`}
+        class="px-8 py-3.5 rounded-xl font-medium border border-border text-text hover:border-primary/50 hover:text-primary-light transition-all backdrop-blur-sm"
+      >
+        {SITE_CONFIG.phone}
+      </a>
+      {SOCIAL_LINKS.filter(l => l.name === 'LinkedIn').map((link) => (
         <a
           href={link.url}
           target="_blank"
