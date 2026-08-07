@@ -199,6 +199,15 @@ import '../styles/global.css'
 
       sections.forEach(section => observer.observe(section))
 
+      if (window.location.pathname === '/resume') {
+        navLinks.forEach(link => {
+          link.classList.remove('active')
+          if (link.getAttribute('href') === '/resume') {
+            link.classList.add('active')
+          }
+        })
+      }
+
       const nav = document.querySelector('nav')
       if (nav) {
         window.addEventListener('scroll', () => {
