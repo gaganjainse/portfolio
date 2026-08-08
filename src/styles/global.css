@@ -53,6 +53,7 @@ body {
      per-section/per-page translucent bands that can show seams mid-page. */
   background-color: var(--color-bg-elevated);
   color: var(--color-text);
+  -webkit-tap-highlight-color: transparent;
   font-family:
     'Inter',
     system-ui,
@@ -210,18 +211,24 @@ body::before {
   }
 }
 .gradient-border:active,
-.glow-card:active {
+.glow-card:active,
+.gradient-border.touch-glow,
+.glow-card.touch-glow {
   box-shadow:
     0 0 20px rgba(124, 58, 237, 0.15),
     0 0 40px rgba(6, 182, 212, 0.1);
   transform: translateY(-2px);
 }
 .gradient-border:active::before,
-.glow-card:active::before {
+.glow-card:active::before,
+.gradient-border.touch-glow::before,
+.glow-card.touch-glow::before {
   opacity: 1;
 }
 :root[data-theme='light'] .gradient-border:active,
-:root[data-theme='light'] .glow-card:active {
+:root[data-theme='light'] .glow-card:active,
+:root[data-theme='light'] .gradient-border.touch-glow,
+:root[data-theme='light'] .glow-card.touch-glow {
   box-shadow:
     0 0 12px rgba(124, 58, 237, 0.1),
     0 0 24px rgba(6, 182, 212, 0.07);
