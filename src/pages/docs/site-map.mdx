@@ -1,0 +1,101 @@
+---
+layout: ../../layouts/DocsLayout.astro
+title: Site Map
+description: 'Complete page and route inventory of gaganjain.vercel.app'
+---
+
+<h1 class="text-4xl font-bold mb-6 gradient-text">Site Map</h1>
+{/* prettier-ignore */}
+<p class="text-text-muted mb-8">Every page and route on the site — where each one lives in the repo, what it does, and how it behaves. The site is fully static (Astro SSG): each entry in `src/pages/` compiles to one HTML file on build.</p>
+
+## Pages
+
+### Main pages
+
+| Route | Source file | Purpose |
+| --- | --- | --- |
+| `/` | `src/pages/index.astro` | Home — hero, about, experience, projects, skills, contact sections with scroll-spy nav |
+| `/resume` | `src/pages/resume.mdx` | Web résumé, generated from the same data files as the PDF |
+| `/404` (`/404.html`) | `src/pages/404.astro` | Not-found page — gradient card, "Back to Home" button, no nav item highlighted |
+
+### Documentation
+
+All routes below use `src/layouts/DocsLayout.astro` (sidebar nav, previous/home/next bar, mobile dropdown).
+
+| Route                             | Source file                                    | Section  |
+| --------------------------------- | ---------------------------------------------- | -------- |
+| `/docs/getting-started`           | `src/pages/docs/getting-started.mdx`           | Overview |
+| `/docs/architecture`              | `src/pages/docs/architecture.mdx`              | Overview |
+| `/docs/adr`                       | `src/pages/docs/adr/index.mdx`                 | Overview |
+| `/docs/site-map`                  | `src/pages/docs/site-map.mdx`                  | Overview |
+| `/docs/projects/nexusaos`         | `src/pages/docs/projects/nexusaos.mdx`         | Projects |
+| `/docs/projects/nexus-kernel`     | `src/pages/docs/projects/nexus-kernel.mdx`     | Projects |
+| `/docs/projects/seshaos`          | `src/pages/docs/projects/seshaos.mdx`          | Projects |
+| `/docs/projects/rag-service`      | `src/pages/docs/projects/rag-service.mdx`      | Projects |
+| `/docs/projects/llm-eval-harness` | `src/pages/docs/projects/llm-eval-harness.mdx` | Projects |
+| `/docs/projects/vyakrti`          | `src/pages/docs/projects/vyakrti.mdx`          | Projects |
+| `/docs/projects/aim`              | `src/pages/docs/projects/aim.mdx`              | Projects |
+| `/docs/projects/fwrs`             | `src/pages/docs/projects/fwrs.mdx`             | Projects |
+
+## Static assets & non-page routes
+
+These are served from `public/` — not rendered pages, but real URLs:
+
+| Route | File | Purpose |
+| --- | --- | --- |
+| `/resume.pdf` | `public/resume.pdf` | Résumé as a PDF (regenerated with `npm run resume:pdf`) |
+| `/og-image.png` | `public/og-image.png` | Social-card image (also at `screenshots/og-image.png`) |
+| `/favicon.svg` | `public/favicon.svg` | Site icon |
+| `/apple-touch-icon.png` | `public/apple-touch-icon.png` | iOS home-screen icon |
+| `/manifest.webmanifest` | `public/manifest.webmanifest` | Web app manifest |
+| `/robots.txt` | `public/robots.txt` | Crawler rules + sitemap reference |
+| `/llms.txt` | `public/llms.txt` | LLM-friendly site summary |
+| `/sitemap-index.xml` | `dist/sitemap-index.xml` | Generated sitemap (build output) |
+
+## How routes map to files
+
+Astro file-based routing mirrors the filesystem under `src/pages/`:
+
+```text
+src/pages/
+├── index.astro          → /
+├── resume.mdx           → /resume
+├── 404.astro            → /404
+└── docs/
+    ├── getting-started.mdx   → /docs/getting-started
+    ├── architecture.mdx      → /docs/architecture
+    ├── site-map.mdx          → /docs/site-map
+    ├── adr/index.mdx         → /docs/adr
+    └── projects/
+        ├── nexusaos.mdx      → /docs/projects/nexusaos
+        ├── nexus-kernel.mdx  → /docs/projects/nexus-kernel
+        ├── seshaos.mdx       → /docs/projects/seshaos
+        ├── rag-service.mdx   → /docs/projects/rag-service
+        ├── llm-eval-harness.mdx → /docs/projects/llm-eval-harness
+        ├── vyakrti.mdx       → /docs/projects/vyakrti
+        ├── aim.mdx           → /docs/projects/aim
+        └── fwrs.mdx          → /docs/projects/fwrs
+```
+
+## Shared layout & behavior
+
+- **`src/layouts/BaseLayout.astro`** wraps every page: global elevated background, animated orbs, fixed glass navbar (theme toggle, scroll-progress), footer, Vercel Analytics + Speed Insights.
+- **Nav highlighting** — Home on `/` at the top; **Résumé** on `/resume`; **Docs** on any `/docs/*`; **nothing** on `/404`.
+- **Touch/hover glow** — every `.gradient-border` / `.glow-card` lights up on desktop hover and on phone tap (`.touch-glow`).
+- **Résumé print styles** — the `/resume` page renders as a clean white sheet when printed or exported to PDF.
+- **Redirects** — `vercel.json` sends 301s for legacy URLs (e.g. `/résumé` → `/resume`).
+
+## Build output
+
+`npm run build` produces the static site in `dist/`:
+
+```text
+dist/
+├── index.html
+├── resume/index.html
+├── 404.html
+├── docs/…/index.html     (11 documentation pages)
+└── public assets (og-image.png, resume.pdf, favicon.svg, …)
+```
+
+**Total: 15 pages** — 3 main + 12 documentation (including this page).
