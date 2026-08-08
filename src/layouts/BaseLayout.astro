@@ -100,7 +100,7 @@ const jsonLd = JSON.stringify({
               {
                 NAV_ITEMS.map((item) => (
                   <a
-                    href={`/#${item.id}`}
+                    href={item.href ?? `/#${item.id}`}
                     class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
                     data-nav={item.id}
                   >
@@ -162,7 +162,7 @@ const jsonLd = JSON.stringify({
               {
                 NAV_ITEMS.map((item) => (
                   <a
-                    href={`/#${item.id}`}
+                    href={item.href ?? `/#${item.id}`}
                     class="nav-link block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
                     data-nav={item.id}
                   >
@@ -299,6 +299,16 @@ const jsonLd = JSON.stringify({
           navItems.forEach((link) => {
             link.classList.remove('active')
             if (link.getAttribute('href') === '/resume') {
+              link.classList.add('active')
+            }
+          })
+          return
+        }
+
+        if (window.location.pathname.startsWith('/docs')) {
+          navItems.forEach((link) => {
+            link.classList.remove('active')
+            if (link.getAttribute('data-nav') === 'docs') {
               link.classList.add('active')
             }
           })

@@ -22,10 +22,11 @@ export const SOCIAL_LINKS = [
 ]
 
 export const NAV_ITEMS = [
-  { id: 'home', label: 'Home' },
-  { id: 'about', label: 'About' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'contact', label: 'Contact' },
+  { id: 'home', label: 'Home', href: '/#home' },
+  { id: 'about', label: 'About', href: '/#about' },
+  { id: 'experience', label: 'Experience', href: '/#experience' },
+  { id: 'projects', label: 'Projects', href: '/#projects' },
+  { id: 'skills', label: 'Skills', href: '/#skills' },
+  { id: 'contact', label: 'Contact', href: '/#contact' },
+  { id: 'docs', label: 'Docs', href: '/docs/getting-started' },
 ]
