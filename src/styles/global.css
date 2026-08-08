@@ -457,6 +457,10 @@ body::before {
     line-height: 1.42 !important;
     padding: 0 !important;
     margin: 0 !important;
+    /* Complete outer frame so the whole résumé sheet always shows all four
+       edges, even if an inner card edge is overpainted by Chromium's print
+       rasterizer. */
+    border: 1.5px solid #64748b !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
   }
@@ -548,7 +552,6 @@ body::before {
   }
   .resume-sheet .grid > div {
     padding: 0 !important;
-    border: none !important;
     page-break-inside: avoid;
   }
   .resume-sheet .grid h3 {
@@ -559,11 +562,15 @@ body::before {
   }
 
   /* ---- projects / experience / education cards ---- */
-  /* Uniform 1.5px borders on all four sides — thicker + darker than the old
-     hairline #94a3b8 so every side (including the right edge) prints clearly. */
+  /* Uniform 2px borders on all four sides — explicit per-side so no edge can
+     drop out in Chromium's print engine (the right edge was previously
+     overpainted/absent). */
   .resume-sheet .resume-card {
     margin-bottom: 7px !important;
-    border: 1.5px solid #64748b !important;
+    border-top: 2px solid #64748b !important;
+    border-right: 2px solid #64748b !important;
+    border-bottom: 2px solid #64748b !important;
+    border-left: 2px solid #64748b !important;
     border-radius: 0 !important;
     padding: 7px 9px !important;
     page-break-inside: avoid;

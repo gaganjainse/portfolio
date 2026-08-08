@@ -151,54 +151,54 @@ description: 'Complete page and route inventory of gaganjain.vercel.app'
 <p class="text-text-muted text-sm mb-4">Served from `public/` — not rendered pages, but real URLs.</p>
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
-  <div class="gradient-border p-5">
+  <a href="/resume.pdf" class="gradient-border p-5 block no-underline">
     <code class="text-xs text-accent">/resume.pdf</code>
     {/* prettier-ignore */}
     <p class="text-sm text-text-muted mt-1 mb-1">Résumé as a PDF (regenerated with `npm run resume:pdf`).</p>
     <span class="block text-xs text-text-muted/70">public/resume.pdf</span>
-  </div>
-  <div class="gradient-border p-5">
+  </a>
+  <a href="/og-image.png" class="gradient-border p-5 block no-underline">
     <code class="text-xs text-accent">/og-image.png</code>
     {/* prettier-ignore */}
     <p class="text-sm text-text-muted mt-1 mb-1">Social-card image (also at `screenshots/og-image.png`).</p>
     <span class="block text-xs text-text-muted/70">public/og-image.png</span>
-  </div>
-  <div class="gradient-border p-5">
+  </a>
+  <a href="/favicon.svg" class="gradient-border p-5 block no-underline">
     <code class="text-xs text-accent">/favicon.svg</code>
     {/* prettier-ignore */}
     <p class="text-sm text-text-muted mt-1 mb-1">Site icon.</p>
     <span class="block text-xs text-text-muted/70">public/favicon.svg</span>
-  </div>
-  <div class="gradient-border p-5">
+  </a>
+  <a href="/apple-touch-icon.png" class="gradient-border p-5 block no-underline">
     <code class="text-xs text-accent">/apple-touch-icon.png</code>
     {/* prettier-ignore */}
     <p class="text-sm text-text-muted mt-1 mb-1">iOS home-screen icon.</p>
     <span class="block text-xs text-text-muted/70">public/apple-touch-icon.png</span>
-  </div>
-  <div class="gradient-border p-5">
+  </a>
+  <a href="/manifest.webmanifest" class="gradient-border p-5 block no-underline">
     <code class="text-xs text-accent">/manifest.webmanifest</code>
     {/* prettier-ignore */}
     <p class="text-sm text-text-muted mt-1 mb-1">Web app manifest.</p>
     <span class="block text-xs text-text-muted/70">public/manifest.webmanifest</span>
-  </div>
-  <div class="gradient-border p-5">
+  </a>
+  <a href="/robots.txt" class="gradient-border p-5 block no-underline">
     <code class="text-xs text-accent">/robots.txt</code>
     {/* prettier-ignore */}
     <p class="text-sm text-text-muted mt-1 mb-1">Crawler rules + sitemap reference.</p>
     <span class="block text-xs text-text-muted/70">public/robots.txt</span>
-  </div>
-  <div class="gradient-border p-5">
+  </a>
+  <a href="/llms.txt" class="gradient-border p-5 block no-underline">
     <code class="text-xs text-accent">/llms.txt</code>
     {/* prettier-ignore */}
     <p class="text-sm text-text-muted mt-1 mb-1">LLM-friendly site summary.</p>
     <span class="block text-xs text-text-muted/70">public/llms.txt</span>
-  </div>
-  <div class="gradient-border p-5">
+  </a>
+  <a href="/sitemap-index.xml" class="gradient-border p-5 block no-underline">
     <code class="text-xs text-accent">/sitemap-index.xml</code>
     {/* prettier-ignore */}
     <p class="text-sm text-text-muted mt-1 mb-1">Generated sitemap (build output).</p>
     <span class="block text-xs text-text-muted/70">dist/sitemap-index.xml</span>
-  </div>
+  </a>
 </div>
 
 <h2 class="text-2xl font-bold gradient-text mb-5">How Routes Map to Files</h2>
@@ -207,15 +207,24 @@ description: 'Complete page and route inventory of gaganjain.vercel.app'
 <p class="text-text-muted text-sm mb-4">Astro file-based routing mirrors the filesystem under `src/pages/`.</p>
 
 <pre class="bg-bg border border-border rounded-lg p-4 text-xs text-text-muted overflow-x-auto mb-10">
-  <code>
-    src/pages/ ├── index.astro → / ├── resume.mdx → /resume ├── 404.astro → /404 └── docs/ ├──
-    getting-started.mdx → /docs/getting-started ├── architecture.mdx → /docs/architecture ├──
-    site-map.mdx → /docs/site-map ├── adr/index.mdx → /docs/adr └── projects/ ├── nexusaos.mdx →
-    /docs/projects/nexusaos ├── nexus-kernel.mdx → /docs/projects/nexus-kernel ├── seshaos.mdx →
-    /docs/projects/seshaos ├── rag-service.mdx → /docs/projects/rag-service ├── llm-eval-harness.mdx
-    → /docs/projects/llm-eval-harness ├── vyakrti.mdx → /docs/projects/vyakrti ├── aim.mdx →
-    /docs/projects/aim └── fwrs.mdx → /docs/projects/fwrs
-  </code>
+  <code>{`src/pages/
+├── index.astro          → /
+├── resume.mdx           → /resume
+├── 404.astro            → /404
+└── docs/
+    ├── getting-started.mdx   → /docs/getting-started
+    ├── architecture.mdx      → /docs/architecture
+    ├── site-map.mdx          → /docs/site-map
+    ├── adr/index.mdx         → /docs/adr
+    └── projects/
+        ├── nexusaos.mdx      → /docs/projects/nexusaos
+        ├── nexus-kernel.mdx  → /docs/projects/nexus-kernel
+        ├── seshaos.mdx       → /docs/projects/seshaos
+        ├── rag-service.mdx   → /docs/projects/rag-service
+        ├── llm-eval-harness.mdx → /docs/projects/llm-eval-harness
+        ├── vyakrti.mdx       → /docs/projects/vyakrti
+        ├── aim.mdx           → /docs/projects/aim
+        └── fwrs.mdx          → /docs/projects/fwrs`}</code>
 </pre>
 
 <h2 class="text-2xl font-bold gradient-text mb-5">Shared Layout &amp; Behavior</h2>
@@ -275,10 +284,12 @@ description: 'Complete page and route inventory of gaganjain.vercel.app'
 <h2 class="text-2xl font-bold gradient-text mb-5">Build Output</h2>
 
 <pre class="bg-bg border border-border rounded-lg p-4 text-xs text-text-muted overflow-x-auto mb-4">
-  <code>
-    dist/ ├── index.html ├── resume/index.html ├── 404.html ├── docs/…/index.html (12 documentation
-    pages) └── public assets (og-image.png, resume.pdf, favicon.svg, …)
-  </code>
+  <code>{`dist/
+├── index.html
+├── resume/index.html
+├── 404.html
+├── docs/…/index.html     (12 documentation pages)
+└── public assets (og-image.png, resume.pdf, favicon.svg, …)`}</code>
 </pre>
 
 {/* prettier-ignore */}
