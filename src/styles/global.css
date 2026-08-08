@@ -251,4 +251,22 @@ body::before {
     background: white;
     color: black;
   }
+  nav,
+  header,
+  footer,
+  .scroll-progress,
+  .glass,
+  .animate-pulse-glow,
+  .gradient-border::before,
+  .skill-bar-fill {
+    display: none !important;
+  }
+  section {
+    padding: 1rem 0 !important;
+    background: white !important;
+  }
+  a {
+    text-decoration: none !important;
+    color: black !important;
+  }
 }
