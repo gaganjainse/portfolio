@@ -28,6 +28,7 @@ describe('groupByCategory', () => {
     const grouped = groupByCategory(SKILLS)
     const categoryNames = Object.keys(grouped)
     expect(categoryNames).toContain('AI / LLM')
+    expect(categoryNames).toContain('LLM Ops')
     expect(categoryNames).toContain('Languages')
     expect(categoryNames).toContain('Frontend')
 
@@ -36,6 +37,14 @@ describe('groupByCategory', () => {
       expect(typeof grouped[category].color).toBe('string')
       expect(grouped[category].skills.length).toBeGreaterThan(0)
     }
+  })
+
+  it('keeps the AI / LLM and LLM Ops categories balanced (no giant box)', () => {
+    const grouped = groupByCategory(SKILLS)
+    const ai = grouped['AI / LLM']?.skills.length ?? 0
+    const ops = grouped['LLM Ops']?.skills.length ?? 0
+    expect(ai).toBeLessThanOrEqual(12)
+    expect(ops).toBeLessThanOrEqual(10)
   })
 
   it('contains the same total number of skills as the source data', () => {

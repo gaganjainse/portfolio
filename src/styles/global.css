@@ -331,7 +331,10 @@ body::before {
   }
   .resume-sheet section {
     padding: 0 !important;
-    margin: 0 0 12px !important;
+    margin: 16px 0 12px !important;
+  }
+  .resume-sheet section:first-of-type {
+    margin-top: 0 !important;
   }
 
   /* ---- header ---- */
@@ -407,9 +410,10 @@ body::before {
 
   /* ---- skills ---- */
   .resume-sheet .grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: 6px 14px !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px 16px !important;
     display: grid !important;
+    align-items: start;
   }
   .resume-sheet .grid > div {
     padding: 0 !important;

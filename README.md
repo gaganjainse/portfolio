@@ -96,7 +96,7 @@ npm run resume:pdf
 npm test
 ```
 
-Vitest unit tests cover the data layer (`src/data/*.test.ts`): skill categorization, proficiency labels, project integrity, experience data, and test-count attribution.
+Vitest unit tests cover the data layer (`src/data/*.test.ts`): skill categorization (including the balanced AI/LLM + LLM Ops split), proficiency labels, project integrity, companion-project attribution, experience data, and test counts.
 
 ## 🧭 Documentation
 
