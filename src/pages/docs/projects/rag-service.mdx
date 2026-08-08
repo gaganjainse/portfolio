@@ -1,0 +1,61 @@
+---
+layout: ../../../layouts/BaseLayout.astro
+title: RAG Service
+description: 'RAG Service project documentation'
+---
+
+<div class="max-w-4xl mx-auto px-4 sm:px-6 py-24">
+  <h1 class="text-4xl font-bold mb-6 gradient-text">RAG Service</h1>
+  <p class="text-text-muted mb-6">
+    Production RAG API with hybrid retrieval — dense embeddings + BM25-style keyword scoring,
+    fused with Reciprocal Rank Fusion over a ChromaDB vector store. Grounded answers with citations.
+  </p>
+
+<div class="gradient-border p-6 mb-6">
+  <h2 class="text-2xl font-bold text-text mb-3">Overview</h2>
+  <p class="text-text-muted mb-4">
+    A FastAPI service that ingests documents, chunks them with overlap, indexes them into a
+    persistent ChromaDB collection, and answers questions with retrieval-augmented generation.
+    Answers are grounded in the retrieved context and cite their sources.
+  </p>
+</div>
+
+<div class="gradient-border p-6 mb-6">
+  <h2 class="text-2xl font-bold text-text mb-3">Hybrid Retrieval</h2>
+  <p class="text-text-muted mb-4">
+    Combines dense vector search (cosine similarity over embeddings) with BM25-style keyword
+    scoring, merged via Reciprocal Rank Fusion (RRF). This balances semantic and lexical matching,
+    improving recall over either approach alone.
+  </p>
+</div>
+
+<div class="gradient-border p-6 mb-6">
+  <h2 class="text-2xl font-bold text-text mb-3">LLM & Embedding Backends</h2>
+  <p class="text-text-muted mb-4">
+    Embeddings via sentence-transformers (all-MiniLM-L6-v2) with a deterministic hashing embedder
+    fallback for offline/dev. Generation via any OpenAI-compatible chat endpoint, with an offline
+    echo fallback when no API key is set — so the service runs and tests without external
+    dependencies.
+  </p>
+</div>
+
+<div class="gradient-border p-6 mb-6">
+  <h2 class="text-2xl font-bold text-text mb-3">Evaluation</h2>
+  <p class="text-text-muted mb-4">
+    Paired with the{' '}
+    <a href="/docs/projects/llm-eval-harness" class="text-accent hover:underline">
+      LLM Eval Harness
+    </a>
+    : faithfulness, answer relevance, and correctness against a golden set, runnable in CI.
+  </p>
+</div>
+
+  <div class="gradient-border p-6">
+    <h2 class="text-2xl font-bold text-text mb-3">Tech Stack</h2>
+    <div class="flex flex-wrap gap-2">
+      {['Python', 'FastAPI', 'ChromaDB', 'Embeddings', 'Hybrid Search', 'RRF', 'RAG', 'LLM-as-Judge', 'Docker'].map((tech) => (
+        <span key={tech} class="px-2.5 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border">{tech}</span>
+      ))}
+    </div>
+  </div>
+</div>
