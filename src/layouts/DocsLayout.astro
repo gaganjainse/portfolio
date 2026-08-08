@@ -102,101 +102,110 @@ const navBtnClass =
 
       {/* ---- Main content ---- */}
       <div class="flex-1 min-w-0">
-        {/* Previous | Home | Next — all in one bordered card */}
+        {/* Previous | Home | Next — fixed in a 3-column grid: edges + center */}
         <div
-          class="border border-border-light/60 rounded-xl bg-bg-card/60 backdrop-blur-sm p-3 mb-6 flex items-center justify-between gap-2 no-print"
+          class="border border-border-light/60 rounded-xl bg-bg-card/60 backdrop-blur-sm p-3 mb-6 grid grid-cols-3 items-center gap-2 no-print"
         >
-          {
-            prev ? (
-              <a
-                href={prev.href}
-                class={`${navBtnClass} bg-bg text-text-muted border-border hover:text-text hover:border-primary/40`}
-              >
-                <svg
-                  class="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  aria-hidden="true"
+          {/* Previous — anchored left, grows right */}
+          <div class="justify-self-start min-w-0">
+            {
+              prev ? (
+                <a
+                  href={prev.href}
+                  class={`${navBtnClass} bg-bg text-text-muted border-border hover:text-text hover:border-primary/40`}
                 >
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-                </svg>
-                {prev.label}
-              </a>
-            ) : (
-              <span
-                class={`${navBtnClass} bg-bg text-text-muted/40 border-border cursor-not-allowed`}
-              >
-                <svg
-                  class="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  aria-hidden="true"
+                  <svg
+                    class="w-4 h-4 shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                  </svg>
+                  <span class="truncate">{prev.label}</span>
+                </a>
+              ) : (
+                <span
+                  class={`${navBtnClass} bg-bg text-text-muted/40 border-border cursor-not-allowed`}
                 >
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-                </svg>
-                Previous
-              </span>
-            )
-          }
+                  <svg
+                    class="w-4 h-4 shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                  </svg>
+                  <span class="truncate">Previous</span>
+                </span>
+              )
+            }
+          </div>
 
-          <a
-            href="/docs/getting-started"
-            class={`${navBtnClass} bg-primary/15 text-primary-light border-primary/40 hover:bg-primary/25`}
-          >
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              stroke-width="2"
-              aria-hidden="true"
+          {/* Home — always centered, fixed */}
+          <div class="justify-self-center">
+            <a
+              href="/docs/getting-started"
+              class={`${navBtnClass} bg-bg text-text-muted border-border hover:text-text hover:border-primary/40`}
             >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9 9 9M5 10v10h14V10"
-              ></path>
-            </svg>
-            Home
-          </a>
+              <svg
+                class="w-4 h-4 shrink-0"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9 9 9M5 10v10h14V10"
+                ></path>
+              </svg>
+              <span class="truncate">Home</span>
+            </a>
+          </div>
 
-          {
-            next ? (
-              <a
-                href={next.href}
-                class={`${navBtnClass} bg-bg text-text-muted border-border hover:text-text hover:border-primary/40`}
-              >
-                {next.label}
-                <svg
-                  class="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  aria-hidden="true"
+          {/* Next — anchored right, grows left */}
+          <div class="justify-self-end min-w-0">
+            {
+              next ? (
+                <a
+                  href={next.href}
+                  class={`${navBtnClass} bg-bg text-text-muted border-border hover:text-text hover:border-primary/40`}
                 >
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
-            ) : (
-              <span
-                class={`${navBtnClass} bg-bg text-text-muted/40 border-border cursor-not-allowed`}
-              >
-                Next
-                <svg
-                  class="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  aria-hidden="true"
+                  <span class="truncate">{next.label}</span>
+                  <svg
+                    class="w-4 h-4 shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              ) : (
+                <span
+                  class={`${navBtnClass} bg-bg text-text-muted/40 border-border cursor-not-allowed`}
                 >
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              </span>
-            )
-          }
+                  <span class="truncate">Next</span>
+                  <svg
+                    class="w-4 h-4 shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                  </svg>
+                </span>
+              )
+            }
+          </div>
         </div>
 
         {/* Bordered wrapper card */}
