@@ -45,7 +45,7 @@ const prev = currentIndex > 0 ? DOCS[currentIndex - 1] : null
 const next =
   currentIndex >= 0 && currentIndex < DOC_ORDER.length - 1 ? DOCS[currentIndex + 1] : null
 
-const SECTIONS = ['Overview', 'Projects']
+const SECTIONS = [...new Set(DOCS.map((d) => d.section))]
 
 const navBtnClass =
   'inline-flex items-center justify-center gap-1 sm:gap-1.5 px-2 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium border transition min-w-0'

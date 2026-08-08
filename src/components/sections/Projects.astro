@@ -13,7 +13,7 @@ function companionDocs(project: (typeof PROJECTS)[number]) {
 
 <section id="projects" class="py-24 px-4 sm:px-6" aria-labelledby="projects-heading">
   <div class="max-w-6xl mx-auto">
-    <SectionHeading id="projects-heading" title="Featured" accent="Projects" />
+    <SectionHeading id="projects-heading" title="Key" accent="Projects" />
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
       {
@@ -28,13 +28,16 @@ function companionDocs(project: (typeof PROJECTS)[number]) {
             {project.companionOf && (
               <p class="text-xs font-medium text-primary-light mb-2">
                 Companion to{' '}
-                {companionDocs(project) ? (
-                  <a href={companionDocs(project)} class="hover:underline">
-                    {project.companionOf}
-                  </a>
-                ) : (
-                  <span>{project.companionOf}</span>
-                )}
+                {(() => {
+                  const docs = companionDocs(project)
+                  return docs ? (
+                    <a href={docs} class="hover:underline">
+                      {project.companionOf}
+                    </a>
+                  ) : (
+                    <span>{project.companionOf}</span>
+                  )
+                })()}
               </p>
             )}
             <p class="text-text-muted mb-4">{project.description}</p>

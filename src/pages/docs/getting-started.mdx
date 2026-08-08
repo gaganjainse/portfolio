@@ -6,22 +6,99 @@ description: "Getting started with Gagan Jain's portfolio and projects"
 
 <h1 class="text-4xl font-bold mb-6 gradient-text">Getting Started</h1>
 {/* prettier-ignore */}
-<p class="text-text-muted mb-4">Welcome to my portfolio. I'm Gagan Jain, an AI / LLM Engineer focused on building production-grade GenAI systems.</p>
+<p class="text-text-muted mb-8">Welcome to the documentation for Gagan Jain's portfolio — an AI / LLM Engineer focused on production-grade GenAI systems. This index splits the docs into two parts: <strong class="text-text">Overview</strong> (how this site works) and <strong class="text-text">Projects</strong> (each system's documentation).</p>
+
+## Overview
+
 {/* prettier-ignore */}
-<p class="text-text-muted mb-4">This site documents my key projects in AI, agentic systems, and production engineering. Use the navigation to explore:</p>
+<p class="text-text-muted mb-4">The Overview section covers the portfolio itself — its architecture, decision records, and a full route map.</p>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+  <a href="/docs/architecture" class="gradient-border p-6 block no-underline">
+    <h2 class="text-lg font-bold text-text mb-1">Architecture</h2>
+    <span class="block text-sm text-text-muted">
+      System design patterns used across the AI and systems projects — governance, event sourcing,
+      hybrid retrieval, and more.
+    </span>
+  </a>
+  <a href="/docs/adr" class="gradient-border p-6 block no-underline">
+    <h2 class="text-lg font-bold text-text mb-1">ADRs</h2>
+    <span class="block text-sm text-text-muted">
+      Architecture Decision Records: why the portfolio is built on Astro 7 + Tailwind v4 + GSAP,
+      static output on Vercel, and more.
+    </span>
+  </a>
+  <a href="/docs/site-map" class="gradient-border p-6 block no-underline">
+    <h2 class="text-lg font-bold text-text mb-1">Site Map</h2>
+    <span class="block text-sm text-text-muted">
+      Every page and route on the site — where each one lives in the repo, what it does, and how it
+      behaves.
+    </span>
+  </a>
+</div>
+
+## Projects
+
 {/* prettier-ignore */}
-<ul class="space-y-2.5 mb-8">
-  <li class="flex items-start gap-2.5 text-text-muted"><span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">▸</span><span><a href="/docs/projects/nexusaos" class="text-accent hover:underline">NexusAOS</a> — Governance-first agentic OS with multi-agent swarm orchestration</span></li>
-  <li class="flex items-start gap-2.5 text-text-muted"><span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">▸</span><span><a href="/docs/projects/nexus-kernel" class="text-accent hover:underline">nexus-kernel</a> — Companion to NexusAOS (alpha-track microkernel sibling)</span></li>
-  <li class="flex items-start gap-2.5 text-text-muted"><span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">▸</span><span><a href="/docs/projects/seshaos" class="text-accent hover:underline">SeshaOS</a> — Local-first AI OS with specialist models</span></li>
-  <li class="flex items-start gap-2.5 text-text-muted"><span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">▸</span><span><a href="/docs/projects/vyakrti" class="text-accent hover:underline">Vyākṛti</a> — Sanskrit-oriented programming language with compiler and IDE</span></li>
-  <li class="flex items-start gap-2.5 text-text-muted"><span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">▸</span><span><a href="/docs/projects/rag-service" class="text-accent hover:underline">RAG Service</a> — Production RAG API with hybrid retrieval (dense + BM25, RRF) and grounded answers</span></li>
-  <li class="flex items-start gap-2.5 text-text-muted"><span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">▸</span><span><a href="/docs/projects/llm-eval-harness" class="text-accent hover:underline">LLM Eval Harness</a> — Golden-set evaluation: faithfulness, answer relevance, correctness</span></li>
-  <li class="flex items-start gap-2.5 text-text-muted"><span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">▸</span><span><a href="/docs/projects/aim" class="text-accent hover:underline">AIM</a> — Production attendance platform (Flask + MySQL, 101 tests)</span></li>
-  <li class="flex items-start gap-2.5 text-text-muted"><span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">▸</span><span><a href="/docs/projects/fwrs" class="text-accent hover:underline">FWRS</a> — Food waste optimization with linear programming</span></li>
-  <li class="flex items-start gap-2.5 text-text-muted"><span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">▸</span><span><a href="/docs/architecture" class="text-accent hover:underline">Architecture</a> — System design patterns and decisions</span></li>
-  <li class="flex items-start gap-2.5 text-text-muted"><span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">▸</span><span><a href="/docs/adr" class="text-accent hover:underline">ADRs</a> — Architecture Decision Records</span></li>
-</ul>
+<p class="text-text-muted mb-4">Each project has its own documentation page — architecture, features, and the tech stack behind it.</p>
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+  <a href="/docs/projects/nexusaos" class="gradient-border p-6 block no-underline">
+    <h2 class="text-lg font-bold text-text mb-1">NexusAOS</h2>
+    <span class="block text-sm text-text-muted">
+      Governance-first, event-sourced AI operating environment in Rust — 12 workspace crates, 981
+      tests, provider-agnostic LLM streaming.
+    </span>
+  </a>
+  <a href="/docs/projects/nexus-kernel" class="gradient-border p-6 block no-underline">
+    <h2 class="text-lg font-bold text-text mb-1">nexus-kernel</h2>
+    <span class="block text-sm text-text-muted">
+      Companion to NexusAOS — the alpha-track microkernel sibling of the same 12-crate Rust
+      workspace.
+    </span>
+  </a>
+  <a href="/docs/projects/seshaos" class="gradient-border p-6 block no-underline">
+    <h2 class="text-lg font-bold text-text mb-1">SeshaOS</h2>
+    <span class="block text-sm text-text-muted">
+      Local-first AI OS with specialist models (Gemma 4, Qwen3) and LiteLLM-compatible routing.
+    </span>
+  </a>
+  <a href="/docs/projects/rag-service" class="gradient-border p-6 block no-underline">
+    <h2 class="text-lg font-bold text-text mb-1">RAG Service</h2>
+    <span class="block text-sm text-text-muted">
+      Production RAG API — hybrid retrieval (dense + BM25, RRF) over ChromaDB with grounded answers
+      and citations.
+    </span>
+  </a>
+  <a href="/docs/projects/llm-eval-harness" class="gradient-border p-6 block no-underline">
+    <h2 class="text-lg font-bold text-text mb-1">LLM Eval Harness</h2>
+    <span class="block text-sm text-text-muted">
+      Golden-set evaluation: faithfulness, answer relevance, and correctness with LLM-as-judge and
+      offline fallbacks.
+    </span>
+  </a>
+  <a href="/docs/projects/vyakrti" class="gradient-border p-6 block no-underline">
+    <h2 class="text-lg font-bold text-text mb-1">Vyākṛti</h2>
+    <span class="block text-sm text-text-muted">
+      Sanskrit-oriented programming language with a complete compiler pipeline and a browser-based
+      IDE.
+    </span>
+  </a>
+  <a href="/docs/projects/aim" class="gradient-border p-6 block no-underline">
+    <h2 class="text-lg font-bold text-text mb-1">AIM</h2>
+    <span class="block text-sm text-text-muted">
+      Production attendance platform — Flask + MySQL, Argon2id auth, Prometheus monitoring, 101
+      tests.
+    </span>
+  </a>
+  <a href="/docs/projects/fwrs" class="gradient-border p-6 block no-underline">
+    <h2 class="text-lg font-bold text-text mb-1">FWRS</h2>
+    <span class="block text-sm text-text-muted">
+      Food-waste optimization — 3-stage lexicographic linear program (fairness → priority → cost)
+      with expiry-aware routing.
+    </span>
+  </a>
+</div>
+
 {/* prettier-ignore */}
-{/* prettier-ignore */}
-<p class="text-text-muted">For collaboration or opportunities, reach out via{' '}<a href="mailto:gagan.jain.se@gmail.com" class="text-accent hover:underline">email</a>{' '}or{' '}<a href="https://linkedin.com/in/gaganjainse" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">LinkedIn</a>.</p>
+<p class="text-text-muted mt-10">For collaboration or opportunities, reach out via{' '}<a href="mailto:gagan.jain.se@gmail.com" class="text-accent hover:underline">email</a>{' '}or{' '}<a href="https://linkedin.com/in/gaganjainse" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">LinkedIn</a>.</p>

@@ -3,7 +3,6 @@ export interface ExperienceItem {
   company: string
   period: string
   location?: string
-  description?: string
   bullets: string[]
   tags: string[]
 }
