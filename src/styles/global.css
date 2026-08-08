@@ -153,14 +153,6 @@ body::before {
   opacity: 1;
 }
 
-.card-glow {
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-.card-glow:hover {
-  box-shadow: 0 0 20px rgba(124, 58, 237, 0.15), 0 0 40px rgba(6, 182, 212, 0.1);
-  transform: translateY(-2px);
-}
-
 .timeline {
   position: relative;
   padding-left: 2rem;
