@@ -35,64 +35,71 @@ try {
   class="min-h-screen flex items-center justify-center relative overflow-hidden pt-24 sm:pt-28"
   aria-label="Hero"
 >
-  <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
-    <div class="mb-6">
-      <Image
-        src={profilePic}
-        alt="Gagan Jain"
-        width={144}
-        height={144}
-        format="webp"
-        quality={85}
-        class="w-28 h-28 sm:w-36 sm:h-36 rounded-full mx-auto object-cover border-4 border-primary/30 shadow-2xl shadow-primary/20"
-      />
-    </div>
-    <div class="hero-badge mb-6">
-      <span
-        class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium bg-success/10 text-success border border-success/20 cursor-default hover:text-success hover:shadow-[0_0_8px_rgba(16,185,129,0.3)] transition"
+  <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6">
+    <div class="gradient-border p-6 sm:p-10 text-center">
+      <div class="mb-6">
+        <Image
+          src={profilePic}
+          alt="Gagan Jain"
+          width={144}
+          height={144}
+          format="webp"
+          quality={85}
+          class="w-28 h-28 sm:w-36 sm:h-36 rounded-full mx-auto object-cover border-4 border-primary/30 shadow-2xl shadow-primary/20"
+        />
+      </div>
+      <div class="hero-badge mb-6">
+        <span
+          class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium bg-success/10 text-success border border-success/20 cursor-default hover:text-success hover:shadow-[0_0_8px_rgba(16,185,129,0.3)] transition"
+        >
+          <span class="w-2 h-2 rounded-full bg-success animate-pulse" aria-hidden="true"></span>
+          {SITE_CONFIG.availability}
+        </span>
+      </div>
+
+      <h1
+        class="hero-name text-5xl sm:text-6xl md:text-7xl font-bold mb-4 leading-tight tracking-tight"
       >
-        <span class="w-2 h-2 rounded-full bg-success animate-pulse" aria-hidden="true"></span>
-        {SITE_CONFIG.availability}
-      </span>
-    </div>
+        Hi, I'm <span class="gradient-text">{SITE_CONFIG.name}</span>
+      </h1>
 
-    <h1
-      class="hero-name text-5xl sm:text-6xl md:text-7xl font-bold mb-4 leading-tight tracking-tight"
-    >
-      Hi, I'm <span class="gradient-text">{SITE_CONFIG.name}</span>
-    </h1>
+      <p
+        class="hero-tagline text-xl sm:text-2xl text-text-muted mb-4 max-w-3xl mx-auto leading-relaxed"
+      >
+        {SITE_CONFIG.tagline}
+      </p>
 
-    <p
-      class="hero-tagline text-xl sm:text-2xl text-text-muted mb-4 max-w-3xl mx-auto leading-relaxed"
-    >
-      {SITE_CONFIG.tagline}
-    </p>
+      <div
+        class="hero-stats flex flex-wrap items-center justify-center gap-3 max-w-3xl mx-auto mb-10"
+      >
+        <span class={statPillClass}>
+          <span class="gradient-text font-bold">{projectCount}</span> Projects
+        </span>
+        <span class={statPillClass}>
+          <span class="gradient-text font-bold">{repoCount}</span> GitHub Repos
+        </span>
+        <span class={statPillClass}>
+          <span class="gradient-text font-bold">{testsDisplay}</span> Tests Written
+        </span>
+      </div>
 
-    <div
-      class="hero-stats flex flex-wrap items-center justify-center gap-3 max-w-3xl mx-auto mb-10"
-    >
-      <span class={statPillClass}>
-        <span class="gradient-text font-bold">{projectCount}</span> Projects
-      </span>
-      <span class={statPillClass}>
-        <span class="gradient-text font-bold">{repoCount}</span> GitHub Repos
-      </span>
-      <span class={statPillClass}>
-        <span class="gradient-text font-bold">{testsDisplay}</span> Tests Written
-      </span>
-    </div>
-
-    <div class="hero-cta flex flex-wrap items-center justify-center gap-4 mb-8">
-      <PrimaryButton href="/#projects" label="View Projects" icon="folder" />
-      <PrimaryButton href="https://github.com/gaganjainse" label="GitHub" icon="github" external />
-      <PrimaryButton
-        href="https://linkedin.com/in/gaganjainse"
-        label="LinkedIn"
-        icon="linkedin"
-        external
-      />
-      <PrimaryButton href="/resume" label="Résumé" icon="doc" />
-      <PrimaryButton href="/resume.pdf" label="PDF" icon="download" external compact />
+      <div class="hero-cta flex flex-wrap items-center justify-center gap-4 mb-8">
+        <PrimaryButton href="/#projects" label="View Projects" icon="folder" />
+        <PrimaryButton
+          href="https://github.com/gaganjainse"
+          label="GitHub"
+          icon="github"
+          external
+        />
+        <PrimaryButton
+          href="https://linkedin.com/in/gaganjainse"
+          label="LinkedIn"
+          icon="linkedin"
+          external
+        />
+        <PrimaryButton href="/resume" label="Résumé" icon="doc" />
+        <PrimaryButton href="/resume.pdf" label="PDF" icon="download" external compact />
+      </div>
     </div>
   </div>
 </section>
