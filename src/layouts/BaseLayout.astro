@@ -80,7 +80,7 @@ import '../styles/global.css'
                 </a>
               ))}
               <a
-                href="/resume"
+                href="/résumé"
                 class="nav-link ml-2 px-3 py-2 rounded-lg text-sm font-medium transition-all text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -117,7 +117,7 @@ import '../styles/global.css'
                 </a>
               ))}
               <a
-                href="/resume"
+                href="/résumé"
                 class="nav-link block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -140,7 +140,7 @@ import '../styles/global.css'
           &copy; {new Date().getFullYear()} Gagan Jain &middot; Built with Astro + GSAP + Tailwind CSS
         </p>
         <div class="flex items-center justify-center gap-4 text-sm">
-          <a href="/resume" target="_blank" rel="noopener noreferrer" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20">
+          <a href="/résumé" target="_blank" rel="noopener noreferrer" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20">
             Résumé
           </a>
           <span class="text-border">&middot;</span>
@@ -199,10 +199,10 @@ import '../styles/global.css'
       const navItems = [...document.querySelectorAll('.nav-link')]
 
       function updateActiveSection() {
-        if (window.location.pathname === '/resume') {
+        if (window.location.pathname === '/résumé') {
           navItems.forEach(link => {
             link.classList.remove('active')
-            if (link.getAttribute('href') === '/resume') {
+            if (link.getAttribute('href') === '/résumé') {
               link.classList.add('active')
             }
           })
@@ -234,10 +234,10 @@ import '../styles/global.css'
       window.addEventListener('scroll', updateActiveSection, { passive: true })
       updateActiveSection()
 
-      if (window.location.pathname === '/resume') {
+      if (window.location.pathname === '/résumé') {
         navLinks.forEach(link => {
           link.classList.remove('active')
-          if (link.getAttribute('href') === '/resume') {
+          if (link.getAttribute('href') === '/résumé') {
             link.classList.add('active')
           }
         })
