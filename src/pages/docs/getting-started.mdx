@@ -8,28 +8,28 @@ description: "Getting started with Gagan Jain's portfolio and projects"
 {/* prettier-ignore */}
 <p class="text-text-muted mb-8">Welcome to the documentation for Gagan Jain's portfolio — an AI / LLM Engineer focused on production-grade GenAI systems. This index splits the docs into two parts: <strong class="text-text">Overview</strong> (how this site works) and <strong class="text-text">Projects</strong> (each system's documentation).</p>
 
-## Overview
+<h2 class="text-2xl font-bold gradient-text mb-5">Overview</h2>
 
 {/* prettier-ignore */}
 <p class="text-text-muted mb-4">The Overview section covers the portfolio itself — its architecture, decision records, and a full route map.</p>
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
   <a href="/docs/architecture" class="gradient-border p-6 block no-underline">
-    <h2 class="text-lg font-bold text-text mb-1">Architecture</h2>
+    <h3 class="text-lg font-bold text-text mb-1">Architecture</h3>
     <span class="block text-sm text-text-muted">
       System design patterns used across the AI and systems projects — governance, event sourcing,
       hybrid retrieval, and more.
     </span>
   </a>
   <a href="/docs/adr" class="gradient-border p-6 block no-underline">
-    <h2 class="text-lg font-bold text-text mb-1">ADRs</h2>
+    <h3 class="text-lg font-bold text-text mb-1">ADRs</h3>
     <span class="block text-sm text-text-muted">
       Architecture Decision Records: why the portfolio is built on Astro 7 + Tailwind v4 + GSAP,
       static output on Vercel, and more.
     </span>
   </a>
   <a href="/docs/site-map" class="gradient-border p-6 block no-underline">
-    <h2 class="text-lg font-bold text-text mb-1">Site Map</h2>
+    <h3 class="text-lg font-bold text-text mb-1">Site Map</h3>
     <span class="block text-sm text-text-muted">
       Every page and route on the site — where each one lives in the repo, what it does, and how it
       behaves.
@@ -37,62 +37,62 @@ description: "Getting started with Gagan Jain's portfolio and projects"
   </a>
 </div>
 
-## Projects
+<h2 class="text-2xl font-bold gradient-text mb-5">Projects</h2>
 
 {/* prettier-ignore */}
 <p class="text-text-muted mb-4">Each project has its own documentation page — architecture, features, and the tech stack behind it.</p>
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
   <a href="/docs/projects/nexusaos" class="gradient-border p-6 block no-underline">
-    <h2 class="text-lg font-bold text-text mb-1">NexusAOS</h2>
+    <h3 class="text-lg font-bold text-text mb-1">NexusAOS</h3>
     <span class="block text-sm text-text-muted">
       Governance-first, event-sourced AI operating environment in Rust — 12 workspace crates, 981
       tests, provider-agnostic LLM streaming.
     </span>
   </a>
   <a href="/docs/projects/nexus-kernel" class="gradient-border p-6 block no-underline">
-    <h2 class="text-lg font-bold text-text mb-1">nexus-kernel</h2>
+    <h3 class="text-lg font-bold text-text mb-1">nexus-kernel</h3>
     <span class="block text-sm text-text-muted">
       Companion to NexusAOS — the alpha-track microkernel sibling of the same 12-crate Rust
       workspace.
     </span>
   </a>
   <a href="/docs/projects/seshaos" class="gradient-border p-6 block no-underline">
-    <h2 class="text-lg font-bold text-text mb-1">SeshaOS</h2>
+    <h3 class="text-lg font-bold text-text mb-1">SeshaOS</h3>
     <span class="block text-sm text-text-muted">
       Local-first AI OS with specialist models (Gemma 4, Qwen3) and LiteLLM-compatible routing.
     </span>
   </a>
   <a href="/docs/projects/rag-service" class="gradient-border p-6 block no-underline">
-    <h2 class="text-lg font-bold text-text mb-1">RAG Service</h2>
+    <h3 class="text-lg font-bold text-text mb-1">RAG Service</h3>
     <span class="block text-sm text-text-muted">
       Production RAG API — hybrid retrieval (dense + BM25, RRF) over ChromaDB with grounded answers
       and citations.
     </span>
   </a>
   <a href="/docs/projects/llm-eval-harness" class="gradient-border p-6 block no-underline">
-    <h2 class="text-lg font-bold text-text mb-1">LLM Eval Harness</h2>
+    <h3 class="text-lg font-bold text-text mb-1">LLM Eval Harness</h3>
     <span class="block text-sm text-text-muted">
       Golden-set evaluation: faithfulness, answer relevance, and correctness with LLM-as-judge and
       offline fallbacks.
     </span>
   </a>
   <a href="/docs/projects/vyakrti" class="gradient-border p-6 block no-underline">
-    <h2 class="text-lg font-bold text-text mb-1">Vyākṛti</h2>
+    <h3 class="text-lg font-bold text-text mb-1">Vyākṛti</h3>
     <span class="block text-sm text-text-muted">
       Sanskrit-oriented programming language with a complete compiler pipeline and a browser-based
       IDE.
     </span>
   </a>
   <a href="/docs/projects/aim" class="gradient-border p-6 block no-underline">
-    <h2 class="text-lg font-bold text-text mb-1">AIM</h2>
+    <h3 class="text-lg font-bold text-text mb-1">AIM</h3>
     <span class="block text-sm text-text-muted">
       Production attendance platform — Flask + MySQL, Argon2id auth, Prometheus monitoring, 101
       tests.
     </span>
   </a>
   <a href="/docs/projects/fwrs" class="gradient-border p-6 block no-underline">
-    <h2 class="text-lg font-bold text-text mb-1">FWRS</h2>
+    <h3 class="text-lg font-bold text-text mb-1">FWRS</h3>
     <span class="block text-sm text-text-muted">
       Food-waste optimization — 3-stage lexicographic linear program (fairness → priority → cost)
       with expiry-aware routing.
