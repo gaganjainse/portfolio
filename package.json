@@ -17,13 +17,14 @@
     "test:watch": "vitest",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "resume:pdf": "node scripts/generate-r\u00e9sum\u00e9-pdf.js"
+    "resume:pdf": "node scripts/generate-résumé-pdf.js"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.5",
     "@astrojs/sitemap": "^3.7.3",
     "@astrojs/vercel": "^11.0.5",
     "@tailwindcss/vite": "^4.3.3",
+    "@vercel/analytics": "^2.0.1",
     "astro": "^7.2.0",
     "gsap": "^3.15.0",
     "tailwindcss": "^4.3.3"
