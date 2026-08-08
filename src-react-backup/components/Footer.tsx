@@ -20,8 +20,8 @@ export default function Footer() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="flex items-center justify-center gap-4 text-sm"
         >
-          <a href="/resume.html" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent/80 transition-colors">
-            Resume
+          <a href="/résumé.html" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent/80 transition-colors">
+            Résumé
           </a>
           <span className="text-border">·</span>
           <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-text-muted hover:text-text transition-colors">
