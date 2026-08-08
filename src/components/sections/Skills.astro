@@ -1,5 +1,5 @@
 ---
-import { groupByCategory, CATEGORY_COLORS, SKILLS, getProficiencyLabel } from '../../data/skills.ts'
+import { groupByCategory, SKILLS, getProficiencyLabel } from '../../data/skills.ts'
 ---
 
 <section id="skills" class="py-24 px-4 sm:px-6 bg-bg-elevated/30" aria-labelledby="skills-heading">
@@ -7,44 +7,58 @@ import { groupByCategory, CATEGORY_COLORS, SKILLS, getProficiencyLabel } from '.
     <h2 id="skills-heading" class="text-3xl sm:text-4xl font-bold mb-2">
       Technical <span class="gradient-text">Skills</span>
     </h2>
-    <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mb-12" />
+    <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mb-12"></div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {Object.entries(groupByCategory(SKILLS)).map(([category, data]) => (
-        <div class="gradient-border p-6 transition">
-          <h3 class="text-lg font-semibold text-text mb-4 flex items-center gap-2">
-            <span class="w-3 h-3 rounded-full" style={{ backgroundColor: data.color }} aria-hidden="true" />
-            {data.name}
-          </h3>
-          <div class="space-y-3">
-            {data.skills.map((skill) => (
-              <div>
-                <div class="flex items-center justify-between mb-1">
-                  <span class="text-sm text-text">{skill.name}</span>
-                  <span class="text-xs text-text-muted">{getProficiencyLabel(skill.level)}</span>
-                </div>
-                <div class="h-1.5 bg-bg rounded-full overflow-hidden" role="progressbar" aria-valuenow={skill.level} aria-valuemin={0} aria-valuemax={100} aria-label={`${skill.name}: ${getProficiencyLabel(skill.level)}`}>
+      {
+        Object.values(groupByCategory(SKILLS)).map((data) => (
+          <div class="gradient-border p-6 transition">
+            <h3 class="text-lg font-semibold text-text mb-4 flex items-center gap-2">
+              <span
+                class="w-3 h-3 rounded-full"
+                style={{ backgroundColor: data.color }}
+                aria-hidden="true"
+              />
+              {data.name}
+            </h3>
+            <div class="space-y-3">
+              {data.skills.map((skill) => (
+                <div>
+                  <div class="flex items-center justify-between mb-1">
+                    <span class="text-sm text-text">{skill.name}</span>
+                    <span class="text-xs text-text-muted">{getProficiencyLabel(skill.level)}</span>
+                  </div>
                   <div
-                    class="h-full rounded-full skill-bar-fill"
-                    style={{ '--bar-color': data.color, width: '0%' }}
-                    data-width={`${skill.level}%`}
-                  />
+                    class="h-1.5 bg-bg rounded-full overflow-hidden"
+                    role="progressbar"
+                    aria-valuenow={skill.level}
+                    aria-valuemin={0}
+                    aria-valuemax={100}
+                    aria-label={`${skill.name}: ${getProficiencyLabel(skill.level)}`}
+                  >
+                    <div
+                      class="h-full rounded-full skill-bar-fill"
+                      style={{ '--bar-color': data.color, '--target-width': `${skill.level}%` }}
+                      data-width={`${skill.level}%`}
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))
+      }
     </div>
   </div>
 </section>
 
 <script>
   import gsap from 'gsap'
-  import { prefersReducedMotion } from '../../utils/gsap.ts'
+  import { ScrollTrigger } from 'gsap/ScrollTrigger'
+  import { prefersReducedMotion } from '../../utils/dom.ts'
 
   if (!prefersReducedMotion()) {
-    document.querySelectorAll('.skill-bar-fill').forEach((bar) => {
+    document.querySelectorAll<HTMLElement>('.skill-bar-fill').forEach((bar) => {
       const target = bar.dataset.width
       if (!target) return
 

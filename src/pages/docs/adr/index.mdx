@@ -1,7 +1,7 @@
 ---
 layout: ../../../layouts/BaseLayout.astro
 title: ADRs
-description: "Architecture Decision Records"
+description: 'Architecture Decision Records'
 ---
 
 <div class="max-w-4xl mx-auto px-4 sm:px-6 py-24">
@@ -28,25 +28,25 @@ description: "Architecture Decision Records"
     </article>
 
     <article class="gradient-border p-6">
-      <h2 class="text-xl font-bold text-text mb-2">ADR-003: Vercel ISR Caching</h2>
+      <h2 class="text-xl font-bold text-text mb-2">ADR-003: Static Output on Vercel (ISR removed)</h2>
       <p class="text-text-muted text-sm mb-3">
-        Enabled ISR with 24-hour expiration on Vercel for optimal performance while keeping content fresh.
+        Originally enabled ISR with a 24-hour expiration. Reverted to fully static output: the portfolio has no dynamic data, so ISR only added edge-function overhead. Static output serves instantly from the CDN edge.
       </p>
-      <span class="text-xs text-text-muted">Status: Accepted</span>
+      <span class="text-xs text-text-muted">Status: Accepted (supersedes the earlier ISR decision)</span>
     </article>
 
     <article class="gradient-border p-6">
-      <h2 class="text-xl font-bold text-text mb-2">ADR-004: Partytown for Third-Party Scripts</h2>
+      <h2 class="text-xl font-bold text-text mb-2">ADR-004: Google Fonts via Preconnect + Stylesheet Link</h2>
       <p class="text-text-muted text-sm mb-3">
-        Offloaded Google Fonts to Partytown web worker to reduce main-thread blocking and improve LCP.
+        Initially attempted to load Google Fonts through Partytown's web worker. Partytown cannot inject stylesheets from a worker, so fonts silently failed. Replaced with standard <code>&lt;link rel="preconnect"&gt;</code> and a stylesheet link, loading only the used weights (400–700).
       </p>
-      <span class="text-xs text-text-muted">Status: Accepted</span>
+      <span class="text-xs text-text-muted">Status: Accepted (supersedes the Partytown approach)</span>
     </article>
 
     <article class="gradient-border p-6">
-      <h2 class="text-xl font-bold text-text mb-2">ADR-005: Gradient Mesh + Canvas Flow Field Background</h2>
+      <h2 class="text-xl font-bold text-text mb-2">ADR-005: Dark Gradient Background with Grid + Glow Orbs</h2>
       <p class="text-text-muted text-sm mb-3">
-        Chose CSS gradient orbs with SVG noise overlay and a Canvas 2D particle flow field over sacred geometry/mandalas for a more technical, atmospheric aesthetic that avoids spiritual connotations for an AI brand.
+        The site uses a fixed dark background built from CSS only: two radial gradient glows (violet + cyan), a subtle 40px grid overlay, and animated pulsing orbs in the hero. No canvas or JS background — keeps the payload tiny and respects reduced-motion preferences.
       </p>
       <span class="text-xs text-text-muted">Status: Accepted</span>
     </article>
@@ -54,9 +54,26 @@ description: "Architecture Decision Records"
     <article class="gradient-border p-6">
       <h2 class="text-xl font-bold text-text mb-2">ADR-006: Résumé as MDX with PDF Export</h2>
       <p class="text-text-muted text-sm mb-3">
-        Kept the résumé as an MDX page for web viewing and generated a PDF via Puppeteer for download, balancing maintainability with traditional résumé formats.
+        Kept the résumé as an MDX page for web viewing and generated a PDF via Puppeteer for download, balancing maintainability with traditional résumé formats. The MDX page reads from the same data files as the site (skills, experience, projects) so it stays in sync.
       </p>
       <span class="text-xs text-text-muted">Status: Accepted</span>
     </article>
+
+    <article class="gradient-border p-6">
+      <h2 class="text-xl font-bold text-text mb-2">ADR-007: Résumé Route Normalized to /resume</h2>
+      <p class="text-text-muted text-sm mb-3">
+        The résumé page originally lived at the Unicode URL <code>/résumé</code>. Moved the canonical route to <code>/resume</code> and added permanent 301 redirects in <code>vercel.json</code> for the old URLs (including <code>/résumé.pdf</code>), so links, crawlers, and copy-paste work reliably.
+      </p>
+      <span class="text-xs text-text-muted">Status: Accepted</span>
+    </article>
+
+    <article class="gradient-border p-6">
+      <h2 class="text-xl font-bold text-text mb-2">ADR-008: CI with Build + Test + Type-Check + Lint</h2>
+      <p class="text-text-muted text-sm mb-3">
+        Added a GitHub Actions workflow that runs <code>npm ci</code>, <code>astro build</code>, <code>vitest</code>, <code>astro check</code>, and ESLint on every push and PR. Prevents regressions like the skill-bar <code>ScrollTrigger</code> reference error from reaching production.
+      </p>
+      <span class="text-xs text-text-muted">Status: Accepted</span>
+    </article>
+
   </div>
 </div>

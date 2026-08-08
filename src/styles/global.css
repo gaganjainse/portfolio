@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --color-primary: #7c3aed;
@@ -25,7 +25,11 @@ html {
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-family:
+    'Inter',
+    system-ui,
+    -apple-system,
+    sans-serif;
   position: relative;
 }
 body::before {
@@ -36,12 +40,15 @@ body::before {
   background:
     radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.08) 0%, transparent 50%),
     radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.06) 0%, transparent 50%),
-    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size:
+    100% 100%,
+    100% 100%,
+    40px 40px,
+    40px 40px;
   pointer-events: none;
 }
-
 
 ::selection {
   background-color: var(--color-primary);
@@ -129,20 +136,26 @@ body::before {
   position: relative;
   border-radius: 1rem;
   background: var(--color-bg-card);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
 }
 .gradient-border:hover {
-  box-shadow: 0 0 20px rgba(124, 58, 237, 0.15), 0 0 40px rgba(6, 182, 212, 0.1);
+  box-shadow:
+    0 0 20px rgba(124, 58, 237, 0.15),
+    0 0 40px rgba(6, 182, 212, 0.1);
   transform: translateY(-2px);
 }
 .gradient-border::before {
-  content: "";
+  content: '';
   position: absolute;
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
   background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
   opacity: 0;
@@ -158,7 +171,7 @@ body::before {
   padding-left: 2rem;
 }
 .timeline::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   top: 0;
@@ -172,7 +185,7 @@ body::before {
   padding-bottom: 2rem;
 }
 .timeline-item::before {
-  content: "";
+  content: '';
   position: absolute;
   left: -2rem;
   top: 0.5rem;
@@ -186,6 +199,7 @@ body::before {
 }
 
 .skill-bar-fill {
+  width: var(--target-width, 0%);
   background-color: var(--bar-color, var(--color-primary));
   will-change: width;
 }
@@ -201,7 +215,7 @@ body::before {
   background: linear-gradient(90deg, rgba(124, 58, 237, 0.6), rgba(6, 182, 212, 0.6));
 }
 .nav-link.active::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -212,7 +226,7 @@ body::before {
   border-radius: 1px;
 }
 .nav-link::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -231,9 +245,16 @@ body::before {
   .no-print {
     display: none !important;
   }
+  html,
   body {
-    background: white;
-    color: black;
+    background: white !important;
+    color: black !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  main {
+    height: auto !important;
+    min-height: 0 !important;
   }
   nav,
   header,
@@ -242,7 +263,8 @@ body::before {
   .glass,
   .animate-pulse-glow,
   .gradient-border::before,
-  .skill-bar-fill {
+  .skill-bar-fill,
+  body::before {
     display: none !important;
   }
   section {
@@ -252,5 +274,91 @@ body::before {
   a {
     text-decoration: none !important;
     color: black !important;
+  }
+
+  /* Résumé page: force light print output */
+  .resume-sheet,
+  .resume-sheet * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  .resume-sheet .border,
+  .resume-sheet .rounded-xl,
+  .resume-sheet .rounded-lg {
+    border-color: #d1d5db !important;
+  }
+  .resume-sheet h1,
+  .resume-sheet h2,
+  .resume-sheet h3 {
+    color: black !important;
+  }
+  .resume-sheet h2 {
+    -webkit-text-fill-color: black !important;
+    background: none !important;
+  }
+  .resume-sheet .timeline {
+    padding-left: 1.25rem !important;
+  }
+  .resume-sheet .timeline-item::before {
+    background: black !important;
+    border-color: white !important;
+    box-shadow: 0 0 0 2px black !important;
+  }
+
+  /* Compact typography so the résumé fits ~2 pages */
+  .resume-page {
+    padding: 0 !important;
+  }
+  .resume-sheet {
+    font-size: 10px !important;
+    line-height: 1.35 !important;
+    padding: 0 !important;
+    border: none !important;
+  }
+  .resume-sheet h1 {
+    font-size: 22px !important;
+    margin-bottom: 0.15rem !important;
+  }
+  .resume-sheet h2 {
+    font-size: 13px !important;
+    margin: 0.75rem 0 0.3rem !important;
+    padding-bottom: 1px !important;
+    border-bottom: 1px solid #d1d5db !important;
+  }
+  .resume-sheet h3 {
+    font-size: 11px !important;
+  }
+  .resume-sheet p,
+  .resume-sheet li,
+  .resume-sheet a {
+    font-size: 10px !important;
+  }
+  .resume-sheet section {
+    margin-bottom: 0.5rem !important;
+    padding: 0 !important;
+  }
+  .resume-sheet .mb-10,
+  .resume-sheet .mb-8,
+  .resume-sheet .mb-4,
+  .resume-sheet .mb-3,
+  .resume-sheet .mb-2 {
+    margin-bottom: 0.3rem !important;
+  }
+  .resume-sheet .space-y-5 > * + *,
+  .resume-sheet .space-y-4 > * + *,
+  .resume-sheet .space-y-1 > * + * {
+    margin-top: 0.25rem !important;
+  }
+  .resume-sheet .grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 0.4rem !important;
+  }
+  .resume-sheet .p-5 {
+    padding: 0.5rem !important;
+  }
+  .resume-sheet .mt-3 {
+    margin-top: 0.25rem !important;
   }
 }

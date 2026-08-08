@@ -1,31 +1,8 @@
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { prefersReducedMotion } from './dom.ts'
 
 gsap.registerPlugin(ScrollTrigger)
-
-export function prefersReducedMotion() {
-  if (typeof window === 'undefined') return false
-  return window.matchMedia('(prefers-reduced-motion: reduce)').matches
-}
-
-export function scrollProgress() {
-  if (typeof window === 'undefined') return { kill: () => {} }
-
-  const progressBar = document.querySelector('.scroll-progress') as HTMLElement | null
-  if (!progressBar) return { kill: () => {} }
-
-  const update = () => {
-    const scrollTop = window.scrollY
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight
-    const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0
-    progressBar.style.width = `${progress}%`
-  }
-
-  window.addEventListener('scroll', update, { passive: true })
-  update()
-
-  return () => window.removeEventListener('scroll', update)
-}
 
 export interface RevealOptions {
   selector: string
@@ -58,7 +35,8 @@ export function useScrollReveal(options: RevealOptions) {
     ease = 'power3.out',
   } = options
 
-  gsap.fromTo(selector,
+  gsap.fromTo(
+    selector,
     { opacity, y, x },
     {
       opacity: 1,
@@ -72,6 +50,6 @@ export function useScrollReveal(options: RevealOptions) {
         start,
         once,
       },
-    }
+    },
   )
 }

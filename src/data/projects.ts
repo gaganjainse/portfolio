@@ -1,21 +1,38 @@
 const GITHUB_BASE = 'https://github.com/gaganjainse'
 
-const TAG_CLASSES = {
+export type TagColor = 'pink' | 'green' | 'primary'
+
+export interface Project {
+  title: string
+  tag: string
+  tagColor: TagColor
+  description: string
+  bullets: string[]
+  tech: string[]
+  tests: number
+  github: string
+  docs?: string
+}
+
+const TAG_CLASSES: Record<TagColor, string> = {
   pink: 'bg-pink-500/20 text-pink-400 cursor-default hover:shadow-[0_0_8px_rgba(236,72,153,0.4)] hover:border-pink-500/50 transition',
-  green: 'bg-green-500/20 text-green-400 cursor-default hover:shadow-[0_0_8px_rgba(16,185,129,0.4)] hover:border-green-500/50 transition',
-  primary: 'bg-primary/20 text-primary-light cursor-default hover:shadow-[0_0_8px_rgba(124,58,237,0.4)] hover:border-primary/50 transition',
+  green:
+    'bg-green-500/20 text-green-400 cursor-default hover:shadow-[0_0_8px_rgba(16,185,129,0.4)] hover:border-green-500/50 transition',
+  primary:
+    'bg-primary/20 text-primary-light cursor-default hover:shadow-[0_0_8px_rgba(124,58,237,0.4)] hover:border-primary/50 transition',
 }
 
-export function getTagClasses(tagColor) {
-  return TAG_CLASSES[tagColor] || TAG_CLASSES.primary
+export function getTagClasses(tagColor: string): string {
+  return TAG_CLASSES[tagColor as TagColor] || TAG_CLASSES.primary
 }
 
-export const PROJECTS = [
+export const PROJECTS: Project[] = [
   {
     title: 'NexusAOS',
     tag: 'AI/AGENTIC',
     tagColor: 'pink',
-    description: 'Governance-first agentic OS with multi-agent swarm orchestration, LLM fine-tuning, and 30+ MCP tools.',
+    description:
+      'Governance-first agentic OS with multi-agent swarm orchestration, LLM fine-tuning, and 30+ MCP tools.',
     bullets: [
       'Built multi-agent swarm executor with collision detection, namespace isolation, quorum voting, and atomic fission in Python + asyncio',
       'Integrated local LLM inference with Phi-4-Mini QLoRA adapters, AB/AP balance enforcement, and constitution-guided routing',
@@ -25,42 +42,67 @@ export const PROJECTS = [
     tech: ['Python', 'FastMCP', 'QLoRA', 'Unsloth', 'Multi-Agent', 'MCP', 'AsyncIO', 'Rust', 'Zig'],
     tests: 0,
     github: `${GITHUB_BASE}/NexusAOS`,
+    docs: '/docs/projects/nexusaos',
   },
   {
     title: 'nexus-kernel',
     tag: 'AI/AGENTIC',
     tagColor: 'pink',
-    description: 'Production-ready Rust microkernel for local-first AI with event-sourced governance, OpenAI/Anthropic streaming, and 981 tests.',
+    description:
+      'Production-ready Rust microkernel for local-first AI with event-sourced governance, OpenAI/Anthropic streaming, and 981 tests.',
     bullets: [
       'Built Rust 2024 microkernel with 12 workspace crates, 981 passing tests, 0 clippy warnings, and full CI/CD',
       'Implemented event-sourced append-only audit trail, policy engine with trust tiers, and provider-swappable model interface',
       'Integrated OpenAI-compatible and Anthropic streaming with real-time token streaming into TUI/GUI',
       'Delivered native terminal emulation (PTY + VT100 + Zig parser), SSH multiplexing, and multi-interface CLI/TUI/GUI/RPC',
     ],
-    tech: ['Rust', 'Tokio', 'OpenAI', 'Anthropic', 'SQLite', 'Ratatui', 'Iced', 'SSH', 'Event Sourcing'],
+    tech: [
+      'Rust',
+      'Tokio',
+      'OpenAI',
+      'Anthropic',
+      'SQLite',
+      'Ratatui',
+      'Iced',
+      'SSH',
+      'Event Sourcing',
+    ],
     tests: 981,
     github: `${GITHUB_BASE}/nexus-kernel`,
+    docs: '/docs/projects/nexus-kernel',
   },
   {
     title: 'SeshaOS',
     tag: 'AI/AGENTIC',
     tagColor: 'pink',
-    description: 'NexusAOS v2 — governance-first, local-first AI OS with specialist local models and LiteLLM-compatible routing.',
+    description:
+      'NexusAOS v2 — governance-first, local-first AI OS with specialist local models and LiteLLM-compatible routing.',
     bullets: [
       'Architected specialist model stack: Gemma 4 12B (Planner), Qwen3-Coder 30B (Implementation), Qwen3.5 9B (Vision)',
       'Designed kernel-centric governance where models propose actions and the kernel validates/records every state change',
       'Implemented LiteLLM-compatible proxy support for NVIDIA NIM and other model providers',
       'Maintained event-sourced architecture with reversible, permissioned actions and offline-first execution',
     ],
-    tech: ['Rust', 'LiteLLM', 'Gemma', 'Qwen', 'Local LLMs', 'Governance', 'Event Sourcing', 'Ubuntu'],
+    tech: [
+      'Rust',
+      'LiteLLM',
+      'Gemma',
+      'Qwen',
+      'Local LLMs',
+      'Governance',
+      'Event Sourcing',
+      'Ubuntu',
+    ],
     tests: 0,
     github: `${GITHUB_BASE}/SeshaOS`,
+    docs: '/docs/projects/seshaos',
   },
   {
     title: 'Vyākṛti',
     tag: 'FLAGSHIP',
     tagColor: 'primary',
-    description: 'Sanskrit-oriented programming language with complete compiler pipeline and browser-based IDE. 123 tests.',
+    description:
+      'Sanskrit-oriented programming language with complete compiler pipeline and browser-based IDE. 123 tests.',
     bullets: [
       'Complete compiler pipeline: lexer → parser → type checker → bytecode compiler — all built from scratch in Rust',
       'Browser-based IDE with React, Monaco Editor, syntax highlighting, autocomplete, and diagnostics',
@@ -70,12 +112,14 @@ export const PROJECTS = [
     tech: ['Rust', 'React', 'TypeScript', 'Monaco Editor', 'Zustand', 'Tailwind CSS', 'Axum'],
     tests: 123,
     github: `${GITHUB_BASE}/Vyakrti`,
+    docs: '/docs/projects/vyakrti',
   },
   {
     title: 'AIM — Attendance Information Manager',
     tag: 'PRODUCTION-READY',
     tagColor: 'green',
-    description: 'Production-grade Flask + MySQL platform with Argon2id auth, Prometheus monitoring, and CI/CD.',
+    description:
+      'Production-grade Flask + MySQL platform with Argon2id auth, Prometheus monitoring, and CI/CD.',
     bullets: [
       'Production-grade Flask + MySQL platform with Argon2id auth, CSRF protection, brute-force lockout, breached-password scanning, JWT sessions, and strict CSP/HSTS headers',
       'Deployed Prometheus metrics, structured JSON logging, Chart.js analytics, FullCalendar scheduling, Docker Compose, and GitHub Actions CI/CD; 101 automated pytest tests',
@@ -88,7 +132,8 @@ export const PROJECTS = [
     title: 'FWRS — Food Waste Reduction System',
     tag: 'PRODUCTION-READY',
     tagColor: 'green',
-    description: 'Food waste optimization platform using linear programming and route optimization.',
+    description:
+      'Food waste optimization platform using linear programming and route optimization.',
     bullets: [
       'Built linear programming models to minimize food waste and optimize distribution routes',
       'Implemented route optimization algorithms for efficient collection and delivery scheduling',
@@ -100,4 +145,3 @@ export const PROJECTS = [
     github: `${GITHUB_BASE}/FWRS`,
   },
 ]
-

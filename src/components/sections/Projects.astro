@@ -7,36 +7,59 @@ import { PROJECTS, getTagClasses } from '../../data/projects.ts'
     <h2 id="projects-heading" class="text-3xl sm:text-4xl font-bold mb-2">
       Featured <span class="gradient-text">Projects</span>
     </h2>
-    <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mb-8" />
+    <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mb-8"></div>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-      {PROJECTS.map((project) => (
-        <article class="project-card gradient-border p-6 sm:p-8 transition">
-          <div class="flex flex-wrap items-center gap-3 mb-3">
-            <span class={`px-2.5 py-0.5 rounded-full text-xs font-bold ${getTagClasses(project.tagColor)}`}>
-              {project.tag}
-            </span>
-            <h3 class="text-xl sm:text-2xl font-bold text-text">{project.title}</h3>
-          </div>
-          <p class="text-text-muted mb-4">{project.description}</p>
-          <ul class="space-y-2 mb-4">
-            {project.bullets.map((bullet) => (
-              <li class="text-sm text-text-muted flex items-start gap-2">
-                <span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span>
-                <span>{bullet}</span>
-              </li>
-            ))}
-          </ul>
-          <div class="flex flex-wrap gap-2 mb-4">
-            {project.tech.map((tech) => (
-              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border cursor-default transition hover:shadow-[0_0_6px_rgba(148,163,184,0.2)] hover:border-border-light">{tech}</span>
-            ))}
-          </div>
-          <div class="flex items-center gap-4">
-            <a href={project.github} target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-sm text-text-muted hover:text-primary-light transition-colors">Source Code</a>
-          </div>
-        </article>
-      ))}
+      {
+        PROJECTS.map((project) => (
+          <article class="project-card gradient-border p-6 sm:p-8 transition">
+            <div class="flex flex-wrap items-center gap-3 mb-3">
+              <span
+                class={`px-2.5 py-0.5 rounded-full text-xs font-bold ${getTagClasses(project.tagColor)}`}
+              >
+                {project.tag}
+              </span>
+              <h3 class="text-xl sm:text-2xl font-bold text-text">{project.title}</h3>
+            </div>
+            <p class="text-text-muted mb-4">{project.description}</p>
+            <ul class="space-y-2 mb-4">
+              {project.bullets.map((bullet) => (
+                <li class="text-sm text-text-muted flex items-start gap-2">
+                  <span class="text-primary mt-1.5 shrink-0" aria-hidden="true">
+                    ▸
+                  </span>
+                  <span>{bullet}</span>
+                </li>
+              ))}
+            </ul>
+            <div class="flex flex-wrap gap-2 mb-4">
+              {project.tech.map((tech) => (
+                <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border cursor-default transition hover:shadow-[0_0_6px_rgba(148,163,184,0.2)] hover:border-border-light">
+                  {tech}
+                </span>
+              ))}
+            </div>
+            <div class="flex items-center gap-4">
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center gap-2 text-sm text-text-muted hover:text-primary-light transition-colors"
+              >
+                Source Code
+              </a>
+              {project.docs && (
+                <a
+                  href={project.docs}
+                  class="flex items-center gap-2 text-sm text-text-muted hover:text-primary-light transition-colors"
+                >
+                  Documentation
+                </a>
+              )}
+            </div>
+          </article>
+        ))
+      }
     </div>
   </div>
 </section>

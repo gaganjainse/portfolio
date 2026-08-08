@@ -1,14 +1,18 @@
 ---
 layout: ../layouts/BaseLayout.astro
 title: Résumé
-description: "Résumé of Gagan Jain, AI / LLM Engineer"
+description: 'Résumé of Gagan Jain, AI / LLM Engineer'
 ---
 
 import { SITE_CONFIG } from '../data/config.ts'
 import { PROJECTS, getTagClasses } from '../data/projects.ts'
+import { EXPERIENCE } from '../data/experience.ts'
+import { groupByCategory, SKILLS } from '../data/skills.ts'
 
-<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-20 sm:pt-24 pb-16">
-  <div class="border border-border-light/50 rounded-xl shadow-2xl shadow-black/20 bg-bg-card/80 backdrop-blur-sm p-6 sm:p-10">
+export const skillCategories = groupByCategory(SKILLS)
+
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-20 sm:pt-24 pb-16 resume-page">
+  <div class="rounded-xl shadow-2xl shadow-black/20 bg-bg-card/80 backdrop-blur-sm p-6 sm:p-10 resume-sheet">
   <div class="text-center mb-10">
     <h1 class="text-3xl sm:text-4xl font-bold mb-3 gradient-text">Gagan Jain</h1>
     <p class="text-lg text-text-muted mb-2">AI / LLM Engineer</p>
@@ -33,105 +37,107 @@ import { PROJECTS, getTagClasses } from '../data/projects.ts'
     </div>
   </div>
 
-  <section class="mb-10 scroll-mt-24">
-    <h2 class="text-xl font-bold gradient-text mb-3">Professional Summary</h2>
-    <p class="text-text-muted leading-relaxed">
-      AI/LLM Engineer with hands-on experience building and deploying production-grade GenAI systems, agentic AI frameworks, and LLM-powered applications. Core strengths include RAG pipelines, multi-agent orchestration, LLM fine-tuning (QLoRA/LoRA), prompt and context engineering, MCP tooling, and evaluation/observability. Strong Python foundation with end-to-end deployment experience using Docker, CI/CD, and cloud platforms.
-    </p>
-  </section>
+<section class="mb-10 scroll-mt-24">
+  <h2 class="text-xl font-bold gradient-text mb-3">Professional Summary</h2>
+  <p class="text-text-muted leading-relaxed">
+    AI/LLM Engineer with hands-on experience building and deploying production-grade GenAI systems,
+    agentic AI frameworks, and LLM-powered applications. Core strengths include RAG pipelines,
+    multi-agent orchestration, LLM fine-tuning (QLoRA/LoRA), prompt and context engineering, MCP
+    tooling, and evaluation/observability. Strong Python foundation with end-to-end deployment
+    experience using Docker, CI/CD, and cloud platforms.
+  </p>
+</section>
 
-  <section class="mb-10 scroll-mt-24">
-    <h2 class="text-xl font-bold gradient-text mb-3">Technical Skills</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div class="border border-border rounded-xl p-5">
-        <h3 class="text-base font-semibold text-text mb-2">AI / LLM</h3>
-        <ul class="space-y-1 text-sm text-text-muted">
-          <li>LLM Integration, RAG Pipelines, Agentic AI Frameworks</li>
-          <li>Prompt Engineering, Context Engineering, Multi-Agent Systems</li>
-          <li>Tool-Using Agents, Planning Agents, Fine-tuning (QLoRA/LoRA)</li>
-          <li>MCP / Tool Protocols, LangChain / LlamaIndex</li>
-          <li>Vector Databases, Evaluation &amp; Observability, AI Governance</li>
-        </ul>
+<section class="mb-10 scroll-mt-24">
+  <h2 class="text-xl font-bold gradient-text mb-3">Technical Skills</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    {Object.values(skillCategories).map((category) => (
+      <div class="rounded-xl border border-border p-5">
+        <h3 class="text-base font-semibold text-text mb-2">{category.name}</h3>
+        <p class="text-sm text-text-muted leading-relaxed">
+          {category.skills.map((s) => s.name).join(', ')}
+        </p>
       </div>
-      <div class="border border-border rounded-xl p-5">
-        <h3 class="text-base font-semibold text-text mb-2">Languages</h3>
-        <ul class="space-y-1 text-sm text-text-muted">
-          <li>Python, TypeScript, JavaScript, Rust</li>
-          <li>PHP, C, C++, HTML/CSS</li>
-        </ul>
-      </div>
-      <div class="border border-border rounded-xl p-5">
-        <h3 class="text-base font-semibold text-text mb-2">Backend &amp; APIs</h3>
-        <ul class="space-y-1 text-sm text-text-muted">
-          <li>Flask, FastAPI, Node.js, Express, Laravel</li>
-          <li>REST APIs, WebSockets, FastMCP</li>
-        </ul>
-      </div>
-      <div class="border border-border rounded-xl p-5">
-        <h3 class="text-base font-semibold text-text mb-2">Databases &amp; DevOps</h3>
-        <ul class="space-y-1 text-sm text-text-muted">
-          <li>MySQL, MongoDB, Redis, SQLite</li>
-          <li>Docker, GitHub Actions, Nginx, Gunicorn, Prometheus, Linux</li>
-        </ul>
-      </div>
-    </div>
-  </section>
+    ))}
+  </div>
+</section>
 
-  <section class="mb-10 scroll-mt-24">
-    <h2 class="text-xl font-bold gradient-text mb-4">Projects</h2>
-    <div class="space-y-5">
-       {PROJECTS.map((project) => (
-         <div class="border border-border rounded-xl p-5 gradient-border">
-          <div class="flex flex-wrap items-center gap-2 mb-2">
-            <h3 class="text-lg font-bold text-text">{project.title}</h3>
-            <span class={`px-2 py-0.5 rounded-full text-xs font-bold ${getTagClasses(project.tagColor)} cursor-default`}>
-              {project.tag}
-            </span>
-          </div>
-          <p class="text-text-muted text-sm mb-2">{project.description}</p>
-          <ul class="space-y-1 text-sm text-text-muted mb-3">
-            {project.bullets.map((bullet) => (
-              <li>&bull; {bullet}</li>
-            ))}
-          </ul>
-          <div class="flex flex-wrap items-center gap-3 mt-3">
-            <a href={project.github} target="_blank" rel="noopener noreferrer" class="text-sm text-primary-light hover:text-text transition-colors">Source Code</a>
-          </div>
+<section class="mb-10 scroll-mt-24">
+  <h2 class="text-xl font-bold gradient-text mb-4">Projects</h2>
+  <div class="space-y-5">
+    {PROJECTS.map((project) => (
+      <div class="rounded-xl border border-border p-5">
+        <div class="flex flex-wrap items-center gap-2 mb-2">
+          <h3 class="text-lg font-bold text-text">{project.title}</h3>
+          <span
+            class={`px-2 py-0.5 rounded-full text-xs font-bold ${getTagClasses(project.tagColor)} cursor-default`}
+          >
+            {project.tag}
+          </span>
         </div>
-      ))}
-    </div>
-  </section>
+        <p class="text-text-muted text-sm mb-2">{project.description}</p>
+        <ul class="list-disc list-inside space-y-1 text-sm text-text-muted mb-3">
+          {project.bullets.map((bullet) => (
+            <li>{bullet}</li>
+          ))}
+        </ul>
+        <div class="flex flex-wrap items-center gap-3 mt-3">
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm text-primary-light hover:text-text transition-colors"
+          >
+            Source Code
+          </a>
+          {project.docs && (
+            <a
+              href={project.docs}
+              class="text-sm text-primary-light hover:text-text transition-colors"
+            >
+              Documentation
+            </a>
+          )}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
 
-  <section class="mb-10 scroll-mt-24">
-    <h2 class="text-xl font-bold gradient-text mb-4">Experience</h2>
-    <div class="timeline">
-      <div class="timeline-item border border-border rounded-xl p-5 gradient-border">
+<section class="mb-10 scroll-mt-24">
+  <h2 class="text-xl font-bold gradient-text mb-4">Experience</h2>
+  <div class="timeline">
+    {EXPERIENCE.map((job) => (
+      <div class="timeline-item rounded-xl border border-border p-5">
         <div class="flex flex-wrap items-start justify-between gap-3 mb-2">
           <div>
-            <h3 class="text-lg font-bold text-text">Industry 5.0 Industrial Automation Trainee</h3>
-            <p class="text-primary-light font-medium">CodenPlay Robotics</p>
+            <h3 class="text-lg font-bold text-text">{job.title}</h3>
+            <p class="text-primary-light font-medium">{job.company}</p>
           </div>
-          <span class="px-3 py-1 rounded-full text-sm bg-bg border border-border text-text-muted shrink-0 cursor-default transition hover:shadow-[0_0_6px_rgba(148,163,184,0.2)] hover:border-border-light">Aug 2025 – Nov 2025</span>
+          <span class="px-3 py-1 rounded-full text-sm bg-bg border border-border text-text-muted shrink-0 cursor-default transition hover:shadow-[0_0_6px_rgba(148,163,184,0.2)] hover:border-border-light">
+            {job.period}
+          </span>
         </div>
-        <p class="text-text-muted text-sm mb-2">VIT Vellore / Online</p>
-        <ul class="space-y-1 text-sm text-text-muted">
-          <li>&bull; Programmed PLC control logic for automated production workflows using CODESYS structured text and ladder logic</li>
-          <li>&bull; Designed HMI monitoring dashboards and multi-device communication networks using Node-RED</li>
-          <li>&bull; Validated automation sequences against Factory I/O digital-twin simulations prior to hardware deployment</li>
+        {job.location && <p class="text-text-muted text-sm mb-2">{job.location}</p>}
+        <ul class="list-disc list-inside space-y-1 text-sm text-text-muted">
+          {job.bullets.map((bullet) => (
+            <li>{bullet}</li>
+          ))}
         </ul>
       </div>
-    </div>
-  </section>
+    ))}
+  </div>
+</section>
 
   <section class="scroll-mt-24">
     <h2 class="text-xl font-bold gradient-text mb-4">Education</h2>
-    <div class="border border-border rounded-xl p-5 gradient-border">
+    <div class="rounded-xl border border-border p-5">
       <div class="flex flex-wrap items-start justify-between gap-3">
         <div>
           <h3 class="text-lg font-bold text-text">VIT Vellore</h3>
           <p class="text-primary-light font-medium">B.Tech in Computer Science and Engineering</p>
         </div>
-        <span class="px-3 py-1 rounded-full text-sm bg-bg border border-border text-text-muted shrink-0 cursor-default transition hover:shadow-[0_0_6px_rgba(148,163,184,0.2)] hover:border-border-light">Graduated 2026</span>
+        <span class="px-3 py-1 rounded-full text-sm bg-bg border border-border text-text-muted shrink-0 cursor-default transition hover:shadow-[0_0_6px_rgba(148,163,184,0.2)] hover:border-border-light">Graduated {SITE_CONFIG.graduation}</span>
       </div>
     </div>
   </section>

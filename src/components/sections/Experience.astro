@@ -1,56 +1,56 @@
+---
+import { EXPERIENCE } from '../../data/experience.ts'
+---
+
 <section id="experience" class="py-24 px-4 sm:px-6 bg-bg" aria-labelledby="experience-heading">
   <div class="max-w-4xl mx-auto">
     <h2 id="experience-heading" class="text-3xl sm:text-4xl font-bold mb-2">
       Work <span class="gradient-text">Experience</span>
     </h2>
-    <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mb-12" />
+    <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mb-12"></div>
 
     <div class="timeline">
-      <article class="timeline-item gradient-border p-6 sm:p-8">
-        <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
-          <div>
-            <h3 class="text-xl font-bold text-text">Industry 5.0 Industrial Automation Trainee</h3>
-            <p class="text-primary-light font-medium">CodenPlay Robotics</p>
-          </div>
-          <span class="px-3 py-1 rounded-full text-sm bg-bg border border-border text-text-muted shrink-0 cursor-default hover:text-primary-light hover:border-primary/30 hover:shadow-[0_0_8px_rgba(124,58,237,0.3)] transition">
-            Aug – Nov 2025
-          </span>
-        </div>
+      {
+        EXPERIENCE.map((job) => (
+          <article class="timeline-item gradient-border p-6 sm:p-8">
+            <div class="flex flex-wrap items-start justify-between gap-4 mb-4">
+              <div>
+                <h3 class="text-xl font-bold text-text">{job.title}</h3>
+                <p class="text-primary-light font-medium">{job.company}</p>
+              </div>
+              <span class="px-3 py-1 rounded-full text-sm bg-bg border border-border text-text-muted shrink-0 cursor-default hover:text-primary-light hover:border-primary/30 hover:shadow-[0_0_8px_rgba(124,58,237,0.3)] transition">
+                {job.period}
+              </span>
+            </div>
 
-        <ul class="space-y-3 mb-6">
-          <li class="text-text-muted flex items-start gap-3">
-            <span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span>
-            <span>Built and debugged PLC automation logic (ladder logic, structured text) in CODESYS</span>
-          </li>
-          <li class="text-text-muted flex items-start gap-3">
-            <span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span>
-            <span>Simulated industrial process workflows in Factory I/O</span>
-          </li>
-          <li class="text-text-muted flex items-start gap-3">
-            <span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span>
-            <span>Implemented flow-based control/integration in Node-RED</span>
-          </li>
-          <li class="text-text-muted flex items-start gap-3">
-            <span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span>
-            <span>Covered HMI design, industrial communication, process monitoring, and the debugging→testing→deployment workflow</span>
-          </li>
-        </ul>
+            <ul class="space-y-3 mb-6">
+              {job.bullets.map((bullet) => (
+                <li class="text-text-muted flex items-start gap-3">
+                  <span class="text-primary mt-1.5 shrink-0" aria-hidden="true">
+                    ▸
+                  </span>
+                  <span>{bullet}</span>
+                </li>
+              ))}
+            </ul>
 
-        <div class="flex flex-wrap gap-2">
-          {["CODESYS", "Factory I/O", "Node-RED", "PLC", "HMI", "Industrial IoT"].map((tag) => (
-            <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border cursor-default transition hover:shadow-[0_0_6px_rgba(148,163,184,0.2)] hover:border-border-light">
-              {tag}
-            </span>
-          ))}
-        </div>
-      </article>
+            <div class="flex flex-wrap gap-2">
+              {job.tags.map((tag) => (
+                <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border cursor-default transition hover:shadow-[0_0_6px_rgba(148,163,184,0.2)] hover:border-border-light">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </article>
+        ))
+      }
     </div>
   </div>
 </section>
 
 <script>
   import gsap from 'gsap'
-  import { prefersReducedMotion } from '../../utils/gsap.ts'
+  import { prefersReducedMotion } from '../../utils/dom.ts'
 
   if (!prefersReducedMotion()) {
     gsap.from('.timeline-item', {

@@ -3,14 +3,21 @@
   "type": "module",
   "version": "0.0.1",
   "private": true,
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "check": "astro check",
     "lint": "eslint .",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "resume:pdf": "node scripts/generate-résumé-pdf.js"
   },
   "dependencies": {
     "@astrojs/mdx": "7.0.5",
@@ -22,12 +29,13 @@
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.4",
     "@eslint/js": "^10.0.1",
-    "@types/gsap": "^3.0.0",
     "eslint": "^10.8.0",
     "globals": "^17.9.0",
-    "typescript": "^7.0.2",
-    "vite": "^8.2.1",
+    "prettier": "^3.5.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "typescript": "^5.9.0",
     "vitest": "^4.1.10"
   },
   "optionalDependencies": {
