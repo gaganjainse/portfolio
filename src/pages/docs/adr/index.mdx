@@ -1,116 +1,85 @@
 ---
-layout: ../../../layouts/BaseLayout.astro
+layout: ../../../layouts/DocsLayout.astro
 title: ADRs
 description: 'Architecture Decision Records'
 ---
 
-import DocsNav from '../../../components/DocsNav.astro'
-
-<DocsNav current="ADRs" />
-<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-24">
-  <h1 class="text-4xl font-bold mb-6 gradient-text">Architecture Decision Records</h1>
-  <p class="text-text-muted mb-8">
-    Key decisions shaping the AI systems and portfolio architecture.
-  </p>
+<h1 class="text-4xl font-bold mb-6 gradient-text">Architecture Decision Records</h1>
+<p class="text-text-muted mb-8">Key decisions shaping the AI systems and portfolio architecture.</p>
 
   <div class="space-y-4">
     <article class="gradient-border p-6">
       <h2 class="text-xl font-bold text-text mb-2">ADR-001: Astro 7 + Tailwind v4 + GSAP</h2>
-      <p class="text-text-muted text-sm mb-3">
-        Migrated from React 19 to Astro 7.2.0 for better performance, static generation, and ecosystem integrations. Chose GSAP over Framer Motion for ScrollTrigger capabilities and finer control over scroll-based animations.
-      </p>
+      <p class="text-text-muted text-sm mb-3">Migrated from React 19 to Astro 7.2.0 for better performance, static generation, and ecosystem integrations. Chose GSAP over Framer Motion for ScrollTrigger capabilities and finer control over scroll-based animations.</p>
       <span class="text-xs text-text-muted">Status: Accepted</span>
     </article>
 
     <article class="gradient-border p-6">
       <h2 class="text-xl font-bold text-text mb-2">ADR-002: MDX for Content Pages</h2>
-      <p class="text-text-muted text-sm mb-3">
-        Used MDX for résumé and docs pages to enable component usage within markdown while maintaining frontmatter metadata for SEO.
-      </p>
+      <p class="text-text-muted text-sm mb-3">Used MDX for résumé and docs pages to enable component usage within markdown while maintaining frontmatter metadata for SEO.</p>
       <span class="text-xs text-text-muted">Status: Accepted</span>
     </article>
 
     <article class="gradient-border p-6">
       <h2 class="text-xl font-bold text-text mb-2">ADR-003: Static Output on Vercel (ISR removed)</h2>
-      <p class="text-text-muted text-sm mb-3">
-        Originally enabled ISR with a 24-hour expiration. Reverted to fully static output: the portfolio has no dynamic data, so ISR only added edge-function overhead. Static output serves instantly from the CDN edge.
-      </p>
+      <p class="text-text-muted text-sm mb-3">Originally enabled ISR with a 24-hour expiration. Reverted to fully static output: the portfolio has no dynamic data, so ISR only added edge-function overhead. Static output serves instantly from the CDN edge.</p>
       <span class="text-xs text-text-muted">Status: Accepted (supersedes the earlier ISR decision)</span>
     </article>
 
     <article class="gradient-border p-6">
       <h2 class="text-xl font-bold text-text mb-2">ADR-004: Google Fonts via Preconnect + Stylesheet Link</h2>
-      <p class="text-text-muted text-sm mb-3">
-        Initially attempted to load Google Fonts through Partytown's web worker. Partytown cannot inject stylesheets from a worker, so fonts silently failed. Replaced with standard <code>&lt;link rel="preconnect"&gt;</code> and a stylesheet link, loading only the used weights (400–700).
-      </p>
+      <p class="text-text-muted text-sm mb-3">Initially attempted to load Google Fonts through Partytown's web worker. Partytown cannot inject stylesheets from a worker, so fonts silently failed. Replaced with standard <code>&lt;link rel="preconnect"&gt;</code> and a stylesheet link, loading only the used weights (400–700).</p>
       <span class="text-xs text-text-muted">Status: Accepted (supersedes the Partytown approach)</span>
     </article>
 
     <article class="gradient-border p-6">
       <h2 class="text-xl font-bold text-text mb-2">ADR-005: Dark Gradient Background with Grid + Glow Orbs</h2>
-      <p class="text-text-muted text-sm mb-3">
-        The site uses a CSS-only background: two radial gradient glows (violet + cyan), a subtle 40px grid overlay, and animated pulsing orbs in the hero. Surface colors are runtime CSS variables with a dark default and a light theme via <code>:root[data-theme='light']</code> (see ADR-009). No canvas or JS background — keeps the payload tiny and respects reduced-motion preferences.
-      </p>
+      <p class="text-text-muted text-sm mb-3">The site uses a CSS-only background: two radial gradient glows (violet + cyan), a subtle 40px grid overlay, and animated pulsing orbs in the hero. Surface colors are runtime CSS variables with a dark default and a light theme via <code>:root[data-theme='light']</code> (see ADR-009). No canvas or JS background — keeps the payload tiny and respects reduced-motion preferences.</p>
       <span class="text-xs text-text-muted">Status: Accepted</span>
     </article>
 
     <article class="gradient-border p-6">
       <h2 class="text-xl font-bold text-text mb-2">ADR-006: Résumé as MDX with PDF Export</h2>
-      <p class="text-text-muted text-sm mb-3">
-        Kept the résumé as an MDX page for web viewing and generated a PDF via Puppeteer for download, balancing maintainability with traditional résumé formats. The MDX page reads from the same data files as the site (skills, experience, projects) so it stays in sync.
-      </p>
+      <p class="text-text-muted text-sm mb-3">Kept the résumé as an MDX page for web viewing and generated a PDF via Puppeteer for download, balancing maintainability with traditional résumé formats. The MDX page reads from the same data files as the site (skills, experience, projects) so it stays in sync.</p>
       <span class="text-xs text-text-muted">Status: Accepted</span>
     </article>
 
     <article class="gradient-border p-6">
       <h2 class="text-xl font-bold text-text mb-2">ADR-007: Résumé Route Normalized to /resume</h2>
-      <p class="text-text-muted text-sm mb-3">
-        The résumé page originally lived at the Unicode URL <code>/résumé</code>. Moved the canonical route to <code>/resume</code> and added permanent 301 redirects in <code>vercel.json</code> for the old URLs (including <code>/résumé.pdf</code>), so links, crawlers, and copy-paste work reliably.
-      </p>
+      <p class="text-text-muted text-sm mb-3">The résumé page originally lived at the Unicode URL <code>/résumé</code>. Moved the canonical route to <code>/resume</code> and added permanent 301 redirects in <code>vercel.json</code> for the old URLs (including <code>/résumé.pdf</code>), so links, crawlers, and copy-paste work reliably.</p>
       <span class="text-xs text-text-muted">Status: Accepted</span>
     </article>
 
     <article class="gradient-border p-6">
       <h2 class="text-xl font-bold text-text mb-2">ADR-008: CI with Build + Test + Type-Check + Lint</h2>
-      <p class="text-text-muted text-sm mb-3">
-        Added a GitHub Actions workflow that runs <code>npm ci</code>, <code>astro build</code>, <code>vitest</code>, <code>astro check</code>, and ESLint on every push and PR. Prevents regressions like the skill-bar <code>ScrollTrigger</code> reference error from reaching production.
-      </p>
+      <p class="text-text-muted text-sm mb-3">Added a GitHub Actions workflow that runs <code>npm ci</code>, <code>astro build</code>, <code>vitest</code>, <code>astro check</code>, and ESLint on every push and PR. Prevents regressions like the skill-bar <code>ScrollTrigger</code> reference error from reaching production.</p>
       <span class="text-xs text-text-muted">Status: Accepted</span>
     </article>
 
     <article class="gradient-border p-6">
       <h2 class="text-xl font-bold text-text mb-2">ADR-009: Dark / Light Theme with System Default</h2>
-      <p class="text-text-muted text-sm mb-3">
-        Surface colors are runtime CSS variables under <code>:root</code> (dark default) with <code>:root[data-theme='light']</code> overrides, so Tailwind utilities resolve through the chain. A boot script in <code>&lt;head&gt;</code> applies the stored preference before first paint (no flash), falling back to <code>prefers-color-scheme</code>; a nav toggle persists the choice in <code>localStorage</code>, and a live system-preference listener updates the theme while no explicit choice is stored.
-      </p>
+      <p class="text-text-muted text-sm mb-3">Surface colors are runtime CSS variables under <code>:root</code> (dark default) with <code>:root[data-theme='light']</code> overrides, so Tailwind utilities resolve through the chain. A boot script in <code>&lt;head&gt;</code> applies the stored preference before first paint (no flash), falling back to <code>prefers-color-scheme</code>; a nav toggle persists the choice in <code>localStorage</code>, and a live system-preference listener updates the theme while no explicit choice is stored.</p>
       <span class="text-xs text-text-muted">Status: Accepted</span>
     </article>
 
     <article class="gradient-border p-6">
       <h2 class="text-xl font-bold text-text mb-2">ADR-010: Vercel Web Analytics</h2>
-      <p class="text-text-muted text-sm mb-3">
-        Adopted the official <code>@vercel/analytics</code> Astro integration instead of a third-party snippet. The loader is injected at runtime only when Vercel provides the project ID at build time — a clean no-op in local dev and non-Vercel hosts.
-      </p>
+      <p class="text-text-muted text-sm mb-3">Adopted the official <code>@vercel/analytics</code> Astro integration instead of a third-party snippet. The loader is injected at runtime only when Vercel provides the project ID at build time — a clean no-op in local dev and non-Vercel hosts.</p>
       <span class="text-xs text-text-muted">Status: Accepted</span>
     </article>
 
 
     <article class="gradient-border p-6">
       <h2 class="text-xl font-bold text-text mb-2">ADR-011: Vercel Speed Insights</h2>
-      <p class="text-text-muted text-sm mb-3">
-        Added the official <code>@vercel/speed-insights</code> Astro integration alongside Web Analytics (ADR-010). Like analytics, the loader activates only when Vercel provides the project ID at build time — a no-op in local dev and non-Vercel hosts — so Core Web Vitals can be collected without adding third-party scripts.
-      </p>
+      <p class="text-text-muted text-sm mb-3">Added the official <code>@vercel/speed-insights</code> Astro integration alongside Web Analytics (ADR-010). Like analytics, the loader activates only when Vercel provides the project ID at build time — a no-op in local dev and non-Vercel hosts — so Core Web Vitals can be collected without adding third-party scripts.</p>
       <span class="text-xs text-text-muted">Status: Accepted</span>
     </article>
 
 
     <article class="gradient-border p-6">
       <h2 class="text-xl font-bold text-text mb-2">ADR-012: Companion Repos for Shared Workspaces</h2>
-      <p class="text-text-muted text-sm mb-3">
-        Where two repos share a codebase (e.g. <code>nexus-kernel</code> is the alpha-track sibling of the <code>NexusAOS</code> Rust workspace), the secondary repo is marked <code>companionOf</code> in the projects data. Its test suite is attributed once (under the primary project) to avoid double-counting, and its card shows a "Companion to" note linking to the primary project's docs.
-      </p>
+      <p class="text-text-muted text-sm mb-3">Where two repos share a codebase (e.g. <code>nexus-kernel</code> is the alpha-track sibling of the <code>NexusAOS</code> Rust workspace), the secondary repo is marked <code>companionOf</code> in the projects data. Its test suite is attributed once (under the primary project) to avoid double-counting, and its card shows a "Companion to" note linking to the primary project's docs.</p>
       <span class="text-xs text-text-muted">Status: Accepted</span>
     </article>
 
   </div>
-</div>
