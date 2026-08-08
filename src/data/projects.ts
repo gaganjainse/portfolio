@@ -13,6 +13,7 @@ export interface Project {
   github: string
   docs?: string
   featured?: boolean
+  companionOf?: string
 }
 
 const TAG_CLASSES: Record<TagColor, string> = {
@@ -53,7 +54,7 @@ export const PROJECTS: Project[] = [
       'TUI',
       'GUI',
     ],
-    tests: 0,
+    tests: 981,
     github: `${GITHUB_BASE}/NexusAOS`,
     docs: '/docs/projects/nexusaos',
   },
@@ -61,10 +62,11 @@ export const PROJECTS: Project[] = [
     title: 'nexus-kernel',
     tag: 'AI/AGENTIC',
     tagColor: 'pink',
+    companionOf: 'NexusAOS',
     description:
-      'Production-ready Rust microkernel for local-first AI with event-sourced governance, OpenAI/Anthropic streaming, and 981 tests.',
+      'Companion repo to NexusAOS — the alpha-track sibling of the same 12-crate Rust workspace, focused on the microkernel layer (event-sourced governance, provider-swappable model interface).',
     bullets: [
-      'Built Rust 2024 microkernel with 12 workspace crates, 981 passing tests, 0 clippy warnings, and full CI/CD',
+      'Companion to NexusAOS: shares the same 12-crate Rust workspace and its 981-test suite (tracked under NexusAOS)',
       'Implemented event-sourced append-only audit trail, policy engine with trust tiers, and provider-swappable model interface',
       'Integrated OpenAI-compatible and Anthropic streaming with real-time token streaming into TUI/GUI',
       'Delivered native terminal emulation (PTY + VT100 + Zig parser), SSH multiplexing, and multi-interface CLI/TUI/GUI/RPC',
@@ -80,7 +82,7 @@ export const PROJECTS: Project[] = [
       'SSH',
       'Event Sourcing',
     ],
-    tests: 981,
+    tests: 0,
     github: `${GITHUB_BASE}/nexus-kernel`,
     docs: '/docs/projects/nexus-kernel',
   },
@@ -150,12 +152,12 @@ export const PROJECTS: Project[] = [
     tag: 'PRODUCTION-READY',
     tagColor: 'green',
     description:
-      'Food waste optimization platform using linear programming and route optimization.',
+      'Optimizes surplus-food allocation to NGOs with a 3-stage lexicographic linear program (fairness → priority → cost) and expiry-aware routing.',
     bullets: [
-      'Built linear programming models to minimize food waste and optimize distribution routes',
-      'Implemented route optimization algorithms for efficient collection and delivery scheduling',
-      'Integrated Folium-based mapping and visualization for route planning and monitoring',
-      'Deployed as a full-stack platform with real-time tracking and analytics dashboard',
+      'Built a 3-stage lexicographic LP solver (fairness → priority → cost) to allocate surplus food to NGOs while minimizing waste',
+      'Added expiry-aware routing that penalizes allocations where travel time exceeds food shelf life',
+      'Integrated Folium/Leaflet interactive maps with animated routes, heatmaps, and priority-colored markers',
+      'Shipped a Flask web dashboard plus a desktop Tkinter GUI with charts and CSV export',
     ],
     tech: ['Python', 'PuLP', 'Folium', 'Flask', 'MySQL', 'Bootstrap'],
     tests: 1,

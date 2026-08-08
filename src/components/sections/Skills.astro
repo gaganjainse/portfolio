@@ -1,13 +1,11 @@
 ---
 import { groupByCategory, SKILLS, getProficiencyLabel } from '../../data/skills.ts'
+import SectionHeading from '../SectionHeading.astro'
 ---
 
 <section id="skills" class="py-24 px-4 sm:px-6 bg-bg-elevated/50" aria-labelledby="skills-heading">
   <div class="max-w-6xl mx-auto">
-    <h2 id="skills-heading" class="text-3xl sm:text-4xl font-bold mb-2">
-      Technical <span class="gradient-text">Skills</span>
-    </h2>
-    <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mb-12"></div>
+    <SectionHeading id="skills-heading" title="Technical" accent="Skills" dividerClass="mb-12" />
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {

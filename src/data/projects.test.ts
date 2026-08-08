@@ -31,11 +31,19 @@ describe('PROJECTS data', () => {
     }
   })
 
-  it('attribution: the 981 tests belong to nexus-kernel, not NexusAOS', () => {
+  it('attribution: the 981 tests belong to NexusAOS; nexus-kernel is its companion', () => {
     const kernel = PROJECTS.find((p) => p.title === 'nexus-kernel')
     const nexusAOS = PROJECTS.find((p) => p.title === 'NexusAOS')
-    expect(kernel?.tests).toBe(981)
-    expect(nexusAOS?.tests).toBe(0)
+    expect(nexusAOS?.tests).toBe(981)
+    expect(kernel?.tests).toBe(0)
+    expect(kernel?.companionOf).toBe('NexusAOS')
+  })
+
+  it('every companion project points at an existing project', () => {
+    const titles = new Set(PROJECTS.map((p) => p.title))
+    for (const p of PROJECTS) {
+      if (p.companionOf) expect(titles.has(p.companionOf)).toBe(true)
+    }
   })
 
   it('github urls are unique', () => {

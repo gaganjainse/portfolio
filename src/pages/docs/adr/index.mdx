@@ -103,5 +103,14 @@ import DocsNav from '../../../components/DocsNav.astro'
       <span class="text-xs text-text-muted">Status: Accepted</span>
     </article>
 
+
+    <article class="gradient-border p-6">
+      <h2 class="text-xl font-bold text-text mb-2">ADR-012: Companion Repos for Shared Workspaces</h2>
+      <p class="text-text-muted text-sm mb-3">
+        Where two repos share a codebase (e.g. <code>nexus-kernel</code> is the alpha-track sibling of the <code>NexusAOS</code> Rust workspace), the secondary repo is marked <code>companionOf</code> in the projects data. Its test suite is attributed once (under the primary project) to avoid double-counting, and its card shows a "Companion to" note linking to the primary project's docs.
+      </p>
+      <span class="text-xs text-text-muted">Status: Accepted</span>
+    </article>
+
   </div>
 </div>

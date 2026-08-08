@@ -1,5 +1,6 @@
 ---
 import { SITE_CONFIG, SOCIAL_LINKS } from '../../data/config.ts'
+import SectionHeading from '../SectionHeading.astro'
 ---
 
 <section
@@ -8,10 +9,9 @@ import { SITE_CONFIG, SOCIAL_LINKS } from '../../data/config.ts'
   aria-labelledby="contact-heading"
 >
   <div class="max-w-4xl mx-auto text-center contact-section">
-    <h2 id="contact-heading" class="text-3xl sm:text-4xl font-bold mb-2">
-      Get In <span class="gradient-text">Touch</span>
-    </h2>
-    <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mb-8 mx-auto"></div>
+    <div class="flex flex-col items-center">
+      <SectionHeading id="contact-heading" title="Get In" accent="Touch" dividerClass="mb-8" />
+    </div>
 
     <p class="text-text-muted text-lg mb-8 max-w-2xl mx-auto">
       I'm currently looking for GenAI / LLM / Agentic AI roles. If you're hiring or just want to

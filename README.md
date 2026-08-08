@@ -26,7 +26,7 @@ CS @ VIT Vellore (Graduated 2025, CGPA 7.7/10). I build practical AI systems: LL
 ### AI / LLM Projects
 
 - **NexusAOS** — Governance-first, event-sourced AI operating environment in Rust (12 workspace crates, 981 tests)
-- **nexus-kernel** — Rust AI microkernel with event-sourced governance and OpenAI/Anthropic streaming
+- **nexus-kernel** — Companion repo: the alpha-track microkernel sibling of the NexusAOS workspace
 - **SeshaOS** — Local-first AI OS with specialist models (Gemma 4, Qwen3) and LiteLLM-compatible routing
 - **RAG Service** — Production RAG API: hybrid retrieval (dense + BM25, RRF) over ChromaDB
 - **LLM Eval Harness** — Golden-set evaluation: faithfulness, answer relevance, correctness

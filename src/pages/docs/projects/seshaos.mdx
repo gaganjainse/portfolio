@@ -4,6 +4,7 @@ title: SeshaOS
 description: 'SeshaOS project documentation'
 ---
 
+import TechChip from '../../../components/TechChip.astro'
 import DocsNav from '../../../components/DocsNav.astro'
 
 <DocsNav current="SeshaOS" />
@@ -43,9 +44,7 @@ import DocsNav from '../../../components/DocsNav.astro'
   <div class="gradient-border p-6">
     <h2 class="text-2xl font-bold text-text mb-3">Tech Stack</h2>
     <div class="flex flex-wrap gap-2">
-      {["Rust", "LiteLLM", "Gemma", "Qwen", "Local LLMs", "Governance", "Event Sourcing", "Ubuntu"].map((tech) => (
-        <span key={tech} class="px-2.5 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border">{tech}</span>
-      ))}
+      { ["Rust", "LiteLLM", "Gemma", "Qwen", "Local LLMs", "Governance", "Event Sourcing", "Ubuntu"].map((tech) => <TechChip label={tech} />) }
     </div>
   </div>
 </div>
