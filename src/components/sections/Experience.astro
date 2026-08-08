@@ -1,5 +1,7 @@
 ---
 import { EXPERIENCE } from '../../data/experience.ts'
+import SectionHeading from '../SectionHeading.astro'
+import TechChip from '../TechChip.astro'
 ---
 
 <section
@@ -8,10 +10,7 @@ import { EXPERIENCE } from '../../data/experience.ts'
   aria-labelledby="experience-heading"
 >
   <div class="max-w-4xl mx-auto">
-    <h2 id="experience-heading" class="text-3xl sm:text-4xl font-bold mb-2">
-      Work <span class="gradient-text">Experience</span>
-    </h2>
-    <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mb-12"></div>
+    <SectionHeading id="experience-heading" title="Work" accent="Experience" dividerClass="mb-12" />
 
     <div class="timeline">
       {
@@ -40,9 +39,7 @@ import { EXPERIENCE } from '../../data/experience.ts'
 
             <div class="flex flex-wrap gap-2">
               {job.tags.map((tag) => (
-                <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border cursor-default transition hover:shadow-[0_0_6px_rgba(148,163,184,0.2)] hover:border-border-light">
-                  {tag}
-                </span>
+                <TechChip label={tag} />
               ))}
             </div>
           </article>

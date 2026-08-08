@@ -7,9 +7,9 @@ GenAI systems, agentic AI, RAG, multi-agent orchestration, LLM fine-tuning, Rust
 - RAG Service: Production RAG API with hybrid retrieval (dense + BM25, RRF) over ChromaDB.
 - LLM Eval Harness: Golden-set evaluation with LLM-as-judge and offline fallbacks.
 - SeshaOS: Local-first AI OS with specialist models (Gemma 4, Qwen3) and LiteLLM routing.
-- Vyākṛti: Sanskrit-oriented programming language with complete compiler pipeline and browser IDE.
+- Vyākṛti: Sanskrit-oriented programming language with complete compiler pipeline and browser IDE (companion: vyakrti-ide).
 - AIM: Production-grade attendance system (Flask + MySQL, 101 tests).
-- FWRS: Food waste optimization platform using linear programming.
+- FWRS: Food-waste optimization with a 3-stage lexicographic LP (fairness → priority → cost) and expiry-aware routing.
 
 ## Links
 - GitHub: https://github.com/gaganjainse

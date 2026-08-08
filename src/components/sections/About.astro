@@ -1,13 +1,11 @@
 ---
 import { SITE_CONFIG } from '../../data/config.ts'
+import SectionHeading from '../SectionHeading.astro'
 ---
 
 <section id="about" class="py-24 px-4 sm:px-6 bg-bg-elevated/50" aria-labelledby="about-heading">
   <div class="max-w-4xl mx-auto about-section">
-    <h2 id="about-heading" class="text-3xl sm:text-4xl font-bold mb-2">
-      About <span class="gradient-text">Me</span>
-    </h2>
-    <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mb-8"></div>
+    <SectionHeading id="about-heading" title="About" accent="Me" />
 
     <div class="space-y-4 text-text-muted text-lg leading-relaxed">
       <p>

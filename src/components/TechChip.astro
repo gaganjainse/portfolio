@@ -1,0 +1,14 @@
+---
+interface Props {
+  label: string
+  size?: 'sm' | 'md'
+}
+const { label, size = 'md' } = Astro.props
+const sizeClass = size === 'sm' ? 'px-2 py-0.5 text-xs' : 'px-2.5 py-1 text-xs'
+---
+
+<span
+  class={`${sizeClass} rounded-md font-medium bg-bg text-text-muted border border-border cursor-default transition hover:shadow-[0_0_6px_rgba(148,163,184,0.2)] hover:border-border-light`}
+>
+  {label}
+</span>

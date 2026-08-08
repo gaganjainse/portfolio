@@ -1,5 +1,14 @@
 ---
 import { PROJECTS, getTagClasses } from '../../data/projects.ts'
+import SectionHeading from '../SectionHeading.astro'
+import TechChip from '../TechChip.astro'
+import ProjectLinkButton from '../ProjectLinkButton.astro'
+
+function companionDocs(project: (typeof PROJECTS)[number]) {
+  if (!project.companionOf) return null
+  const found = PROJECTS.find((p) => p.title === project.companionOf)
+  return found?.docs ?? null
+}
 ---
 
 <section
@@ -8,10 +17,7 @@ import { PROJECTS, getTagClasses } from '../../data/projects.ts'
   aria-labelledby="projects-heading"
 >
   <div class="max-w-6xl mx-auto">
-    <h2 id="projects-heading" class="text-3xl sm:text-4xl font-bold mb-2">
-      Featured <span class="gradient-text">Projects</span>
-    </h2>
-    <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mb-8"></div>
+    <SectionHeading id="projects-heading" title="Featured" accent="Projects" />
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
       {
@@ -23,6 +29,18 @@ import { PROJECTS, getTagClasses } from '../../data/projects.ts'
               {project.tag}
             </span>
             <h3 class="text-xl sm:text-2xl font-bold text-text mb-3">{project.title}</h3>
+            {project.companionOf && (
+              <p class="text-xs font-medium text-primary-light mb-2">
+                Companion to{' '}
+                {companionDocs(project) ? (
+                  <a href={companionDocs(project)} class="hover:underline">
+                    {project.companionOf}
+                  </a>
+                ) : (
+                  <span>{project.companionOf}</span>
+                )}
+              </p>
+            )}
             <p class="text-text-muted mb-4">{project.description}</p>
             <ul class="space-y-2 mb-4">
               {project.bullets.map((bullet) => (
@@ -36,55 +54,13 @@ import { PROJECTS, getTagClasses } from '../../data/projects.ts'
             </ul>
             <div class="flex flex-wrap gap-2 mb-4">
               {project.tech.map((tech) => (
-                <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border cursor-default transition hover:shadow-[0_0_6px_rgba(148,163,184,0.2)] hover:border-border-light">
-                  {tech}
-                </span>
+                <TechChip label={tech} />
               ))}
             </div>
             <div class="flex flex-wrap items-center gap-3">
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-bg text-text-muted border border-border transition hover:text-text hover:border-primary/40 hover:shadow-[0_0_10px_rgba(124,58,237,0.25)]"
-              >
-                <svg
-                  class="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  aria-hidden="true"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                  />
-                </svg>
-                Source Code
-              </a>
+              <ProjectLinkButton href={project.github} label="Source Code" icon="github" external />
               {project.docs && (
-                <a
-                  href={project.docs}
-                  class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-bg text-text-muted border border-border transition hover:text-text hover:border-primary/40 hover:shadow-[0_0_10px_rgba(124,58,237,0.25)]"
-                >
-                  <svg
-                    class="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    aria-hidden="true"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                    />
-                  </svg>
-                  Documentation
-                </a>
+                <ProjectLinkButton href={project.docs} label="Documentation" icon="doc" />
               )}
             </div>
           </article>

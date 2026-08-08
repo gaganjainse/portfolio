@@ -1,0 +1,15 @@
+---
+interface Props {
+  id: string
+  title: string
+  accent: string
+  dividerClass?: string
+}
+const { id, title, accent, dividerClass = 'mb-8' } = Astro.props
+---
+
+<h2 id={id} class="text-3xl sm:text-4xl font-bold mb-2">
+  {title}
+  <span class="gradient-text">{accent}</span>
+</h2>
+<div class={`w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full ${dividerClass}`}></div>
