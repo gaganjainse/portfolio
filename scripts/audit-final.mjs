@@ -14,6 +14,7 @@ const pages = [
   '/docs/getting-started/',
   '/docs/architecture/',
   '/docs/adr/',
+  '/docs/site-map/',
   '/docs/projects/nexusaos/',
   '/docs/projects/nexus-kernel/',
   '/docs/projects/seshaos/',
