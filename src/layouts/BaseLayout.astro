@@ -1,5 +1,6 @@
 ---
 import { SITE_CONFIG, NAV_ITEMS } from '../data/config.ts'
+import Analytics from '@vercel/analytics/astro'
 import '../styles/global.css'
 
 const pageTitle =
@@ -42,6 +43,22 @@ const jsonLd = JSON.stringify({
 
 <html lang="en">
   <head>
+    <script is:inline>
+      // Apply theme before first paint to avoid flash: stored preference wins,
+      // otherwise follow the system preference.
+      ;(function () {
+        try {
+          var stored = localStorage.getItem('theme')
+          var systemLight = window.matchMedia('(prefers-color-scheme: light)').matches
+          document.documentElement.setAttribute(
+            'data-theme',
+            stored || (systemLight ? 'light' : 'dark'),
+          )
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark')
+        }
+      })()
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={pageDescription} />
@@ -114,6 +131,36 @@ const jsonLd = JSON.stringify({
               >
                 Résumé
               </a>
+              <button
+                class="theme-toggle nav-link ml-1 px-2.5 py-2 rounded-lg text-sm font-medium transition text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
+                aria-label="Switch to light mode"
+                type="button"
+              >
+                <svg
+                  class="theme-icon-sun w-4 h-4 hidden"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                  ></path>
+                </svg>
+                <svg
+                  class="theme-icon-moon w-4 h-4"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M21.64 13a1 1 0 00-1.05-.14 8.05 8.05 0 01-3.37.73 8.15 8.15 0 01-8.14-8.15 8.15 8.15 0 012.73-6.05A1 1 0 009.36 2.5 10.15 10.15 0 002 12.44a10.16 10.16 0 0010.16 10.16 10.15 10.15 0 009.46-6.27 1 1 0 00.02-.83z"
+                  ></path>
+                </svg>
+              </button>
             </div>
 
             <button
@@ -176,6 +223,39 @@ const jsonLd = JSON.stringify({
               >
                 Résumé
               </a>
+              <button
+                class="theme-toggle nav-link block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
+                aria-label="Switch to light mode"
+                type="button"
+              >
+                <span class="flex items-center gap-3">
+                  <svg
+                    class="theme-icon-sun w-5 h-5 hidden"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                    ></path>
+                  </svg>
+                  <svg
+                    class="theme-icon-moon w-5 h-5"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M21.64 13a1 1 0 00-1.05-.14 8.05 8.05 0 01-3.37.73 8.15 8.15 0 01-8.14-8.15 8.15 8.15 0 012.73-6.05A1 1 0 009.36 2.5 10.15 10.15 0 002 12.44a10.16 10.16 0 0010.16 10.16 10.15 10.15 0 009.46-6.27 1 1 0 00.02-.83z"
+                    ></path>
+                  </svg>
+                  <span class="theme-label">Light mode</span>
+                </span>
+              </button>
             </div>
           </div>
         </div>
@@ -361,6 +441,49 @@ const jsonLd = JSON.stringify({
           window.scrollTo({ top: 0, behavior: 'smooth' })
         })
       }
+
+      // ---- theme toggle (stored preference wins; system is the default) ----
+      const themeToggles = document.querySelectorAll('.theme-toggle')
+      const themeRoot = document.documentElement
+      const systemLightQuery = window.matchMedia('(prefers-color-scheme: light)')
+
+      function applyTheme(theme: string) {
+        const isLight = theme === 'light'
+        themeRoot.setAttribute('data-theme', theme)
+        themeToggles.forEach((btn) => {
+          btn.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode')
+          const sun = btn.querySelector('.theme-icon-sun')
+          const moon = btn.querySelector('.theme-icon-moon')
+          const label = btn.querySelector('.theme-label')
+          if (sun) sun.classList.toggle('hidden', !isLight)
+          if (moon) moon.classList.toggle('hidden', isLight)
+          if (label) label.textContent = isLight ? 'Dark mode' : 'Light mode'
+        })
+      }
+
+      themeToggles.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const next = themeRoot.getAttribute('data-theme') === 'light' ? 'dark' : 'light'
+          try {
+            localStorage.setItem('theme', next)
+          } catch (e) {
+            /* storage unavailable — still switch for this session */
+          }
+          applyTheme(next)
+        })
+      })
+
+      // Follow the system preference while the user hasn't chosen explicitly.
+      systemLightQuery.addEventListener('change', (e) => {
+        try {
+          if (!localStorage.getItem('theme')) applyTheme(e.matches ? 'light' : 'dark')
+        } catch (err) {
+          /* ignore */
+        }
+      })
+
+      applyTheme(themeRoot.getAttribute('data-theme') || 'dark')
     </script>
+    <Analytics />
   </body>
 </html>
