@@ -1,10 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <defs>
-    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+    <!-- brand gradient (violet -> cyan), same as site-wide -->
+    <linearGradient id="g-text" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#8b5cf6"/>
       <stop offset="100%" style="stop-color:#06b6d4"/>
     </linearGradient>
+    <linearGradient id="g-border" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a78bfa"/>
+      <stop offset="100%" style="stop-color:#22d3ee"/>
+    </linearGradient>
+    <!-- glow radial gradients, matching the site's orbs -->
+    <radialGradient id="glow-tl" cx="30%" cy="25%" r="70%">
+      <stop offset="0%" style="stop-color:#7c3aed; stop-opacity:0.45"/>
+      <stop offset="100%" style="stop-color:#7c3aed; stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="glow-br" cx="75%" cy="80%" r="70%">
+      <stop offset="0%" style="stop-color:#06b6d4; stop-opacity:0.35"/>
+      <stop offset="100%" style="stop-color:#06b6d4; stop-opacity:0"/>
+    </radialGradient>
   </defs>
-  <rect width="100" height="100" rx="20" fill="#0a0a0f"/>
-  <text x="50" y="68" font-family="Inter, system-ui, sans-serif" font-size="52" font-weight="700" fill="url(#g)" text-anchor="middle">GJ</text>
+
+  <!-- dark rounded tile -->
+  <rect x="2" y="2" width="96" height="96" rx="22" fill="#0a0a0f"/>
+  <rect x="2" y="2" width="96" height="96" rx="22" fill="url(#glow-tl)"/>
+  <rect x="2" y="2" width="96" height="96" rx="22" fill="url(#glow-br)"/>
+
+  <!-- gradient border ring -->
+  <rect x="2" y="2" width="96" height="96" rx="22" fill="none" stroke="url(#g-border)" stroke-width="2.5"/>
+
+  <!-- GJ monogram in the brand gradient -->
+  <text x="50" y="67" font-family="Inter, 'Segoe UI', system-ui, sans-serif" font-size="48" font-weight="800" fill="url(#g-text)" text-anchor="middle" letter-spacing="-1">GJ</text>
 </svg>
