@@ -162,7 +162,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: 'RAG Service — Production RAG + Vector Search',
-    tag: 'GENAI',
+    tag: 'Gen AI',
     tagColor: 'primary',
     featured: true,
     description:
@@ -188,7 +188,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: 'LLM Eval Harness',
-    tag: 'GENAI',
+    tag: 'Gen AI',
     tagColor: 'primary',
     featured: true,
     description:
