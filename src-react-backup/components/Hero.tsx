@@ -122,13 +122,13 @@ export default function Hero() {
               <div className="absolute inset-0 bg-gradient-to-r from-primary-light to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>
             <a
-              href="/resume.html"
+              href="/résumé.html"
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-3.5 rounded-xl font-medium border border-accent/30 text-accent hover:bg-accent/10 transition-all hover:-translate-y-0.5 backdrop-blur-sm"
-              aria-label="Open resume HTML (opens in new tab)"
+              aria-label="Open Résumé HTML (opens in new tab)"
             >
-              Resume
+              Résumé
             </a>
             <a
               href="https://github.com/gaganjainse"

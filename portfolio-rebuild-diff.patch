@@ -11891,7 +11891,7 @@ index 0d1ee59..acf06b4 100644
  User-agent: *
  Allow: /
 +Allow: /docs/
-+Allow: /resume
++Allow: /résumé
 +
  Sitemap: https://gaganjain.vercel.app/sitemap.xml
 diff --git a/public/sitemap.xml b/public/sitemap.xml
@@ -11909,7 +11909,7 @@ index f5d72cb..071d249 100644
      <priority>1.0</priority>
    </url>
 +  <url>
-+    <loc>https://gaganjain.vercel.app/resume</loc>
++    <loc>https://gaganjain.vercel.app/résumé</loc>
 +    <lastmod>2026-08-06</lastmod>
 +    <priority>0.8</priority>
 +  </url>
@@ -11949,10 +11949,10 @@ index f5d72cb..071d249 100644
 +    <priority>0.3</priority>
 +  </url>
  </urlset>
-diff --git a/resume.html b/resume.html
+diff --git a/résumé.html b/résumé.html
 deleted file mode 100644
 index ce5e517..0000000
---- a/resume.html
+--- a/résumé.html
 +++ /dev/null
 @@ -1,561 +0,0 @@
 -<!DOCTYPE html>
@@ -12912,7 +12912,7 @@ index 5eb0238..0000000
 -          transition={{ duration: 0.5, delay: 0.1 }}
 -          className="flex items-center justify-center gap-4 text-sm"
 -        >
--          <a href="/resume.html" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent/80 transition-colors">
+-          <a href="/résumé.html" target="_blank" rel="noopener noreferrer" className="text-accent hover:text-accent/80 transition-colors">
 -            Resume
 -          </a>
 -          <span className="text-border">·</span>
@@ -13054,11 +13054,11 @@ index cda2d66..0000000
 -              <div className="absolute inset-0 bg-gradient-to-r from-primary-light to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
 -            </a>
 -            <a
--              href="/resume.html"
+-              href="/résumé.html"
 -              target="_blank"
 -              rel="noopener noreferrer"
 -              className="px-8 py-3.5 rounded-xl font-medium border border-accent/30 text-accent hover:bg-accent/10 transition-all hover:-translate-y-0.5 backdrop-blur-sm"
--              aria-label="Open resume HTML (opens in new tab)"
+-              aria-label="Open Résumé HTML (opens in new tab)"
 -            >
 -              Resume
 -            </a>
