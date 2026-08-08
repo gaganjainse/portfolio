@@ -15,10 +15,10 @@ import { SITE_CONFIG } from '../../data/config.ts'
       </p>
 
       <p>
-         My key AI projects include <a href="/#projects" class="text-primary-light font-medium hover:underline">NexusAOS</a> (a governance-first agentic OS with multi-agent swarm orchestration, LLM fine-tuning with QLoRA, and 30+ MCP tools),
-         <a href="/#projects" class="text-primary-light font-medium hover:underline">nexus-kernel</a> (a production-ready Rust AI microkernel with 981 tests, event-sourced governance, and OpenAI/Anthropic streaming), and
-         <a href="/#projects" class="text-primary-light font-medium hover:underline">SeshaOS</a> (a local-first AI OS with specialist models: Gemma 4 12B, Qwen3-Coder 30B, Qwen3.5 9B).
-         I've also built <a href="/#projects" class="text-primary-light font-medium hover:underline">Vyākṛti</a> (a complete programming language with compiler and web IDE),
+         My key AI projects include <a href="/docs/projects/nexusaos" class="text-primary-light font-medium hover:underline">NexusAOS</a> (a governance-first agentic OS with multi-agent swarm orchestration, LLM fine-tuning with QLoRA, and 30+ MCP tools),
+         <a href="/docs/projects/nexus-kernel" class="text-primary-light font-medium hover:underline">nexus-kernel</a> (a production-ready Rust AI microkernel with 981 tests, event-sourced governance, and OpenAI/Anthropic streaming), and
+         <a href="/docs/projects/seshaos" class="text-primary-light font-medium hover:underline">SeshaOS</a> (a local-first AI OS with specialist models: Gemma 4 12B, Qwen3-Coder 30B, Qwen3.5 9B).
+         I've also built <a href="/docs/projects/vyakrti" class="text-primary-light font-medium hover:underline">Vyākṛti</a> (a complete programming language with compiler and web IDE),
          <a href="/#projects" class="text-primary-light font-medium hover:underline">AIM</a> (a production-hardened attendance system with 101 tests and CI/CD), and
          <a href="/#projects" class="text-primary-light font-medium hover:underline">FWRS</a> (a food waste optimization platform using linear programming).
       </p>
@@ -39,7 +39,7 @@ import { SITE_CONFIG } from '../../data/config.ts'
         SITE_CONFIG.location,
         'Open to relocation',
       ].map((tag) => (
-        <span class="px-3 py-1 rounded-full text-sm bg-bg-card border border-border text-text-muted cursor-default transition-all hover:shadow-[0_0_6px_rgba(148,163,184,0.2)] hover:border-border-light">
+        <span class="px-3 py-1 rounded-full text-sm bg-bg-card border border-border text-text-muted cursor-default transition hover:shadow-[0_0_6px_rgba(148,163,184,0.2)] hover:border-border-light">
           {tag}
         </span>
       ))}
@@ -49,10 +49,9 @@ import { SITE_CONFIG } from '../../data/config.ts'
 
 <script>
   import gsap from 'gsap'
-  import { ScrollTrigger } from 'gsap/ScrollTrigger'
+  import { prefersReducedMotion } from '../../utils/gsap.ts'
 
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  if (!prefersReducedMotion) {
+  if (!prefersReducedMotion()) {
     gsap.from('.about-section > *', {
       scrollTrigger: {
         trigger: '.about-section',

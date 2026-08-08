@@ -16,7 +16,7 @@ import { SITE_CONFIG, SOCIAL_LINKS } from '../../data/config.ts'
     <div class="flex flex-wrap items-center justify-center gap-4 mb-12">
       <a
         href={`mailto:${SITE_CONFIG.email}`}
-        class="group relative px-8 py-3.5 rounded-xl font-medium bg-primary text-white hover:bg-primary-light transition-all hover:shadow-lg hover:shadow-primary/25 overflow-hidden"
+        class="group relative px-8 py-3.5 rounded-xl font-medium bg-primary text-white hover:bg-primary-light transition hover:shadow-lg hover:shadow-primary/25 overflow-hidden"
       >
         <span class="relative z-10 flex items-center gap-2">
           <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
@@ -28,7 +28,7 @@ import { SITE_CONFIG, SOCIAL_LINKS } from '../../data/config.ts'
       </a>
       <a
         href={`tel:${SITE_CONFIG.phone}`}
-        class="group relative px-8 py-3.5 rounded-xl font-medium bg-primary text-white hover:bg-primary-light transition-all hover:shadow-lg hover:shadow-primary/25 overflow-hidden"
+        class="group relative px-8 py-3.5 rounded-xl font-medium bg-primary text-white hover:bg-primary-light transition hover:shadow-lg hover:shadow-primary/25 overflow-hidden"
       >
         <span class="relative z-10 flex items-center gap-2">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
@@ -43,7 +43,7 @@ import { SITE_CONFIG, SOCIAL_LINKS } from '../../data/config.ts'
           href={link.url}
           target="_blank"
           rel="noopener noreferrer"
-          class="group relative px-8 py-3.5 rounded-xl font-medium bg-primary text-white hover:bg-primary-light transition-all hover:shadow-lg hover:shadow-primary/25 overflow-hidden"
+          class="group relative px-8 py-3.5 rounded-xl font-medium bg-primary text-white hover:bg-primary-light transition hover:shadow-lg hover:shadow-primary/25 overflow-hidden"
         >
           <span class="relative z-10 flex items-center gap-2">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -64,10 +64,9 @@ import { SITE_CONFIG, SOCIAL_LINKS } from '../../data/config.ts'
 
 <script>
   import gsap from 'gsap'
-  import { ScrollTrigger } from 'gsap/ScrollTrigger'
+  import { prefersReducedMotion } from '../../utils/gsap.ts'
 
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  if (!prefersReducedMotion) {
+  if (!prefersReducedMotion()) {
     gsap.from('.contact-section > *', {
       scrollTrigger: {
         trigger: '.contact-section',

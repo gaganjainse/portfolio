@@ -1,7 +1,29 @@
 ---
 import { SITE_CONFIG, SOCIAL_LINKS } from '../../data/config.ts'
+import { PROJECTS } from '../../data/projects.ts'
 import { Image } from 'astro:assets'
 import profilePic from '../../assets/profile.jpg'
+
+// Data-driven hero stats: project count + tests come from the data files,
+// GitHub repo count is fetched at build time with a config fallback.
+const projectCount = PROJECTS.length
+const testCount = PROJECTS.reduce((sum, p) => sum + (p.tests ?? 0), 0)
+const testsDisplay = testCount > 0 ? `${Math.floor(testCount / 100) * 100}+` : '100+'
+
+let repoCount = SITE_CONFIG.defaultRepoCount
+try {
+  const res = await fetch(`https://api.github.com/users/${SITE_CONFIG.githubUsername}`, {
+    headers: { 'User-Agent': 'portfolio-build', Accept: 'application/vnd.github+json' },
+  })
+  if (res.ok) {
+    const data = await res.json()
+    if (typeof data.public_repos === 'number' && data.public_repos > 0) {
+      repoCount = data.public_repos
+    }
+  }
+} catch {
+  // Network failure at build time — fall back to the config value.
+}
 ---
 
 <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-24 sm:pt-28" aria-label="Hero">
@@ -23,7 +45,7 @@ import profilePic from '../../assets/profile.jpg'
       />
     </div>
     <div class="hero-badge mb-6">
-      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium bg-success/10 text-success border border-success/20 cursor-default hover:text-success hover:shadow-[0_0_8px_rgba(16,185,129,0.3)] transition-all">
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-medium bg-success/10 text-success border border-success/20 cursor-default hover:text-success hover:shadow-[0_0_8px_rgba(16,185,129,0.3)] transition">
         <span class="w-2 h-2 rounded-full bg-success animate-pulse" aria-hidden="true" />
         {SITE_CONFIG.availability}
       </span>
@@ -38,21 +60,21 @@ import profilePic from '../../assets/profile.jpg'
     </p>
 
     <div class="hero-stats flex flex-wrap items-center justify-center gap-3 max-w-3xl mx-auto mb-10">
-      <span class="px-3 py-1.5 rounded-full text-sm font-medium bg-bg border border-border text-text-muted cursor-default hover:text-primary-light hover:border-primary/30 hover:shadow-[0_0_8px_rgba(124,58,237,0.3)] transition-all">
-        <span class="gradient-text font-bold">12+</span> AI Projects
+      <span class="px-3 py-1.5 rounded-full text-sm font-medium bg-bg border border-border text-text-muted cursor-default hover:text-primary-light hover:border-primary/30 hover:shadow-[0_0_8px_rgba(124,58,237,0.3)] transition">
+        <span class="gradient-text font-bold">{projectCount}+</span> AI Projects
       </span>
-      <span class="px-3 py-1.5 rounded-full text-sm font-medium bg-bg border border-border text-text-muted cursor-default hover:text-primary-light hover:border-primary/30 hover:shadow-[0_0_8px_rgba(124,58,237,0.3)] transition-all">
-        <span class="gradient-text font-bold">16</span> GitHub Repos
+      <span class="px-3 py-1.5 rounded-full text-sm font-medium bg-bg border border-border text-text-muted cursor-default hover:text-primary-light hover:border-primary/30 hover:shadow-[0_0_8px_rgba(124,58,237,0.3)] transition">
+        <span class="gradient-text font-bold">{repoCount}</span> GitHub Repos
       </span>
-      <span class="px-3 py-1.5 rounded-full text-sm font-medium bg-bg border border-border text-text-muted cursor-default hover:text-primary-light hover:border-primary/30 hover:shadow-[0_0_8px_rgba(124,58,237,0.3)] transition-all">
-        <span class="gradient-text font-bold">1,200+</span> Tests Written
+      <span class="px-3 py-1.5 rounded-full text-sm font-medium bg-bg border border-border text-text-muted cursor-default hover:text-primary-light hover:border-primary/30 hover:shadow-[0_0_8px_rgba(124,58,237,0.3)] transition">
+        <span class="gradient-text font-bold">{testsDisplay}</span> Tests Written
       </span>
     </div>
 
     <div class="hero-cta flex flex-wrap items-center justify-center gap-4 mb-8">
       <a
         href="/#projects"
-        class="group relative px-8 py-3.5 rounded-xl font-medium bg-primary text-white hover:bg-primary-light transition-all hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 overflow-hidden"
+        class="group relative px-8 py-3.5 rounded-xl font-medium bg-primary text-white hover:bg-primary-light transition hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 overflow-hidden"
       >
         <span class="relative z-10 flex items-center gap-2">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
@@ -66,7 +88,7 @@ import profilePic from '../../assets/profile.jpg'
         href="https://github.com/gaganjainse"
         target="_blank"
         rel="noopener noreferrer"
-        class="group relative px-8 py-3.5 rounded-xl font-medium bg-primary text-white hover:bg-primary-light transition-all hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 overflow-hidden"
+        class="group relative px-8 py-3.5 rounded-xl font-medium bg-primary text-white hover:bg-primary-light transition hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 overflow-hidden"
       >
         <span class="relative z-10 flex items-center gap-2">
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -80,7 +102,7 @@ import profilePic from '../../assets/profile.jpg'
         href="https://linkedin.com/in/gaganjainse"
         target="_blank"
         rel="noopener noreferrer"
-        class="group relative px-8 py-3.5 rounded-xl font-medium bg-primary text-white hover:bg-primary-light transition-all hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 overflow-hidden"
+        class="group relative px-8 py-3.5 rounded-xl font-medium bg-primary text-white hover:bg-primary-light transition hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 overflow-hidden"
       >
         <span class="relative z-10 flex items-center gap-2">
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -91,8 +113,8 @@ import profilePic from '../../assets/profile.jpg'
         <div class="absolute inset-0 bg-gradient-to-r from-primary-light to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
       </a>
       <a
-        href="/résumé"
-        class="group relative px-8 py-3.5 rounded-xl font-medium bg-primary text-white hover:bg-primary-light transition-all hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 overflow-hidden"
+        href="/resume"
+        class="group relative px-8 py-3.5 rounded-xl font-medium bg-primary text-white hover:bg-primary-light transition hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 overflow-hidden"
       >
         <span class="relative z-10 flex items-center gap-2">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
@@ -103,16 +125,17 @@ import profilePic from '../../assets/profile.jpg'
         <div class="absolute inset-0 bg-gradient-to-r from-primary-light to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
       </a>
       <a
-        href="/résumé.pdf"
+        href="/resume.pdf"
         target="_blank"
         rel="noopener noreferrer"
-        class="group relative px-3 py-3.5 rounded-xl font-medium bg-primary text-white hover:bg-primary-light transition-all hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 overflow-hidden"
+        class="group relative px-4 py-3.5 rounded-xl font-medium bg-primary text-white hover:bg-primary-light transition hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 overflow-hidden"
         aria-label="Download Résumé PDF"
       >
-        <span class="relative z-10 flex items-center">
+        <span class="relative z-10 flex items-center gap-2">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
           </svg>
+          <span>PDF</span>
         </span>
         <div class="absolute inset-0 bg-gradient-to-r from-primary-light to-accent opacity-0 group-hover:opacity-100 transition-opacity" />
       </a>
@@ -122,10 +145,9 @@ import profilePic from '../../assets/profile.jpg'
 
 <script>
   import gsap from 'gsap'
-  import { ScrollTrigger } from 'gsap/ScrollTrigger'
+  import { prefersReducedMotion } from '../../utils/gsap.ts'
 
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  if (!prefersReducedMotion) {
+  if (!prefersReducedMotion()) {
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
     tl.from('.hero-badge', { opacity: 0, y: 20, duration: 0.6 })
       .from('.hero-name', { opacity: 0, y: 30, duration: 0.7 }, '-=0.3')

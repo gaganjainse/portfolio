@@ -2,7 +2,6 @@ import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import vercel from '@astrojs/vercel'
-import partytown from '@astrojs/partytown'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
@@ -18,11 +17,6 @@ export default defineConfig({
           item.changefreq = 'daily'
         }
         return item
-      },
-    }),
-    partytown({
-      config: {
-        forward: ['dataLayer.push'],
       },
     }),
   ],
