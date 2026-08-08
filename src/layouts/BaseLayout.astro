@@ -1,13 +1,20 @@
 ---
 import { SITE_CONFIG, NAV_ITEMS } from '../data/config.js'
 import '../styles/global.css'
+
+const pageTitle = Astro.props.title
+  ? `${Astro.props.title} | ${SITE_CONFIG.siteTitle}`
+  : SITE_CONFIG.siteTitle
+
+const pageDescription = Astro.props.description || SITE_CONFIG.description
+const pageUrl = Astro.url.href
 ---
 
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content={Astro.props.description || SITE_CONFIG.description} />
+    <meta name="description" content={pageDescription} />
     <meta name="author" content={SITE_CONFIG.name} />
     <meta name="theme-color" content="#7c3aed" />
 
@@ -16,18 +23,20 @@ import '../styles/global.css'
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
-    <title>{(Astro.props.frontmatter?.title && Astro.props.frontmatter.title !== SITE_CONFIG.title) ? `${SITE_CONFIG.title}, ${Astro.props.frontmatter.title}` : ((Astro.props.title && Astro.props.title !== SITE_CONFIG.title) ? `${SITE_CONFIG.title}, ${Astro.props.title}` : SITE_CONFIG.title)}</title>
+    <title>{pageTitle}</title>
 
-    <meta property="og:title" content={(Astro.props.frontmatter?.title && Astro.props.frontmatter.title !== SITE_CONFIG.title) ? `${SITE_CONFIG.title}, ${Astro.props.frontmatter.title}` : ((Astro.props.title && Astro.props.title !== SITE_CONFIG.title) ? `${SITE_CONFIG.title}, ${Astro.props.title}` : SITE_CONFIG.title)} />
-    <meta property="og:description" content={Astro.props.frontmatter?.description || Astro.props.description || SITE_CONFIG.description} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
     <meta property="og:image" content={`https://gaganjain.vercel.app/og-image.png`} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://gaganjain.vercel.app" />
-    <link rel="canonical" href={Astro.props.canonical || 'https://gaganjain.vercel.app'} />
+    <meta property="og:type" content="profile" />
+    <meta property="profile:first_name" content="Gagan" />
+    <meta property="profile:last_name" content="Jain" />
+    <meta property="og:url" content={pageUrl} />
+    <link rel="canonical" href={Astro.props.canonical || pageUrl} />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={(Astro.props.frontmatter?.title && Astro.props.frontmatter.title !== SITE_CONFIG.title) ? `${SITE_CONFIG.title}, ${Astro.props.frontmatter.title}` : ((Astro.props.title && Astro.props.title !== SITE_CONFIG.title) ? `${SITE_CONFIG.title}, ${Astro.props.title}` : SITE_CONFIG.title)} />
-    <meta name="twitter:description" content={Astro.props.frontmatter?.description || Astro.props.description || SITE_CONFIG.description} />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
     <meta name="twitter:image" content={`https://gaganjain.vercel.app/og-image.png`} />
 
     <script type="application/ld+json" is:inline>
@@ -68,11 +77,10 @@ import '../styles/global.css'
               Gagan Jain
             </a>
 
-            <div class="hidden md:flex items-center gap-1" role="menubar">
+            <div class="hidden md:flex items-center gap-1">
               {NAV_ITEMS.map((item) => (
                 <a
                   href={`/#${item.id}`}
-                  role="menuitem"
                   class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
                   data-nav={item.id}
                 >

@@ -1,6 +1,7 @@
 export const SITE_CONFIG = {
   name: "Gagan Jain",
   title: "Gagan Jain",
+  siteTitle: "Gagan Jain — AI / LLM Engineer",
   tagline: "CS @ VIT Vellore building production-grade GenAI systems — from multi-agent orchestration and LLM fine-tuning to RAG pipelines and agentic AI platforms.",
   description: "I build practical AI systems: LLM-powered apps, RAG pipelines, autonomous agents, and production-ready GenAI platforms. Strong Python foundation with end-to-end deployment experience.",
   email: "gagan.jain.se@gmail.com",
