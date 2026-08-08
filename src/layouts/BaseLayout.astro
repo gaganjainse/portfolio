@@ -65,9 +65,8 @@ const jsonLd = JSON.stringify({
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={pageDescription} />
     <meta name="author" content={SITE_CONFIG.name} />
-    <meta name="theme-color" id="theme-color-meta" content="#0a0a0f" />
+    <meta name="theme-color" content="#7c3aed" />
 
-    <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
@@ -465,8 +464,6 @@ const jsonLd = JSON.stringify({
       function applyTheme(theme: string) {
         const isLight = theme === 'light'
         themeRoot.setAttribute('data-theme', theme)
-        const themeColor = document.getElementById('theme-color-meta')
-        if (themeColor) themeColor.setAttribute('content', isLight ? '#f8fafc' : '#0a0a0f')
         themeToggles.forEach((btn) => {
           btn.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode')
           const sun = btn.querySelector('.theme-icon-sun')

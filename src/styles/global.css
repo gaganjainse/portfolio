@@ -156,11 +156,6 @@ body::before {
   -webkit-text-stroke: 0.5px transparent;
 }
 
-:root[data-theme='light'] .gradient-text {
-  /* darker violet -> teal for WCAG-AA contrast on light backgrounds */
-  background: linear-gradient(135deg, #6d28d9, #0e7490);
-}
-
 .glass {
   background: var(--glass-bg);
   backdrop-filter: blur(16px);
