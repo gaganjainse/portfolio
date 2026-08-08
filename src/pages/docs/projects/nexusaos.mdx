@@ -7,39 +7,40 @@ description: 'NexusAOS project documentation'
 <div class="max-w-4xl mx-auto px-4 sm:px-6 py-24">
   <h1 class="text-4xl font-bold mb-6 gradient-text">NexusAOS</h1>
   <p class="text-text-muted mb-6">
-    Governance-first agentic operating system with multi-agent swarm orchestration, LLM integration, and MCP tooling.
+    Governance-first, event-sourced AI operating environment written in Rust — 12 workspace
+    crates, 981 tests, and provider-agnostic LLM streaming.
   </p>
 
 <div class="gradient-border p-6 mb-6">
   <h2 class="text-2xl font-bold text-text mb-3">Overview</h2>
   <p class="text-text-muted mb-4">
-    NexusAOS is a governance-first agentic OS that orchestrates multiple AI agents in a swarm
-    architecture. It features collision detection, namespace isolation, quorum voting, and atomic
-    fission—all built in Python + asyncio.
+    NexusAOS is a production-ready AI operating environment that combines local LLM inference,
+    terminal emulation, SSH multiplexing, and governance-first task execution into a unified Rust
+    system. Models propose actions; the kernel validates and records every state change.
+  </p>
+</div>
+
+<div class="gradient-border p-6 mb-6">
+  <h2 class="text-2xl font-bold text-text mb-3">Governance &amp; Event Sourcing</h2>
+  <p class="text-text-muted mb-4">
+    A policy-enforced agent kernel maintains an append-only audit trail. Every action is validated,
+    recorded, and reversible — with explicit policy approval required for destructive operations.
+    Core operations work fully offline.
   </p>
 </div>
 
 <div class="gradient-border p-6 mb-6">
   <h2 class="text-2xl font-bold text-text mb-3">LLM Integration</h2>
   <p class="text-text-muted mb-4">
-    Local LLM inference pipeline integrated with Phi-4-Mini QLoRA adapters, AB/AP balance
-    enforcement, and constitution-guided routing. Includes curriculum learning, evaluation harness,
-    and model benchmarking.
-  </p>
-</div>
-
-<div class="gradient-border p-6 mb-6">
-  <h2 class="text-2xl font-bold text-text mb-3">MCP Tooling</h2>
-  <p class="text-text-muted mb-4">
-    Exposed 30+ MCP tools via FastMCP for metabolic, planning, immune, and physical substrate
-    control. Enables structured tool use and external system integration.
+    Provider-agnostic LLM layer with OpenAI-compatible and Anthropic streaming, LiteLLM routing, and
+    local-first inference. Providers are swappable through a common interface.
   </p>
 </div>
 
   <div class="gradient-border p-6">
     <h2 class="text-2xl font-bold text-text mb-3">Tech Stack</h2>
     <div class="flex flex-wrap gap-2">
-      {["Python", "FastMCP", "QLoRA", "Unsloth", "Multi-Agent", "MCP", "AsyncIO", "Rust", "Zig"].map((tech) => (
+      {['Rust', 'Tokio', 'Event Sourcing', 'LiteLLM', 'OpenAI', 'Anthropic', 'SSH', 'PTY', 'TUI', 'GUI'].map((tech) => (
         <span key={tech} class="px-2.5 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border">{tech}</span>
       ))}
     </div>
