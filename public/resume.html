@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gagan Jain — AI / LLM Engineer</title>
+    <meta name="robots" content="noindex" />
+    <!-- Printable résumé source — used only to generate public/resume.pdf -->
+    <style>
+      @page {
+        size: A4;
+        margin: 16mm 15mm 16mm 15mm;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family:
+          'Inter',
+          system-ui,
+          -apple-system,
+          sans-serif;
+        font-size: 9.8pt;
+        line-height: 1.42;
+        color: #1a1a2e;
+        background: #ffffff;
+      }
+      .container {
+        max-width: 210mm;
+        margin: 0 auto;
+      }
+      header {
+        border-bottom: none;
+        padding-bottom: 12px;
+        background-image: linear-gradient(90deg, #8b5cf6 0%, #06b6d4 100%);
+        background-size: 100% 2px;
+        background-position: bottom;
+        background-repeat: no-repeat;
+        margin-bottom: 16px;
+      }
+      h1 {
+        font-size: 20pt;
+        font-weight: 700;
+        color: #0f172a;
+        letter-spacing: 0.3px;
+      }
+      .title {
+        font-size: 11pt;
+        color: #7c3aed;
+        background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 600;
+        margin-top: 2px;
+      }
+      .contact {
+        font-size: 9pt;
+        color: #475569;
+        margin-top: 6px;
+        line-height: 1.4;
+      }
+      .contact a {
+        color: #06b6d4;
+        font-weight: 600;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      section {
+        margin-bottom: 7px;
+      }
+      h2 {
+        font-size: 10.5pt;
+        font-weight: 700;
+        background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-transform: uppercase;
+        letter-spacing: 0.7px;
+        margin-bottom: 7px;
+        padding-bottom: 3px;
+        border-bottom: 1px solid #e2e8f0;
+      }
+      .summary {
+        font-size: 9.8pt;
+        color: #334155;
+        line-height: 1.55;
+      }
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3px 16px;
+      }
+      .skill-item {
+        font-size: 9.5pt;
+        color: #1e293b;
+        line-height: 1.45;
+      }
+      .skill-item strong {
+        color: #0f172a;
+        font-weight: 600;
+      }
+      .project {
+        margin-bottom: 8px;
+        padding-bottom: 5px;
+        border-bottom: 1px dashed #e2e8f0;
+      }
+      .project:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+      .project-header {
+        display: flex;
+        align-items: baseline;
+        gap: 8px;
+        margin-bottom: 4px;
+      }
+      .project-title {
+        font-weight: 700;
+        font-size: 10.5pt;
+        color: #0f172a;
+      }
+      .project-tag {
+        font-size: 8pt;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding: 2px 6px;
+        border-radius: 3px;
+        background: #fce7f3;
+        color: #be185d;
+        border: 1px solid #fbcfe8;
+      }
+      .project-tag.rust {
+        background: #fef3c7;
+        color: #92400e;
+        border-color: #fde68a;
+      }
+      .project-tag.production {
+        background: #d1fae5;
+        color: #065f46;
+        border-color: #a7f3d0;
+      }
+      .project-meta {
+        font-size: 9pt;
+        color: #64748b;
+        margin-bottom: 4px;
+      }
+      .project-list {
+        list-style: disc;
+        padding-left: 16px;
+        color: #334155;
+        font-size: 9.3pt;
+        line-height: 1.5;
+      }
+      .project-list li {
+        margin-bottom: 2px;
+      }
+      .experience {
+        margin-bottom: 6px;
+        padding-bottom: 3px;
+        border-bottom: 1px dashed #e2e8f0;
+      }
+      .experience:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+      .experience-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 3px;
+      }
+      .experience-role {
+        font-weight: 700;
+        font-size: 10.5pt;
+        color: #0f172a;
+      }
+      .experience-date {
+        font-size: 9pt;
+        color: #64748b;
+        font-weight: 500;
+      }
+      .experience-company {
+        font-size: 10pt;
+        background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+      .experience-list {
+        list-style: disc;
+        padding-left: 16px;
+        color: #334155;
+        font-size: 9.5pt;
+        line-height: 1.55;
+      }
+      .experience-list li {
+        margin-bottom: 3px;
+      }
+      .education {
+        margin-bottom: 6px;
+        padding-bottom: 4px;
+        border-bottom: 1px dashed #e2e8f0;
+      }
+      .education:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+      }
+      .education-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 3px;
+      }
+      .education-school {
+        font-weight: 700;
+        font-size: 10.5pt;
+        color: #0f172a;
+      }
+      .education-date {
+        font-size: 9pt;
+        color: #64748b;
+        font-weight: 500;
+      }
+      .education-degree {
+        font-size: 10pt;
+        background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 600;
+        margin-bottom: 3px;
+      }
+      .education-details {
+        font-size: 9pt;
+        color: #475569;
+      }
+
+      /* ---- brand gradient (violet -> cyan), replaces flat purple ---- */
+      .grad-text {
+        background: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
+      }
+      .grad-line {
+        background: linear-gradient(90deg, #8b5cf6 0%, #06b6d4 100%);
+      }
+      /* ---- project action buttons ---- */
+      .project-buttons {
+        display: flex;
+        gap: 6px;
+        margin-top: 4px;
+        flex-wrap: wrap;
+      }
+      .project-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 8pt;
+        font-weight: 600;
+        padding: 2px 8px;
+        border-radius: 4px;
+        text-decoration: none;
+        color: #4c1d95;
+        background: #f5f3ff;
+        border: 1px solid #ddd6fe;
+      }
+      .project-btn:hover {
+        background: #ede9fe;
+      }
+      .project-btn .ic {
+        font-size: 8pt;
+        line-height: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Gagan Jain</h1>
+        <div class="title">AI / LLM Engineer</div>
+        <div class="contact">
+          Jaipur, India (Open to Relocation) &nbsp;|&nbsp; +91 95872 55792 &nbsp;|&nbsp;
+          gagan.jain.se@gmail.com &nbsp;|&nbsp;
+          <a href="https://linkedin.com/in/gaganjainse">LinkedIn</a> &nbsp;|&nbsp;
+          <a href="https://github.com/gaganjainse">GitHub</a> &nbsp;|&nbsp;
+          <a href="https://gaganjain.vercel.app">Portfolio</a>
+        </div>
+      </header>
+
+      <section>
+        <h2>Professional Summary</h2>
+        <p class="summary">
+          AI/LLM Engineer with hands-on experience building and deploying production-grade GenAI
+          systems, agentic AI frameworks, and LLM-powered applications. Core strengths include RAG
+          pipelines, multi-agent orchestration, LLM fine-tuning (QLoRA/LoRA), prompt and context
+          engineering, MCP tooling, and evaluation/observability. Strong Python foundation with
+          end-to-end deployment experience using Docker, CI/CD, and cloud platforms.
+        </p>
+      </section>
+
+      <section>
+        <h2>Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-item">
+            <strong>AI / LLM:</strong> LLM Integration, RAG Pipelines, Agentic AI Frameworks, Prompt
+            Engineering, Context Engineering, Multi-Agent Systems, Tool-Using Agents, Planning
+            Agents, Fine-tuning (QLoRA/LoRA), MCP / Tool Protocols, LangChain / LlamaIndex, Vector
+            Databases, Evaluation & Observability, AI Governance, Local LLM Deployment
+          </div>
+          <div class="skill-item">
+            <strong>Languages:</strong> Python, TypeScript, JavaScript, Rust, PHP, C, C++, HTML/CSS
+          </div>
+          <div class="skill-item">
+            <strong>Backend & APIs:</strong> Flask, FastAPI, Node.js, Express, Laravel, Axum (Rust),
+            REST APIs, WebSockets, FastMCP
+          </div>
+          <div class="skill-item">
+            <strong>Databases:</strong> MySQL, MongoDB, Redis, SQLite, Supabase
+          </div>
+          <div class="skill-item">
+            <strong>DevOps & Tooling:</strong> Docker, GitHub Actions, Nginx, Gunicorn, Prometheus,
+            Linux, CI/CD Pipelines
+          </div>
+          <div class="skill-item">
+            <strong>Frontend:</strong> React, React Native, Next.js, Tailwind CSS, Bootstrap, Monaco
+            Editor
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Projects</h2>
+
+        <div class="project">
+          <div class="project-header">
+            <span class="project-title">NexusAOS</span>
+            <span class="project-tag">AI/AGENTIC</span>
+          </div>
+          <div class="project-meta">
+            Python, FastMCP, QLoRA, Unsloth, Multi-Agent, AsyncIO, Rust, Zig
+          </div>
+          <ul class="project-list">
+            <li>
+              Built multi-agent swarm executor with collision detection, namespace isolation, quorum
+              voting, and atomic fission in Python + asyncio
+            </li>
+            <li>
+              Integrated local LLM inference pipeline with Phi-4-Mini QLoRA adapters, AB/AP balance
+              enforcement, and constitution-guided routing
+            </li>
+            <li>
+              Exposed 30+ MCP tools via FastMCP for metabolic, planning, immune, and physical
+              substrate control
+            </li>
+            <li>
+              Designed adapter-routed inference system with curriculum learning, evaluation harness,
+              and model benchmarking
+            </li>
+            <li>Implemented offline-first execution with reversible, permissioned actions</li>
+          </ul>
+          <div class="project-buttons">
+            <a class="project-btn" href="https://github.com/gaganjainse/NexusAOS"
+              ><span class="ic">⌥</span> Source Code</a
+            >
+            <a class="project-btn" href="https://gaganjain.vercel.app/docs/projects/nexusaos"
+              ><span class="ic">▤</span> Documentation</a
+            >
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="project-header">
+            <span class="project-title">nexus-kernel</span>
+            <span class="project-tag rust">RUST</span>
+          </div>
+          <div class="project-meta">
+            Rust, Tokio, OpenAI, Anthropic, SQLite, Ratatui, Iced, SSH, Event Sourcing
+          </div>
+          <ul class="project-list">
+            <li>
+              Built Rust 2024 microkernel with 12 workspace crates, 981 passing tests, 0 clippy
+              warnings, and full CI/CD
+            </li>
+            <li>
+              Implemented event-sourced append-only audit trail, policy engine with trust tiers, and
+              provider-swappable model interface
+            </li>
+            <li>
+              Integrated OpenAI-compatible and Anthropic streaming with real-time token streaming
+              into TUI/GUI
+            </li>
+            <li>
+              Delivered native terminal emulation (PTY + VT100 + Zig parser), SSH multiplexing, and
+              multi-interface CLI/TUI/GUI/RPC
+            </li>
+          </ul>
+          <div class="project-buttons">
+            <a class="project-btn" href="https://github.com/gaganjainse/nexus-kernel"
+              ><span class="ic">⌥</span> Source Code</a
+            >
+            <a class="project-btn" href="https://gaganjain.vercel.app/docs/projects/nexus-kernel"
+              ><span class="ic">▤</span> Documentation</a
+            >
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="project-header">
+            <span class="project-title">SeshaOS</span>
+            <span class="project-tag">AI/AGENTIC</span>
+          </div>
+          <div class="project-meta">
+            Rust, LiteLLM, Gemma, Qwen, Local LLMs, Governance, Event Sourcing, Ubuntu
+          </div>
+          <ul class="project-list">
+            <li>
+              Architected specialist model stack: Gemma 4 12B (Planner), Qwen3-Coder 30B
+              (Implementation), Qwen3.5 9B (Vision)
+            </li>
+            <li>
+              Designed kernel-centric governance where models propose actions and the kernel
+              validates/records every state change
+            </li>
+            <li>
+              Implemented LiteLLM-compatible proxy support for NVIDIA NIM and other model providers
+            </li>
+            <li>
+              Maintained event-sourced architecture with reversible, permissioned actions and
+              offline-first execution
+            </li>
+          </ul>
+          <div class="project-buttons">
+            <a class="project-btn" href="https://github.com/gaganjainse/SeshaOS"
+              ><span class="ic">⌥</span> Source Code</a
+            >
+            <a class="project-btn" href="https://gaganjain.vercel.app/docs/projects/seshaos"
+              ><span class="ic">▤</span> Documentation</a
+            >
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="project-header">
+            <span class="project-title">Vyākṛti</span>
+            <span class="project-tag rust">COMPILER</span>
+          </div>
+          <div class="project-meta">
+            Rust, React, TypeScript, Monaco Editor, Zustand, Tailwind CSS, Axum
+          </div>
+          <ul class="project-list">
+            <li>
+              Complete compiler pipeline: lexer → parser → type checker → bytecode compiler — all
+              built from scratch in Rust
+            </li>
+            <li>
+              Browser-based IDE with React, Monaco Editor, syntax highlighting, autocomplete, and
+              diagnostics
+            </li>
+            <li>
+              Rust (axum) backend with compile, REPL, LSP, and file management endpoints via REST +
+              WebSocket
+            </li>
+            <li>123 tests covering the full pipeline, including a self-hosting corpus</li>
+          </ul>
+          <div class="project-buttons">
+            <a class="project-btn" href="https://github.com/gaganjainse/Vyakrti"
+              ><span class="ic">⌥</span> Source Code</a
+            >
+            <a class="project-btn" href="https://gaganjain.vercel.app/docs/projects/vyakrti"
+              ><span class="ic">▤</span> Documentation</a
+            >
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="project-header">
+            <span class="project-title">AIM — Attendance Information Manager</span>
+            <span class="project-tag production">PRODUCTION-READY</span>
+          </div>
+          <div class="project-meta">
+            Python, Flask, MySQL, Bootstrap, Chart.js, Docker, GitHub Actions
+          </div>
+          <ul class="project-list">
+            <li>
+              Production-grade Flask + MySQL platform with Argon2id auth, CSRF protection,
+              brute-force lockout, breached-password scanning, JWT sessions, and strict CSP/HSTS
+              headers
+            </li>
+            <li>
+              Deployed Prometheus metrics, structured JSON logging, Chart.js analytics, FullCalendar
+              scheduling, Docker Compose, and GitHub Actions CI/CD; 101 automated pytest tests
+            </li>
+          </ul>
+          <div class="project-buttons">
+            <a class="project-btn" href="https://github.com/gaganjainse/AIM"
+              ><span class="ic">⌥</span> Source Code</a
+            >
+            <a class="project-btn" href="https://gaganjain.vercel.app/docs/projects/aim"
+              ><span class="ic">▤</span> Documentation</a
+            >
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="project-header">
+            <span class="project-title">FWRS — Food Waste Reduction System</span>
+            <span class="project-tag production">PRODUCTION-READY</span>
+          </div>
+          <div class="project-meta">Python, PuLP, Folium, Flask, MySQL, Bootstrap</div>
+          <ul class="project-list">
+            <li>
+              Built linear programming models and route optimization algorithms to minimize food
+              waste and optimize distribution
+            </li>
+            <li>
+              Integrated Folium-based mapping for route planning and deployed full-stack platform
+              with real-time tracking and analytics dashboard
+            </li>
+          </ul>
+          <div class="project-buttons">
+            <a class="project-btn" href="https://github.com/gaganjainse/FWRS"
+              ><span class="ic">⌥</span> Source Code</a
+            >
+            <a class="project-btn" href="https://gaganjain.vercel.app/docs/projects/fwrs"
+              ><span class="ic">▤</span> Documentation</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Experience</h2>
+        <div class="experience">
+          <div class="experience-header">
+            <span class="experience-role">Industry 5.0 Industrial Automation Trainee</span>
+            <span class="experience-date">Aug 2025 – Nov 2025</span>
+          </div>
+          <div class="experience-company">CodenPlay Robotics</div>
+          <ul class="experience-list">
+            <li>
+              Programmed PLC control logic for automated production workflows using CODESYS
+              structured text and ladder logic
+            </li>
+            <li>
+              Designed HMI monitoring dashboards and multi-device communication networks using
+              Node-RED
+            </li>
+            <li>
+              Validated automation sequences against Factory I/O digital-twin simulations prior to
+              hardware deployment
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <div class="education">
+          <div class="education-header">
+            <span class="education-school">Vellore Institute of Technology, Vellore</span>
+            <span class="education-date">Graduated 2026</span>
+          </div>
+          <div class="education-degree">B.Tech in Computer Science and Engineering</div>
+          <div class="education-details">
+            CGPA: 7.7 / 10.0 | Relevant Coursework: Data Structures & Algorithms, Operating Systems,
+            Database Systems, Computer Networks, Web Technologies, Artificial Intelligence, Machine
+            Learning
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

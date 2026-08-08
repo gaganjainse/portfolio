@@ -15,12 +15,11 @@ interface Props {
     | 'external'
     | 'home-solid'
   external?: boolean
-  compact?: boolean
 }
-const { href, label, icon = 'external', external = false, compact = false } = Astro.props
+const { href, label, icon = 'external', external = false } = Astro.props
 // Responsive padding: snug on phones (so the hero CTA stack stays short),
-// roomier from sm up. compact stays tiny for dense spots (e.g. hero PDF link).
-const pad = compact ? 'px-4 py-2.5' : 'px-5 py-2.5 sm:px-8 sm:py-3.5'
+// roomier from sm up.
+const pad = 'px-5 py-2.5 sm:px-8 sm:py-3.5'
 ---
 
 <a

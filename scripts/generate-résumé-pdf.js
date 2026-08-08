@@ -1,76 +1,42 @@
 import puppeteer from 'puppeteer'
-import { createServer } from 'node:http'
-import { readFile, stat } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
-import { dirname, join, extname, normalize } from 'node:path'
+import { dirname, join } from 'node:path'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
-// The PDF is generated from the *built* /resume page (dist/resume/index.html),
-// so it always matches the web résumé. Run `npm run build` first.
-const distDir = join(__dirname, '..', 'dist')
+const htmlPath = join(__dirname, '..', 'public', 'resume.html')
 const pdfPath = join(__dirname, '..', 'public', 'resume.pdf')
 
-const MIME = {
-  '.html': 'text/html',
-  '.css': 'text/css',
-  '.js': 'text/javascript',
-  '.webp': 'image/webp',
-  '.png': 'image/png',
-  '.svg': 'image/svg+xml',
-  '.json': 'application/json',
-}
-
-// Serve the built site so absolute asset paths (/resume, /_astro/...) resolve.
-function serve() {
-  return createServer(async (req, res) => {
-    try {
-      const urlPath = decodeURIComponent(new URL(req.url, 'http://localhost').pathname)
-      let filePath = normalize(join(distDir, urlPath))
-      if (!filePath.startsWith(distDir)) {
-        res.writeHead(403)
-        res.end('Forbidden')
-        return
-      }
-      const fileStat = await stat(filePath)
-      if (fileStat.isDirectory()) filePath = join(filePath, 'index.html')
-      const body = await readFile(filePath)
-      res.writeHead(200, { 'Content-Type': MIME[extname(filePath)] || 'application/octet-stream' })
-      res.end(body)
-    } catch {
-      res.writeHead(404)
-      res.end('Not found')
-    }
-  })
-}
-
 async function generatePdf() {
-  const server = serve()
-  await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve))
-  const port = server.address().port
-
   const browser = await puppeteer.launch({
     headless: 'new',
+    executablePath: process.env.CHROME_PATH || (await puppeteer.executablePath()),
     args: ['--no-sandbox', '--disable-setuid-sandbox'],
   })
-  try {
-    const page = await browser.newPage()
-    await page.goto(`http://127.0.0.1:${port}/resume/`, { waitUntil: 'networkidle0' })
-    await page.pdf({
-      path: pdfPath,
-      format: 'A4',
-      printBackground: true,
-      margin: { top: '12mm', bottom: '12mm', left: '12mm', right: '12mm' },
-    })
-  } finally {
-    await browser.close()
-    server.close()
-  }
-  console.log(`PDF written to ${pdfPath}`)
+
+  const page = await browser.newPage()
+  await page.setViewport({ width: 794, height: 1123 })
+  await page.goto(`file://${htmlPath}`, { waitUntil: 'networkidle0' })
+
+  await page.pdf({
+    path: pdfPath,
+    format: 'A4',
+    printBackground: true,
+    displayHeaderFooter: true,
+    margin: { top: '20mm', right: '0', bottom: '15mm', left: '0' },
+    // Note: Chrome's header/footer template layer does not support
+    // background-clip:text, so gradients are approximated with solid brand
+    // colors (violet #8b5cf6 and cyan #06b6d4) plus a gradient border line.
+    headerTemplate: `<div style="font-size: 9pt; font-weight: 600; padding-bottom: 4px; padding-top: 10mm; padding-left: 16mm; padding-right: 16mm; display: flex; justify-content: space-between; align-items: baseline; border-bottom: 2px solid #8b5cf6; background: linear-gradient(90deg, #8b5cf6 0%, #06b6d4 100%) bottom / 100% 1.5px no-repeat;"><span style="color: #8b5cf6;">Gagan Jain — AI / LLM Engineer</span><span style="color: #64748b; font-weight: 500;">gagan.jain.se@gmail.com &nbsp;|&nbsp; +91 95872 55792</span></div>`,
+    footerTemplate: `<div style="font-size: 8pt; color: #64748b; border-top: 1px solid #e2e8f0; padding-top: 4px; text-align: center; padding-bottom: 10mm;">Page <span class="pageNumber"></span> &nbsp;|&nbsp; <span style="color: #06b6d4;">https://gaganjain.vercel.app</span></div>`,
+  })
+
+  await browser.close()
+  console.log(`PDF generated: ${pdfPath}`)
 }
 
 generatePdf().catch((err) => {
-  console.error('Failed to generate PDF:', err.message)
+  console.error(err)
   process.exit(1)
 })
