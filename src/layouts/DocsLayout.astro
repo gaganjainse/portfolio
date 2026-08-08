@@ -201,7 +201,7 @@ const SECTIONS = ['Overview', 'Projects']
   </div>
 
   <script>
-    const docsSelect = document.querySelector('[data-docs-select]')
+    const docsSelect = document.querySelector<HTMLSelectElement>('[data-docs-select]')
     if (docsSelect) {
       docsSelect.addEventListener('change', () => {
         window.location.href = docsSelect.value
