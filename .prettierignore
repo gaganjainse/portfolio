@@ -4,4 +4,3 @@ dist/
 .vercel/
 package-lock.json
 public/resume.pdf
-public/resume.html

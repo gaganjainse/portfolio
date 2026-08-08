@@ -40,6 +40,8 @@ export const SKILLS = [
   { name: 'Structured Outputs / Function Calling', level: 72, category: 'AI / LLM' },
   { name: 'LiteLLM / Model Routing', level: 70, category: 'AI / LLM' },
   { name: 'Streaming Responses', level: 72, category: 'AI / LLM' },
+  { name: 'NLP', level: 60, category: 'AI / LLM' },
+  { name: 'Ollama', level: 65, category: 'AI / LLM' },
   { name: 'Python', level: 90, category: 'Languages' },
   { name: 'TypeScript', level: 80, category: 'Languages' },
   { name: 'JavaScript', level: 85, category: 'Languages' },
@@ -76,8 +78,6 @@ export const SKILLS = [
   { name: 'YOLO', level: 70, category: 'Vision / ML' },
   { name: 'OpenCV', level: 65, category: 'Vision / ML' },
   { name: 'Computer Vision', level: 65, category: 'Vision / ML' },
-  { name: 'NLP', level: 60, category: 'AI / LLM' },
-  { name: 'Ollama', level: 65, category: 'AI / LLM' },
 ]
 
 export function getProficiencyLabel(level: number): string {

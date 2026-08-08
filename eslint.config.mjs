@@ -13,7 +13,7 @@ export default [
     ],
   },
   {
-    files: ['src/**/*.mjs', '*.mjs', 'scripts/**/*.js'],
+    files: ['*.mjs', 'scripts/**/*.js'],
     ...js.configs.recommended,
     languageOptions: {
       ecmaVersion: 2022,

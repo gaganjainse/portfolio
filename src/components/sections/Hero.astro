@@ -10,6 +10,9 @@ const projectCount = PROJECTS.length
 const testCount = PROJECTS.reduce((sum, p) => sum + (p.tests ?? 0), 0)
 const testsDisplay = testCount > 0 ? `${Math.floor(testCount / 100) * 100}+` : '100+'
 
+const statPillClass =
+  'px-3 py-1.5 rounded-full text-sm font-medium bg-bg border border-border text-text-muted cursor-default hover:text-primary-light hover:border-primary/30 hover:shadow-[0_0_8px_rgba(124,58,237,0.3)] transition'
+
 let repoCount = SITE_CONFIG.defaultRepoCount
 try {
   const res = await fetch(`https://api.github.com/users/${SITE_CONFIG.githubUsername}`, {
@@ -79,19 +82,13 @@ try {
     <div
       class="hero-stats flex flex-wrap items-center justify-center gap-3 max-w-3xl mx-auto mb-10"
     >
-      <span
-        class="px-3 py-1.5 rounded-full text-sm font-medium bg-bg border border-border text-text-muted cursor-default hover:text-primary-light hover:border-primary/30 hover:shadow-[0_0_8px_rgba(124,58,237,0.3)] transition"
-      >
+      <span class={statPillClass}>
         <span class="gradient-text font-bold">{projectCount}</span> Projects
       </span>
-      <span
-        class="px-3 py-1.5 rounded-full text-sm font-medium bg-bg border border-border text-text-muted cursor-default hover:text-primary-light hover:border-primary/30 hover:shadow-[0_0_8px_rgba(124,58,237,0.3)] transition"
-      >
+      <span class={statPillClass}>
         <span class="gradient-text font-bold">{repoCount}</span> GitHub Repos
       </span>
-      <span
-        class="px-3 py-1.5 rounded-full text-sm font-medium bg-bg border border-border text-text-muted cursor-default hover:text-primary-light hover:border-primary/30 hover:shadow-[0_0_8px_rgba(124,58,237,0.3)] transition"
-      >
+      <span class={statPillClass}>
         <span class="gradient-text font-bold">{testsDisplay}</span> Tests Written
       </span>
     </div>
