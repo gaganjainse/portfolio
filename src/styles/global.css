@@ -63,11 +63,17 @@ body::before {
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 15% 15%, rgba(124, 58, 237, 0.1) 0%, transparent 45%),
+    radial-gradient(circle at 85% 15%, rgba(6, 182, 212, 0.07) 0%, transparent 45%),
+    radial-gradient(circle at 85% 85%, rgba(124, 58, 237, 0.07) 0%, transparent 45%),
+    radial-gradient(circle at 15% 85%, rgba(6, 182, 212, 0.06) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(124, 58, 237, 0.05) 0%, transparent 60%),
     linear-gradient(var(--grid-line) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size:
+    100% 100%,
+    100% 100%,
+    100% 100%,
     100% 100%,
     100% 100%,
     40px 40px,
@@ -115,20 +121,6 @@ body::before {
 }
 .skip-link:focus {
   top: 0;
-}
-
-@keyframes pulse-glow {
-  0%,
-  100% {
-    opacity: 0.5;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-.animate-pulse-glow {
-  animation: pulse-glow 3s ease-in-out infinite;
 }
 
 .gradient-text {
@@ -297,7 +289,6 @@ body::before {
   .scroll-progress,
   .skip-link,
   .glass,
-  .animate-pulse-glow,
   .gradient-border::before,
   .skill-bar-fill,
   body::before {

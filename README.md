@@ -111,4 +111,4 @@ Vitest unit tests cover the data layer (`src/data/*.test.ts`): skill categorizat
 
 ## 📄 License
 
-MIT
+[MIT](./LICENSE) — Copyright © 2026 Gagan Jain

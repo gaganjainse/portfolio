@@ -9,6 +9,7 @@ import { PROJECTS, getTagClasses } from '../data/projects.ts'
 import { EXPERIENCE } from '../data/experience.ts'
 import { groupByCategory, SKILLS } from '../data/skills.ts'
 import ProjectLinkButton from '../components/ProjectLinkButton.astro'
+import Pill from '../components/Pill.astro'
 
 export const skillCategories = groupByCategory(SKILLS)
 export const RESUME_PROJECTS = PROJECTS.filter((project) => project.featured)
@@ -111,9 +112,7 @@ export const ExternalLinkIcon = () => (
             <h3 class="text-lg font-bold text-text">{job.title}</h3>
             <p class="text-primary-light font-medium">{job.company}</p>
           </div>
-          <span class="px-3 py-1 rounded-full text-sm bg-bg border border-border text-text-muted shrink-0 cursor-default transition hover:shadow-[0_0_6px_rgba(148,163,184,0.2)] hover:border-border-light">
-            {job.period}
-          </span>
+          <Pill label={job.period} variant="period" />
         </div>
         {job.location && <p class="text-text-muted text-sm mb-2">{job.location}</p>}
         <ul class="list-disc list-inside space-y-1 text-sm text-text-muted">
@@ -134,7 +133,7 @@ export const ExternalLinkIcon = () => (
           <h3 class="text-lg font-bold text-text">VIT Vellore</h3>
           <p class="text-primary-light font-medium">B.Tech in Computer Science and Engineering</p>
         </div>
-        <span class="px-3 py-1 rounded-full text-sm bg-bg border border-border text-text-muted shrink-0 cursor-default transition hover:shadow-[0_0_6px_rgba(148,163,184,0.2)] hover:border-border-light">Graduated {SITE_CONFIG.graduation}</span>
+        <Pill label={`Graduated ${SITE_CONFIG.graduation}`} variant="period" />
       </div>
     </div>
   </section>

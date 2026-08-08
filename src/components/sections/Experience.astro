@@ -2,6 +2,7 @@
 import { EXPERIENCE } from '../../data/experience.ts'
 import SectionHeading from '../SectionHeading.astro'
 import TechChip from '../TechChip.astro'
+import Pill from '../Pill.astro'
 ---
 
 <section
@@ -21,9 +22,7 @@ import TechChip from '../TechChip.astro'
                 <h3 class="text-xl font-bold text-text">{job.title}</h3>
                 <p class="text-primary-light font-medium">{job.company}</p>
               </div>
-              <span class="px-3 py-1 rounded-full text-sm bg-bg border border-border text-text-muted shrink-0 cursor-default hover:text-primary-light hover:border-primary/30 hover:shadow-[0_0_8px_rgba(124,58,237,0.3)] transition">
-                {job.period}
-              </span>
+              <Pill label={job.period} variant="period" />
             </div>
 
             <ul class="space-y-3 mb-6">
