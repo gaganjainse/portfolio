@@ -60,6 +60,17 @@ body {
     -apple-system,
     sans-serif;
   position: relative;
+  /* Sticky footer: on short pages (e.g. /404) the footer pins to the bottom
+     of the viewport instead of floating up mid-page. */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1 0 auto;
+}
+footer {
+  flex-shrink: 0;
 }
 body::before {
   content: '';
@@ -249,6 +260,54 @@ body::before {
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
+}
+
+/* ---- markdown tables in docs sheets (Site Map etc.) ---- */
+.docs-sheet table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.5rem 0 1.5rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.docs-sheet thead th {
+  background: var(--color-bg-elevated);
+  color: var(--color-text);
+  font-weight: 600;
+  text-align: left;
+  border: 1px solid var(--color-border);
+  padding: 0.6rem 0.8rem;
+  white-space: nowrap;
+}
+.docs-sheet tbody td {
+  border: 1px solid var(--color-border);
+  padding: 0.55rem 0.8rem;
+  vertical-align: top;
+  color: var(--color-text-muted);
+}
+.docs-sheet tbody tr:nth-child(even) td {
+  background: var(--color-bg-elevated);
+}
+.docs-sheet tbody tr:hover td {
+  background: var(--color-bg-elevated);
+  color: var(--color-text);
+}
+.docs-sheet table code {
+  font-size: 0.8rem;
+  white-space: nowrap;
+  overflow-wrap: anywhere;
+}
+.docs-sheet table a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+@media (max-width: 640px) {
+  .docs-sheet table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
 }
 
 /* Gradient section separator — used between résumé sections (web + PDF) */
