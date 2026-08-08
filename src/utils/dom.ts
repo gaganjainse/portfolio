@@ -4,10 +4,10 @@ export function prefersReducedMotion(): boolean {
 }
 
 export function scrollProgress() {
-  if (typeof window === 'undefined') return { kill: () => {} }
+  if (typeof window === 'undefined') return
 
   const progressBar = document.querySelector<HTMLElement>('.scroll-progress')
-  if (!progressBar) return { kill: () => {} }
+  if (!progressBar) return
 
   const update = () => {
     const scrollTop = window.scrollY
@@ -18,6 +18,4 @@ export function scrollProgress() {
 
   window.addEventListener('scroll', update, { passive: true })
   update()
-
-  return () => window.removeEventListener('scroll', update)
 }

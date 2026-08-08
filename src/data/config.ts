@@ -15,12 +15,6 @@ export const SITE_CONFIG = {
   graduation: '2025',
 }
 
-export const SOCIAL_LINKS = [
-  { name: 'GitHub', url: 'https://github.com/gaganjainse', icon: 'github' },
-  { name: 'LinkedIn', url: 'https://linkedin.com/in/gaganjainse', icon: 'linkedin' },
-  { name: 'Email', url: 'mailto:gagan.jain.se@gmail.com', icon: 'email' },
-]
-
 export const NAV_ITEMS = [
   { id: 'home', label: 'Home', href: '/#home' },
   { id: 'about', label: 'About', href: '/#about' },
