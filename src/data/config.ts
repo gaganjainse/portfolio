@@ -1,5 +1,6 @@
 export const SITE_CONFIG = {
   name: 'Gagan Jain',
+  siteUrl: 'https://gaganjain.vercel.app',
   siteTitle: 'Gagan Jain — AI / LLM Engineer',
   githubUsername: 'gaganjainse',
   defaultRepoCount: 16,
