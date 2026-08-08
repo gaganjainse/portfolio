@@ -267,31 +267,35 @@ const jsonLd = JSON.stringify({
       <slot />
     </main>
 
-    <footer class="py-8 px-4 sm:px-6 border-t border-border" role="contentinfo">
-      <div class="max-w-6xl mx-auto text-center">
-        <p class="text-text-muted text-sm mb-3">
-          &copy; {new Date().getFullYear()} Gagan Jain &middot; Built with Astro + GSAP + Tailwind CSS
-        </p>
-        <div class="flex items-center justify-center gap-4 text-sm">
-          <a
-            href="/resume"
-            class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
-          >
-            Résumé
-          </a>
-          <a
-            href="/docs/getting-started"
-            class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
-          >
-            Docs
-          </a>
-          <span class="text-border">&middot;</span>
-          <button
-            id="back-to-top"
-            class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
-          >
-            Back to top
-          </button>
+    <footer class="py-8 px-4 sm:px-6" role="contentinfo">
+      <div class="max-w-6xl mx-auto">
+        <div
+          class="border border-border-light/60 rounded-xl bg-bg-card/60 backdrop-blur-sm px-6 py-5 text-center"
+        >
+          <p class="text-text-muted text-sm mb-3">
+            &copy; {new Date().getFullYear()} Gagan Jain &middot; Built with Astro + GSAP + Tailwind CSS
+          </p>
+          <div class="flex items-center justify-center gap-4 text-sm">
+            <a
+              href="/resume"
+              class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
+            >
+              Résumé
+            </a>
+            <a
+              href="/docs/getting-started"
+              class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
+            >
+              Docs
+            </a>
+            <span class="text-border">&middot;</span>
+            <button
+              id="back-to-top"
+              class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
+            >
+              Back to top
+            </button>
+          </div>
         </div>
       </div>
     </footer>

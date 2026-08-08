@@ -14,13 +14,8 @@ export const skillCategories = groupByCategory(SKILLS)
 export const RESUME_PROJECTS = PROJECTS.filter((project) => project.featured)
 
 export const ExternalLinkIcon = () => (
-  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-    <path
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      stroke-width="2"
-      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-    />
+  <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M10.604 10.604a.75.75 0 00-1.061-1.06 6 6 0 11-2.087 2.087.75.75 0 00-1.06-1.061 7.5 7.5 0 102.608-2.608zM10.5 3.75a.75.75 0 01.75-.75h8.25a.75.75 0 01.75.75v8.25a.75.75 0 01-1.5 0V5.81l-6.72 6.72a.75.75 0 11-1.06-1.06l6.72-6.72h-6.19a.75.75 0 01-.75-.75z" />
   </svg>
 )
 
@@ -66,7 +61,7 @@ export const ExternalLinkIcon = () => (
   <h2 class="text-xl font-bold gradient-text mb-3">Technical Skills</h2>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
     {Object.values(skillCategories).map((category) => (
-      <div class="rounded-xl border border-border p-5">
+      <div class="rounded-xl border border-border p-5 resume-card">
         <h3 class="text-base font-semibold text-text mb-2">{category.name}</h3>
         <p class="text-sm text-text-muted leading-relaxed">
           {category.skills.map((s) => s.name).join(', ')}
@@ -80,7 +75,7 @@ export const ExternalLinkIcon = () => (
   <h2 class="text-xl font-bold gradient-text mb-4">Projects</h2>
   <div class="space-y-5">
     {RESUME_PROJECTS.map((project) => (
-      <div class="rounded-xl border border-border p-5">
+      <div class="rounded-xl border border-border p-5 resume-card">
         <div class="flex flex-wrap items-center gap-2 mb-2">
           <h3 class="text-lg font-bold text-text">{project.title}</h3>
           <span
@@ -110,7 +105,7 @@ export const ExternalLinkIcon = () => (
   <h2 class="text-xl font-bold gradient-text mb-4">Experience</h2>
   <div class="timeline">
     {EXPERIENCE.map((job) => (
-      <div class="timeline-item rounded-xl border border-border p-5">
+      <div class="timeline-item rounded-xl border border-border p-5 resume-card">
         <div class="flex flex-wrap items-start justify-between gap-3 mb-2">
           <div>
             <h3 class="text-lg font-bold text-text">{job.title}</h3>
@@ -133,7 +128,7 @@ export const ExternalLinkIcon = () => (
 
   <section class="scroll-mt-24">
     <h2 class="text-xl font-bold gradient-text mb-4">Education</h2>
-    <div class="rounded-xl border border-border p-5">
+    <div class="rounded-xl border border-border p-5 resume-card">
       <div class="flex flex-wrap items-start justify-between gap-3">
         <div>
           <h3 class="text-lg font-bold text-text">VIT Vellore</h3>
