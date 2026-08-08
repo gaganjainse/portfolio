@@ -143,6 +143,7 @@ export const PROJECTS: Project[] = [
     tech: ['Python', 'Flask', 'MySQL', 'Bootstrap', 'Chart.js', 'Docker', 'GitHub Actions'],
     tests: 101,
     github: `${GITHUB_BASE}/AIM`,
+    docs: '/docs/projects/aim',
   },
   {
     title: 'FWRS — Food Waste Reduction System',
@@ -157,8 +158,9 @@ export const PROJECTS: Project[] = [
       'Deployed as a full-stack platform with real-time tracking and analytics dashboard',
     ],
     tech: ['Python', 'PuLP', 'Folium', 'Flask', 'MySQL', 'Bootstrap'],
-    tests: 0,
+    tests: 1,
     github: `${GITHUB_BASE}/FWRS`,
+    docs: '/docs/projects/fwrs',
   },
   {
     title: 'RAG Service — Production RAG + Vector Search',
@@ -185,6 +187,7 @@ export const PROJECTS: Project[] = [
     ],
     tests: 28,
     github: `${GITHUB_BASE}/rag-service`,
+    docs: '/docs/projects/rag-service',
   },
   {
     title: 'LLM Eval Harness',
@@ -202,5 +205,6 @@ export const PROJECTS: Project[] = [
     tech: ['Python', 'LLM-as-Judge', 'Golden Sets', 'RAGAS', 'CLI', 'CI/CD', 'Pytest'],
     tests: 15,
     github: `${GITHUB_BASE}/llm-eval-harness`,
+    docs: '/docs/projects/llm-eval-harness',
   },
 ]

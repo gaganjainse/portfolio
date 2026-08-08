@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer'
 import { createServer } from 'node:http'
-import { readFile } from 'node:fs/promises'
+import { readFile, stat } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import { dirname, join, extname, normalize } from 'node:path'
 
@@ -33,8 +33,8 @@ function serve() {
         res.end('Forbidden')
         return
       }
-      const stat = await import('node:fs/promises').then((fs) => fs.stat(filePath))
-      if (stat.isDirectory()) filePath = join(filePath, 'index.html')
+      const fileStat = await stat(filePath)
+      if (fileStat.isDirectory()) filePath = join(filePath, 'index.html')
       const body = await readFile(filePath)
       res.writeHead(200, { 'Content-Type': MIME[extname(filePath)] || 'application/octet-stream' })
       res.end(body)

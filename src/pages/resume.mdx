@@ -12,7 +12,23 @@ import { groupByCategory, SKILLS } from '../data/skills.ts'
 export const skillCategories = groupByCategory(SKILLS)
 export const RESUME_PROJECTS = PROJECTS.filter((project) => project.featured)
 
+export const ExternalLinkIcon = () => (
+  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+    />
+  </svg>
+)
+
 <div class="max-w-4xl mx-auto px-4 sm:px-6 pt-20 sm:pt-24 pb-16 resume-page">
+  <nav class="no-print text-sm text-text-muted mb-6" aria-label="Breadcrumb">
+    <a href="/" class="hover:text-text transition-colors">Home</a>
+    <span class="mx-2 text-border" aria-hidden="true">/</span>
+    <span class="text-text">Résumé</span>
+  </nav>
   <div class="rounded-xl shadow-2xl shadow-black/20 bg-bg-card/80 backdrop-blur-sm p-6 sm:p-10 resume-sheet">
   <div class="text-center mb-10">
     <h1 class="text-3xl sm:text-4xl font-bold mb-3 gradient-text resume-name">Gagan Jain</h1>
@@ -23,17 +39,17 @@ export const RESUME_PROJECTS = PROJECTS.filter((project) => project.featured)
     <div class="flex flex-wrap items-center justify-center gap-3 mt-3 text-sm resume-social">
       <a href="https://linkedin.com/in/gaganjainse" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline inline-flex items-center gap-1">
         linkedin.com/in/gaganjainse
-        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+        <ExternalLinkIcon />
       </a>
       <span class="text-border">&middot;</span>
       <a href="https://github.com/gaganjainse" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline inline-flex items-center gap-1">
         github.com/gaganjainse
-        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+        <ExternalLinkIcon />
       </a>
       <span class="text-border">&middot;</span>
       <a href="https://gaganjain.vercel.app" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline inline-flex items-center gap-1">
         gaganjain.vercel.app
-        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+        <ExternalLinkIcon />
       </a>
     </div>
   </div>
@@ -88,15 +104,43 @@ export const RESUME_PROJECTS = PROJECTS.filter((project) => project.featured)
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            class="text-sm text-primary-light hover:text-text transition-colors"
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-bg text-text-muted border border-border transition hover:text-text hover:border-primary/40"
           >
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+              />
+            </svg>
             Source Code
           </a>
           {project.docs && (
             <a
               href={project.docs}
-              class="text-sm text-primary-light hover:text-text transition-colors"
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium bg-bg text-text-muted border border-border transition hover:text-text hover:border-primary/40"
             >
+              <svg
+                class="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
+              </svg>
               Documentation
             </a>
           )}

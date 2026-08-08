@@ -13,7 +13,7 @@ Personal portfolio website of **Gagan Jain** — AI / LLM Engineer. Built with [
 
 - **Dark / Light mode** — toggle in the nav; follows the OS preference by default and persists your choice in `localStorage` (no flash-of-wrong-theme)
 - **Data-driven single-source résumé** — the web résumé and `resume.pdf` are generated from the same data files (`src/data/`), so they can't drift
-- **Vercel Web Analytics** — privacy-friendly page analytics via `@vercel/analytics`
+- **Vercel Web Analytics + Speed Insights** — privacy-friendly analytics and performance monitoring via `@vercel/analytics` and `@vercel/speed-insights`
 - **Hybrid-retrieval RAG service** — dense + BM25 keyword search fused with Reciprocal Rank Fusion (see [rag-service](https://github.com/gaganjainse/rag-service))
 - **LLM evaluation harness** — golden-set metrics with LLM-as-judge and offline fallbacks (see [llm-eval-harness](https://github.com/gaganjainse/llm-eval-harness))
 - **Accessible** — skip link, focus-trapped mobile menu, ARIA-labelled sections, `prefers-reduced-motion` support
@@ -41,7 +41,7 @@ Looking for **GenAI / LLM Engineer**, **Agentic AI Engineer**, or **AI Engineer*
 
 ## 🚀 Quick Start
 
-Requires **Node.js >= 22.12.0** (Astro 7 requirement; CI and Vercel run Node 24).
+Requires **Node.js 24** (see `engines` in `package.json`; CI and Vercel both run Node 24).
 
 ```bash
 npm install
@@ -58,15 +58,15 @@ npm run resume:pdf   # Regenerate public/resume.pdf from the built /resume page
 
 ## 🛠️ Tech Stack
 
-| Layer            | Tools                                                                      |
-| ---------------- | -------------------------------------------------------------------------- |
-| **Framework**    | Astro 7.2.0 (static output)                                                |
-| **Content**      | MDX                                                                        |
-| **Styling**      | Tailwind CSS v4.3                                                          |
-| **Animations**   | GSAP + ScrollTrigger                                                       |
-| **Analytics**    | `@vercel/analytics` (Vercel Web Analytics)                                 |
-| **Integrations** | `@astrojs/mdx`, `@astrojs/sitemap`, `@astrojs/vercel`, `@vercel/analytics` |
-| **Deployment**   | Vercel (static, with 301 redirects via `vercel.json`)                      |
+| Layer            | Tools                                                                                                |
+| ---------------- | ---------------------------------------------------------------------------------------------------- |
+| **Framework**    | Astro 7.2.0 (static output)                                                                          |
+| **Content**      | MDX                                                                                                  |
+| **Styling**      | Tailwind CSS v4.3                                                                                    |
+| **Animations**   | GSAP + ScrollTrigger                                                                                 |
+| **Analytics**    | `@vercel/analytics` + `@vercel/speed-insights` (Vercel Web Analytics & Speed Insights)               |
+| **Integrations** | `@astrojs/mdx`, `@astrojs/sitemap`, `@astrojs/vercel`, `@vercel/analytics`, `@vercel/speed-insights` |
+| **Deployment**   | Vercel (static, with 301 redirects via `vercel.json`)                                                |
 
 ## 📁 Project Structure
 

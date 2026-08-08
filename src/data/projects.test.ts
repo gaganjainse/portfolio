@@ -42,6 +42,12 @@ describe('PROJECTS data', () => {
     const urls = PROJECTS.map((p) => p.github)
     expect(new Set(urls).size).toBe(urls.length)
   })
+
+  it('every project links its documentation (docs or github)', () => {
+    for (const project of PROJECTS) {
+      expect(project.github).toMatch(/^https:\/\/github\.com\/gaganjainse\//)
+    }
+  })
 })
 
 describe('getTagClasses', () => {

@@ -3,19 +3,15 @@
 @theme {
   --color-primary: #7c3aed;
   --color-primary-light: #8b5cf6;
-  --color-primary-dark: #6d28d9;
   --color-accent: #06b6d4;
   --color-bg: var(--bg);
   --color-bg-card: var(--bg-card);
-  --color-bg-card-hover: var(--bg-card-hover);
   --color-bg-elevated: var(--bg-elevated);
   --color-text: var(--text);
   --color-text-muted: var(--text-muted);
   --color-border: var(--border);
   --color-border-light: var(--border-light);
   --color-success: #10b981;
-  --color-warning: #f59e0b;
-  --color-danger: #ef4444;
 }
 
 /* ---- theme tokens (dark default, light opt-in via data-theme) ---- */
@@ -23,7 +19,6 @@
   color-scheme: dark;
   --bg: #0a0a0f;
   --bg-card: #111118;
-  --bg-card-hover: #1a1a24;
   --bg-elevated: #16161e;
   --text: #e2e8f0;
   --text-muted: #94a3b8;
@@ -38,7 +33,6 @@
   color-scheme: light;
   --bg: #f8fafc;
   --bg-card: #ffffff;
-  --bg-card-hover: #f1f5f9;
   --bg-elevated: #f1f5f9;
   --text: #0f172a;
   --text-muted: #475569;

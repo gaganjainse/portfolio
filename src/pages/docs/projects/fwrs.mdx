@@ -1,0 +1,42 @@
+---
+layout: ../../../layouts/BaseLayout.astro
+title: FWRS
+description: 'FWRS project documentation'
+---
+
+import DocsNav from '../../../components/DocsNav.astro'
+
+<DocsNav current="FWRS" />
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-24">
+  <h1 class="text-4xl font-bold mb-6 gradient-text">FWRS — Food Waste Reduction System</h1>
+  <p class="text-text-muted mb-6">
+    Food waste optimization platform using linear programming and route optimization to allocate
+    surplus food to NGOs.
+  </p>
+
+<div class="gradient-border p-6 mb-6">
+  <h2 class="text-2xl font-bold text-text mb-3">Overview</h2>
+  <p class="text-text-muted mb-4">
+    A full-stack platform that models surplus-food allocation as a 3-stage linear program (fairness
+    → priority → cost), then optimizes collection and delivery routes for efficient NGO
+    distribution.
+  </p>
+</div>
+
+<div class="gradient-border p-6 mb-6">
+  <h2 class="text-2xl font-bold text-text mb-3">Optimization</h2>
+  <p class="text-text-muted mb-4">
+    Linear programming models minimize food waste and optimize distribution routes. Folium-based
+    mapping visualizes route planning and monitoring.
+  </p>
+</div>
+
+  <div class="gradient-border p-6">
+    <h2 class="text-2xl font-bold text-text mb-3">Tech Stack</h2>
+    <div class="flex flex-wrap gap-2">
+      {['Python', 'PuLP', 'Folium', 'Flask', 'MySQL', 'Bootstrap'].map((tech) => (
+        <span key={tech} class="px-2.5 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border">{tech}</span>
+      ))}
+    </div>
+  </div>
+</div>

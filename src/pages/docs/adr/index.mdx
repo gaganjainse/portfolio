@@ -4,7 +4,10 @@ title: ADRs
 description: 'Architecture Decision Records'
 ---
 
-<div class="max-w-4xl mx-auto px-4 sm:px-6 py-24">
+import DocsNav from '../../../components/DocsNav.astro'
+
+<DocsNav current="ADRs" />
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-24">
   <h1 class="text-4xl font-bold mb-6 gradient-text">Architecture Decision Records</h1>
   <p class="text-text-muted mb-8">
     Key decisions shaping the AI systems and portfolio architecture.
@@ -87,6 +90,15 @@ description: 'Architecture Decision Records'
       <h2 class="text-xl font-bold text-text mb-2">ADR-010: Vercel Web Analytics</h2>
       <p class="text-text-muted text-sm mb-3">
         Adopted the official <code>@vercel/analytics</code> Astro integration instead of a third-party snippet. The loader is injected at runtime only when Vercel provides the project ID at build time — a clean no-op in local dev and non-Vercel hosts.
+      </p>
+      <span class="text-xs text-text-muted">Status: Accepted</span>
+    </article>
+
+
+    <article class="gradient-border p-6">
+      <h2 class="text-xl font-bold text-text mb-2">ADR-011: Vercel Speed Insights</h2>
+      <p class="text-text-muted text-sm mb-3">
+        Added the official <code>@vercel/speed-insights</code> Astro integration alongside Web Analytics (ADR-010). Like analytics, the loader activates only when Vercel provides the project ID at build time — a no-op in local dev and non-Vercel hosts — so Core Web Vitals can be collected without adding third-party scripts.
       </p>
       <span class="text-xs text-text-muted">Status: Accepted</span>
     </article>
