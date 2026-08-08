@@ -419,6 +419,33 @@ const jsonLd = JSON.stringify({
       })
 
       applyTheme(themeRoot.getAttribute('data-theme') || 'dark')
+
+      // ---- touch glow: cards light up on tap, like hover on desktop ----
+      // First, an empty touchstart listener so iOS Safari activates :active
+      // styles at all (otherwise taps never show the pressed state).
+      document.addEventListener('touchstart', () => {}, { passive: true })
+
+      // On touch-capable devices, add .touch-glow while the finger is down and
+      // keep it briefly after release so the ring is actually visible.
+      if (window.matchMedia('(hover: none), (pointer: coarse)').matches) {
+        const glowCards = document.querySelectorAll<HTMLElement>('.gradient-border, .glow-card')
+        glowCards.forEach((card) => {
+          let releaseTimer: number | undefined
+          const onStart = () => {
+            window.clearTimeout(releaseTimer)
+            card.classList.add('touch-glow')
+          }
+          const onEnd = () => {
+            window.clearTimeout(releaseTimer)
+            releaseTimer = window.setTimeout(() => {
+              card.classList.remove('touch-glow')
+            }, 500)
+          }
+          card.addEventListener('touchstart', onStart, { passive: true })
+          card.addEventListener('touchend', onEnd, { passive: true })
+          card.addEventListener('touchcancel', onEnd, { passive: true })
+        })
+      }
     </script>
     <Analytics />
     <SpeedInsights />
