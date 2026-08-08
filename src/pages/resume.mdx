@@ -95,7 +95,11 @@ export const SOCIAL_LINKS = [
         <div class="flex flex-wrap items-center gap-3 mt-3">
           <ProjectLinkButton href={project.github} label="Source Code" icon="github" external />
           {project.docs && (
-            <ProjectLinkButton href={project.docs} label="Documentation" icon="doc" />
+            <ProjectLinkButton
+              href={`${SITE_CONFIG.siteUrl}${project.docs}`}
+              label="Documentation"
+              icon="doc"
+            />
           )}
         </div>
       </div>
