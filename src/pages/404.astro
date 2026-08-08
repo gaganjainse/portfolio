@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+---
+
+<BaseLayout title="Page Not Found" description="This page could not be found.">
+  <main class="min-h-[70vh] flex flex-col items-center justify-center px-4 text-center">
+    <p class="text-7xl sm:text-8xl font-bold gradient-text mb-4">404</p>
+    <h1 class="text-2xl sm:text-3xl font-bold text-text mb-3">This page doesn't exist</h1>
+    <p class="text-text-muted mb-8 max-w-md">
+      The link may be broken, or the page may have moved. Head back to the homepage to see my
+      projects.
+    </p>
+    <a
+      href="/"
+      class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium bg-primary text-white hover:bg-primary-light transition hover:shadow-lg hover:shadow-primary/25"
+    >
+      <svg
+        class="w-5 h-5"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        stroke-width="2"
+        aria-hidden="true"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9 9 9M5 10v10h14V10"></path>
+      </svg>
+      Back to Home
+    </a>
+  </main>
+</BaseLayout>

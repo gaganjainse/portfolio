@@ -2,12 +2,42 @@
 import { SITE_CONFIG, NAV_ITEMS } from '../data/config.ts'
 import '../styles/global.css'
 
-const pageTitle = (Astro.props.title ?? Astro.props.frontmatter?.title)
-  ? `${Astro.props.title ?? Astro.props.frontmatter?.title} | ${SITE_CONFIG.siteTitle}`
-  : SITE_CONFIG.siteTitle
+const pageTitle =
+  (Astro.props.title ?? Astro.props.frontmatter?.title)
+    ? `${Astro.props.title ?? Astro.props.frontmatter?.title} | ${SITE_CONFIG.siteTitle}`
+    : SITE_CONFIG.siteTitle
 
 const pageDescription = Astro.props.description || SITE_CONFIG.description
 const pageUrl = Astro.url.href
+
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: SITE_CONFIG.name,
+  jobTitle: 'AI / LLM Engineer',
+  url: SITE_CONFIG.siteUrl,
+  sameAs: ['https://github.com/gaganjainse', 'https://linkedin.com/in/gaganjainse'],
+  alumniOf: {
+    '@type': 'CollegeOrUniversity',
+    name: 'VIT Vellore',
+  },
+  knowsAbout: [
+    'GenAI',
+    'LLMs',
+    'Agentic AI',
+    'RAG',
+    'Multi-Agent Systems',
+    'MCP',
+    'Fine-tuning',
+    'QLoRA',
+    'Prompt Engineering',
+    'Python',
+    'Rust',
+    'FastAPI',
+    'Flask',
+    'React',
+  ],
+})
 ---
 
 <html lang="en">
@@ -19,9 +49,14 @@ const pageUrl = Astro.url.href
     <meta name="theme-color" content="#7c3aed" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
 
     <title>{pageTitle}</title>
 
@@ -29,6 +64,7 @@ const pageUrl = Astro.url.href
     <meta property="og:description" content={pageDescription} />
     <meta property="og:image" content={`https://gaganjain.vercel.app/og-image.png`} />
     <meta property="og:type" content="profile" />
+    <meta property="og:site_name" content={SITE_CONFIG.siteTitle} />
     <meta property="profile:first_name" content="Gagan" />
     <meta property="profile:last_name" content="Jain" />
     <meta property="og:url" content={pageUrl} />
@@ -39,27 +75,10 @@ const pageUrl = Astro.url.href
     <meta name="twitter:description" content={pageDescription} />
     <meta name="twitter:image" content={`https://gaganjain.vercel.app/og-image.png`} />
 
-    <script type="application/ld+json" is:inline>
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Gagan Jain",
-      "jobTitle": "AI / LLM Engineer",
-      "url": "https://gaganjain.vercel.app",
-      "sameAs": [
-        "https://github.com/gaganjainse",
-        "https://linkedin.com/in/gaganjainse"
-      ],
-      "alumniOf": {
-        "@type": "CollegeOrUniversity",
-        "name": "VIT Vellore"
-      },
-      "knowsAbout": ["GenAI", "LLMs", "Agentic AI", "RAG", "Multi-Agent Systems", "MCP", "Fine-tuning", "QLoRA", "Prompt Engineering", "Python", "Rust", "FastAPI", "Flask", "React"]
-    }
-    </script>
+    <script type="application/ld+json" is:inline set:html={jsonLd} />
   </head>
   <body>
-    <div class="scroll-progress" aria-hidden="true" />
+    <div class="scroll-progress" aria-hidden="true"></div>
     <a href="#main-content" class="skip-link">Skip to content</a>
 
     <header>
@@ -78,15 +97,17 @@ const pageUrl = Astro.url.href
             </a>
 
             <div class="hidden md:flex items-center gap-1">
-              {NAV_ITEMS.map((item) => (
-                <a
-                  href={`/#${item.id}`}
-                  class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
-                  data-nav={item.id}
-                >
-                  {item.label}
-                </a>
-              ))}
+              {
+                NAV_ITEMS.map((item) => (
+                  <a
+                    href={`/#${item.id}`}
+                    class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
+                    data-nav={item.id}
+                  >
+                    {item.label}
+                  </a>
+                ))
+              }
               <a
                 href="/resume"
                 class="nav-link ml-2 px-3 py-2 rounded-lg text-sm font-medium transition text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
@@ -102,26 +123,53 @@ const pageUrl = Astro.url.href
               aria-expanded="false"
               aria-controls="mobile-menu"
             >
-              <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+              <svg
+                id="menu-icon-open"
+                class="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"></path>
               </svg>
-              <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+              <svg
+                id="menu-icon-close"
+                class="w-6 h-6 hidden"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"></path>
               </svg>
             </button>
           </div>
 
-          <div id="mobile-menu" class="md:hidden hidden absolute top-16 right-4 min-w-[160px] bg-bg/95 backdrop-blur-xl rounded-xl border border-border shadow-2xl shadow-black/30 z-50">
+          <div
+            id="mobile-menu"
+            class="md:hidden hidden absolute top-16 right-4 min-w-[160px] bg-bg/95 backdrop-blur-xl rounded-xl border border-border shadow-2xl shadow-black/30 z-50"
+          >
             <div class="space-y-1 p-2">
-              {NAV_ITEMS.map((item) => (
-                <a
-                  href={`/#${item.id}`}
-                  class="nav-link block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
-                  data-nav={item.id}
-                >
-                  {item.label}
-                </a>
-              ))}
+              {
+                NAV_ITEMS.map((item) => (
+                  <a
+                    href={`/#${item.id}`}
+                    class="nav-link block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
+                    data-nav={item.id}
+                  >
+                    {item.label}
+                  </a>
+                ))
+              }
               <a
                 href="/resume"
                 class="nav-link block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
@@ -144,11 +192,23 @@ const pageUrl = Astro.url.href
           &copy; {new Date().getFullYear()} Gagan Jain &middot; Built with Astro + GSAP + Tailwind CSS
         </p>
         <div class="flex items-center justify-center gap-4 text-sm">
-          <a href="/resume"  class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20">
+          <a
+            href="/resume"
+            class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
+          >
             Résumé
           </a>
+          <a
+            href="/docs/getting-started"
+            class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
+          >
+            Docs
+          </a>
           <span class="text-border">&middot;</span>
-          <button id="back-to-top" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20">
+          <button
+            id="back-to-top"
+            class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
+          >
             Back to top
           </button>
         </div>
@@ -156,14 +216,14 @@ const pageUrl = Astro.url.href
     </footer>
 
     <script>
-      import { scrollProgress } from '../utils/gsap.ts'
+      import { scrollProgress } from '../utils/dom.ts'
       scrollProgress()
 
       const mobileMenuBtn = document.getElementById('mobile-menu-btn')
       const mobileMenu = document.getElementById('mobile-menu')
       const navLinks = document.querySelectorAll('.nav-link')
       const focusableSelector = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
-      let lastFocused = null
+      let lastFocused: HTMLElement | null = null
 
       function closeMenu(returnFocus = false) {
         if (!mobileMenu || !mobileMenuBtn) return
@@ -179,7 +239,7 @@ const pageUrl = Astro.url.href
 
       function openMenu() {
         if (!mobileMenu || !mobileMenuBtn) return
-        lastFocused = document.activeElement
+        lastFocused = document.activeElement instanceof HTMLElement ? document.activeElement : null
         mobileMenu.classList.remove('hidden')
         mobileMenuBtn.setAttribute('aria-expanded', 'true')
         mobileMenuBtn.setAttribute('aria-label', 'Close menu')
@@ -210,7 +270,7 @@ const pageUrl = Astro.url.href
           }
 
           if (event.key === 'Tab') {
-            const focusables = [...mobileMenu.querySelectorAll(focusableSelector)]
+            const focusables = [...mobileMenu.querySelectorAll<HTMLElement>(focusableSelector)]
             if (focusables.length === 0) return
             const first = focusables[0]
             const last = focusables[focusables.length - 1]
@@ -225,18 +285,18 @@ const pageUrl = Astro.url.href
         })
       }
 
-      navLinks.forEach(link => {
+      navLinks.forEach((link) => {
         link.addEventListener('click', () => {
           if (mobileMenu) closeMenu()
         })
       })
 
-      const sections = document.querySelectorAll('section[id]')
+      const sections = document.querySelectorAll<HTMLElement>('section[id]')
       const navItems = [...document.querySelectorAll('.nav-link')]
 
       function updateActiveSection() {
         if (window.location.pathname === '/resume') {
-          navItems.forEach(link => {
+          navItems.forEach((link) => {
             link.classList.remove('active')
             if (link.getAttribute('href') === '/resume') {
               link.classList.add('active')
@@ -245,10 +305,10 @@ const pageUrl = Astro.url.href
           return
         }
 
-        let currentSection = null
+        let currentSection: string | null = null
         const scrollPos = window.scrollY + 150
 
-        sections.forEach(section => {
+        sections.forEach((section) => {
           const sectionTop = section.offsetTop
           const sectionHeight = section.offsetHeight
           if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
@@ -256,30 +316,34 @@ const pageUrl = Astro.url.href
           }
         })
 
-        navItems.forEach(link => {
+        navItems.forEach((link) => {
           link.classList.remove('active')
           if (link.getAttribute('data-nav') === currentSection) {
             link.classList.add('active')
           }
-          if (currentSection === null && (link.getAttribute('href') === '/' || link.getAttribute('href') === '/#home')) {
+          if (
+            currentSection === null &&
+            (link.getAttribute('href') === '/' || link.getAttribute('href') === '/#home')
+          ) {
             link.classList.add('active')
           }
         })
       }
 
-      window.addEventListener('scroll', () => {
-        updateActiveSection()
-      }, { passive: true })
+      let ticking = false
+      window.addEventListener(
+        'scroll',
+        () => {
+          if (ticking) return
+          ticking = true
+          requestAnimationFrame(() => {
+            updateActiveSection()
+            ticking = false
+          })
+        },
+        { passive: true },
+      )
       updateActiveSection()
-
-      if (window.location.pathname === '/resume') {
-        navLinks.forEach(link => {
-          link.classList.remove('active')
-          if (link.getAttribute('href') === '/resume') {
-            link.classList.add('active')
-          }
-        })
-      }
 
       const backToTop = document.getElementById('back-to-top')
       if (backToTop) {

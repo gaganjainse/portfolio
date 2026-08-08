@@ -1,0 +1,16 @@
+{
+  "name": "Gagan Jain — AI / LLM Engineer",
+  "short_name": "Gagan Jain",
+  "description": "Portfolio of Gagan Jain, AI / LLM Engineer.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#7c3aed",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
