@@ -10,27 +10,29 @@ import PrimaryButton from '../PrimaryButton.astro'
   aria-labelledby="contact-heading"
 >
   <div class="max-w-4xl mx-auto text-center contact-section">
-    <div class="flex flex-col items-center">
-      <SectionHeading id="contact-heading" title="Get In" accent="Touch" dividerClass="mb-8" />
+    <div class="flex flex-col items-center mb-8">
+      <SectionHeading id="contact-heading" title="Get In" accent="Touch" dividerClass="mb-0" />
     </div>
 
-    <p class="text-text-muted text-lg mb-8 max-w-2xl mx-auto">
-      I'm currently looking for GenAI / LLM / Agentic AI roles. If you're hiring or just want to
-      connect, feel free to reach out.
-    </p>
+    <div class="gradient-border p-6 sm:p-8">
+      <p class="text-text-muted text-lg mb-8 max-w-2xl mx-auto">
+        I'm currently looking for GenAI / LLM / Agentic AI roles. If you're hiring or just want to
+        connect, feel free to reach out.
+      </p>
 
-    <div class="flex flex-wrap items-center justify-center gap-4 mb-12">
-      <PrimaryButton href={`mailto:${SITE_CONFIG.email}`} label={SITE_CONFIG.email} icon="mail" />
-      <PrimaryButton href={`tel:${SITE_CONFIG.phone}`} label={SITE_CONFIG.phone} icon="phone" />
-      <PrimaryButton
-        href="https://linkedin.com/in/gaganjainse"
-        label="LinkedIn"
-        icon="linkedin"
-        external
-      />
+      <div class="flex flex-wrap items-center justify-center gap-4 mb-8">
+        <PrimaryButton href={`mailto:${SITE_CONFIG.email}`} label={SITE_CONFIG.email} icon="mail" />
+        <PrimaryButton href={`tel:${SITE_CONFIG.phone}`} label={SITE_CONFIG.phone} icon="phone" />
+        <PrimaryButton
+          href="https://linkedin.com/in/gaganjainse"
+          label="LinkedIn"
+          icon="linkedin"
+          external
+        />
+      </div>
+
+      <p class="text-text-muted text-sm">{SITE_CONFIG.location} &middot; Open to relocation</p>
     </div>
-
-    <p class="text-text-muted text-sm">{SITE_CONFIG.location} &middot; Open to relocation</p>
   </div>
 </section>
 
