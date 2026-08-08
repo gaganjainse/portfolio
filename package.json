@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "private": true,
   "engines": {
-    "node": ">=22.12.0"
+    "node": "^22.12.0"
   },
   "scripts": {
     "dev": "astro dev",
@@ -17,7 +17,7 @@
     "test:watch": "vitest",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "resume:pdf": "node scripts/generate-résumé-pdf.js"
+    "resume:pdf": "node scripts/generate-r\u00e9sum\u00e9-pdf.js"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.5",
@@ -35,7 +35,7 @@
     "globals": "^17.9.0",
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.3",
     "vitest": "^4.1.10"
   },
   "optionalDependencies": {
