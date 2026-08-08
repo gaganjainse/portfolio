@@ -45,6 +45,7 @@ npm run build        # Production build
 npm run preview      # Preview production build
 npm test             # Unit tests (vitest)
 npm run check        # Type-check (astro check)
+npm run typecheck     # Alias for CI / Vercel checks
 npm run lint         # ESLint
 npm run format       # Prettier (write)
 npm run format:check # Prettier (verify)
