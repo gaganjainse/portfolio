@@ -235,7 +235,21 @@ const pageUrl = Astro.url.href
         })
       }
 
-      window.addEventListener('scroll', updateActiveSection, { passive: true })
+      window.addEventListener('scroll', () => {
+        updateActiveSection()
+
+        const nav = document.querySelector('nav')
+        if (nav) {
+          const currentScroll = window.scrollY
+          if (currentScroll > 50) {
+            nav.style.backdropFilter = 'blur(20px)'
+            nav.style.borderBottomColor = 'rgba(30, 41, 59, 0.8)'
+          } else {
+            nav.style.backdropFilter = 'blur(12px)'
+            nav.style.borderBottomColor = 'rgba(30, 41, 59, 0.6)'
+          }
+        }
+      }, { passive: true })
       updateActiveSection()
 
       if (window.location.pathname === '/résumé') {
@@ -245,20 +259,6 @@ const pageUrl = Astro.url.href
             link.classList.add('active')
           }
         })
-      }
-
-      const nav = document.querySelector('nav')
-      if (nav) {
-        window.addEventListener('scroll', () => {
-          const currentScroll = window.scrollY
-          if (currentScroll > 50) {
-            nav.style.backdropFilter = 'blur(20px)'
-            nav.style.borderBottomColor = 'rgba(30, 41, 59, 0.8)'
-          } else {
-            nav.style.backdropFilter = 'blur(12px)'
-            nav.style.borderBottomColor = 'rgba(30, 41, 59, 0.6)'
-          }
-        }, { passive: true })
       }
 
       const backToTop = document.getElementById('back-to-top')
