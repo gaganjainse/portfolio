@@ -8,94 +8,278 @@ description: 'Complete page and route inventory of gaganjain.vercel.app'
 {/* prettier-ignore */}
 <p class="text-text-muted mb-8">Every page and route on the site — where each one lives in the repo, what it does, and how it behaves. The site is fully static (Astro SSG): each entry in `src/pages/` compiles to one HTML file on build.</p>
 
-## Pages
+<h2 class="text-2xl font-bold gradient-text mb-5">Pages</h2>
 
 ### Main pages
 
-| Route | Source file | Purpose |
-| --- | --- | --- |
-| `/` | `src/pages/index.astro` | Home — hero, about, experience, projects, skills, contact sections with scroll-spy nav |
-| `/resume` | `src/pages/resume.mdx` | Web résumé, generated from the same data files as the PDF |
-| `/404` (`/404.html`) | `src/pages/404.astro` | Not-found page — gradient card, "Back to Home" button, no nav item highlighted |
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+  <a href="/" class="gradient-border p-5 block no-underline">
+    <code class="text-xs text-accent">/</code>
+    <h3 class="text-base font-bold text-text mt-1 mb-1">Home</h3>
+    <span class="block text-sm text-text-muted">
+      Hero, about, experience, projects, skills, contact sections with scroll-spy nav.
+    </span>
+    <span class="block text-xs text-text-muted/70 mt-2">src/pages/index.astro</span>
+  </a>
+  <a href="/resume" class="gradient-border p-5 block no-underline">
+    <code class="text-xs text-accent">/resume</code>
+    <h3 class="text-base font-bold text-text mt-1 mb-1">Résumé</h3>
+    <span class="block text-sm text-text-muted">
+      Web résumé, generated from the same data files as the PDF.
+    </span>
+    <span class="block text-xs text-text-muted/70 mt-2">src/pages/resume.mdx</span>
+  </a>
+  <a href="/404.html" class="gradient-border p-5 block no-underline">
+    <code class="text-xs text-accent">/404</code>
+    <h3 class="text-base font-bold text-text mt-1 mb-1">Not Found</h3>
+    <span class="block text-sm text-text-muted">
+      Gradient card, "Back to Home" button, no nav item highlighted.
+    </span>
+    <span class="block text-xs text-text-muted/70 mt-2">src/pages/404.astro</span>
+  </a>
+</div>
 
 ### Documentation
 
-All routes below use `src/layouts/DocsLayout.astro` (sidebar nav, previous/home/next bar, mobile dropdown).
+{/* prettier-ignore */}
+<p class="text-text-muted text-sm mb-4">All routes below use `src/layouts/DocsLayout.astro` — sidebar nav, previous/home/next bar, and a mobile dropdown.</p>
 
-| Route                             | Source file                                    | Section  |
-| --------------------------------- | ---------------------------------------------- | -------- |
-| `/docs/getting-started`           | `src/pages/docs/getting-started.mdx`           | Overview |
-| `/docs/architecture`              | `src/pages/docs/architecture.mdx`              | Overview |
-| `/docs/adr`                       | `src/pages/docs/adr/index.mdx`                 | Overview |
-| `/docs/site-map`                  | `src/pages/docs/site-map.mdx`                  | Overview |
-| `/docs/projects/nexusaos`         | `src/pages/docs/projects/nexusaos.mdx`         | Projects |
-| `/docs/projects/nexus-kernel`     | `src/pages/docs/projects/nexus-kernel.mdx`     | Projects |
-| `/docs/projects/seshaos`          | `src/pages/docs/projects/seshaos.mdx`          | Projects |
-| `/docs/projects/rag-service`      | `src/pages/docs/projects/rag-service.mdx`      | Projects |
-| `/docs/projects/llm-eval-harness` | `src/pages/docs/projects/llm-eval-harness.mdx` | Projects |
-| `/docs/projects/vyakrti`          | `src/pages/docs/projects/vyakrti.mdx`          | Projects |
-| `/docs/projects/aim`              | `src/pages/docs/projects/aim.mdx`              | Projects |
-| `/docs/projects/fwrs`             | `src/pages/docs/projects/fwrs.mdx`             | Projects |
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+  <a href="/docs/getting-started" class="gradient-border p-5 block no-underline">
+    <span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide bg-primary/20 text-primary-light mb-2">
+      Overview
+    </span>
+    <h3 class="text-base font-bold text-text mb-1">Getting Started</h3>
+    <span class="block text-xs text-text-muted/70">/docs/getting-started</span>
+    <span class="block text-xs text-text-muted/70">src/pages/docs/getting-started.mdx</span>
+  </a>
+  <a href="/docs/architecture" class="gradient-border p-5 block no-underline">
+    <span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide bg-primary/20 text-primary-light mb-2">
+      Overview
+    </span>
+    <h3 class="text-base font-bold text-text mb-1">Architecture</h3>
+    <span class="block text-xs text-text-muted/70">/docs/architecture</span>
+    <span class="block text-xs text-text-muted/70">src/pages/docs/architecture.mdx</span>
+  </a>
+  <a href="/docs/adr" class="gradient-border p-5 block no-underline">
+    <span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide bg-primary/20 text-primary-light mb-2">
+      Overview
+    </span>
+    <h3 class="text-base font-bold text-text mb-1">ADRs</h3>
+    <span class="block text-xs text-text-muted/70">/docs/adr</span>
+    <span class="block text-xs text-text-muted/70">src/pages/docs/adr/index.mdx</span>
+  </a>
+  <a href="/docs/site-map" class="gradient-border p-5 block no-underline">
+    <span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide bg-primary/20 text-primary-light mb-2">
+      Overview
+    </span>
+    <h3 class="text-base font-bold text-text mb-1">Site Map</h3>
+    <span class="block text-xs text-text-muted/70">/docs/site-map</span>
+    <span class="block text-xs text-text-muted/70">src/pages/docs/site-map.mdx</span>
+  </a>
+  <a href="/docs/projects/nexusaos" class="gradient-border p-5 block no-underline">
+    <span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide bg-accent/20 text-accent mb-2">
+      Projects
+    </span>
+    <h3 class="text-base font-bold text-text mb-1">NexusAOS</h3>
+    <span class="block text-xs text-text-muted/70">/docs/projects/nexusaos</span>
+    <span class="block text-xs text-text-muted/70">src/pages/docs/projects/nexusaos.mdx</span>
+  </a>
+  <a href="/docs/projects/nexus-kernel" class="gradient-border p-5 block no-underline">
+    <span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide bg-accent/20 text-accent mb-2">
+      Projects
+    </span>
+    <h3 class="text-base font-bold text-text mb-1">nexus-kernel</h3>
+    <span class="block text-xs text-text-muted/70">/docs/projects/nexus-kernel</span>
+    <span class="block text-xs text-text-muted/70">src/pages/docs/projects/nexus-kernel.mdx</span>
+  </a>
+  <a href="/docs/projects/seshaos" class="gradient-border p-5 block no-underline">
+    <span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide bg-accent/20 text-accent mb-2">
+      Projects
+    </span>
+    <h3 class="text-base font-bold text-text mb-1">SeshaOS</h3>
+    <span class="block text-xs text-text-muted/70">/docs/projects/seshaos</span>
+    <span class="block text-xs text-text-muted/70">src/pages/docs/projects/seshaos.mdx</span>
+  </a>
+  <a href="/docs/projects/rag-service" class="gradient-border p-5 block no-underline">
+    <span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide bg-accent/20 text-accent mb-2">
+      Projects
+    </span>
+    <h3 class="text-base font-bold text-text mb-1">RAG Service</h3>
+    <span class="block text-xs text-text-muted/70">/docs/projects/rag-service</span>
+    <span class="block text-xs text-text-muted/70">src/pages/docs/projects/rag-service.mdx</span>
+  </a>
+  <a href="/docs/projects/llm-eval-harness" class="gradient-border p-5 block no-underline">
+    <span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide bg-accent/20 text-accent mb-2">
+      Projects
+    </span>
+    <h3 class="text-base font-bold text-text mb-1">LLM Eval Harness</h3>
+    <span class="block text-xs text-text-muted/70">/docs/projects/llm-eval-harness</span>
+    <span class="block text-xs text-text-muted/70">
+      src/pages/docs/projects/llm-eval-harness.mdx
+    </span>
+  </a>
+  <a href="/docs/projects/vyakrti" class="gradient-border p-5 block no-underline">
+    <span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide bg-accent/20 text-accent mb-2">
+      Projects
+    </span>
+    <h3 class="text-base font-bold text-text mb-1">Vyākṛti</h3>
+    <span class="block text-xs text-text-muted/70">/docs/projects/vyakrti</span>
+    <span class="block text-xs text-text-muted/70">src/pages/docs/projects/vyakrti.mdx</span>
+  </a>
+  <a href="/docs/projects/aim" class="gradient-border p-5 block no-underline">
+    <span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide bg-accent/20 text-accent mb-2">
+      Projects
+    </span>
+    <h3 class="text-base font-bold text-text mb-1">AIM</h3>
+    <span class="block text-xs text-text-muted/70">/docs/projects/aim</span>
+    <span class="block text-xs text-text-muted/70">src/pages/docs/projects/aim.mdx</span>
+  </a>
+  <a href="/docs/projects/fwrs" class="gradient-border p-5 block no-underline">
+    <span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide bg-accent/20 text-accent mb-2">
+      Projects
+    </span>
+    <h3 class="text-base font-bold text-text mb-1">FWRS</h3>
+    <span class="block text-xs text-text-muted/70">/docs/projects/fwrs</span>
+    <span class="block text-xs text-text-muted/70">src/pages/docs/projects/fwrs.mdx</span>
+  </a>
+</div>
 
-## Static assets & non-page routes
+<h2 class="text-2xl font-bold gradient-text mb-5">Static Assets</h2>
 
-These are served from `public/` — not rendered pages, but real URLs:
+{/* prettier-ignore */}
+<p class="text-text-muted text-sm mb-4">Served from `public/` — not rendered pages, but real URLs.</p>
 
-| Route | File | Purpose |
-| --- | --- | --- |
-| `/resume.pdf` | `public/resume.pdf` | Résumé as a PDF (regenerated with `npm run resume:pdf`) |
-| `/og-image.png` | `public/og-image.png` | Social-card image (also at `screenshots/og-image.png`) |
-| `/favicon.svg` | `public/favicon.svg` | Site icon |
-| `/apple-touch-icon.png` | `public/apple-touch-icon.png` | iOS home-screen icon |
-| `/manifest.webmanifest` | `public/manifest.webmanifest` | Web app manifest |
-| `/robots.txt` | `public/robots.txt` | Crawler rules + sitemap reference |
-| `/llms.txt` | `public/llms.txt` | LLM-friendly site summary |
-| `/sitemap-index.xml` | `dist/sitemap-index.xml` | Generated sitemap (build output) |
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+  <div class="gradient-border p-5">
+    <code class="text-xs text-accent">/resume.pdf</code>
+    {/* prettier-ignore */}
+    <p class="text-sm text-text-muted mt-1 mb-1">Résumé as a PDF (regenerated with `npm run resume:pdf`).</p>
+    <span class="block text-xs text-text-muted/70">public/resume.pdf</span>
+  </div>
+  <div class="gradient-border p-5">
+    <code class="text-xs text-accent">/og-image.png</code>
+    {/* prettier-ignore */}
+    <p class="text-sm text-text-muted mt-1 mb-1">Social-card image (also at `screenshots/og-image.png`).</p>
+    <span class="block text-xs text-text-muted/70">public/og-image.png</span>
+  </div>
+  <div class="gradient-border p-5">
+    <code class="text-xs text-accent">/favicon.svg</code>
+    {/* prettier-ignore */}
+    <p class="text-sm text-text-muted mt-1 mb-1">Site icon.</p>
+    <span class="block text-xs text-text-muted/70">public/favicon.svg</span>
+  </div>
+  <div class="gradient-border p-5">
+    <code class="text-xs text-accent">/apple-touch-icon.png</code>
+    {/* prettier-ignore */}
+    <p class="text-sm text-text-muted mt-1 mb-1">iOS home-screen icon.</p>
+    <span class="block text-xs text-text-muted/70">public/apple-touch-icon.png</span>
+  </div>
+  <div class="gradient-border p-5">
+    <code class="text-xs text-accent">/manifest.webmanifest</code>
+    {/* prettier-ignore */}
+    <p class="text-sm text-text-muted mt-1 mb-1">Web app manifest.</p>
+    <span class="block text-xs text-text-muted/70">public/manifest.webmanifest</span>
+  </div>
+  <div class="gradient-border p-5">
+    <code class="text-xs text-accent">/robots.txt</code>
+    {/* prettier-ignore */}
+    <p class="text-sm text-text-muted mt-1 mb-1">Crawler rules + sitemap reference.</p>
+    <span class="block text-xs text-text-muted/70">public/robots.txt</span>
+  </div>
+  <div class="gradient-border p-5">
+    <code class="text-xs text-accent">/llms.txt</code>
+    {/* prettier-ignore */}
+    <p class="text-sm text-text-muted mt-1 mb-1">LLM-friendly site summary.</p>
+    <span class="block text-xs text-text-muted/70">public/llms.txt</span>
+  </div>
+  <div class="gradient-border p-5">
+    <code class="text-xs text-accent">/sitemap-index.xml</code>
+    {/* prettier-ignore */}
+    <p class="text-sm text-text-muted mt-1 mb-1">Generated sitemap (build output).</p>
+    <span class="block text-xs text-text-muted/70">dist/sitemap-index.xml</span>
+  </div>
+</div>
 
-## How routes map to files
+<h2 class="text-2xl font-bold gradient-text mb-5">How Routes Map to Files</h2>
 
-Astro file-based routing mirrors the filesystem under `src/pages/`:
+{/* prettier-ignore */}
+<p class="text-text-muted text-sm mb-4">Astro file-based routing mirrors the filesystem under `src/pages/`.</p>
 
-```text
-src/pages/
-├── index.astro          → /
-├── resume.mdx           → /resume
-├── 404.astro            → /404
-└── docs/
-    ├── getting-started.mdx   → /docs/getting-started
-    ├── architecture.mdx      → /docs/architecture
-    ├── site-map.mdx          → /docs/site-map
-    ├── adr/index.mdx         → /docs/adr
-    └── projects/
-        ├── nexusaos.mdx      → /docs/projects/nexusaos
-        ├── nexus-kernel.mdx  → /docs/projects/nexus-kernel
-        ├── seshaos.mdx       → /docs/projects/seshaos
-        ├── rag-service.mdx   → /docs/projects/rag-service
-        ├── llm-eval-harness.mdx → /docs/projects/llm-eval-harness
-        ├── vyakrti.mdx       → /docs/projects/vyakrti
-        ├── aim.mdx           → /docs/projects/aim
-        └── fwrs.mdx          → /docs/projects/fwrs
-```
+<pre class="bg-bg border border-border rounded-lg p-4 text-xs text-text-muted overflow-x-auto mb-10">
+  <code>
+    src/pages/ ├── index.astro → / ├── resume.mdx → /resume ├── 404.astro → /404 └── docs/ ├──
+    getting-started.mdx → /docs/getting-started ├── architecture.mdx → /docs/architecture ├──
+    site-map.mdx → /docs/site-map ├── adr/index.mdx → /docs/adr └── projects/ ├── nexusaos.mdx →
+    /docs/projects/nexusaos ├── nexus-kernel.mdx → /docs/projects/nexus-kernel ├── seshaos.mdx →
+    /docs/projects/seshaos ├── rag-service.mdx → /docs/projects/rag-service ├── llm-eval-harness.mdx
+    → /docs/projects/llm-eval-harness ├── vyakrti.mdx → /docs/projects/vyakrti ├── aim.mdx →
+    /docs/projects/aim └── fwrs.mdx → /docs/projects/fwrs
+  </code>
+</pre>
 
-## Shared layout & behavior
+<h2 class="text-2xl font-bold gradient-text mb-5">Shared Layout &amp; Behavior</h2>
 
-- **`src/layouts/BaseLayout.astro`** wraps every page: global elevated background, animated orbs, fixed glass navbar (theme toggle, scroll-progress), footer, Vercel Analytics + Speed Insights.
-- **Nav highlighting** — Home on `/` at the top; **Résumé** on `/resume`; **Docs** on any `/docs/*`; **nothing** on `/404`.
-- **Touch/hover glow** — every `.gradient-border` / `.glow-card` lights up on desktop hover and on phone tap (`.touch-glow`).
-- **Résumé print styles** — the `/resume` page renders as a clean white sheet when printed or exported to PDF.
-- **Redirects** — `vercel.json` sends 301s for legacy URLs (e.g. `/résumé` → `/resume`).
+<div class="gradient-border p-6 mb-10">
+  <ul class="space-y-2.5 text-text-muted">
+    <li class="flex items-start gap-2.5">
+      <span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">
+        ▸
+      </span>
+      <span>
+        <strong class="text-text">`src/layouts/BaseLayout.astro`</strong> wraps every page: global
+        elevated background, animated orbs, fixed glass navbar (theme toggle, scroll-progress),
+        footer, Vercel Analytics + Speed Insights.
+      </span>
+    </li>
+    <li class="flex items-start gap-2.5">
+      <span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">
+        ▸
+      </span>
+      <span>
+        <strong class="text-text">Nav highlighting</strong> — Home on `/` at the top;{' '}
+        <strong class="text-text">Résumé</strong> on `/resume`;{' '}
+        <strong class="text-text">Docs</strong> on any `/docs/*`; nothing on `/404`.
+      </span>
+    </li>
+    <li class="flex items-start gap-2.5">
+      <span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">
+        ▸
+      </span>
+      <span>
+        <strong class="text-text">Touch/hover glow</strong> — every `.gradient-border` /
+        `.glow-card` lights up on desktop hover and on phone tap (`.touch-glow`).
+      </span>
+    </li>
+    <li class="flex items-start gap-2.5">
+      <span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">
+        ▸
+      </span>
+      <span>
+        <strong class="text-text">Résumé print styles</strong> — the `/resume` page renders as a
+        clean white sheet when printed or exported to PDF.
+      </span>
+    </li>
+    <li class="flex items-start gap-2.5">
+      <span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">
+        ▸
+      </span>
+      <span>
+        <strong class="text-text">Redirects</strong> — `vercel.json` sends 301s for legacy URLs
+        (e.g. `/résumé` → `/resume`).
+      </span>
+    </li>
+  </ul>
+</div>
 
-## Build output
+<h2 class="text-2xl font-bold gradient-text mb-5">Build Output</h2>
 
-`npm run build` produces the static site in `dist/`:
+<pre class="bg-bg border border-border rounded-lg p-4 text-xs text-text-muted overflow-x-auto mb-4">
+  <code>
+    dist/ ├── index.html ├── resume/index.html ├── 404.html ├── docs/…/index.html (12 documentation
+    pages) └── public assets (og-image.png, resume.pdf, favicon.svg, …)
+  </code>
+</pre>
 
-```text
-dist/
-├── index.html
-├── resume/index.html
-├── 404.html
-├── docs/…/index.html     (12 documentation pages)
-└── public assets (og-image.png, resume.pdf, favicon.svg, …)
-```
-
-**Total: 15 pages** — 3 main + 12 documentation (including this page).
+{/* prettier-ignore */}
+<p class="text-text-muted font-medium">Total: <strong class="gradient-text">15 pages</strong> — 3 main + 12 documentation (including this page).</p>

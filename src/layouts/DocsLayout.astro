@@ -60,13 +60,11 @@ const navBtnClass =
           class="glow-card sticky top-24 border border-border-light/60 rounded-2xl bg-bg-card/60 backdrop-blur-sm p-5 space-y-6"
           aria-label="Docs navigation"
         >
-          <p class="text-xs font-semibold uppercase tracking-wider text-text-muted">
-            Documentation
-          </p>
+          <p class="text-xs font-bold uppercase tracking-wider gradient-text mb-2">Documentation</p>
           {
             SECTIONS.map((section) => (
               <div>
-                <p class="text-xs font-semibold uppercase tracking-wider text-text-muted mb-2">
+                <p class="text-xs font-bold uppercase tracking-wider gradient-text mb-2">
                   {section}
                 </p>
                 <ul class="space-y-0.5 border-l border-border">
@@ -115,7 +113,7 @@ const navBtnClass =
           {
             SECTIONS.map((section) => (
               <div class="mb-1">
-                <p class="text-xs font-semibold uppercase tracking-wider text-text-muted px-3 py-1.5">
+                <p class="text-xs font-bold uppercase tracking-wider gradient-text px-3 py-1.5">
                   {section}
                 </p>
                 {DOCS.filter((d) => d.section === section).map((doc) => (
