@@ -48,7 +48,10 @@ html {
 }
 
 body {
-  background-color: var(--color-bg);
+  /* Global page background: the elevated tone is applied once here so every
+     page (home, docs, résumé, 404) shares the exact same backdrop — no
+     per-section/per-page translucent bands that can show seams mid-page. */
+  background-color: var(--color-bg-elevated);
   color: var(--color-text);
   font-family:
     'Inter',
