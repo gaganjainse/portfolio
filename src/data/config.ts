@@ -12,7 +12,7 @@ export const SITE_CONFIG = {
   phone: '+91 95872 55792',
   location: 'Jaipur, India',
   availability: 'Open to AI/LLM roles · Open to relocation',
-  graduation: '2026',
+  graduation: '2025',
 }
 
 export const SOCIAL_LINKS = [

@@ -9,7 +9,7 @@ Personal portfolio website of **Gagan Jain** — AI / LLM Engineer. Built with [
 
 ## About
 
-CS @ VIT Vellore (Graduated 2026, CGPA 7.7/10). I build practical AI systems: LLM-powered apps, RAG pipelines, autonomous agents, and production-ready GenAI platforms. Strong Python foundation with end-to-end deployment experience.
+CS @ VIT Vellore (Graduated 2025, CGPA 7.7/10). I build practical AI systems: LLM-powered apps, RAG pipelines, autonomous agents, and production-ready GenAI platforms. Strong Python foundation with end-to-end deployment experience.
 
 ### AI/LLM Projects
 
