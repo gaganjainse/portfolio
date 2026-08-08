@@ -3,19 +3,33 @@
 ![Astro](https://img.shields.io/badge/Astro-7.2.0-FF5D01?logo=astro)
 ![Tailwind](https://img.shields.io/badge/Tailwind-v4.3-06B6D4?logo=tailwindcss)
 ![GSAP](https://img.shields.io/badge/GSAP-3.15-88CE02?logo=greensock)
+![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178C6?logo=typescript)
 ![Vercel](https://img.shields.io/badge/Deploy-Vercel-000?logo=vercel)
+![CI](https://github.com/gaganjainse/portfolio/actions/workflows/ci.yml/badge.svg)
 
 Personal portfolio website of **Gagan Jain** — AI / LLM Engineer. Built with [Astro 7](https://astro.build), [Tailwind CSS v4](https://tailwindcss.com), and [GSAP](https://gsap.com). Focused on production-grade GenAI systems: multi-agent orchestration, LLM fine-tuning, RAG pipelines, agentic AI platforms, and AI governance.
 
+## ✨ Features
+
+- **Dark / Light mode** — toggle in the nav; follows the OS preference by default and persists your choice in `localStorage` (no flash-of-wrong-theme)
+- **Data-driven single-source résumé** — the web résumé and `resume.pdf` are generated from the same data files (`src/data/`), so they can't drift
+- **Vercel Web Analytics** — privacy-friendly page analytics via `@vercel/analytics`
+- **Hybrid-retrieval RAG service** — dense + BM25 keyword search fused with Reciprocal Rank Fusion (see [rag-service](https://github.com/gaganjainse/rag-service))
+- **LLM evaluation harness** — golden-set metrics with LLM-as-judge and offline fallbacks (see [llm-eval-harness](https://github.com/gaganjainse/llm-eval-harness))
+- **Accessible** — skip link, focus-trapped mobile menu, ARIA-labelled sections, `prefers-reduced-motion` support
+- **Fast by default** — static output, optimized images (WebP), gzip-friendly payloads, no analytics on non-Vercel hosts
+
 ## About
 
-CS @ VIT Vellore (Graduated 2025, CGPA 7.7/10). I build practical AI systems: LLM-powered apps, RAG pipelines, autonomous agents, and production-ready GenAI platforms. Strong Python foundation with end-to-end deployment experience.
+CS @ VIT Vellore (Graduated 2025, CGPA 7.7/10). I build practical AI systems: LLM-powered apps, RAG pipelines, autonomous agents, and production-ready GenAI platforms. Strong Python + Rust foundation with end-to-end deployment experience.
 
-### AI/LLM Projects
+### AI / LLM Projects
 
-- **NexusAOS** — Governance-first agentic OS with multi-agent swarm orchestration, QLoRA fine-tuning, and 30+ MCP tools
-- **nexus-kernel** — Production-ready Rust AI microkernel with event-sourced governance, OpenAI/Anthropic streaming, and 981 tests
+- **NexusAOS** — Governance-first, event-sourced AI operating environment in Rust (12 workspace crates, 981 tests)
+- **nexus-kernel** — Rust AI microkernel with event-sourced governance and OpenAI/Anthropic streaming
 - **SeshaOS** — Local-first AI OS with specialist models (Gemma 4, Qwen3) and LiteLLM-compatible routing
+- **RAG Service** — Production RAG API: hybrid retrieval (dense + BM25, RRF) over ChromaDB
+- **LLM Eval Harness** — Golden-set evaluation: faithfulness, answer relevance, correctness
 
 ### Other Projects
 
@@ -27,7 +41,7 @@ Looking for **GenAI / LLM Engineer**, **Agentic AI Engineer**, or **AI Engineer*
 
 ## 🚀 Quick Start
 
-Requires **Node.js >= 22.12.0** (Astro 7 requirement).
+Requires **Node.js >= 22.12.0** (Astro 7 requirement; CI and Vercel run Node 24).
 
 ```bash
 npm install
@@ -39,18 +53,20 @@ npm run check        # Type-check (astro check)
 npm run lint         # ESLint
 npm run format       # Prettier (write)
 npm run format:check # Prettier (verify)
+npm run resume:pdf   # Regenerate public/resume.pdf from the built /resume page
 ```
 
 ## 🛠️ Tech Stack
 
-| Layer            | Tools                                                 |
-| ---------------- | ----------------------------------------------------- |
-| **Framework**    | Astro 7.2.0 (static output)                           |
-| **Content**      | MDX                                                   |
-| **Styling**      | Tailwind CSS v4.3                                     |
-| **Animations**   | GSAP + ScrollTrigger                                  |
-| **Integrations** | `@astrojs/mdx`, `@astrojs/sitemap`, `@astrojs/vercel` |
-| **Deployment**   | Vercel (static, with 301 redirects via `vercel.json`) |
+| Layer            | Tools                                                                      |
+| ---------------- | -------------------------------------------------------------------------- |
+| **Framework**    | Astro 7.2.0 (static output)                                                |
+| **Content**      | MDX                                                                        |
+| **Styling**      | Tailwind CSS v4.3                                                          |
+| **Animations**   | GSAP + ScrollTrigger                                                       |
+| **Analytics**    | `@vercel/analytics` (Vercel Web Analytics)                                 |
+| **Integrations** | `@astrojs/mdx`, `@astrojs/sitemap`, `@astrojs/vercel`, `@vercel/analytics` |
+| **Deployment**   | Vercel (static, with 301 redirects via `vercel.json`)                      |
 
 ## 📁 Project Structure
 
@@ -58,11 +74,11 @@ npm run format:check # Prettier (verify)
 src/
 ├── components/
 │   └── sections/        # Page sections (Hero, About, Skills, Projects, Contact)
-├── layouts/              # BaseLayout
+├── layouts/              # BaseLayout (theme boot, nav, footer, analytics)
 ├── pages/                # File-based routing (/, /resume, /404, /docs)
 ├── styles/               # Global CSS + Tailwind v4 theme tokens
 ├── data/                 # Single-source data (config, projects, skills, experience)
-└── utils/                # GSAP helpers, reduced-motion util
+└── utils/                # GSAP + DOM helpers (reduced-motion, scroll progress)
 public/                   # Static assets (favicon, icons, resume.pdf, robots.txt)
 scripts/                  # PDF generation (puppeteer)
 .github/workflows/        # CI (build + test + type-check + lint)
@@ -76,7 +92,7 @@ The web résumé is generated from the same data files as the site (`src/data/sk
 
 ```bash
 npm run build
-npm run resume:pdf     # prints dist/resume/index.html to public/resume.pdf
+npm run resume:pdf
 ```
 
 ## 🧪 Tests
@@ -85,7 +101,14 @@ npm run resume:pdf     # prints dist/resume/index.html to public/resume.pdf
 npm test
 ```
 
-Vitest unit tests cover the data layer (`src/data/*.test.ts`): skill categorization, proficiency labels, project integrity, and test-count attribution.
+Vitest unit tests cover the data layer (`src/data/*.test.ts`): skill categorization, proficiency labels, project integrity, experience data, and test-count attribution.
+
+## 🧭 Documentation
+
+- [Getting Started](/docs/getting-started) — project index
+- [Architecture](/docs/architecture) — system design patterns
+- [ADRs](/docs/adr) — architecture decision records
+- [RAG Service](/docs/projects/rag-service) · [LLM Eval Harness](/docs/projects/llm-eval-harness) · [NexusAOS](/docs/projects/nexusaos) · [nexus-kernel](/docs/projects/nexus-kernel) · [SeshaOS](/docs/projects/seshaos) · [Vyākṛti](/docs/projects/vyakrti)
 
 ## 🌐 Live Site
 

@@ -1,12 +1,15 @@
 # Gagan Jain — AI / LLM Engineer
 
-GenAI systems, agentic AI, RAG, multi-agent orchestration, LLM fine-tuning.
+GenAI systems, agentic AI, RAG, multi-agent orchestration, LLM fine-tuning, Rust, Python.
 
 ## Key Projects
-- NexusAOS: Governance-first agentic OS with multi-agent swarm orchestration, LLM fine-tuning, and 30+ MCP tools.
-- nexus-kernel: Production-ready Rust microkernel for local-first AI with event-sourced governance and 981 tests.
-- SeshaOS: Local-first AI OS with specialist models and LiteLLM-compatible routing.
+- NexusAOS: Governance-first, event-sourced AI operating environment in Rust (12 workspace crates, 981 tests).
+- RAG Service: Production RAG API with hybrid retrieval (dense + BM25, RRF) over ChromaDB.
+- LLM Eval Harness: Golden-set evaluation with LLM-as-judge and offline fallbacks.
+- SeshaOS: Local-first AI OS with specialist models (Gemma 4, Qwen3) and LiteLLM routing.
 - Vyākṛti: Sanskrit-oriented programming language with complete compiler pipeline and browser IDE.
+- AIM: Production-grade attendance system (Flask + MySQL, 101 tests).
+- FWRS: Food waste optimization platform using linear programming.
 
 ## Links
 - GitHub: https://github.com/gaganjainse

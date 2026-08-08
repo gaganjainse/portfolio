@@ -12,50 +12,73 @@ description: 'Architecture overview of key AI systems'
 
   <div class="space-y-8">
     <section class="gradient-border p-6">
-      <h2 class="text-2xl font-bold text-text mb-3">NexusAOS — Governance-First Agentic OS</h2>
+      <h2 class="text-2xl font-bold text-text mb-3">NexusAOS — Governance-First AI Operating Environment</h2>
       <p class="text-text-muted mb-4">
-        Multi-agent swarm executor with collision detection, namespace isolation, quorum voting, and atomic fission in Python + asyncio.
+        Production-ready, event-sourced AI operating environment for Ubuntu Linux, written in Rust
+        as a 12-crate workspace with 981 passing tests and full CI/CD.
       </p>
       <ul class="space-y-2">
-    <li class="flex items-start gap-2.5 text-text-muted">
-      <span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span>
-      <span>Local LLM inference pipeline with Phi-4-Mini QLoRA adapters</span>
-    </li>
-    <li class="flex items-start gap-2.5 text-text-muted">
-      <span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span>
-      <span>30+ MCP tools via FastMCP for metabolic, planning, immune, and physical substrate control</span>
-    </li>
-    <li class="flex items-start gap-2.5 text-text-muted">
-      <span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span>
-      <span>Adapter-routed inference with curriculum learning and evaluation harness</span>
-    </li>
-  </ul>
+        <li class="flex items-start gap-2.5 text-text-muted">
+          <span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">▸</span>
+          <span>Policy-enforced agent kernel: models propose actions, the kernel validates and records every state change</span>
+        </li>
+        <li class="flex items-start gap-2.5 text-text-muted">
+          <span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">▸</span>
+          <span>Append-only event-sourced audit trail with reversible, permissioned actions</span>
+        </li>
+        <li class="flex items-start gap-2.5 text-text-muted">
+          <span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">▸</span>
+          <span>Provider-agnostic LLM layer: OpenAI-compatible and Anthropic streaming, LiteLLM routing, local-first inference</span>
+        </li>
+        <li class="flex items-start gap-2.5 text-text-muted">
+          <span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">▸</span>
+          <span>Native terminal emulation (PTY + VT100), SSH multiplexing, secrets vault, CLI/TUI/GUI/RPC interfaces</span>
+        </li>
+      </ul>
     </section>
 
     <section class="gradient-border p-6">
-      <h2 class="text-2xl font-bold text-text mb-3">nexus-kernel — Rust AI Microkernel</h2>
+      <h2 class="text-2xl font-bold text-text mb-3">RAG Service — Hybrid Retrieval Pipeline</h2>
       <p class="text-text-muted mb-4">
-        Production-ready Rust 2024 microkernel with 12 workspace crates, 981 passing tests, and full CI/CD.
+        FastAPI RAG service combining dense embeddings and BM25-style keyword scoring, fused with
+        Reciprocal Rank Fusion (RRF) over a persistent ChromaDB vector store.
       </p>
       <ul class="space-y-2">
-    <li class="flex items-start gap-2.5 text-text-muted">
-      <span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span>
-      <span>Event-sourced append-only audit trail and policy engine with trust tiers</span>
-    </li>
-    <li class="flex items-start gap-2.5 text-text-muted">
-      <span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span>
-      <span>OpenAI-compatible and Anthropic streaming with real-time token streaming</span>
-    </li>
-    <li class="flex items-start gap-2.5 text-text-muted">
-      <span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span>
-      <span>Native terminal emulation (PTY + VT100 + Zig parser), SSH multiplexing</span>
-    </li>
-    <li class="flex items-start gap-2.5 text-text-muted">
-      <span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span>
-      <span>Multi-interface: CLI / TUI / GUI / RPC</span>
-    </li>
+        <li class="flex items-start gap-2.5 text-text-muted">
+          <span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">▸</span>
+          <span>Word-based chunking with overlap; embeddings via sentence-transformers or a deterministic hashing fallback</span>
+        </li>
+        <li class="flex items-start gap-2.5 text-text-muted">
+          <span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">▸</span>
+          <span>Grounded answers with source citations via any OpenAI-compatible chat endpoint (offline echo fallback)</span>
+        </li>
+        <li class="flex items-start gap-2.5 text-text-muted">
+          <span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">▸</span>
+          <span>28 tests; evaluated end-to-end with the LLM Eval Harness</span>
+        </li>
+      </ul>
+    </section>
 
-  </ul>
+    <section class="gradient-border p-6">
+      <h2 class="text-2xl font-bold text-text mb-3">LLM Eval Harness — Golden-Set Evaluation</h2>
+      <p class="text-text-muted mb-4">
+        Reusable CLI + library that scores LLM/RAG outputs against golden sets and emits
+        CI-ready JSON + Markdown reports.
+      </p>
+      <ul class="space-y-2">
+        <li class="flex items-start gap-2.5 text-text-muted">
+          <span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">▸</span>
+          <span>Metrics: faithfulness, answer relevance, correctness (per-case + mean/min/max summary)</span>
+        </li>
+        <li class="flex items-start gap-2.5 text-text-muted">
+          <span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">▸</span>
+          <span>LLM-as-judge when an API key is present; offline lexical fallbacks keep CI free</span>
+        </li>
+        <li class="flex items-start gap-2.5 text-text-muted">
+          <span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">▸</span>
+          <span>15 tests; gates the RAG Service pipeline</span>
+        </li>
+      </ul>
     </section>
 
     <section class="gradient-border p-6">
@@ -64,24 +87,19 @@ description: 'Architecture overview of key AI systems'
         NexusAOS v2 with specialist local models and LiteLLM-compatible routing.
       </p>
       <ul class="space-y-2">
-    <li class="flex items-start gap-2.5 text-text-muted">
-      <span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span>
-      <span>Specialist model stack: Gemma 4 12B (Planner), Qwen3-Coder 30B (Implementation), Qwen3.5 9B (Vision)</span>
-    </li>
-    <li class="flex items-start gap-2.5 text-text-muted">
-      <span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span>
-      <span>Kernel-centric governance where models propose actions and the kernel validates/records state changes</span>
-    </li>
-    <li class="flex items-start gap-2.5 text-text-muted">
-      <span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span>
-      <span>LiteLLM-compatible proxy support for NVIDIA NIM and other providers</span>
-    </li>
-    <li class="flex items-start gap-2.5 text-text-muted">
-      <span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span>
-      <span>Event-sourced architecture with reversible, permissioned actions and offline-first execution</span>
-    </li>
-
-  </ul>
+        <li class="flex items-start gap-2.5 text-text-muted">
+          <span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">▸</span>
+          <span>Specialist model stack: Gemma 4 12B (Planner), Qwen3-Coder 30B (Implementation), Qwen3.5 9B (Vision)</span>
+        </li>
+        <li class="flex items-start gap-2.5 text-text-muted">
+          <span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">▸</span>
+          <span>Kernel-centric governance where models propose actions and the kernel validates/records state changes</span>
+        </li>
+        <li class="flex items-start gap-2.5 text-text-muted">
+          <span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">▸</span>
+          <span>Event-sourced architecture with reversible, permissioned actions and offline-first execution</span>
+        </li>
+      </ul>
     </section>
 
     <section class="gradient-border p-6">
@@ -90,24 +108,23 @@ description: 'Architecture overview of key AI systems'
         Sanskrit-oriented programming language with complete compiler pipeline and browser-based IDE.
       </p>
       <ul class="space-y-2">
-    <li class="flex items-start gap-2.5 text-text-muted">
-      <span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span>
-      <span>Complete compiler pipeline: lexer → parser → type checker → bytecode compiler in Rust</span>
-    </li>
-    <li class="flex items-start gap-2.5 text-text-muted">
-      <span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span>
-      <span>Browser IDE with React, Monaco Editor, syntax highlighting, autocomplete, and diagnostics</span>
-    </li>
-    <li class="flex items-start gap-2.5 text-text-muted">
-      <span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span>
-      <span>Rust (axum) backend with compile, REPL, LSP, and file management endpoints</span>
-    </li>
-    <li class="flex items-start gap-2.5 text-text-muted">
-      <span class="text-primary mt-1.5 shrink-0" aria-hidden="true">▸</span>
-      <span>123 tests covering the full pipeline, including a self-hosting corpus</span>
-    </li>
-
-  </ul>
+        <li class="flex items-start gap-2.5 text-text-muted">
+          <span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">▸</span>
+          <span>Complete compiler pipeline: lexer → parser → type checker → bytecode compiler in Rust</span>
+        </li>
+        <li class="flex items-start gap-2.5 text-text-muted">
+          <span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">▸</span>
+          <span>Browser IDE with React, Monaco Editor, syntax highlighting, autocomplete, and diagnostics</span>
+        </li>
+        <li class="flex items-start gap-2.5 text-text-muted">
+          <span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">▸</span>
+          <span>Rust (axum) backend with compile, REPL, LSP, and file management endpoints</span>
+        </li>
+        <li class="flex items-start gap-2.5 text-text-muted">
+          <span class="text-primary mt-[0.25em] shrink-0" aria-hidden="true">▸</span>
+          <span>123 tests covering the full pipeline, including a self-hosting corpus</span>
+        </li>
+      </ul>
     </section>
 
   </div>

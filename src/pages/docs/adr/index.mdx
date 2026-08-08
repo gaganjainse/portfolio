@@ -46,7 +46,7 @@ description: 'Architecture Decision Records'
     <article class="gradient-border p-6">
       <h2 class="text-xl font-bold text-text mb-2">ADR-005: Dark Gradient Background with Grid + Glow Orbs</h2>
       <p class="text-text-muted text-sm mb-3">
-        The site uses a fixed dark background built from CSS only: two radial gradient glows (violet + cyan), a subtle 40px grid overlay, and animated pulsing orbs in the hero. No canvas or JS background — keeps the payload tiny and respects reduced-motion preferences.
+        The site uses a CSS-only background: two radial gradient glows (violet + cyan), a subtle 40px grid overlay, and animated pulsing orbs in the hero. Surface colors are runtime CSS variables with a dark default and a light theme via <code>:root[data-theme='light']</code> (see ADR-009). No canvas or JS background — keeps the payload tiny and respects reduced-motion preferences.
       </p>
       <span class="text-xs text-text-muted">Status: Accepted</span>
     </article>
@@ -71,6 +71,22 @@ description: 'Architecture Decision Records'
       <h2 class="text-xl font-bold text-text mb-2">ADR-008: CI with Build + Test + Type-Check + Lint</h2>
       <p class="text-text-muted text-sm mb-3">
         Added a GitHub Actions workflow that runs <code>npm ci</code>, <code>astro build</code>, <code>vitest</code>, <code>astro check</code>, and ESLint on every push and PR. Prevents regressions like the skill-bar <code>ScrollTrigger</code> reference error from reaching production.
+      </p>
+      <span class="text-xs text-text-muted">Status: Accepted</span>
+    </article>
+
+    <article class="gradient-border p-6">
+      <h2 class="text-xl font-bold text-text mb-2">ADR-009: Dark / Light Theme with System Default</h2>
+      <p class="text-text-muted text-sm mb-3">
+        Surface colors are runtime CSS variables under <code>:root</code> (dark default) with <code>:root[data-theme='light']</code> overrides, so Tailwind utilities resolve through the chain. A boot script in <code>&lt;head&gt;</code> applies the stored preference before first paint (no flash), falling back to <code>prefers-color-scheme</code>; a nav toggle persists the choice in <code>localStorage</code>, and a live system-preference listener updates the theme while no explicit choice is stored.
+      </p>
+      <span class="text-xs text-text-muted">Status: Accepted</span>
+    </article>
+
+    <article class="gradient-border p-6">
+      <h2 class="text-xl font-bold text-text mb-2">ADR-010: Vercel Web Analytics</h2>
+      <p class="text-text-muted text-sm mb-3">
+        Adopted the official <code>@vercel/analytics</code> Astro integration instead of a third-party snippet. The loader is injected at runtime only when Vercel provides the project ID at build time — a clean no-op in local dev and non-Vercel hosts.
       </p>
       <span class="text-xs text-text-muted">Status: Accepted</span>
     </article>
