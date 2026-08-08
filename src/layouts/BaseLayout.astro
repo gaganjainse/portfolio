@@ -148,7 +148,7 @@ const pageUrl = Astro.url.href
             Résumé
           </a>
           <span class="text-border">&middot;</span>
-          <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20">
+          <button id="back-to-top" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20">
             Back to top
           </button>
         </div>
@@ -259,6 +259,13 @@ const pageUrl = Astro.url.href
             nav.style.borderBottomColor = 'rgba(30, 41, 59, 0.6)'
           }
         }, { passive: true })
+      }
+
+      const backToTop = document.getElementById('back-to-top')
+      if (backToTop) {
+        backToTop.addEventListener('click', () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' })
+        })
       }
     </script>
   </body>
