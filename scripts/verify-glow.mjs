@@ -21,7 +21,11 @@ const targets = [
   { url: `${BASE}/`, sel: 'footer .gradient-border', label: 'home · footer card' },
   { url: `${BASE}/docs/architecture`, sel: '.docs-sheet', label: 'docs · main content card' },
   { url: `${BASE}/docs/architecture`, sel: 'aside nav.glow-card', label: 'docs · sidebar card' },
-  { url: `${BASE}/docs/architecture`, sel: '.grid.grid-cols-3', label: 'docs · prev/home/next card' },
+  {
+    url: `${BASE}/docs/architecture`,
+    sel: '.grid.grid-cols-3',
+    label: 'docs · prev/home/next card',
+  },
   { url: `${BASE}/resume`, sel: '.resume-sheet', label: 'resume · sheet' },
   { url: `${BASE}/resume`, sel: '.resume-card', label: 'resume · inner cards' },
 ]
@@ -66,8 +70,7 @@ for (const t of targets) {
   // top edge ends up under the sticky header after centering, so hover a point
   // just below the card top, clamped into the viewport.
   const viewportH = await page.evaluate(() => window.innerHeight)
-  const hovY =
-    box.height <= viewportH * 0.8 ? box.y + box.height / 2 : box.y + 120
+  const hovY = box.height <= viewportH * 0.8 ? box.y + box.height / 2 : box.y + 120
   const x = Math.min(box.x + box.width / 2, 1270)
   const y = Math.min(Math.max(hovY, 140), 940)
   await page.mouse.move(x, y)
@@ -82,12 +85,16 @@ for (const t of targets) {
   }, t.sel)
 
   const ok = st && st.hovered && st.opacity > 0.85
-  console.log(`${ok ? 'OK   ' : 'FAIL '} ${t.label} — ringOpacity=${st?.opacity ?? 'n/a'} hovered=${st?.hovered}`)
+  console.log(
+    `${ok ? 'OK   ' : 'FAIL '} ${t.label} — ringOpacity=${st?.opacity ?? 'n/a'} hovered=${st?.hovered}`,
+  )
   if (!ok) failures++
 
   if (!seen.has(t.url)) {
     fs.mkdirSync(OUT, { recursive: true })
-    await page.screenshot({ path: `${OUT}/${t.label.split('·')[0].trim().replace(/\s+/g, '-')}.png` })
+    await page.screenshot({
+      path: `${OUT}/${t.label.split('·')[0].trim().replace(/\s+/g, '-')}.png`,
+    })
     seen.add(t.url)
   }
   await page.close()
