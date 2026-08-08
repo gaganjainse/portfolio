@@ -9,54 +9,53 @@ import { PROJECTS, getTagClasses } from '../data/projects.ts'
 import { EXPERIENCE } from '../data/experience.ts'
 import { groupByCategory, SKILLS } from '../data/skills.ts'
 import ProjectLinkButton from '../components/ProjectLinkButton.astro'
+import Icon from '../components/Icon.astro'
 import Pill from '../components/Pill.astro'
 
 export const skillCategories = groupByCategory(SKILLS)
 export const RESUME_PROJECTS = PROJECTS.filter((project) => project.featured)
 
-export const ExternalLinkIcon = () => (
-  <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-    <path d="M10.604 10.604a.75.75 0 00-1.061-1.06 6 6 0 11-2.087 2.087.75.75 0 00-1.06-1.061 7.5 7.5 0 102.608-2.608zM10.5 3.75a.75.75 0 01.75-.75h8.25a.75.75 0 01.75.75v8.25a.75.75 0 01-1.5 0V5.81l-6.72 6.72a.75.75 0 11-1.06-1.06l6.72-6.72h-6.19a.75.75 0 01-.75-.75z" />
-  </svg>
-)
+export const SOCIAL_LINKS = [
+  { href: 'https://linkedin.com/in/gaganjainse', label: 'linkedin.com/in/gaganjainse' },
+  { href: 'https://github.com/gaganjainse', label: 'github.com/gaganjainse' },
+  { href: 'https://gaganjain.vercel.app', label: 'gaganjain.vercel.app' },
+]
 
-<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-20 sm:pt-24 pb-16 resume-page">
+<div class="max-w-4xl mx-auto px-4 sm:px-6 pt-20 sm:pt-24 pb-16 resume-page bg-bg-elevated/50">
   <div class="glow-card rounded-xl shadow-2xl shadow-black/20 bg-bg-card/80 backdrop-blur-sm p-6 sm:p-10 resume-sheet">
   <div class="text-center mb-10">
     <h1 class="text-3xl sm:text-4xl font-bold mb-3 gradient-text resume-name">Gagan Jain</h1>
     <p class="text-lg text-text-muted mb-2 resume-role">AI / LLM Engineer</p>
-    <p class="text-text-muted resume-contact">
-      {SITE_CONFIG.location} &middot; {SITE_CONFIG.phone} &middot; <a href={`mailto:${SITE_CONFIG.email}`} class="text-accent hover:underline">{SITE_CONFIG.email}</a>
-    </p>
+    <p class="text-text-muted resume-contact">{SITE_CONFIG.location} &middot; {SITE_CONFIG.phone} &middot; <a href={`mailto:${SITE_CONFIG.email}`} class="text-accent hover:underline">{SITE_CONFIG.email}</a></p>
     <div class="flex flex-wrap items-center justify-center gap-3 mt-3 text-sm resume-social">
-      <a href="https://linkedin.com/in/gaganjainse" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline inline-flex items-center gap-1">
-        linkedin.com/in/gaganjainse
-        <ExternalLinkIcon />
-      </a>
-      <span class="text-border">&middot;</span>
-      <a href="https://github.com/gaganjainse" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline inline-flex items-center gap-1">
-        github.com/gaganjainse
-        <ExternalLinkIcon />
-      </a>
-      <span class="text-border">&middot;</span>
-      <a href="https://gaganjain.vercel.app" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline inline-flex items-center gap-1">
-        gaganjain.vercel.app
-        <ExternalLinkIcon />
-      </a>
+      {
+        SOCIAL_LINKS.map((link, i) => (
+          <span key={i} class="inline-flex items-center gap-1">
+            {i > 0 && <span class="text-border">·</span>}
+            <a
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-accent hover:underline inline-flex items-center gap-1"
+            >
+              {link.label}
+              <Icon name="external" class="w-3.5 h-3.5 opacity-80" />
+            </a>
+          </span>
+        ))
+      }
     </div>
   </div>
 
+<div class="resume-divider" aria-hidden="true"></div>
+
 <section class="mb-10 scroll-mt-24">
   <h2 class="text-xl font-bold gradient-text mb-3">Professional Summary</h2>
-  <p class="text-text-muted leading-relaxed">
-    AI Engineer focused on production-grade GenAI systems: agentic AI orchestration, RAG pipelines,
-    LLM fine-tuning (QLoRA/LoRA), MCP tooling, and local-first LLM deployment. Author of NexusAOS, a
-    governance-first, event-sourced AI operating environment written in Rust (12 workspace crates,
-    981 tests, full CI/CD) with provider-agnostic LLM streaming (OpenAI/Anthropic), policy-enforced
-    agent actions, and terminal/SSH integration. Strong Python + Rust foundation with end-to-end
-    deployment: Docker, GitHub Actions, observability, and AI governance.
-  </p>
+  {/* prettier-ignore */}
+  <p class="text-text-muted leading-relaxed">AI Engineer focused on production-grade GenAI systems: agentic AI orchestration, RAG pipelines, LLM fine-tuning (QLoRA/LoRA), MCP tooling, and local-first LLM deployment. Author of NexusAOS, a governance-first, event-sourced AI operating environment written in Rust (12 workspace crates, 981 tests, full CI/CD) with provider-agnostic LLM streaming (OpenAI/Anthropic), policy-enforced agent actions, and terminal/SSH integration. Strong Python + Rust foundation with end-to-end deployment: Docker, GitHub Actions, observability, and AI governance.</p>
 </section>
+
+<div class="resume-divider" aria-hidden="true"></div>
 
 <section class="mb-10 scroll-mt-24">
   <h2 class="text-xl font-bold gradient-text mb-3">Technical Skills</h2>
@@ -71,6 +70,8 @@ export const ExternalLinkIcon = () => (
     ))}
   </div>
 </section>
+
+<div class="resume-divider" aria-hidden="true"></div>
 
 <section class="mb-10 scroll-mt-24">
   <h2 class="text-xl font-bold gradient-text mb-4">Projects</h2>
@@ -102,6 +103,8 @@ export const ExternalLinkIcon = () => (
   </div>
 </section>
 
+<div class="resume-divider" aria-hidden="true"></div>
+
 <section class="mb-10 scroll-mt-24">
   <h2 class="text-xl font-bold gradient-text mb-4">Experience</h2>
   <div class="timeline">
@@ -124,6 +127,8 @@ export const ExternalLinkIcon = () => (
     ))}
   </div>
 </section>
+
+<div class="resume-divider" aria-hidden="true"></div>
 
   <section class="scroll-mt-24">
     <h2 class="text-xl font-bold gradient-text mb-4">Education</h2>
