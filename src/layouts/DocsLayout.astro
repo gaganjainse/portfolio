@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro'
+import Icon from '../components/Icon.astro'
 
 interface Props {
   title: string
@@ -45,11 +46,11 @@ const next =
 const SECTIONS = ['Overview', 'Projects']
 
 const navBtnClass =
-  'inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium border transition'
+  'inline-flex items-center justify-center gap-1 sm:gap-1.5 px-2 sm:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-medium border transition min-w-0'
 ---
 
 <BaseLayout title={title} description={description}>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 pb-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 pb-16 bg-bg-elevated/50">
     <div class="flex flex-col lg:flex-row gap-8">
       {/* ---- Left sidebar nav (desktop) ---- */}
       <aside class="hidden lg:block w-64 shrink-0">
@@ -88,64 +89,75 @@ const navBtnClass =
         </nav>
       </aside>
 
-      {/* ---- Mobile docs selector ---- */}
-      <div class="lg:hidden">
-        <label class="sr-only" for="docs-mobile-nav">Docs navigation</label>
-        <select
-          id="docs-mobile-nav"
-          class="w-full px-3 py-2 rounded-lg text-sm bg-bg-card border border-border text-text"
-          data-docs-select="true"
+      {/* ---- Mobile docs dropdown — custom, styled like the site cards ---- */}
+      <div class="lg:hidden docs-dropdown relative" data-docs-dropdown>
+        <button
+          type="button"
+          class="docs-dropdown-btn glow-card w-full flex items-center justify-between gap-2 border border-border-light/60 rounded-xl bg-bg-card/60 backdrop-blur-sm px-4 py-3 text-sm font-medium text-text cursor-pointer"
+          aria-haspopup="listbox"
+          aria-expanded="false"
+        >
+          <span class="truncate" data-docs-current>
+            {DOCS.find((d) => d.href === currentPath)?.label ?? 'Getting Started'}
+          </span>
+          <Icon
+            name="chevron-down"
+            class="docs-dropdown-chevron w-4 h-4 text-text-muted shrink-0 transition-transform"
+          />
+        </button>
+        <div
+          class="docs-dropdown-list hidden absolute left-0 right-0 top-full mt-2 z-30 rounded-xl border border-border bg-bg/95 backdrop-blur-xl shadow-2xl shadow-black/30 p-2 max-h-[60vh] overflow-y-auto"
+          role="listbox"
+          aria-label="Docs navigation"
         >
           {
-            DOCS.map((doc) => (
-              <option value={doc.href} selected={doc.href === currentPath}>
-                {doc.section} — {doc.label}
-              </option>
+            SECTIONS.map((section) => (
+              <div class="mb-1">
+                <p class="text-xs font-semibold uppercase tracking-wider text-text-muted px-3 py-1.5">
+                  {section}
+                </p>
+                {DOCS.filter((d) => d.section === section).map((doc) => (
+                  <a
+                    href={doc.href}
+                    role="option"
+                    aria-selected={doc.href === currentPath}
+                    class={`block px-3 py-2 rounded-lg text-sm transition ${
+                      doc.href === currentPath
+                        ? 'bg-primary/10 text-text font-medium'
+                        : 'text-text-muted hover:text-text hover:bg-bg-elevated'
+                    }`}
+                  >
+                    {doc.label}
+                  </a>
+                ))}
+              </div>
             ))
           }
-        </select>
+        </div>
       </div>
 
       {/* ---- Main content ---- */}
       <div class="flex-1 min-w-0">
         {/* Previous | Home | Next — fixed in a 3-column grid: edges + center */}
         <div
-          class="glow-card border border-border-light/60 rounded-xl bg-bg-card/60 backdrop-blur-sm p-3 mb-6 grid grid-cols-3 items-center gap-2 no-print"
+          class="glow-card border border-border-light/60 rounded-xl bg-bg-card/60 backdrop-blur-sm p-2 sm:p-3 mb-6 grid grid-cols-3 items-center gap-1 sm:gap-2 no-print"
         >
           {/* Previous — anchored left, grows right */}
-          <div class="justify-self-start min-w-0">
+          <div class="justify-self-stretch min-w-0">
             {
               prev ? (
                 <a
                   href={prev.href}
-                  class={`${navBtnClass} bg-bg text-text-muted border-border hover:text-text hover:border-primary/40`}
+                  class={`${navBtnClass} w-full bg-bg text-text-muted border-border hover:text-text hover:border-primary/40`}
                 >
-                  <svg
-                    class="w-4 h-4 shrink-0"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    aria-hidden="true"
-                  >
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-                  </svg>
+                  <Icon name="chevron-left" class="w-4 h-4 shrink-0" />
                   <span class="truncate">{prev.label}</span>
                 </a>
               ) : (
                 <span
-                  class={`${navBtnClass} bg-bg text-text-muted/40 border-border cursor-not-allowed`}
+                  class={`${navBtnClass} w-full bg-bg text-text-muted/40 border-border cursor-not-allowed`}
                 >
-                  <svg
-                    class="w-4 h-4 shrink-0"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    aria-hidden="true"
-                  >
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-                  </svg>
+                  <Icon name="chevron-left" class="w-4 h-4 shrink-0" />
                   <span class="truncate">Previous</span>
                 </span>
               )
@@ -153,61 +165,33 @@ const navBtnClass =
           </div>
 
           {/* Home — always centered, fixed */}
-          <div class="justify-self-center">
+          <div class="justify-self-center min-w-0">
             <a
               href="/docs/getting-started"
               class={`${navBtnClass} bg-bg text-text-muted border-border hover:text-text hover:border-primary/40`}
             >
-              <svg
-                class="w-4 h-4 shrink-0"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                stroke-width="2"
-                aria-hidden="true"
-              >
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9 9 9M5 10v10h14V10"
-                ></path>
-              </svg>
+              <Icon name="home-solid" class="w-4 h-4 shrink-0" />
               <span class="truncate">Home</span>
             </a>
           </div>
 
           {/* Next — anchored right, grows left */}
-          <div class="justify-self-end min-w-0">
+          <div class="justify-self-stretch min-w-0">
             {
               next ? (
                 <a
                   href={next.href}
-                  class={`${navBtnClass} bg-bg text-text-muted border-border hover:text-text hover:border-primary/40`}
+                  class={`${navBtnClass} w-full bg-bg text-text-muted border-border hover:text-text hover:border-primary/40`}
                 >
                   <span class="truncate">{next.label}</span>
-                  <svg
-                    class="w-4 h-4 shrink-0"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    aria-hidden="true"
-                  >
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                  </svg>
+                  <Icon name="chevron-right" class="w-4 h-4 shrink-0" />
                 </a>
               ) : (
                 <span
-                  class={`${navBtnClass} bg-bg text-text-muted/40 border-border cursor-not-allowed`}
+                  class={`${navBtnClass} w-full bg-bg text-text-muted/40 border-border cursor-not-allowed`}
                 >
                   <span class="truncate">Next</span>
-                  <svg
-                    class="w-4 h-4 shrink-0"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    aria-hidden="true"
-                  >
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                  </svg>
+                  <Icon name="chevron-right" class="w-4 h-4 shrink-0" />
                 </span>
               )
             }
@@ -225,10 +209,36 @@ const navBtnClass =
   </div>
 
   <script>
-    const docsSelect = document.querySelector<HTMLSelectElement>('[data-docs-select]')
-    if (docsSelect) {
-      docsSelect.addEventListener('change', () => {
-        window.location.href = docsSelect.value
+    const docsDropdown = document.querySelector<HTMLElement>('[data-docs-dropdown]')
+    if (docsDropdown) {
+      const btn = docsDropdown.querySelector<HTMLButtonElement>('.docs-dropdown-btn')
+      const list = docsDropdown.querySelector<HTMLElement>('.docs-dropdown-list')
+      const chevron = docsDropdown.querySelector<HTMLElement>('.docs-dropdown-chevron')
+
+      const close = () => {
+        list?.classList.add('hidden')
+        chevron?.classList.remove('rotate-180')
+        btn?.setAttribute('aria-expanded', 'false')
+      }
+
+      btn?.addEventListener('click', (e) => {
+        e.stopPropagation()
+        const isOpen = !list?.classList.contains('hidden')
+        if (isOpen) {
+          close()
+        } else {
+          list?.classList.remove('hidden')
+          chevron?.classList.add('rotate-180')
+          btn?.setAttribute('aria-expanded', 'true')
+        }
+      })
+
+      // Close on outside click or Escape.
+      document.addEventListener('click', (e) => {
+        if (docsDropdown && !docsDropdown.contains(e.target as Node)) close()
+      })
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') close()
       })
     }
   </script>

@@ -17,7 +17,7 @@
     "test:watch": "vitest",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "resume:pdf": "node scripts/generate-r\u00e9sum\u00e9-pdf.js",
+    "resume:pdf": "node scripts/generate-résumé-pdf.js",
     "typecheck": "astro check"
   },
   "dependencies": {
@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "@axe-core/puppeteer": "^4.12.1",
     "@eslint/js": "^10.0.1",
     "eslint": "^10.8.1",
     "globals": "^17.9.0",

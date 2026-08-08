@@ -4,6 +4,7 @@ import Analytics from '@vercel/analytics/astro'
 import SpeedInsights from '@vercel/speed-insights/astro'
 import '../styles/global.css'
 import BackgroundOrbs from '../components/BackgroundOrbs.astro'
+import Icon from '../components/Icon.astro'
 
 const pageTitle =
   (Astro.props.title ?? Astro.props.frontmatter?.title)
@@ -139,30 +140,8 @@ const jsonLd = JSON.stringify({
                 aria-label="Switch to light mode"
                 type="button"
               >
-                <svg
-                  class="theme-icon-sun w-4 h-4 hidden"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  aria-hidden="true"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                  ></path>
-                </svg>
-                <svg
-                  class="theme-icon-moon w-4 h-4"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path
-                    d="M21.64 13a1 1 0 00-1.05-.14 8.05 8.05 0 01-3.37.73 8.15 8.15 0 01-8.14-8.15 8.15 8.15 0 012.73-6.05A1 1 0 009.36 2.5 10.15 10.15 0 002 12.44a10.16 10.16 0 0010.16 10.16 10.15 10.15 0 009.46-6.27 1 1 0 00.02-.83z"
-                  ></path>
-                </svg>
+                <Icon name="sun" class="theme-icon-sun w-4 h-4 hidden" />
+                <Icon name="moon" class="theme-icon-moon w-4 h-4" />
               </button>
             </div>
 
@@ -173,34 +152,8 @@ const jsonLd = JSON.stringify({
               aria-expanded="false"
               aria-controls="mobile-menu"
             >
-              <svg
-                id="menu-icon-open"
-                class="w-6 h-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"></path>
-              </svg>
-              <svg
-                id="menu-icon-close"
-                class="w-6 h-6 hidden"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M6 18L18 6M6 6l12 12"></path>
-              </svg>
+              <Icon id="menu-icon-open" name="menu" class="w-6 h-6" />
+              <Icon id="menu-icon-close" name="close" class="w-6 h-6 hidden" />
             </button>
           </div>
 
@@ -232,30 +185,8 @@ const jsonLd = JSON.stringify({
                 type="button"
               >
                 <span class="flex items-center gap-3">
-                  <svg
-                    class="theme-icon-sun w-5 h-5 hidden"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    aria-hidden="true"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                    ></path>
-                  </svg>
-                  <svg
-                    class="theme-icon-moon w-5 h-5"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M21.64 13a1 1 0 00-1.05-.14 8.05 8.05 0 01-3.37.73 8.15 8.15 0 01-8.14-8.15 8.15 8.15 0 012.73-6.05A1 1 0 009.36 2.5 10.15 10.15 0 002 12.44a10.16 10.16 0 0010.16 10.16 10.15 10.15 0 009.46-6.27 1 1 0 00.02-.83z"
-                    ></path>
-                  </svg>
+                  <Icon name="sun" class="theme-icon-sun w-5 h-5 hidden" />
+                  <Icon name="moon" class="theme-icon-moon w-5 h-5" />
                   <span class="theme-label">Light mode</span>
                 </span>
               </button>
@@ -380,53 +311,46 @@ const jsonLd = JSON.stringify({
       const navItems = [...document.querySelectorAll('nav .nav-link')]
 
       function updateActiveSection() {
-        if (window.location.pathname === '/resume') {
-          navItems.forEach((link) => {
-            link.classList.remove('active')
-            if (link.getAttribute('href') === '/resume') {
-              link.classList.add('active')
+        const path = window.location.pathname
+        let target: string | null = null
+
+        if (path === '/resume') {
+          target = 'resume'
+        } else if (path.startsWith('/docs')) {
+          target = 'docs'
+        } else {
+          // Scroll-based highlighting for the homepage sections.
+          const scrollPos = window.scrollY + 150
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop
+            const sectionHeight = section.offsetHeight
+            if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+              target = section.getAttribute('id')
             }
           })
-          return
-        }
 
-        if (window.location.pathname.startsWith('/docs')) {
-          navItems.forEach((link) => {
-            link.classList.remove('active')
-            if (link.getAttribute('data-nav') === 'docs') {
-              link.classList.add('active')
-            }
-          })
-          return
-        }
-
-        let currentSection: string | null = null
-        const scrollPos = window.scrollY + 150
-
-        sections.forEach((section) => {
-          const sectionTop = section.offsetTop
-          const sectionHeight = section.offsetHeight
-          if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-            currentSection = section.getAttribute('id')
+          // At (or very near) the bottom of the page the offset math can miss the
+          // last section, leaving nothing active — force the final section then.
+          if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
+            const last = sections[sections.length - 1]
+            if (last) target = last.getAttribute('id')
           }
-        })
 
-        // At (or very near) the bottom of the page the offset math can miss the
-        // last section, leaving nothing active — force the final section then.
-        if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4) {
-          const last = sections[sections.length - 1]
-          if (last) currentSection = last.getAttribute('id')
+          // Homepage at the very top (no section entered yet): highlight Home.
+          if (target === null && (path === '/' || path === '/index.html')) {
+            target = 'home'
+          }
+          // Any other non-homepage, non-special page (e.g. /404) stays unlit.
         }
 
         navItems.forEach((link) => {
           link.classList.remove('active')
-          if (link.getAttribute('data-nav') === currentSection) {
+          const linkNav = link.getAttribute('data-nav')
+          if (linkNav && linkNav === target) {
             link.classList.add('active')
           }
-          if (
-            currentSection === null &&
-            (link.getAttribute('href') === '/' || link.getAttribute('href') === '/#home')
-          ) {
+          // The standalone Résumé link has no data-nav — match it by href.
+          if (target === 'resume' && link.getAttribute('href') === '/resume') {
             link.classList.add('active')
           }
         })

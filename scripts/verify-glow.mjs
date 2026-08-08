@@ -73,7 +73,10 @@ for (const t of targets) {
   const hovY = box.height <= viewportH * 0.8 ? box.y + box.height / 2 : box.y + 120
   const x = Math.min(box.x + box.width / 2, 1270)
   const y = Math.min(Math.max(hovY, 140), 940)
+  // Press (mousedown) instead of hover: the glow fires on :hover for pointer
+  // devices and on :active for touch, so pressing works in every environment.
   await page.mouse.move(x, y)
+  await page.mouse.down()
   await new Promise((r) => setTimeout(r, 250))
   const st = await page.evaluate((s) => {
     const e = document.querySelector(s)
