@@ -11,31 +11,19 @@ Personal portfolio website of **Gagan Jain** — AI / LLM Engineer. Built with [
 
 CS @ VIT Vellore (expected graduation 2026, CGPA 7.7/10). I build practical AI systems: LLM-powered apps, RAG pipelines, autonomous agents, and production-ready GenAI platforms. Strong Python foundation with end-to-end deployment experience.
 
-**AI/LLM Projects:**
+### AI/LLM Projects
+
 - **NexusAOS** — Governance-first agentic OS with multi-agent swarm orchestration, QLoRA fine-tuning, and 30+ MCP tools
 - **nexus-kernel** — Production-ready Rust AI microkernel with event-sourced governance, OpenAI/Anthropic streaming, and 981 tests
 - **SeshaOS** — Local-first AI OS with specialist models (Gemma 4, Qwen3) and LiteLLM-compatible routing
 
-**Other Projects:**
+### Other Projects
+
 - **Vyākṛti** — Sanskrit-oriented programming language with complete compiler pipeline and browser IDE
 - **AIM** — Production-grade attendance system with Argon2id auth, Prometheus monitoring, and 101 tests
 - **FWRS** — Food waste optimization platform using linear programming
 
 Looking for **GenAI / LLM Engineer**, **Agentic AI Engineer**, or **AI Engineer** roles. Based in Jaipur, Rajasthan, India and open to relocation.
-
-## Highlights
-
-- **NexusAOS** — Governance-first agentic OS with multi-agent swarm orchestration, QLoRA fine-tuning, and 30+ MCP tools
-- **nexus-kernel** — Production-ready Rust AI microkernel with event-sourced governance, OpenAI/Anthropic streaming, and 981 tests
-- **SeshaOS** — Local-first AI OS with specialist models (Gemma 4, Qwen3) and LiteLLM-compatible routing
-- **Vyākṛti** — Sanskrit-oriented programming language with complete compiler pipeline and browser IDE
-
-## Contact
-
-- **Email:** gagan.jain.se@gmail.com
-- **LinkedIn:** [gaganjainse](https://linkedin.com/in/gaganjainse)
-- **GitHub:** [gaganjainse](https://github.com/gaganjainse)
-- **Location:** Jaipur, Rajasthan, India
 
 ## 🚀 Quick Start
 
@@ -62,19 +50,22 @@ npm run preview  # Preview production build
 
 ```
 src/
-├── components/sections/  # Page sections (Hero, About, Skills, Projects, Contact)
+├── components/
+│   └── sections/        # Page sections (Hero, About, Skills, Projects, Contact)
 ├── layouts/              # BaseLayout, DocsLayout
-├── pages/                # File-based routing (/, /resume, /docs)
+├── pages/                # File-based routing (/, /résumé, /docs)
 ├── styles/               # Global CSS + Tailwind v4 theme tokens
-├── data/                 # Static data (skills)
+├── data/                 # Static data (config, projects, skills)
 ├── utils/                # GSAP helpers, site config
 └── content/              # Content collections
-public/                   # Static assets (favicon, resume PDF, robots.txt)
+public/                   # Static assets (favicon, résumé PDF/HTML, robots.txt)
+scripts/                  # Build scripts (PDF generation)
+docs/                     # Project documentation and ADRs
 ```
 
-## 📄 Resume
+## 📄 Résumé
 
-Resume is available at [`/resume`](https://gaganjain.vercel.app/resume) and as a PDF at [`/resume.pdf`](https://gaganjain.vercel.app/resume.pdf).
+Résumé is available at [`/résumé`](https://gaganjain.vercel.app/résumé) and as a PDF at [`/résumé.pdf`](https://gaganjain.vercel.app/résumé.pdf).
 
 ## 🌐 Live Site
 
