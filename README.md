@@ -1,10 +1,10 @@
 # Portfolio — Gagan Jain
 
+![Astro](https://img.shields.io/badge/Astro-7.2.0-FF5D01?logo=astro) ![Tailwind](https://img.shields.io/badge/Tailwind-v4.3-06B6D4?logo=tailwindcss) ![GSAP](https://img.shields.io/badge/GSAP-3.15-88CE02?logo=greensock) ![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178C6?logo=typescript) ![Vercel](https://img.shields.io/badge/Deploy-Vercel-000?logo=vercel) ![CI](https://github.com/gaganjainse/portfolio/actions/workflows/ci.yml/badge.svg)
+
 <p align="center">
   <img src="screenshots/home-dark.png" alt="Home — dark mode" width="62%" />
 </p>
-
-![Astro](https://img.shields.io/badge/Astro-7.2.0-FF5D01?logo=astro) ![Tailwind](https://img.shields.io/badge/Tailwind-v4.3-06B6D4?logo=tailwindcss) ![GSAP](https://img.shields.io/badge/GSAP-3.15-88CE02?logo=greensock) ![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178C6?logo=typescript) ![Vercel](https://img.shields.io/badge/Deploy-Vercel-000?logo=vercel) ![CI](https://github.com/gaganjainse/portfolio/actions/workflows/ci.yml/badge.svg)
 
 Personal portfolio website of **Gagan Jain** — AI / LLM Engineer. Built with [Astro 7](https://astro.build), [Tailwind CSS v4](https://tailwindcss.com), and [GSAP](https://gsap.com). Focused on production-grade GenAI systems: multi-agent orchestration, LLM fine-tuning, RAG pipelines, agentic AI platforms, and AI governance.
 
