@@ -1,9 +1,9 @@
 const GITHUB_BASE = 'https://github.com/gaganjainse'
 
 const TAG_CLASSES = {
-  pink: 'bg-pink-500/20 text-pink-400 cursor-default hover:shadow-[0_0_8px_rgba(236,72,153,0.4)] hover:border-pink-500/50 transition-all',
-  green: 'bg-green-500/20 text-green-400 cursor-default hover:shadow-[0_0_8px_rgba(16,185,129,0.4)] hover:border-green-500/50 transition-all',
-  primary: 'bg-primary/20 text-primary-light cursor-default hover:shadow-[0_0_8px_rgba(124,58,237,0.4)] hover:border-primary/50 transition-all',
+  pink: 'bg-pink-500/20 text-pink-400 cursor-default hover:shadow-[0_0_8px_rgba(236,72,153,0.4)] hover:border-pink-500/50 transition',
+  green: 'bg-green-500/20 text-green-400 cursor-default hover:shadow-[0_0_8px_rgba(16,185,129,0.4)] hover:border-green-500/50 transition',
+  primary: 'bg-primary/20 text-primary-light cursor-default hover:shadow-[0_0_8px_rgba(124,58,237,0.4)] hover:border-primary/50 transition',
 }
 
 export function getTagClasses(tagColor) {
@@ -23,6 +23,7 @@ export const PROJECTS = [
       'Designed adapter-routed inference with curriculum learning, evaluation harness, and model benchmarking',
     ],
     tech: ['Python', 'FastMCP', 'QLoRA', 'Unsloth', 'Multi-Agent', 'MCP', 'AsyncIO', 'Rust', 'Zig'],
+    tests: 0,
     github: `${GITHUB_BASE}/NexusAOS`,
   },
   {
@@ -37,6 +38,7 @@ export const PROJECTS = [
       'Delivered native terminal emulation (PTY + VT100 + Zig parser), SSH multiplexing, and multi-interface CLI/TUI/GUI/RPC',
     ],
     tech: ['Rust', 'Tokio', 'OpenAI', 'Anthropic', 'SQLite', 'Ratatui', 'Iced', 'SSH', 'Event Sourcing'],
+    tests: 981,
     github: `${GITHUB_BASE}/nexus-kernel`,
   },
   {
@@ -51,6 +53,7 @@ export const PROJECTS = [
       'Maintained event-sourced architecture with reversible, permissioned actions and offline-first execution',
     ],
     tech: ['Rust', 'LiteLLM', 'Gemma', 'Qwen', 'Local LLMs', 'Governance', 'Event Sourcing', 'Ubuntu'],
+    tests: 0,
     github: `${GITHUB_BASE}/SeshaOS`,
   },
   {
@@ -65,6 +68,7 @@ export const PROJECTS = [
       '123 tests covering the full pipeline, including a self-hosting corpus',
     ],
     tech: ['Rust', 'React', 'TypeScript', 'Monaco Editor', 'Zustand', 'Tailwind CSS', 'Axum'],
+    tests: 123,
     github: `${GITHUB_BASE}/Vyakrti`,
   },
   {
@@ -77,6 +81,7 @@ export const PROJECTS = [
       'Deployed Prometheus metrics, structured JSON logging, Chart.js analytics, FullCalendar scheduling, Docker Compose, and GitHub Actions CI/CD; 101 automated pytest tests',
     ],
     tech: ['Python', 'Flask', 'MySQL', 'Bootstrap', 'Chart.js', 'Docker', 'GitHub Actions'],
+    tests: 101,
     github: `${GITHUB_BASE}/AIM`,
   },
   {
@@ -91,6 +96,7 @@ export const PROJECTS = [
       'Deployed as a full-stack platform with real-time tracking and analytics dashboard',
     ],
     tech: ['Python', 'PuLP', 'Folium', 'Flask', 'MySQL', 'Bootstrap'],
+    tests: 0,
     github: `${GITHUB_BASE}/FWRS`,
   },
 ]

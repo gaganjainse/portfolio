@@ -4,8 +4,8 @@ import { dirname, join } from 'node:path'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
-const htmlPath = join(__dirname, '..', 'public', 'résumé.html')
-const pdfPath = join(__dirname, '..', 'public', 'résumé.pdf')
+const htmlPath = join(__dirname, '..', 'public', 'resume.html')
+const pdfPath = join(__dirname, '..', 'public', 'resume.pdf')
 
 async function generatePdf() {
   const browser = await puppeteer.launch({

@@ -5,13 +5,13 @@ import { PROJECTS, getTagClasses } from '../../data/projects.ts'
 <section id="projects" class="py-24 px-4 sm:px-6 bg-bg" aria-labelledby="projects-heading">
   <div class="max-w-6xl mx-auto">
     <h2 id="projects-heading" class="text-3xl sm:text-4xl font-bold mb-2">
-      <span class="gradient-text">Projects</span>
+      Featured <span class="gradient-text">Projects</span>
     </h2>
     <div class="w-20 h-1 bg-gradient-to-r from-primary to-accent rounded-full mb-8" />
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
       {PROJECTS.map((project) => (
-        <article class="project-card gradient-border p-6 sm:p-8 transition-all card-glow">
+        <article class="project-card gradient-border p-6 sm:p-8 transition">
           <div class="flex flex-wrap items-center gap-3 mb-3">
             <span class={`px-2.5 py-0.5 rounded-full text-xs font-bold ${getTagClasses(project.tagColor)}`}>
               {project.tag}
@@ -29,7 +29,7 @@ import { PROJECTS, getTagClasses } from '../../data/projects.ts'
           </ul>
           <div class="flex flex-wrap gap-2 mb-4">
             {project.tech.map((tech) => (
-              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border cursor-default transition-all hover:shadow-[0_0_6px_rgba(148,163,184,0.2)] hover:border-border-light">{tech}</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-bg text-text-muted border border-border cursor-default transition hover:shadow-[0_0_6px_rgba(148,163,184,0.2)] hover:border-border-light">{tech}</span>
             ))}
           </div>
           <div class="flex items-center gap-4">

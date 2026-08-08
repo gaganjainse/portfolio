@@ -53,19 +53,19 @@ src/
 ├── components/
 │   └── sections/        # Page sections (Hero, About, Skills, Projects, Contact)
 ├── layouts/              # BaseLayout, DocsLayout
-├── pages/                # File-based routing (/, /résumé, /docs)
+├── pages/                # File-based routing (/, /resume, /docs)
 ├── styles/               # Global CSS + Tailwind v4 theme tokens
 ├── data/                 # Static data (config, projects, skills)
 ├── utils/                # GSAP helpers, site config
 └── content/              # Content collections
-public/                   # Static assets (favicon, résumé PDF/HTML, robots.txt)
+public/                   # Static assets (favicon, resume PDF/HTML, robots.txt)
 scripts/                  # Build scripts (PDF generation)
 docs/                     # Project documentation and ADRs
 ```
 
 ## 📄 Résumé
 
-Résumé is available at [`/résumé`](https://gaganjain.vercel.app/résumé) and as a PDF at [`/résumé.pdf`](https://gaganjain.vercel.app/résumé.pdf).
+Résumé is available at [`/resume`](https://gaganjain.vercel.app/resume) and as a PDF at [`/resume.pdf`](https://gaganjain.vercel.app/resume.pdf).
 
 ## 🌐 Live Site
 

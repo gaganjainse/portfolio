@@ -2,8 +2,8 @@
 import { SITE_CONFIG, NAV_ITEMS } from '../data/config.ts'
 import '../styles/global.css'
 
-const pageTitle = Astro.props.title
-  ? `${Astro.props.title} | ${SITE_CONFIG.siteTitle}`
+const pageTitle = (Astro.props.title ?? Astro.props.frontmatter?.title)
+  ? `${Astro.props.title ?? Astro.props.frontmatter?.title} | ${SITE_CONFIG.siteTitle}`
   : SITE_CONFIG.siteTitle
 
 const pageDescription = Astro.props.description || SITE_CONFIG.description
@@ -21,7 +21,7 @@ const pageUrl = Astro.url.href
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
     <title>{pageTitle}</title>
 
@@ -64,7 +64,7 @@ const pageUrl = Astro.url.href
 
     <header>
       <nav
-        class="fixed top-0 left-0 right-0 z-50 glass border-b border-border/60 transition-all duration-300"
+        class="fixed top-0 left-0 right-0 z-50 glass border-b border-border/60 transition duration-300"
         aria-label="Main navigation"
       >
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
@@ -81,15 +81,15 @@ const pageUrl = Astro.url.href
               {NAV_ITEMS.map((item) => (
                 <a
                   href={`/#${item.id}`}
-                  class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
+                  class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
                   data-nav={item.id}
                 >
                   {item.label}
                 </a>
               ))}
               <a
-                href="/résumé"
-                class="nav-link ml-2 px-3 py-2 rounded-lg text-sm font-medium transition-all text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
+                href="/resume"
+                class="nav-link ml-2 px-3 py-2 rounded-lg text-sm font-medium transition text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
               >
                 Résumé
               </a>
@@ -116,15 +116,15 @@ const pageUrl = Astro.url.href
               {NAV_ITEMS.map((item) => (
                 <a
                   href={`/#${item.id}`}
-                  class="nav-link block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
+                  class="nav-link block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
                   data-nav={item.id}
                 >
                   {item.label}
                 </a>
               ))}
               <a
-                href="/résumé"
-                class="nav-link block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-all text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
+                href="/resume"
+                class="nav-link block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
               >
                 Résumé
               </a>
@@ -144,11 +144,11 @@ const pageUrl = Astro.url.href
           &copy; {new Date().getFullYear()} Gagan Jain &middot; Built with Astro + GSAP + Tailwind CSS
         </p>
         <div class="flex items-center justify-center gap-4 text-sm">
-          <a href="/résumé"  class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20">
+          <a href="/resume"  class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20">
             Résumé
           </a>
           <span class="text-border">&middot;</span>
-          <button id="back-to-top" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition-all text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20">
+          <button id="back-to-top" class="nav-link px-3 py-2 rounded-lg text-sm font-medium transition text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20">
             Back to top
           </button>
         </div>
@@ -162,40 +162,72 @@ const pageUrl = Astro.url.href
       const mobileMenuBtn = document.getElementById('mobile-menu-btn')
       const mobileMenu = document.getElementById('mobile-menu')
       const navLinks = document.querySelectorAll('.nav-link')
+      const focusableSelector = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+      let lastFocused = null
 
-      if (mobileMenuBtn && mobileMenu) {
+      function closeMenu(returnFocus = false) {
+        if (!mobileMenu || !mobileMenuBtn) return
+        mobileMenu.classList.add('hidden')
+        mobileMenuBtn.setAttribute('aria-expanded', 'false')
+        mobileMenuBtn.setAttribute('aria-label', 'Open menu')
         const menuIconOpen = document.getElementById('menu-icon-open')
         const menuIconClose = document.getElementById('menu-icon-close')
+        if (menuIconOpen) menuIconOpen.classList.remove('hidden')
+        if (menuIconClose) menuIconClose.classList.add('hidden')
+        if (returnFocus && lastFocused instanceof HTMLElement) lastFocused.focus()
+      }
 
+      function openMenu() {
+        if (!mobileMenu || !mobileMenuBtn) return
+        lastFocused = document.activeElement
+        mobileMenu.classList.remove('hidden')
+        mobileMenuBtn.setAttribute('aria-expanded', 'true')
+        mobileMenuBtn.setAttribute('aria-label', 'Close menu')
+        const menuIconOpen = document.getElementById('menu-icon-open')
+        const menuIconClose = document.getElementById('menu-icon-close')
+        if (menuIconOpen) menuIconOpen.classList.add('hidden')
+        if (menuIconClose) menuIconClose.classList.remove('hidden')
+        const firstFocusable = mobileMenu.querySelector(focusableSelector)
+        if (firstFocusable instanceof HTMLElement) firstFocusable.focus()
+      }
+
+      if (mobileMenuBtn && mobileMenu) {
         mobileMenuBtn.addEventListener('click', () => {
-          const isHidden = mobileMenu.classList.contains('hidden')
-          if (isHidden) {
-            mobileMenu.classList.remove('hidden')
-            mobileMenuBtn.setAttribute('aria-expanded', 'true')
-            mobileMenuBtn.setAttribute('aria-label', 'Close menu')
-            if (menuIconOpen) menuIconOpen.classList.add('hidden')
-            if (menuIconClose) menuIconClose.classList.remove('hidden')
+          if (mobileMenu.classList.contains('hidden')) {
+            openMenu()
           } else {
-            mobileMenu.classList.add('hidden')
-            mobileMenuBtn.setAttribute('aria-expanded', 'false')
-            mobileMenuBtn.setAttribute('aria-label', 'Open menu')
-            if (menuIconOpen) menuIconOpen.classList.remove('hidden')
-            if (menuIconClose) menuIconClose.classList.add('hidden')
+            closeMenu(true)
+          }
+        })
+
+        // Focus trap: keep Tab/Shift+Tab inside the open menu, Escape to close
+        document.addEventListener('keydown', (event) => {
+          if (!mobileMenu || mobileMenu.classList.contains('hidden')) return
+
+          if (event.key === 'Escape') {
+            closeMenu(true)
+            return
+          }
+
+          if (event.key === 'Tab') {
+            const focusables = [...mobileMenu.querySelectorAll(focusableSelector)]
+            if (focusables.length === 0) return
+            const first = focusables[0]
+            const last = focusables[focusables.length - 1]
+            if (event.shiftKey && document.activeElement === first) {
+              event.preventDefault()
+              last.focus()
+            } else if (!event.shiftKey && document.activeElement === last) {
+              event.preventDefault()
+              first.focus()
+            }
           }
         })
       }
 
       navLinks.forEach(link => {
         link.addEventListener('click', () => {
-          if (mobileMenu) mobileMenu.classList.add('hidden')
-          if (mobileMenuBtn) {
-            mobileMenuBtn.setAttribute('aria-expanded', 'false')
-            mobileMenuBtn.setAttribute('aria-label', 'Open menu')
-            const menuIconOpen = document.getElementById('menu-icon-open')
-            const menuIconClose = document.getElementById('menu-icon-close')
-            if (menuIconOpen) menuIconOpen.classList.remove('hidden')
-            if (menuIconClose) menuIconClose.classList.add('hidden')
-          }
+          if (mobileMenu) closeMenu()
         })
       })
 
@@ -203,10 +235,10 @@ const pageUrl = Astro.url.href
       const navItems = [...document.querySelectorAll('.nav-link')]
 
       function updateActiveSection() {
-        if (window.location.pathname === '/résumé') {
+        if (window.location.pathname === '/resume') {
           navItems.forEach(link => {
             link.classList.remove('active')
-            if (link.getAttribute('href') === '/résumé') {
+            if (link.getAttribute('href') === '/resume') {
               link.classList.add('active')
             }
           })
@@ -237,25 +269,13 @@ const pageUrl = Astro.url.href
 
       window.addEventListener('scroll', () => {
         updateActiveSection()
-
-        const nav = document.querySelector('nav')
-        if (nav) {
-          const currentScroll = window.scrollY
-          if (currentScroll > 50) {
-            nav.style.backdropFilter = 'blur(20px)'
-            nav.style.borderBottomColor = 'rgba(30, 41, 59, 0.8)'
-          } else {
-            nav.style.backdropFilter = 'blur(12px)'
-            nav.style.borderBottomColor = 'rgba(30, 41, 59, 0.6)'
-          }
-        }
       }, { passive: true })
       updateActiveSection()
 
-      if (window.location.pathname === '/résumé') {
+      if (window.location.pathname === '/resume') {
         navLinks.forEach(link => {
           link.classList.remove('active')
-          if (link.getAttribute('href') === '/résumé') {
+          if (link.getAttribute('href') === '/resume') {
             link.classList.add('active')
           }
         })

@@ -3,6 +3,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
+export function prefersReducedMotion() {
+  if (typeof window === 'undefined') return false
+  return window.matchMedia('(prefers-reduced-motion: reduce)').matches
+}
+
 export function scrollProgress() {
   if (typeof window === 'undefined') return { kill: () => {} }
 
@@ -38,8 +43,7 @@ export interface RevealOptions {
 export function useScrollReveal(options: RevealOptions) {
   if (typeof window === 'undefined') return
 
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  if (prefersReducedMotion) return
+  if (prefersReducedMotion()) return
 
   const {
     selector,
