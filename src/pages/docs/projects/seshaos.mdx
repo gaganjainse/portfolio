@@ -1,18 +1,16 @@
 ---
-layout: ../../../layouts/BaseLayout.astro
+layout: ../../../layouts/DocsLayout.astro
 title: SeshaOS
 description: 'SeshaOS project documentation'
 ---
 
 import TechChip from '../../../components/TechChip.astro'
-import DocsNav from '../../../components/DocsNav.astro'
 
-<DocsNav current="SeshaOS" />
-<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-24">
-  <h1 class="text-4xl font-bold mb-6 gradient-text">SeshaOS</h1>
-  <p class="text-text-muted mb-6">
-    NexusAOS v2 — governance-first, local-first AI OS with specialist local models (Gemma 4, Qwen3) and LiteLLM-compatible routing.
-  </p>
+<h1 class="text-4xl font-bold mb-6 gradient-text">SeshaOS</h1>
+<p class="text-text-muted mb-8">
+  NexusAOS v2 — governance-first, local-first AI OS with specialist local models (Gemma 4, Qwen3)
+  and LiteLLM-compatible routing.
+</p>
 
 <div class="gradient-border p-6 mb-6">
   <h2 class="text-2xl font-bold text-text mb-3">Overview</h2>
@@ -41,10 +39,20 @@ import DocsNav from '../../../components/DocsNav.astro'
   </p>
 </div>
 
-  <div class="gradient-border p-6">
-    <h2 class="text-2xl font-bold text-text mb-3">Tech Stack</h2>
-    <div class="flex flex-wrap gap-2">
-      { ["Rust", "LiteLLM", "Gemma", "Qwen", "Local LLMs", "Governance", "Event Sourcing", "Ubuntu"].map((tech) => <TechChip label={tech} />) }
-    </div>
+<div class="gradient-border p-6">
+  <h2 class="text-2xl font-bold text-text mb-3">Tech Stack</h2>
+  <div class="flex flex-wrap gap-2">
+    {[
+      'Rust',
+      'LiteLLM',
+      'Gemma',
+      'Qwen',
+      'Local LLMs',
+      'Governance',
+      'Event Sourcing',
+      'Ubuntu',
+    ].map((tech) => (
+      <TechChip label={tech} />
+    ))}
   </div>
 </div>

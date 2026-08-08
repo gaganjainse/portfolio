@@ -1,18 +1,16 @@
 ---
-layout: ../../../layouts/BaseLayout.astro
+layout: ../../../layouts/DocsLayout.astro
 title: Vyākṛti
 description: 'Vyākṛti project documentation'
 ---
 
 import TechChip from '../../../components/TechChip.astro'
-import DocsNav from '../../../components/DocsNav.astro'
 
-<DocsNav current="Vyākṛti" />
-<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-24">
-  <h1 class="text-4xl font-bold mb-6 gradient-text">Vyākṛti</h1>
-  <p class="text-text-muted mb-6">
-    Sanskrit-oriented programming language with complete compiler pipeline and browser-based IDE. 123 tests.
-  </p>
+<h1 class="text-4xl font-bold mb-6 gradient-text">Vyākṛti</h1>
+<p class="text-text-muted mb-8">
+  Sanskrit-oriented programming language with complete compiler pipeline and browser-based IDE. 123
+  tests.
+</p>
 
 <div class="gradient-border p-6 mb-6">
   <h2 class="text-2xl font-bold text-text mb-3">Overview</h2>
@@ -43,16 +41,20 @@ import DocsNav from '../../../components/DocsNav.astro'
       rel="noopener noreferrer"
       class="text-accent hover:underline"
     >
-      vyakrti-ide
+      {' '}
+      vyakrti-ide{' '}
     </a>{' '}
     (Vyākṛti Workbench).
   </p>
 </div>
 
-  <div class="gradient-border p-6">
-    <h2 class="text-2xl font-bold text-text mb-3">Tech Stack</h2>
-    <div class="flex flex-wrap gap-2">
-      { ["Rust", "React", "TypeScript", "Monaco Editor", "Zustand", "Tailwind CSS", "Axum"].map((tech) => <TechChip label={tech} />) }
-    </div>
+<div class="gradient-border p-6">
+  <h2 class="text-2xl font-bold text-text mb-3">Tech Stack</h2>
+  <div class="flex flex-wrap gap-2">
+    {['Rust', 'React', 'TypeScript', 'Monaco Editor', 'Zustand', 'Tailwind CSS', 'Axum'].map(
+      (tech) => (
+        <TechChip label={tech} />
+      ),
+    )}
   </div>
 </div>

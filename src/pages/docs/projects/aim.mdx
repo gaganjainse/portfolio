@@ -1,19 +1,16 @@
 ---
-layout: ../../../layouts/BaseLayout.astro
+layout: ../../../layouts/DocsLayout.astro
 title: AIM
 description: 'AIM project documentation'
 ---
 
 import TechChip from '../../../components/TechChip.astro'
-import DocsNav from '../../../components/DocsNav.astro'
 
-<DocsNav current="AIM" />
-<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-24">
-  <h1 class="text-4xl font-bold mb-6 gradient-text">AIM — Attendance Information Manager</h1>
-  <p class="text-text-muted mb-6">
-    Production-grade attendance management system built with Flask and MySQL — Argon2id auth,
-    Prometheus monitoring, and a full CI/CD pipeline.
-  </p>
+<h1 class="text-4xl font-bold mb-6 gradient-text">AIM — Attendance Information Manager</h1>
+<p class="text-text-muted mb-8">
+  Production-grade attendance management system built with Flask and MySQL — Argon2id auth,
+  Prometheus monitoring, and a full CI/CD pipeline.
+</p>
 
 <div class="gradient-border p-6 mb-6">
   <h2 class="text-2xl font-bold text-text mb-3">Overview</h2>
@@ -40,10 +37,13 @@ import DocsNav from '../../../components/DocsNav.astro'
   </p>
 </div>
 
-  <div class="gradient-border p-6">
-    <h2 class="text-2xl font-bold text-text mb-3">Tech Stack</h2>
-    <div class="flex flex-wrap gap-2">
-      { ['Python', 'Flask', 'MySQL', 'Bootstrap', 'Chart.js', 'Docker', 'GitHub Actions'].map((tech) => <TechChip label={tech} />) }
-    </div>
+<div class="gradient-border p-6">
+  <h2 class="text-2xl font-bold text-text mb-3">Tech Stack</h2>
+  <div class="flex flex-wrap gap-2">
+    {['Python', 'Flask', 'MySQL', 'Bootstrap', 'Chart.js', 'Docker', 'GitHub Actions'].map(
+      (tech) => (
+        <TechChip label={tech} />
+      ),
+    )}
   </div>
 </div>

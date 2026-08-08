@@ -1,19 +1,16 @@
 ---
-layout: ../../../layouts/BaseLayout.astro
+layout: ../../../layouts/DocsLayout.astro
 title: RAG Service
 description: 'RAG Service project documentation'
 ---
 
 import TechChip from '../../../components/TechChip.astro'
-import DocsNav from '../../../components/DocsNav.astro'
 
-<DocsNav current="RAG Service" />
-<div class="max-w-4xl mx-auto px-4 sm:px-6 pb-24">
-  <h1 class="text-4xl font-bold mb-6 gradient-text">RAG Service</h1>
-  <p class="text-text-muted mb-6">
-    Production RAG API with hybrid retrieval — dense embeddings + BM25-style keyword scoring,
-    fused with Reciprocal Rank Fusion over a ChromaDB vector store. Grounded answers with citations.
-  </p>
+<h1 class="text-4xl font-bold mb-6 gradient-text">RAG Service</h1>
+<p class="text-text-muted mb-8">
+  Production RAG API with hybrid retrieval — dense embeddings + BM25-style keyword scoring, fused
+  with Reciprocal Rank Fusion over a ChromaDB vector store. Grounded answers with citations.
+</p>
 
 <div class="gradient-border p-6 mb-6">
   <h2 class="text-2xl font-bold text-text mb-3">Overview</h2>
@@ -49,10 +46,21 @@ import DocsNav from '../../../components/DocsNav.astro'
   <p class="text-text-muted mb-4">Paired with the{' '}<a href="/docs/projects/llm-eval-harness" class="text-accent hover:underline">LLM Eval Harness</a>: faithfulness, answer relevance, and correctness against a golden set, runnable in CI.</p>
 </div>
 
-  <div class="gradient-border p-6">
-    <h2 class="text-2xl font-bold text-text mb-3">Tech Stack</h2>
-    <div class="flex flex-wrap gap-2">
-      { ['Python', 'FastAPI', 'ChromaDB', 'Embeddings', 'Hybrid Search', 'RRF', 'RAG', 'LLM-as-Judge', 'Docker'].map((tech) => <TechChip label={tech} />) }
-    </div>
+<div class="gradient-border p-6">
+  <h2 class="text-2xl font-bold text-text mb-3">Tech Stack</h2>
+  <div class="flex flex-wrap gap-2">
+    {[
+      'Python',
+      'FastAPI',
+      'ChromaDB',
+      'Embeddings',
+      'Hybrid Search',
+      'RRF',
+      'RAG',
+      'LLM-as-Judge',
+      'Docker',
+    ].map((tech) => (
+      <TechChip label={tech} />
+    ))}
   </div>
 </div>

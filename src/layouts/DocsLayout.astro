@@ -1,0 +1,211 @@
+---
+import BaseLayout from './BaseLayout.astro'
+
+interface Props {
+  title: string
+  description?: string
+}
+
+const { title, description } = Astro.props
+
+const DOC_ORDER = [
+  '/docs/getting-started',
+  '/docs/architecture',
+  '/docs/adr',
+  '/docs/projects/nexusaos',
+  '/docs/projects/nexus-kernel',
+  '/docs/projects/seshaos',
+  '/docs/projects/rag-service',
+  '/docs/projects/llm-eval-harness',
+  '/docs/projects/vyakrti',
+  '/docs/projects/aim',
+  '/docs/projects/fwrs',
+]
+
+const DOCS = [
+  { href: '/docs/getting-started', label: 'Getting Started', section: 'Overview' },
+  { href: '/docs/architecture', label: 'Architecture', section: 'Overview' },
+  { href: '/docs/adr', label: 'ADRs', section: 'Overview' },
+  { href: '/docs/projects/nexusaos', label: 'NexusAOS', section: 'Projects' },
+  { href: '/docs/projects/nexus-kernel', label: 'nexus-kernel', section: 'Projects' },
+  { href: '/docs/projects/seshaos', label: 'SeshaOS', section: 'Projects' },
+  { href: '/docs/projects/rag-service', label: 'RAG Service', section: 'Projects' },
+  { href: '/docs/projects/llm-eval-harness', label: 'LLM Eval Harness', section: 'Projects' },
+  { href: '/docs/projects/vyakrti', label: 'Vyākṛti', section: 'Projects' },
+  { href: '/docs/projects/aim', label: 'AIM', section: 'Projects' },
+  { href: '/docs/projects/fwrs', label: 'FWRS', section: 'Projects' },
+]
+
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/docs/getting-started'
+const currentIndex = DOC_ORDER.findIndex((p) => currentPath === p)
+const prev = currentIndex > 0 ? DOCS[currentIndex - 1] : null
+const next =
+  currentIndex >= 0 && currentIndex < DOC_ORDER.length - 1 ? DOCS[currentIndex + 1] : null
+
+const SECTIONS = ['Overview', 'Projects']
+---
+
+<BaseLayout title={title} description={description}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 pb-16">
+    <div class="flex flex-col lg:flex-row gap-8">
+      {/* ---- Left sidebar nav (desktop) ---- */}
+      <aside class="hidden lg:block w-64 shrink-0">
+        <nav class="sticky top-24 space-y-6" aria-label="Docs navigation">
+          {
+            SECTIONS.map((section) => (
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wider text-text-muted mb-2">
+                  {section}
+                </p>
+                <ul class="space-y-0.5 border-l border-border">
+                  {DOCS.filter((d) => d.section === section).map((doc) => (
+                    <li>
+                      <a
+                        href={doc.href}
+                        class={`block border-l-2 -ml-px py-1.5 pl-3 text-sm transition ${
+                          doc.href === currentPath
+                            ? 'border-primary text-text font-medium bg-primary/10'
+                            : 'border-transparent text-text-muted hover:text-text hover:border-primary/40'
+                        }`}
+                      >
+                        {doc.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          }
+        </nav>
+      </aside>
+
+      {/* ---- Mobile docs selector ---- */}
+      <div class="lg:hidden">
+        <label class="sr-only" for="docs-mobile-nav">Docs navigation</label>
+        <select
+          id="docs-mobile-nav"
+          class="w-full px-3 py-2 rounded-lg text-sm bg-bg-card border border-border text-text"
+          data-docs-select="true"
+        >
+          {
+            DOCS.map((doc) => (
+              <option value={doc.href} selected={doc.href === currentPath}>
+                {doc.section} — {doc.label}
+              </option>
+            ))
+          }
+        </select>
+      </div>
+
+      {/* ---- Main content ---- */}
+      <div class="flex-1 min-w-0">
+        {/* Back / next buttons at top */}
+        <div class="flex items-center justify-between gap-3 mb-6 no-print">
+          <a
+            href="/"
+            class="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-text transition"
+          >
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              ></path>
+            </svg>
+            Back to Home
+          </a>
+          {
+            next && (
+              <a
+                href={next.href}
+                class="inline-flex items-center gap-1.5 text-sm text-primary-light hover:text-text transition"
+              >
+                Next: {next.label}
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  />
+                </svg>
+              </a>
+            )
+          }
+        </div>
+
+        {/* Bordered wrapper card */}
+        <div
+          class="border border-border-light/60 rounded-2xl bg-bg-card/60 backdrop-blur-sm p-6 sm:p-10 shadow-2xl shadow-black/20 docs-sheet"
+        >
+          <slot />
+        </div>
+
+        {/* Prev / next footer */}
+        <div class="flex items-center justify-between gap-3 mt-6 no-print">
+          {
+            prev ? (
+              <a
+                href={prev.href}
+                class="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-text transition"
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                </svg>
+                {prev.label}
+              </a>
+            ) : (
+              <span />
+            )
+          }
+          {
+            next && (
+              <a
+                href={next.href}
+                class="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-text transition"
+              >
+                {next.label}
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            )
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const docsSelect = document.querySelector('[data-docs-select]')
+    if (docsSelect) {
+      docsSelect.addEventListener('change', () => {
+        window.location.href = docsSelect.value
+      })
+    }
+  </script>
+</BaseLayout>
