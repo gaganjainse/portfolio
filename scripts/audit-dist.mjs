@@ -101,6 +101,7 @@ else fail('llms.txt content unexpected')
 // ---------- head / meta audit on every html ----------
 console.log('--- head / meta / html hygiene ---')
 const htmlFiles = []
+const SKIP_HTML = new Set(['/resume.html']) // PDF source template, not a page
 const walk = (d) => {
   for (const e of fs.readdirSync(d, { withFileTypes: true })) {
     const p = path.join(d, e.name)
@@ -125,6 +126,7 @@ for (const f of htmlFiles)
 for (const f of htmlFiles) {
   const html = fs.readFileSync(f, 'utf8')
   const rel = f.replace(DIST, '')
+  if (SKIP_HTML.has(rel)) continue
   // nested <p> (invalid HTML)
   if (/<p[^>]*>(\s*)<p/.test(html)) {
     nestedP++
