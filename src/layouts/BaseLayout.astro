@@ -3,6 +3,7 @@ import { SITE_CONFIG, NAV_ITEMS } from '../data/config.ts'
 import Analytics from '@vercel/analytics/astro'
 import SpeedInsights from '@vercel/speed-insights/astro'
 import '../styles/global.css'
+import BackgroundOrbs from '../components/BackgroundOrbs.astro'
 
 const pageTitle =
   (Astro.props.title ?? Astro.props.frontmatter?.title)
@@ -96,6 +97,7 @@ const jsonLd = JSON.stringify({
     <script type="application/ld+json" is:inline set:html={jsonLd} />
   </head>
   <body>
+    <BackgroundOrbs />
     <div class="scroll-progress" aria-hidden="true"></div>
     <a href="#main-content" class="skip-link">Skip to content</a>
 

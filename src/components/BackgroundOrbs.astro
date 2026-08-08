@@ -1,0 +1,27 @@
+---
+// Decorative animated orbs — fixed behind all content, symmetric, site-wide.
+// Included once in BaseLayout so they appear on every page (home, resume,
+// docs, 404) for a uniform background across the whole site.
+---
+
+<div class="fixed inset-0 -z-10 pointer-events-none overflow-hidden" aria-hidden="true">
+  <div
+    class="bg-orb absolute -top-24 -left-24 w-[28rem] h-[28rem] rounded-full blur-3xl bg-primary/15 animate-pulse-glow"
+  >
+  </div>
+  <div
+    class="bg-orb absolute -top-24 -right-24 w-[28rem] h-[28rem] rounded-full blur-3xl bg-accent/10 animate-pulse-glow"
+    style="animation-delay: 1s"
+  >
+  </div>
+  <div
+    class="bg-orb absolute -bottom-24 -left-32 w-[30rem] h-[30rem] rounded-full blur-3xl bg-accent/10 animate-pulse-glow"
+    style="animation-delay: 2s"
+  >
+  </div>
+  <div
+    class="bg-orb absolute -bottom-24 -right-32 w-[30rem] h-[30rem] rounded-full blur-3xl bg-primary/12 animate-pulse-glow"
+    style="animation-delay: 3s"
+  >
+  </div>
+</div>
