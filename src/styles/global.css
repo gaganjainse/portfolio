@@ -172,21 +172,28 @@ body::before {
   transition: width 0.1s linear;
 }
 
-.gradient-border {
+/* ---- gradient-border: solid card + gradient ring + glow on hover ---- */
+/* ---- glow-card: same ring + glow, but keeps its own bg (translucent) ---- */
+.gradient-border,
+.glow-card {
   position: relative;
-  border-radius: 1rem;
-  background: var(--color-bg-card);
   transition:
     box-shadow 0.3s ease,
     transform 0.3s ease;
 }
-.gradient-border:hover {
+.gradient-border {
+  border-radius: 1rem;
+  background: var(--color-bg-card);
+}
+.gradient-border:hover,
+.glow-card:hover {
   box-shadow:
     0 0 20px rgba(124, 58, 237, 0.15),
     0 0 40px rgba(6, 182, 212, 0.1);
   transform: translateY(-2px);
 }
-.gradient-border::before {
+.gradient-border::before,
+.glow-card::before {
   content: '';
   position: absolute;
   inset: -1px;
@@ -202,11 +209,13 @@ body::before {
   transition: opacity 0.3s ease;
   pointer-events: none;
 }
-.gradient-border:hover::before {
+.gradient-border:hover::before,
+.glow-card:hover::before {
   opacity: 1;
 }
 
-:root[data-theme='light'] .gradient-border:hover {
+:root[data-theme='light'] .gradient-border:hover,
+:root[data-theme='light'] .glow-card:hover {
   box-shadow:
     0 0 12px rgba(124, 58, 237, 0.1),
     0 0 24px rgba(6, 182, 212, 0.07);
@@ -230,7 +239,7 @@ body::before {
   position: relative;
   padding-bottom: 2rem;
 }
-.timeline-item::before {
+.timeline-item::after {
   content: '';
   position: absolute;
   left: -2rem;
@@ -313,6 +322,7 @@ body::before {
   .skip-link,
   .glass,
   .gradient-border::before,
+  .glow-card::before,
   .skill-bar-fill,
   .bg-orb,
   body::before {
@@ -484,7 +494,7 @@ body::before {
     padding-left: 0 !important;
   }
   .resume-sheet .timeline::before,
-  .resume-sheet .timeline-item::before {
+  .resume-sheet .timeline-item::after {
     display: none !important;
   }
 
