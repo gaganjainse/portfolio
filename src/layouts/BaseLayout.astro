@@ -292,7 +292,7 @@ const jsonLd = JSON.stringify({
       })
 
       const sections = document.querySelectorAll<HTMLElement>('section[id]')
-      const navItems = [...document.querySelectorAll('.nav-link')]
+      const navItems = [...document.querySelectorAll('nav .nav-link')]
 
       function updateActiveSection() {
         if (window.location.pathname === '/resume') {
