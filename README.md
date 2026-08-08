@@ -1,11 +1,6 @@
 # Portfolio — Gagan Jain
 
-![Astro](https://img.shields.io/badge/Astro-7.2.0-FF5D01?logo=astro)
-![Tailwind](https://img.shields.io/badge/Tailwind-v4.3-06B6D4?logo=tailwindcss)
-![GSAP](https://img.shields.io/badge/GSAP-3.15-88CE02?logo=greensock)
-![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178C6?logo=typescript)
-![Vercel](https://img.shields.io/badge/Deploy-Vercel-000?logo=vercel)
-![CI](https://github.com/gaganjainse/portfolio/actions/workflows/ci.yml/badge.svg)
+![Astro](https://img.shields.io/badge/Astro-7.2.0-FF5D01?logo=astro) ![Tailwind](https://img.shields.io/badge/Tailwind-v4.3-06B6D4?logo=tailwindcss) ![GSAP](https://img.shields.io/badge/GSAP-3.15-88CE02?logo=greensock) ![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178C6?logo=typescript) ![Vercel](https://img.shields.io/badge/Deploy-Vercel-000?logo=vercel) ![CI](https://github.com/gaganjainse/portfolio/actions/workflows/ci.yml/badge.svg)
 
 Personal portfolio website of **Gagan Jain** — AI / LLM Engineer. Built with [Astro 7](https://astro.build), [Tailwind CSS v4](https://tailwindcss.com), and [GSAP](https://gsap.com). Focused on production-grade GenAI systems: multi-agent orchestration, LLM fine-tuning, RAG pipelines, agentic AI platforms, and AI governance.
 
@@ -58,15 +53,15 @@ npm run resume:pdf   # Regenerate public/resume.pdf from the built /resume page
 
 ## 🛠️ Tech Stack
 
-| Layer            | Tools                                                                                                |
-| ---------------- | ---------------------------------------------------------------------------------------------------- |
-| **Framework**    | Astro 7.2.0 (static output)                                                                          |
-| **Content**      | MDX                                                                                                  |
-| **Styling**      | Tailwind CSS v4.3                                                                                    |
-| **Animations**   | GSAP + ScrollTrigger                                                                                 |
-| **Analytics**    | `@vercel/analytics` + `@vercel/speed-insights` (Vercel Web Analytics & Speed Insights)               |
+| Layer | Tools |
+| --- | --- |
+| **Framework** | Astro 7.2.0 (static output) |
+| **Content** | MDX |
+| **Styling** | Tailwind CSS v4.3 |
+| **Animations** | GSAP + ScrollTrigger |
+| **Analytics** | `@vercel/analytics` + `@vercel/speed-insights` (Vercel Web Analytics & Speed Insights) |
 | **Integrations** | `@astrojs/mdx`, `@astrojs/sitemap`, `@astrojs/vercel`, `@vercel/analytics`, `@vercel/speed-insights` |
-| **Deployment**   | Vercel (static, with 301 redirects via `vercel.json`)                                                |
+| **Deployment** | Vercel (static, with 301 redirects via `vercel.json`) |
 
 ## 📁 Project Structure
 

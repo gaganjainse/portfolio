@@ -7,18 +7,13 @@ description: 'LLM Eval Harness project documentation'
 import TechChip from '../../../components/TechChip.astro'
 
 <h1 class="text-4xl font-bold mb-6 gradient-text">LLM Eval Harness</h1>
-<p class="text-text-muted mb-8">
-  Reusable golden-set evaluation harness for LLM and RAG systems: faithfulness, answer relevance,
-  and correctness metrics with LLM-as-judge and offline heuristic fallbacks.
-</p>
+{/* prettier-ignore */}
+<p class="text-text-muted mb-8">Reusable golden-set evaluation harness for LLM and RAG systems: faithfulness, answer relevance, and correctness metrics with LLM-as-judge and offline heuristic fallbacks.</p>
 
 <div class="gradient-border p-6 mb-6">
   <h2 class="text-2xl font-bold text-text mb-3">Overview</h2>
-  <p class="text-text-muted mb-4">
-    A CLI + Python library that loads golden sets (YAML of questions, golden answers, and context),
-    scores model outputs, and produces JSON + Markdown reports with per-metric mean/min/max —
-    perfect for CI regression gates.
-  </p>
+  {/* prettier-ignore */}
+  <p class="text-text-muted mb-4">A CLI + Python library that loads golden sets (YAML of questions, golden answers, and context), scores model outputs, and produces JSON + Markdown reports with per-metric mean/min/max — perfect for CI regression gates.</p>
 </div>
 
 <div class="gradient-border p-6 mb-6">
@@ -33,23 +28,21 @@ import TechChip from '../../../components/TechChip.astro'
 
 <div class="gradient-border p-6 mb-6">
   <h2 class="text-2xl font-bold text-text mb-3">LLM-as-Judge + Offline Fallback</h2>
-  <p class="text-text-muted mb-4">
-    When an OpenAI-compatible API key is available, an LLM judges each pair on a 0–1 scale. Without
-    a key, deterministic lexical scorers kick in — so evals run in CI for free and the pipeline
-    never blocks on external services.
-  </p>
+  {/* prettier-ignore */}
+  <p class="text-text-muted mb-4">When an OpenAI-compatible API key is available, an LLM judges each pair on a 0–1 scale. Without a key, deterministic lexical scorers kick in — so evals run in CI for free and the pipeline never blocks on external services.</p>
 </div>
 
 <div class="gradient-border p-6 mb-6">
   <h2 class="text-2xl font-bold text-text mb-3">Usage</h2>
-  <pre class="bg-bg border border-border rounded-lg p-4 text-xs text-text-muted overflow-x-auto">
-    <code>python -m eval_harness --golden-set golden_sets/example.yaml</code>{' '}
-  </pre>{' '}
+  {/* prettier-ignore */}
+  <pre class="bg-bg border border-border rounded-lg p-4 text-xs text-text-muted overflow-x-auto"><code>python -m eval_harness --golden-set golden_sets/example.yaml</code>{' '} </pre>{' '}
   {/* prettier-ignore */}{' '}
   <p class="text-text-muted mt-3">
+    {' '}
     Used to gate the{' '}
     <a href="/docs/projects/rag-service" class="text-accent hover:underline">
-      RAG Service
+      {' '}
+      RAG Service{' '}
     </a>{' '}
     pipeline in CI.
   </p>
