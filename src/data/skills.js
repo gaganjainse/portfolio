@@ -58,11 +58,9 @@ export const SKILLS = [
   { name: "Linux", level: 75, category: "DevOps" },
   { name: "YOLO", level: 70, category: "Vision / ML" },
   { name: "OpenCV", level: 65, category: "Vision / ML" },
-  { name: "NLP", level: 60, category: "Vision / ML" },
-  { name: "Ollama", level: 65, category: "Vision / ML" },
   { name: "Computer Vision", level: 65, category: "Vision / ML" },
-  { name: "PuLP (Linear Programming)", level: 55, category: "Vision / ML" },
-  { name: "Folium", level: 55, category: "Vision / ML" },
+  { name: "NLP", level: 60, category: "AI / LLM" },
+  { name: "Ollama", level: 65, category: "AI / LLM" },
 ]
 
 export function getProficiencyLabel(level) {
