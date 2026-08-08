@@ -7,91 +7,75 @@ import SectionHeading from '../SectionHeading.astro'
   <div class="max-w-4xl mx-auto about-section">
     <SectionHeading id="about-heading" title="About" accent="Me" />
 
-    <div class="space-y-4 text-text-muted text-lg leading-relaxed">
-      <p>
-        I'm a Computer Science graduate from <span class="text-text font-medium">VIT Vellore</span>{
-          ' '
-        }(graduated{' '}{SITE_CONFIG.graduation}), focused on{' '}
-        <span class="text-text font-medium">GenAI, LLMs, and agentic AI systems</span> — from RAG pipelines
-        and fine-tuned models to multi-agent orchestration and production AI platforms.
-      </p>
+    <div class="gradient-border p-6 sm:p-8">
+      <div class="space-y-4 text-text-muted text-lg leading-relaxed">
+        <p>
+          I'm a Computer Science graduate from <span class="text-text font-medium">VIT Vellore</span
+          >{' '}(graduated{' '}{SITE_CONFIG.graduation}), focused on{' '}
+          <span class="text-text font-medium">GenAI, LLMs, and agentic AI systems</span> — from RAG pipelines
+          and fine-tuned models to multi-agent orchestration and production AI platforms.
+        </p>
 
-      <p>
-        My key AI projects include <a
-          href="/docs/projects/nexusaos"
-          class="text-primary-light font-medium hover:underline">NexusAOS</a
-        >{' '}(a governance-first agentic OS with multi-agent swarm orchestration, LLM fine-tuning
-        with QLoRA, and 30+ MCP tools),{' '}
-        <a href="/docs/projects/nexus-kernel" class="text-primary-light font-medium hover:underline"
-          >nexus-kernel</a
-        >{' '}(a production-ready Rust AI microkernel with 981 tests, event-sourced governance, and
-        OpenAI/Anthropic streaming), and{' '}
-        <a href="/docs/projects/seshaos" class="text-primary-light font-medium hover:underline"
-          >SeshaOS</a
-        >{' '}(a local-first AI OS with specialist models: Gemma 4 12B, Qwen3-Coder 30B, and Qwen3.5
-        9B). I've also built{' '}
-        <a href="/docs/projects/rag-service" class="text-primary-light font-medium hover:underline"
-          >RAG Service</a
-        >{' '}(a production RAG API with hybrid retrieval over ChromaDB),{' '}
-        <a
-          href="/docs/projects/llm-eval-harness"
-          class="text-primary-light font-medium hover:underline">LLM Eval Harness</a
-        >{' '}(a golden-set evaluation toolkit for LLM outputs),{' '}
-        <a href="/docs/projects/vyakrti" class="text-primary-light font-medium hover:underline"
-          >Vyākṛti</a
-        >{' '}(a complete programming language with compiler and web IDE),{' '}
-        <a href="/#projects" class="text-primary-light font-medium hover:underline">AIM</a>{' '}(a
-        production-hardened attendance system with 101 tests and CI/CD), and{' '}
-        <a href="/#projects" class="text-primary-light font-medium hover:underline">FWRS</a>{' '}(a
-        food waste optimization platform using linear programming).
-      </p>
+        <p>
+          My key AI projects include <a
+            href="/docs/projects/nexusaos"
+            class="text-primary-light font-medium hover:underline">NexusAOS</a
+          >{' '}(a governance-first agentic OS with multi-agent swarm orchestration, LLM fine-tuning
+          with QLoRA, and 30+ MCP tools),{' '}
+          <a
+            href="/docs/projects/nexus-kernel"
+            class="text-primary-light font-medium hover:underline">nexus-kernel</a
+          >{' '}(a production-ready Rust AI microkernel with 981 tests, event-sourced governance,
+          and OpenAI/Anthropic streaming), and{' '}
+          <a href="/docs/projects/seshaos" class="text-primary-light font-medium hover:underline"
+            >SeshaOS</a
+          >{' '}(a local-first AI OS with specialist models: Gemma 4 12B, Qwen3-Coder 30B, and
+          Qwen3.5 9B). I've also built{' '}
+          <a
+            href="/docs/projects/rag-service"
+            class="text-primary-light font-medium hover:underline">RAG Service</a
+          >{' '}(a production RAG API with hybrid retrieval over ChromaDB),{' '}
+          <a
+            href="/docs/projects/llm-eval-harness"
+            class="text-primary-light font-medium hover:underline">LLM Eval Harness</a
+          >{' '}(a golden-set evaluation toolkit for LLM outputs),{' '}
+          <a href="/docs/projects/vyakrti" class="text-primary-light font-medium hover:underline"
+            >Vyākṛti</a
+          >{' '}(a complete programming language with compiler and web IDE),{' '}
+          <a href="/#projects" class="text-primary-light font-medium hover:underline">AIM</a>{' '}(a
+          production-hardened attendance system with 101 tests and CI/CD), and{' '}
+          <a href="/#projects" class="text-primary-light font-medium hover:underline">FWRS</a>{
+            ' '
+          }(a food waste optimization platform using linear programming).
+        </p>
 
-      <p>
-        I've also completed an Industry 5.0 industrial automation training internship, working with
-        PLCs (CODESYS), process simulation (Factory I/O), and Node-RED.
-      </p>
+        <p>
+          I've also completed an Industry 5.0 industrial automation training internship, working
+          with PLCs (CODESYS), process simulation (Factory I/O), and Node-RED.
+        </p>
 
-      <p>
-        I'm looking for <span class="text-text">GenAI / LLM Engineer</span>, <span class="text-text"
-          >Agentic AI Engineer</span
-        >, or <span class="text-text">AI Engineer</span> roles. Based in {SITE_CONFIG.location} and open
-        to relocation.
-      </p>
-    </div>
+        <p>
+          I'm looking for <span class="text-text">GenAI / LLM Engineer</span>, <span
+            class="text-text">Agentic AI Engineer</span
+          >, or <span class="text-text">AI Engineer</span> roles. Based in {SITE_CONFIG.location} and
+          open to relocation.
+        </p>
+      </div>
 
-    <div class="mt-8 flex flex-wrap gap-3">
-      {
-        [
-          `B.Tech CSE, VIT Vellore`,
-          `Graduated ${SITE_CONFIG.graduation}`,
-          SITE_CONFIG.location,
-          'Open to relocation',
-        ].map((tag) => (
-          <span class="px-3 py-1 rounded-full text-sm bg-bg-card border border-border text-text-muted cursor-default transition hover:shadow-[0_0_6px_rgba(148,163,184,0.2)] hover:border-border-light">
-            {tag}
-          </span>
-        ))
-      }
+      <div class="mt-8 flex flex-wrap gap-3">
+        {
+          [
+            `B.Tech CSE, VIT Vellore`,
+            `Graduated ${SITE_CONFIG.graduation}`,
+            SITE_CONFIG.location,
+            'Open to relocation',
+          ].map((tag) => (
+            <span class="px-3 py-1 rounded-full text-sm bg-bg-card border border-border text-text-muted cursor-default transition hover:shadow-[0_0_6px_rgba(148,163,184,0.2)] hover:border-border-light">
+              {tag}
+            </span>
+          ))
+        }
+      </div>
     </div>
   </div>
 </section>
-
-<script>
-  import gsap from 'gsap'
-  import { prefersReducedMotion } from '../../utils/dom.ts'
-
-  if (!prefersReducedMotion()) {
-    gsap.from('.about-section > *', {
-      scrollTrigger: {
-        trigger: '.about-section',
-        start: 'top 80%',
-        once: true,
-      },
-      opacity: 0,
-      y: 30,
-      duration: 0.8,
-      stagger: 0.15,
-      ease: 'power3.out',
-    })
-  }
-</script>
