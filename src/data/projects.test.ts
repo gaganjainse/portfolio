@@ -2,8 +2,16 @@ import { describe, it, expect } from 'vitest'
 import { PROJECTS, getTagClasses } from './projects.ts'
 
 describe('PROJECTS data', () => {
-  it('lists six projects', () => {
-    expect(PROJECTS.length).toBe(6)
+  it('lists eight projects', () => {
+    expect(PROJECTS.length).toBe(8)
+  })
+
+  it('has exactly six featured projects (shown on the resume)', () => {
+    const featured = PROJECTS.filter((p) => p.featured)
+    expect(featured.length).toBe(6)
+    for (const project of featured) {
+      expect(project.github).toMatch(/^https:\/\/github\.com\/gaganjainse\//)
+    }
   })
 
   it('every project has a title, tag, tagColor, description, tech stack and github link', () => {

@@ -10,16 +10,17 @@ import { EXPERIENCE } from '../data/experience.ts'
 import { groupByCategory, SKILLS } from '../data/skills.ts'
 
 export const skillCategories = groupByCategory(SKILLS)
+export const RESUME_PROJECTS = PROJECTS.filter((project) => project.featured)
 
 <div class="max-w-4xl mx-auto px-4 sm:px-6 pt-20 sm:pt-24 pb-16 resume-page">
   <div class="rounded-xl shadow-2xl shadow-black/20 bg-bg-card/80 backdrop-blur-sm p-6 sm:p-10 resume-sheet">
   <div class="text-center mb-10">
-    <h1 class="text-3xl sm:text-4xl font-bold mb-3 gradient-text">Gagan Jain</h1>
-    <p class="text-lg text-text-muted mb-2">AI / LLM Engineer</p>
-    <p class="text-text-muted">
+    <h1 class="text-3xl sm:text-4xl font-bold mb-3 gradient-text resume-name">Gagan Jain</h1>
+    <p class="text-lg text-text-muted mb-2 resume-role">AI / LLM Engineer</p>
+    <p class="text-text-muted resume-contact">
       {SITE_CONFIG.location} &middot; {SITE_CONFIG.phone} &middot; <a href={`mailto:${SITE_CONFIG.email}`} class="text-accent hover:underline">{SITE_CONFIG.email}</a>
     </p>
-    <div class="flex flex-wrap items-center justify-center gap-3 mt-3 text-sm">
+    <div class="flex flex-wrap items-center justify-center gap-3 mt-3 text-sm resume-social">
       <a href="https://linkedin.com/in/gaganjainse" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline inline-flex items-center gap-1">
         linkedin.com/in/gaganjainse
         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
@@ -40,11 +41,12 @@ export const skillCategories = groupByCategory(SKILLS)
 <section class="mb-10 scroll-mt-24">
   <h2 class="text-xl font-bold gradient-text mb-3">Professional Summary</h2>
   <p class="text-text-muted leading-relaxed">
-    AI/LLM Engineer with hands-on experience building and deploying production-grade GenAI systems,
-    agentic AI frameworks, and LLM-powered applications. Core strengths include RAG pipelines,
-    multi-agent orchestration, LLM fine-tuning (QLoRA/LoRA), prompt and context engineering, MCP
-    tooling, and evaluation/observability. Strong Python foundation with end-to-end deployment
-    experience using Docker, CI/CD, and cloud platforms.
+    AI Engineer focused on production-grade GenAI systems: agentic AI orchestration, RAG pipelines,
+    LLM fine-tuning (QLoRA/LoRA), MCP tooling, and local-first LLM deployment. Author of NexusAOS, a
+    governance-first, event-sourced AI operating environment written in Rust (12 workspace crates,
+    981 tests, full CI/CD) with provider-agnostic LLM streaming (OpenAI/Anthropic), policy-enforced
+    agent actions, and terminal/SSH integration. Strong Python + Rust foundation with end-to-end
+    deployment: Docker, GitHub Actions, observability, and AI governance.
   </p>
 </section>
 
@@ -65,7 +67,7 @@ export const skillCategories = groupByCategory(SKILLS)
 <section class="mb-10 scroll-mt-24">
   <h2 class="text-xl font-bold gradient-text mb-4">Projects</h2>
   <div class="space-y-5">
-    {PROJECTS.map((project) => (
+    {RESUME_PROJECTS.map((project) => (
       <div class="rounded-xl border border-border p-5">
         <div class="flex flex-wrap items-center gap-2 mb-2">
           <h3 class="text-lg font-bold text-text">{project.title}</h3>

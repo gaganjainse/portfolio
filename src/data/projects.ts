@@ -12,6 +12,7 @@ export interface Project {
   tests: number
   github: string
   docs?: string
+  featured?: boolean
 }
 
 const TAG_CLASSES: Record<TagColor, string> = {
@@ -29,17 +30,29 @@ export function getTagClasses(tagColor: string): string {
 export const PROJECTS: Project[] = [
   {
     title: 'NexusAOS',
+    featured: true,
     tag: 'AI/AGENTIC',
     tagColor: 'pink',
     description:
-      'Governance-first agentic OS with multi-agent swarm orchestration, LLM fine-tuning, and 30+ MCP tools.',
+      'Governance-first, event-sourced AI operating environment in Rust — 12 workspace crates, 981 tests, provider-agnostic LLM streaming.',
     bullets: [
-      'Built multi-agent swarm executor with collision detection, namespace isolation, quorum voting, and atomic fission in Python + asyncio',
-      'Integrated local LLM inference with Phi-4-Mini QLoRA adapters, AB/AP balance enforcement, and constitution-guided routing',
-      'Exposed 30+ MCP tools via FastMCP for metabolic, planning, immune, and physical substrate control',
-      'Designed adapter-routed inference with curriculum learning, evaluation harness, and model benchmarking',
+      'Designed a governance-first, event-sourced AI OS in Rust: 12 workspace crates, 981 passing tests, 0 clippy warnings, full GitHub Actions CI/CD',
+      'Built a policy-enforced agent kernel where LLMs propose actions and the kernel validates and records every state change in an append-only audit trail',
+      'Implemented a provider-agnostic LLM layer with OpenAI-compatible and Anthropic streaming, LiteLLM routing, and local-first inference that runs fully offline',
+      'Delivered native terminal emulation (PTY + VT100), SSH multiplexing, a secrets vault, and four interfaces: CLI, TUI, GUI, RPC',
     ],
-    tech: ['Python', 'FastMCP', 'QLoRA', 'Unsloth', 'Multi-Agent', 'MCP', 'AsyncIO', 'Rust', 'Zig'],
+    tech: [
+      'Rust',
+      'Tokio',
+      'Event Sourcing',
+      'LiteLLM',
+      'OpenAI',
+      'Anthropic',
+      'SSH',
+      'PTY',
+      'TUI',
+      'GUI',
+    ],
     tests: 0,
     github: `${GITHUB_BASE}/NexusAOS`,
     docs: '/docs/projects/nexusaos',
@@ -73,6 +86,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: 'SeshaOS',
+    featured: true,
     tag: 'AI/AGENTIC',
     tagColor: 'pink',
     description:
@@ -80,7 +94,7 @@ export const PROJECTS: Project[] = [
     bullets: [
       'Architected specialist model stack: Gemma 4 12B (Planner), Qwen3-Coder 30B (Implementation), Qwen3.5 9B (Vision)',
       'Designed kernel-centric governance where models propose actions and the kernel validates/records every state change',
-      'Implemented LiteLLM-compatible proxy support for NVIDIA NIM and other model providers',
+      'Built a LiteLLM-compatible proxy for NVIDIA NIM and other model providers',
       'Maintained event-sourced architecture with reversible, permissioned actions and offline-first execution',
     ],
     tech: [
@@ -99,6 +113,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: 'Vyākṛti',
+    featured: true,
     tag: 'FLAGSHIP',
     tagColor: 'primary',
     description:
@@ -116,6 +131,7 @@ export const PROJECTS: Project[] = [
   },
   {
     title: 'AIM — Attendance Information Manager',
+    featured: true,
     tag: 'PRODUCTION-READY',
     tagColor: 'green',
     description:
@@ -143,5 +159,48 @@ export const PROJECTS: Project[] = [
     tech: ['Python', 'PuLP', 'Folium', 'Flask', 'MySQL', 'Bootstrap'],
     tests: 0,
     github: `${GITHUB_BASE}/FWRS`,
+  },
+  {
+    title: 'RAG Service — Production RAG + Vector Search',
+    tag: 'GENAI',
+    tagColor: 'primary',
+    featured: true,
+    description:
+      'Production RAG API service: hybrid retrieval (vector + keyword), embeddings, reranking-ready, and an LLM-as-judge eval harness.',
+    bullets: [
+      'Built a FastAPI RAG service with hybrid retrieval (dense embeddings + BM25 keyword, merged via Reciprocal Rank Fusion) over ChromaDB',
+      'Implemented chunking strategies (recursive, semantic), embedding pipelines, and an /ask endpoint that streams grounded answers with citations',
+      'Shipped LLM-as-judge evaluation harness (faithfulness, answer relevance, correctness) with golden-set CI gate and RAGAS-style reports',
+      'Containerized with Docker Compose; OpenAI-compatible LLM interface with local-first fallback',
+    ],
+    tech: [
+      'Python',
+      'FastAPI',
+      'ChromaDB',
+      'Embeddings',
+      'Hybrid Search',
+      'RAG',
+      'LLM-as-Judge',
+      'Docker',
+    ],
+    tests: 28,
+    github: `${GITHUB_BASE}/rag-service`,
+  },
+  {
+    title: 'LLM Eval Harness',
+    tag: 'GENAI',
+    tagColor: 'primary',
+    featured: true,
+    description:
+      'Reusable LLM evaluation harness: golden-set YAML, LLM-as-judge metrics, offline heuristic fallbacks, and CI-ready reports.',
+    bullets: [
+      'Built a golden-set-driven evaluation harness with faithfulness, answer-relevance, and correctness metrics (LLM-as-judge + lexical fallbacks)',
+      'Added offline heuristic scorers so evals run in CI without API keys; JSON + Markdown reports for regression tracking',
+      'Designed golden-set YAML format (question, golden answer, context) and a CLI: python -m eval_harness --golden-set ...',
+      'Containerized and CI-ready; used to gate the RAG service pipeline',
+    ],
+    tech: ['Python', 'LLM-as-Judge', 'Golden Sets', 'RAGAS', 'CLI', 'CI/CD', 'Pytest'],
+    tests: 15,
+    github: `${GITHUB_BASE}/llm-eval-harness`,
   },
 ]
