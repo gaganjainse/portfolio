@@ -43,6 +43,9 @@ const next =
   currentIndex >= 0 && currentIndex < DOC_ORDER.length - 1 ? DOCS[currentIndex + 1] : null
 
 const SECTIONS = ['Overview', 'Projects']
+
+const navBtnClass =
+  'inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium border transition'
 ---
 
 <BaseLayout title={title} description={description}>
@@ -99,65 +102,15 @@ const SECTIONS = ['Overview', 'Projects']
 
       {/* ---- Main content ---- */}
       <div class="flex-1 min-w-0">
-        {/* Back / next buttons at top */}
-        <div class="flex items-center justify-between gap-3 mb-6 no-print">
-          <a
-            href="/"
-            class="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-text transition"
-          >
-            <svg
-              class="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              stroke-width="2"
-              aria-hidden="true"
-            >
-              <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"
-              ></path>
-            </svg>
-            Back to Home
-          </a>
-          {
-            next && (
-              <a
-                href={next.href}
-                class="inline-flex items-center gap-1.5 text-sm text-primary-light hover:text-text transition"
-              >
-                Next: {next.label}
-                <svg
-                  class="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  stroke-width="2"
-                  aria-hidden="true"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  />
-                </svg>
-              </a>
-            )
-          }
-        </div>
-
-        {/* Bordered wrapper card */}
+        {/* Previous | Home | Next — all in one bordered card */}
         <div
-          class="border border-border-light/60 rounded-2xl bg-bg-card/60 backdrop-blur-sm p-6 sm:p-10 shadow-2xl shadow-black/20 docs-sheet"
+          class="border border-border-light/60 rounded-xl bg-bg-card/60 backdrop-blur-sm p-3 mb-6 flex items-center justify-between gap-2 no-print"
         >
-          <slot />
-        </div>
-
-        {/* Prev / next footer */}
-        <div class="flex items-center justify-between gap-3 mt-6 no-print">
           {
             prev ? (
               <a
                 href={prev.href}
-                class="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-text transition"
+                class={`${navBtnClass} bg-bg text-text-muted border-border hover:text-text hover:border-primary/40`}
               >
                 <svg
                   class="w-4 h-4"
@@ -172,14 +125,47 @@ const SECTIONS = ['Overview', 'Projects']
                 {prev.label}
               </a>
             ) : (
-              <span />
+              <span
+                class={`${navBtnClass} bg-bg text-text-muted/40 border-border cursor-not-allowed`}
+              >
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                </svg>
+                Previous
+              </span>
             )
           }
+
+          <a
+            href="/docs/getting-started"
+            class={`${navBtnClass} bg-primary/15 text-primary-light border-primary/40 hover:bg-primary/25`}
+          >
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9 9 9M5 10v10h14V10"
+              ></path>
+            </svg>
+            Home
+          </a>
+
           {
-            next && (
+            next ? (
               <a
                 href={next.href}
-                class="inline-flex items-center gap-1.5 text-sm text-text-muted hover:text-text transition"
+                class={`${navBtnClass} bg-bg text-text-muted border-border hover:text-text hover:border-primary/40`}
               >
                 {next.label}
                 <svg
@@ -193,8 +179,31 @@ const SECTIONS = ['Overview', 'Projects']
                   <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
               </a>
+            ) : (
+              <span
+                class={`${navBtnClass} bg-bg text-text-muted/40 border-border cursor-not-allowed`}
+              >
+                Next
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
             )
           }
+        </div>
+
+        {/* Bordered wrapper card */}
+        <div
+          class="border border-border-light/60 rounded-2xl bg-bg-card/60 backdrop-blur-sm p-6 sm:p-10 shadow-2xl shadow-black/20 docs-sheet"
+        >
+          <slot />
         </div>
       </div>
     </div>
