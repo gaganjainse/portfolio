@@ -97,7 +97,7 @@ src/
 ├── styles/               # Global CSS + Tailwind v4 theme tokens
 ├── data/                 # Single-source data (config, projects, skills, experience)
 └── utils/                # GSAP + DOM helpers (reduced-motion, scroll progress)
-public/                   # Static assets (favicon, icons, resume.pdf, robots.txt)
+public/                   # Static assets (favicon.svg + PNG favicons, icons, resume.pdf, robots.txt)
 scripts/                  # PDF generation (puppeteer)
 .github/workflows/        # CI (build + test + type-check + lint)
 ```

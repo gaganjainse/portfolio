@@ -162,11 +162,10 @@ for s in sizes:
     pngs[s] = img
     print(f"wrote favicon-{s}.png")
 
-# favicon.ico (32x32 + 16x16)
-ico = Image.new("RGBA", (32, 32), (0, 0, 0, 0))
-ico.paste(pngs[32], (0, 0))
-ico16 = pngs[16]
-# Pillow can write multi-size ICO directly
-ico_path = f"{OUT}/favicon.ico"
-pngs[16].save(ico_path, format="ICO", sizes=[(16, 16), (32, 32)])
+# apple-touch-icon.png — the same favicon design at 180x180 (iOS standard)
+make(180).save(f"{OUT}/apple-touch-icon.png")
+print("wrote apple-touch-icon.png (180x180, favicon design)")
+
+# favicon.ico (multi-size: 16 + 32)
+pngs[16].save(f"{OUT}/favicon.ico", format="ICO", sizes=[(16, 16), (32, 32)])
 print("wrote favicon.ico")
