@@ -153,19 +153,24 @@ def make(size):
     return base
 
 
-sizes = [16, 32, 192, 512]
-pngs = {}
-for s in sizes:
-    img = make(s)
-    path = f"{OUT}/favicon-{s}.png"
-    img.save(path)
-    pngs[s] = img
-    print(f"wrote favicon-{s}.png")
+def main():
+    sizes = [16, 32, 192, 512]
+    pngs = {}
+    for s in sizes:
+        img = make(s)
+        path = f"{OUT}/favicon-{s}.png"
+        img.save(path)
+        pngs[s] = img
+        print(f"wrote favicon-{s}.png")
 
-# apple-touch-icon.png — the same favicon design at 180x180 (iOS standard)
-make(180).save(f"{OUT}/apple-touch-icon.png")
-print("wrote apple-touch-icon.png (180x180, favicon design)")
+    # apple-touch-icon.png — the same favicon design at 180x180 (iOS standard)
+    make(180).save(f"{OUT}/apple-touch-icon.png")
+    print("wrote apple-touch-icon.png (180x180, favicon design)")
 
-# favicon.ico (multi-size: 16 + 32)
-pngs[16].save(f"{OUT}/favicon.ico", format="ICO", sizes=[(16, 16), (32, 32)])
-print("wrote favicon.ico")
+    # favicon.ico (multi-size: 16 + 32)
+    pngs[16].save(f"{OUT}/favicon.ico", format="ICO", sizes=[(16, 16), (32, 32)])
+    print("wrote favicon.ico")
+
+
+if __name__ == "__main__":
+    main()

@@ -112,69 +112,24 @@ def gradient_text(draw, text, font, center_x, center_y, color_top, color_bottom)
 
 
 def draw_favicon_tile(img, cx, cy, size):
-    """Draw the favicon design (dark tile, gradient ring, glow orbs, GJ) centered
-    at (cx, cy) with the given pixel size — matches public/favicon.svg."""
-    d = ImageDraw.Draw(img, "RGBA")
-    pad = max(1, int(size * 0.02))
-    radius = int(size * 0.22)
-    # rounded tile (dark)
-    d.rounded_rectangle(
-        [cx - size // 2 + pad, cy - size // 2 + pad, cx + size // 2 - pad, cy + size // 2 - pad],
-        radius=radius,
-        fill=(10, 10, 15, 255),
+    """Paste the favicon design (dark tile, gradient ring, glow orbs, GJ) —
+    rendered by the same make() used for the favicon PNGs, so it matches
+    exactly and the glow orbs are smooth radial gradients (no hard edges)."""
+    # import from the sibling generator (make is pure; writes only under __main__)
+    import sys, os, importlib.util
+    here = os.path.dirname(os.path.abspath(__file__))
+    spec = importlib.util.spec_from_file_location(
+        "generate_favicons", os.path.join(here, "generate-favicons.py")
     )
-    # glow orbs (top-left violet, bottom-right cyan)
-    d.ellipse(
-        [cx - size // 2, cy - size // 2, cx, cy],
-        fill=(124, 58, 237, 90),
-    )
-    d.ellipse(
-        [cx, cy, cx + size // 2, cy + size // 2],
-        fill=(6, 182, 212, 70),
-    )
-    # gradient ring
-    ring_w = max(2, int(size * 0.025))
-    for i in range(ring_w):
-        t = i / max(ring_w, 1)
-        col = (
-            int(167 + (34 - 167) * t),
-            int(139 + (211 - 139) * t),
-            int(250 + (238 - 250) * t),
-            255,
-        )
-        d.rounded_rectangle(
-            [
-                cx - size // 2 + pad + i,
-                cy - size // 2 + pad + i,
-                cx + size // 2 - pad - i,
-                cy + size // 2 - pad - i,
-            ],
-            radius=max(1, radius - i),
-            outline=col,
-            width=1,
-        )
-    # GJ monogram in the brand gradient
-    fs = int(size * 0.5)
-    font = load_font("Inter-Bold.ttf", fs)
-    off = size
-    tmask = Image.new("L", (size * 2, size * 2), 0)
-    ImageDraw.Draw(tmask).text((off, off), "GJ", font=font, fill=255)
-    ink = tmask.getbbox()
-    iw, ih = ink[2] - ink[0], ink[3] - ink[1]
-    glyph = tmask.crop((ink[0], ink[1], ink[2], ink[3]))
-    tx = cx - iw // 2
-    ty = cy - ih // 2
-    for yy in range(ih):
-        for xx in range(iw):
-            if glyph.getpixel((xx, yy)) > 0:
-                t = min(1.0, (xx + yy) / max(iw + ih, 1))
-                col = (
-                    int(NAME_GRADIENT_TOP[0] + (NAME_GRADIENT_BOTTOM[0] - NAME_GRADIENT_TOP[0]) * t),
-                    int(NAME_GRADIENT_TOP[1] + (NAME_GRADIENT_BOTTOM[1] - NAME_GRADIENT_TOP[1]) * t),
-                    int(NAME_GRADIENT_TOP[2] + (NAME_GRADIENT_BOTTOM[2] - NAME_GRADIENT_TOP[2]) * t),
-                    255,
-                )
-                d.point((tx + xx, ty + yy), fill=col)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    make_tile = mod.make
+
+    tile = make_tile(size).convert("RGBA")
+    # paste centered at (cx, cy)
+    x0 = cx - size // 2
+    y0 = cy - size // 2
+    img.paste(tile, (x0, y0), tile)
 
 
 def main():
