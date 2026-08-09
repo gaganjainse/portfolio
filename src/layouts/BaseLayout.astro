@@ -412,7 +412,7 @@ const jsonLd = JSON.stringify({
           // with a JS smooth scrollTo can stall partway down the hero on some
           // browsers. Temporarily disable the CSS behavior so JS owns the
           // smooth scroll and always lands at exactly y = 0, then restore it.
-          const root = document.scrollingElement || document.documentElement
+          const root = (document.scrollingElement || document.documentElement) as HTMLElement
           const prev = root.style.scrollBehavior
           root.style.scrollBehavior = 'auto'
           root.scrollTo({ top: 0, behavior: 'smooth' })
