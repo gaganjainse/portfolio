@@ -15,3 +15,7 @@ dist/
 # Vercel
 .vercel/
 .astro/
+
+# Python
+__pycache__/
+*.pyc
