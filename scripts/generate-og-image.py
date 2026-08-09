@@ -7,15 +7,34 @@ glows, and the name rendered with the exact hero `gradient-text` colors
 (linear-gradient(135deg, #8b5cf6, #06b6d4)) so the card matches the site.
 
 Run:  python3 scripts/generate-og-image.py
-Needs: PIL + the Inter TTFs in /home/user/.fonts/Inter-*.ttf
+Needs: PIL + the Inter TTFs (FONT_DIR env, or ~/.fonts, ~/.local/share/fonts,
+       /usr/share/fonts)
 """
 
-from PIL import Image, ImageDraw, ImageFont
 import math
+import os
+from pathlib import Path
+
+from PIL import Image, ImageDraw, ImageFont
 
 W, H = 1200, 630
 BG = (10, 10, 15)
-FONT_DIR = "/home/user/.fonts"
+FONT_DIR = os.environ.get(
+    "FONT_DIR",
+    next(
+        (
+            str(p)
+            for p in (
+                Path.home() / ".fonts",
+                Path.home() / ".local/share/fonts",
+                Path("/usr/share/fonts"),
+            )
+            if (p / "Inter-Bold.ttf").exists()
+        ),
+        "/home/user/.fonts",
+    ),
+)
+OUT = os.environ.get("OUT_DIR", str(Path(__file__).resolve().parent.parent / "public"))
 
 # Radial glow sources: (cx, cy, (r,g,b), radius, strength)
 # falloff = strength * (1 - d/radius)^2, added per-pixel onto the background.
@@ -184,7 +203,7 @@ def main():
         draw.text((x, y), text, font=font, fill=color)
 
     img = img.resize((W, H), Image.LANCZOS)
-    img.save("/home/user/final-check/public/og-image.png")
+    img.save(f"{OUT}/og-image.png")
     print("wrote public/og-image.png", img.size)
 
 

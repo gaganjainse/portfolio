@@ -1,8 +1,22 @@
+// Browser audit: every page — console errors, failed requests, meta tags,
+// and serious/critical axe-core violations.
+// Usage: BASE_URL=http://localhost:4321 node scripts/audit-final.mjs
+// (requires the site to be served; set PUPPETEER_EXECUTABLE_PATH if puppeteer
+//  cannot resolve its bundled Chrome, e.g. when its postinstall was skipped)
 import puppeteer from 'puppeteer'
+import fs from 'node:fs'
 import { AxePuppeteer } from '@axe-core/puppeteer'
-const chrome = '/home/user/.cache/puppeteer/chrome/linux-151.0.7922.71/chrome-linux64/chrome'
+
+const BASE = process.env.BASE_URL || 'http://localhost:4321'
+let executablePath
+try {
+  const p = puppeteer.executablePath()
+  if (fs.existsSync(p)) executablePath = p
+} catch {
+  // puppeteer's bundled Chrome isn't installed — let puppeteer resolve/download it
+}
 const browser = await puppeteer.launch({
-  executablePath: chrome,
+  ...(executablePath ? { executablePath } : {}),
   headless: 'new',
   protocolTimeout: 90000,
   args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
@@ -45,7 +59,7 @@ for (const path of pages) {
   })
   let ok = true
   try {
-    await page.goto(`http://localhost:4321${path}`, { waitUntil: 'load', timeout: 20000 })
+    await page.goto(`${BASE}${path}`, { waitUntil: 'load', timeout: 20000 })
     await new Promise((r) => setTimeout(r, 400))
   } catch (e) {
     ok = false

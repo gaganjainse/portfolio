@@ -29,7 +29,7 @@ Personal portfolio website of **Gagan Jain** — AI / LLM Engineer. Built with [
 ## ✨ Features
 
 - **Dark / Light mode** — toggle in the nav; follows the OS preference by default and persists your choice in `localStorage` (no flash-of-wrong-theme)
-- **Data-driven single-source résumé** — the web résumé and `resume.pdf` are generated from the same data files (`src/data/`), so they can't drift
+- **Data-driven web résumé** — `/resume` is generated from the same data files as the site (`src/data/`), so it can't drift; `resume.pdf` is built from the standalone `public/resume.html` (kept in sync) so both stay current
 - **Vercel Web Analytics + Speed Insights** — privacy-friendly analytics and performance monitoring via `@vercel/analytics` and `@vercel/speed-insights`
 - **Hybrid-retrieval RAG service** — dense + BM25 keyword search fused with Reciprocal Rank Fusion (see [rag-service](https://github.com/gaganjainse/rag-service))
 - **LLM evaluation harness** — golden-set metrics with LLM-as-judge and offline fallbacks (see [llm-eval-harness](https://github.com/gaganjainse/llm-eval-harness))
@@ -67,12 +67,21 @@ npm run build        # Production build
 npm run preview      # Preview production build
 npm test             # Unit tests (vitest)
 npm run check        # Type-check (astro check)
-npm run typecheck     # Alias for CI / Vercel checks
 npm run lint         # ESLint
 npm run format       # Prettier (write)
 npm run format:check # Prettier (verify)
-npm run resume:pdf   # Regenerate public/resume.pdf from the built /resume page
+npm run resume:pdf   # Regenerate public/resume.pdf from public/resume.html (puppeteer)
 ```
+
+### Regenerating assets
+
+```bash
+python3 scripts/generate-favicons.py   # favicon PNGs + ICO + apple-touch-icon (needs PIL + Inter TTFs)
+python3 scripts/generate-og-image.py   # public/og-image.png — the 1200×630 social card
+npm run resume:pdf                     # public/resume.pdf from public/resume.html
+```
+
+The Python generators take `FONT_DIR` and `OUT_DIR` env vars and default to `~/.fonts` / `~/.local/share/fonts` and the repo's `public/` folder, so they work on any machine.
 
 ## 🛠️ Tech Stack
 
@@ -92,24 +101,38 @@ npm run resume:pdf   # Regenerate public/resume.pdf from the built /resume page
 src/
 ├── components/
 │   └── sections/        # Page sections (Hero, About, Skills, Projects, Contact)
-├── layouts/              # BaseLayout (theme boot, nav, footer, analytics)
-├── pages/                # File-based routing (/, /resume, /404, /docs)
+├── layouts/              # BaseLayout (theme boot, nav, footer, analytics) + DocsLayout
+├── pages/                # File-based routing (/, /resume, /404, /docs — incl. Site Map)
 ├── styles/               # Global CSS + Tailwind v4 theme tokens
-├── data/                 # Single-source data (config, projects, skills, experience)
+├── data/                 # Single-source data (config, projects, skills, experience) + tests
 └── utils/                # GSAP + DOM helpers (reduced-motion, scroll progress)
-public/                   # Static assets (favicon.svg + PNG favicons, icons, resume.pdf, robots.txt)
-scripts/                  # PDF (puppeteer), OG image, favicons, avatar generators
-.github/workflows/        # CI (build + test + type-check + lint)
+public/                   # Static assets (favicon.svg + PNG favicons, og-image, resume, robots.txt, llms.txt)
+screenshots/              # README/social screenshots (incl. og-image.png for the GitHub social preview)
+scripts/                  # Generators (favicons, OG image, résumé PDF) + audits (dist, final, glow)
+.github/workflows/        # CI (build + test + check + lint + format)
 ```
+
+## 🧪 Verification
+
+The audit scripts run against the built site (serve it first) and exit non-zero on any failure:
+
+```bash
+npm run build
+python3 -m http.server 4321 --directory dist   # serve the built site
+node scripts/audit-dist.mjs                    # static dist checks (files, links, sitemap, meta, patterns)
+BASE_URL=http://localhost:4321 node scripts/audit-final.mjs   # every page: console, requests, meta, axe
+BASE_URL=http://localhost:4321 node scripts/verify-glow.mjs   # hover glow on every card
+```
+
+The GitHub Actions CI workflow runs `check`, `lint`, `format:check`, `test`, and `build` on every push/PR.
 
 ## 📄 Résumé
 
 Résumé is available at [`/resume`](https://gaganjain.vercel.app/resume) and as a PDF at [`/resume.pdf`](https://gaganjain.vercel.app/resume.pdf). The old `/résumé` URLs redirect with a 301.
 
-The web résumé is generated from the same data files as the site (`src/data/skills.ts`, `src/data/experience.ts`, `src/data/projects.ts`), so it can't drift. To regenerate the PDF from the built site:
+The web résumé is generated from the same data files as the site (`src/data/skills.ts`, `src/data/experience.ts`, `src/data/projects.ts`), so it can't drift. The PDF is rendered from the standalone `public/resume.html` (A4, no header/footer) which mirrors the web résumé:
 
 ```bash
-npm run build
 npm run resume:pdf
 ```
 

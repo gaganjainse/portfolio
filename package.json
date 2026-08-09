@@ -17,8 +17,7 @@
     "test:watch": "vitest",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "resume:pdf": "node scripts/generate-résumé-pdf.js",
-    "typecheck": "astro check"
+    "resume:pdf": "node scripts/generate-résumé-pdf.js"
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.5",
