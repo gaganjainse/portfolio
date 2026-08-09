@@ -98,7 +98,7 @@ src/
 ├── data/                 # Single-source data (config, projects, skills, experience)
 └── utils/                # GSAP + DOM helpers (reduced-motion, scroll progress)
 public/                   # Static assets (favicon.svg + PNG favicons, icons, resume.pdf, robots.txt)
-scripts/                  # PDF generation (puppeteer)
+scripts/                  # PDF (puppeteer), OG image, favicons, avatar generators
 .github/workflows/        # CI (build + test + type-check + lint)
 ```
 

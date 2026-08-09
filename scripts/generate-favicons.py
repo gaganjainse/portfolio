@@ -77,7 +77,7 @@ def make(size):
     # gradient border ring: outer rounded rect minus inner rounded rect.
     # Only the ring band is replaced on the tile — the interior keeps its
     # dark base + glow orbs (no black hole).
-    bw = 2.5 / 100 * size  # favicon.svg stroke-width 2.5
+    bw = 1.6 / 100 * size  # subtle ring (favicon.svg stroke-width 2)
     ring_band = Image.new("L", (size, size), 0)
     rbd = ImageDraw.Draw(ring_band)
     rbd.rounded_rectangle([pad, pad, size - pad - 1, size - pad - 1], radius=radius, fill=255)
