@@ -8,10 +8,9 @@ import { SITE_CONFIG } from '../data/config.ts'
 import { PROJECTS, getTagClasses } from '../data/projects.ts'
 import { EXPERIENCE } from '../data/experience.ts'
 import ProjectLinkButton from '../components/ProjectLinkButton.astro'
+import PrimaryButton from '../components/PrimaryButton.astro'
 import Icon from '../components/Icon.astro'
 import Pill from '../components/Pill.astro'
-
-// Mirrors the PDF résumé (public/resume.pdf) — same sections and content.
 
 export const SKILL_GROUPS = [
   {
@@ -51,8 +50,18 @@ export const SOCIAL_LINKS = [
 ]
 
 <div class="max-w-4xl mx-auto px-4 sm:px-6 pt-20 sm:pt-24 pb-16 resume-page">
-  <div class="glow-card rounded-xl shadow-2xl shadow-black/20 bg-bg-card/80 backdrop-blur-sm p-6 sm:p-10 resume-sheet">
+  <div class="glow-card relative rounded-xl shadow-2xl shadow-black/20 bg-bg-card/80 backdrop-blur-sm p-6 sm:p-10 resume-sheet">
+    <div class="no-print absolute top-4 right-4 sm:top-6 sm:right-6">
+      <PrimaryButton href="/resume.pdf" label="Download PDF" icon="download" external />
+    </div>
   <div class="text-center mb-10">
+    <div class="flex justify-center mb-4">
+      <img
+        src="/favicon.svg"
+        alt="Gagan Jain"
+        class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl shadow-lg shadow-primary/20"
+      />
+    </div>
     <h1 class="text-3xl sm:text-4xl font-bold mb-3 gradient-text resume-name">Gagan Jain</h1>
     <p class="text-lg text-text-muted mb-2 resume-role">AI / LLM Engineer</p>
     <p class="text-text-muted resume-contact">{SITE_CONFIG.location} (Open to Relocation) &middot; {SITE_CONFIG.phone} &middot; <a href={`mailto:${SITE_CONFIG.email}`} class="text-accent hover:underline">{SITE_CONFIG.email}</a></p>
