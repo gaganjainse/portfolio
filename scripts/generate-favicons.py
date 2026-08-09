@@ -144,22 +144,29 @@ def make(size):
     return base
 
 
+def make_sharp(size, scale=4):
+    """Render at `scale`x then LANCZOS-downsample to the target size.
+    At exact size (especially 16px) the 2.5% ring and thin strokes fall below
+    one pixel and come out blurry/deformed — supersampling keeps them crisp
+    with proper antialiasing."""
+    big = make(size * scale)
+    return big.resize((size, size), Image.LANCZOS)
+
+
 def main():
-    sizes = [16, 32, 192, 512]
     pngs = {}
-    for s in sizes:
-        img = make(s)
-        path = f"{OUT}/favicon-{s}.png"
-        img.save(path)
+    for s in (16, 32, 192, 512):
+        img = make_sharp(s, 4 if s <= 32 else 2)
+        img.save(f"{OUT}/favicon-{s}.png")
         pngs[s] = img
         print(f"wrote favicon-{s}.png")
 
     # apple-touch-icon.png — the same favicon design at 180x180 (iOS standard)
-    make(180).save(f"{OUT}/apple-touch-icon.png")
+    make_sharp(180, 2).save(f"{OUT}/apple-touch-icon.png")
     print("wrote apple-touch-icon.png (180x180, favicon design)")
 
-    # favicon.ico (multi-size: 16 + 32)
-    pngs[16].save(f"{OUT}/favicon.ico", format="ICO", sizes=[(16, 16), (32, 32)])
+    # favicon.ico (multi-size: 16 + 32) — from the sharp 32px source
+    pngs[32].save(f"{OUT}/favicon.ico", format="ICO", sizes=[(16, 16), (32, 32)])
     print("wrote favicon.ico")
 
 
