@@ -74,36 +74,27 @@ def make(size):
     for (fx, fy, color, fr, fs) in GLOWS:
         radial_glow(px, size, int(size * fx), int(size * fy), color, size * fr, fs)
 
-    # gradient border ring: draw a slightly larger rounded rect in gradient
-    ring = Image.new("RGB", (size, size), (0, 0, 0))
-    rp = ring.load()
+    # gradient border ring: outer rounded rect minus inner rounded rect.
+    # Only the ring band is replaced on the tile — the interior keeps its
+    # dark base + glow orbs (no black hole).
     bw = 2.5 / 100 * size  # favicon.svg stroke-width 2.5
-    outer = size - 2 * pad
-    inner = outer - 2 * bw
-    # draw gradient on the ring band
-    for y in range(size):
-        for x in range(size):
-            # distance check via rounded-rect mask approximation
-            t = min(1.0, (x + y) / (2 * size))
-            col = (
-                int(RING_TOP[0] + (RING_BOTTOM[0] - RING_TOP[0]) * t),
-                int(RING_TOP[1] + (RING_BOTTOM[1] - RING_TOP[1]) * t),
-                int(RING_TOP[2] + (RING_BOTTOM[2] - RING_TOP[2]) * t),
-            )
-            rp[x, y] = col
-
-    ring_mask = Image.new("L", (size, size), 0)
-    rd = ImageDraw.Draw(ring_mask)
-    rd.rounded_rectangle([pad, pad, size - pad - 1, size - pad - 1], radius=radius, fill=255)
-    inner_mask = Image.new("L", (size, size), 0)
-    idd = ImageDraw.Draw(inner_mask)
+    ring_band = Image.new("L", (size, size), 0)
+    rbd = ImageDraw.Draw(ring_band)
+    rbd.rounded_rectangle([pad, pad, size - pad - 1, size - pad - 1], radius=radius, fill=255)
     in_pad = pad + int(bw)
     in_r = max(1, radius - int(bw))
-    idd.rounded_rectangle([in_pad, in_pad, size - in_pad - 1, size - in_pad - 1], radius=in_r, fill=255)
-    ring_final = Image.composite(ring, Image.new("RGB", (size, size), (0, 0, 0)), ring_mask)
-    ring_final = Image.composite(Image.new("RGB", (size, size), (0, 0, 0)), ring_final, inner_mask)
-    # add ring onto tile
-    tile_img = Image.composite(ring_final, tile_img, ring_mask)
+    rbd.rounded_rectangle([in_pad, in_pad, size - in_pad - 1, size - in_pad - 1], radius=in_r, fill=0)
+
+    tp = tile_img.load()
+    for y in range(size):
+        for x in range(size):
+            if ring_band.getpixel((x, y)) > 0:
+                t = min(1.0, (x + y) / (2 * size))
+                tp[x, y] = (
+                    int(RING_TOP[0] + (RING_BOTTOM[0] - RING_TOP[0]) * t),
+                    int(RING_TOP[1] + (RING_BOTTOM[1] - RING_TOP[1]) * t),
+                    int(RING_TOP[2] + (RING_BOTTOM[2] - RING_TOP[2]) * t),
+                )
 
     # GJ monogram in brand gradient
     fs = int(size * 0.5)
