@@ -6,12 +6,31 @@ monogram in the brand gradient — rasterized with PIL + Inter TTFs so the
 result is crisp at every favicon size.
 
 Run:  python3 scripts/generate-favicons.py
+Needs: PIL + the Inter TTFs (FONT_DIR env, or ~/.fonts, ~/.local/share/fonts,
+       /usr/share/fonts)
 """
-from PIL import Image, ImageDraw, ImageFont
 import math
+import os
+from pathlib import Path
 
-FONT_DIR = "/home/user/.fonts"
-OUT = "/home/user/final-check/public"
+from PIL import Image, ImageDraw, ImageFont
+
+FONT_DIR = os.environ.get(
+    "FONT_DIR",
+    next(
+        (
+            str(p)
+            for p in (
+                Path.home() / ".fonts",
+                Path.home() / ".local/share/fonts",
+                Path("/usr/share/fonts"),
+            )
+            if (p / "Inter-Bold.ttf").exists()
+        ),
+        "/home/user/.fonts",
+    ),
+)
+OUT = os.environ.get("OUT_DIR", str(Path(__file__).resolve().parent.parent / "public"))
 
 BG = (10, 10, 15)
 GRAD_TOP = (139, 92, 246)    # #8b5cf6

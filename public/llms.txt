@@ -12,6 +12,8 @@ GenAI systems, agentic AI, RAG, multi-agent orchestration, LLM fine-tuning, Rust
 - FWRS: Food-waste optimization with a 3-stage lexicographic LP (fairness → priority → cost) and expiry-aware routing.
 
 ## Links
+- Website: https://gaganjain.vercel.app
+- Docs: https://gaganjain.vercel.app/docs/getting-started
 - GitHub: https://github.com/gaganjainse
 - LinkedIn: https://linkedin.com/in/gaganjainse
 - Email: gagan.jain.se@gmail.com
