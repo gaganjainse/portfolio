@@ -35,13 +35,21 @@ SUB_COLOR = (148, 163, 184)    # --color-text-muted #94a3b8
 FOOTER_COLOR = (139, 92, 246)  # --color-primary-light #8b5cf6
 
 # Text lines: (text, font, size, center_x, center_y)
+# Layout: GJ tile near the top, generous gap, then name + details.
 LINES = [
-    ("Gagan Jain", "Inter-Bold.ttf", 90, 600, 204),
-    ("AI / LLM Engineer", "Inter-SemiBold.ttf", 37, 600, 323),
-    ("Building production-grade GenAI systems", "Inter-Regular.ttf", 23, 600, 376),
-    ("Agentic AI - RAG - LLM Fine-tuning - MCP", "Inter-Regular.ttf", 27, 600, 419),
-    ("gaganjain.vercel.app", "Inter-Regular.ttf", 28, 600, 562),
+    ("Gagan Jain", "Inter-Bold.ttf", 92, 600, 250),
+    ("AI / LLM Engineer", "Inter-SemiBold.ttf", 38, 600, 352),
+    ("Building production-grade GenAI systems", "Inter-Regular.ttf", 24, 600, 404),
+    ("Agentic AI - RAG - LLM Fine-tuning - MCP", "Inter-Regular.ttf", 28, 600, 448),
+    ("gaganjain.vercel.app", "Inter-Regular.ttf", 30, 600, 560),
 ]
+
+TILE_CENTER = (600, 86)   # favicon-style GJ tile, well above the name
+TILE_SIZE = 128
+
+# The whole card is rendered at 2x then LANCZOS-downsampled so the text and
+# the tile are crisp on every platform (PIL draws at exact sizes otherwise).
+SCALE = 2
 
 PAD = 30  # gradient bbox padding so descenders (g, a) keep full contrast
 
@@ -51,13 +59,17 @@ def load_font(family, size):
 
 
 def add_glows(base):
-    """Additive per-pixel radial glows on top of the flat background."""
+    """Additive per-pixel radial glows on top of the flat background.
+    Glow coordinates/radii are relative to the base size (works at 2x)."""
     img = base.convert("RGB")
     px = img.load()
+    iw, ih = img.size
+    sx, sy = iw / W, ih / H
     for cx, cy, (cr, cg, cb), radius, strength in GLOWS:
+        cx, cy, radius = cx * sx, cy * sy, radius * sx
         r2 = radius * radius
-        x0, x1 = max(0, int(cx - radius)), min(W, int(cx + radius) + 1)
-        y0, y1 = max(0, int(cy - radius)), min(H, int(cy + radius) + 1)
+        x0, x1 = max(0, int(cx - radius)), min(iw, int(cx + radius) + 1)
+        y0, y1 = max(0, int(cy - radius)), min(ih, int(cy + radius) + 1)
         for y in range(y0, y1):
             dy = y - cy
             for x in range(x0, x1):
@@ -79,8 +91,11 @@ def add_glows(base):
 
 def gradient_text(draw, text, font, center_x, center_y, color_top, color_bottom):
     """Draw text with a 135deg (top-left -> bottom-right) gradient fill spanning
-    the padded ink bbox, horizontally centered and ink-centered vertically."""
-    probe = Image.new("L", (W, H), 0)
+    the padded ink bbox, horizontally centered and ink-centered vertically.
+    Works at any canvas size (used at 2x for the final downscale)."""
+    import sys
+    canvas = (int(center_x) * 2 + 400, int(center_y) * 2 + 400)
+    probe = Image.new("L", canvas, 0)
     pd = ImageDraw.Draw(probe)
     pd.text((0, 0), text, font=font, fill=255)
     ink = probe.getbbox()
@@ -88,19 +103,20 @@ def gradient_text(draw, text, font, center_x, center_y, color_top, color_bottom)
     bw, bh = bx1 - bx0, by1 - by0
     span = (bw + 2 * PAD) + (bh + 2 * PAD)
 
-    mask = Image.new("L", (W, H), 0)
+    mask = Image.new("L", canvas, 0)
     md = ImageDraw.Draw(mask)
     x = center_x - (bx0 + bx1) // 2
     y = center_y - (by0 + by1) // 2
     md.text((x, y), text, font=font, fill=255)
 
     mpx = mask.load()
-    out = Image.new("RGB", (W, H), (0, 0, 0))
+    out = Image.new("RGB", canvas, (0, 0, 0))
     opx = out.load()
     ox = x + bx0 - PAD
     oy = y + by0 - PAD
-    for yy in range(H):
-        for xx in range(W):
+    cw, ch = canvas
+    for yy in range(ch):
+        for xx in range(cw):
             if mpx[xx, yy]:
                 t = min(1.0, max(0.0, ((xx - ox) + (yy - oy)) / span))
                 opx[xx, yy] = (
@@ -133,14 +149,17 @@ def draw_favicon_tile(img, cx, cy, size):
 
 
 def main():
-    base = Image.new("RGB", (W, H), BG)
+    # Render at 2x for sharpness, then downsample with LANCZOS.
+    SW, SH = W * SCALE, H * SCALE
+    base = Image.new("RGB", (SW, SH), BG)
     img = add_glows(base)
 
-    # favicon-style GJ tile above the name
-    draw_favicon_tile(img, 600, 96, 120)
+    # favicon-style GJ tile above the name (scaled)
+    draw_favicon_tile(img, TILE_CENTER[0] * SCALE, TILE_CENTER[1] * SCALE, TILE_SIZE * SCALE)
 
     for text, family, size, cx, cy in LINES:
-        font = load_font(family, size)
+        font = load_font(family, size * SCALE)
+        cx, cy = cx * SCALE, cy * SCALE
         if text == "Gagan Jain":
             # name gets the hero gradient-text colors
             grad_img, mask = gradient_text(
@@ -149,15 +168,22 @@ def main():
             img = Image.composite(grad_img, img, mask)
             continue
 
-        color = FOOTER_COLOR if text == "gaganjain.vercel.app" else (
-            ROLE_COLOR if family == "Inter-SemiBold.ttf" else SUB_COLOR
-        )
+        if text == "gaganjain.vercel.app":
+            # website in the brand gradient too
+            grad_img, mask = gradient_text(
+                img, text, font, cx, cy, NAME_GRADIENT_TOP, NAME_GRADIENT_BOTTOM
+            )
+            img = Image.composite(grad_img, img, mask)
+            continue
+
+        color = ROLE_COLOR if family == "Inter-SemiBold.ttf" else SUB_COLOR
         draw = ImageDraw.Draw(img)
         bbox = draw.textbbox((0, 0), text, font=font)
         x = cx - (bbox[0] + bbox[2]) // 2
         y = cy - (bbox[1] + bbox[3]) // 2
         draw.text((x, y), text, font=font, fill=color)
 
+    img = img.resize((W, H), Image.LANCZOS)
     img.save("/home/user/final-check/public/og-image.png")
     print("wrote public/og-image.png", img.size)
 
