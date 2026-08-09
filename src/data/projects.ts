@@ -132,39 +132,6 @@ export const PROJECTS: Project[] = [
     docs: '/docs/projects/vyakrti',
   },
   {
-    title: 'AIM — Attendance Information Manager',
-    featured: true,
-    tag: 'PRODUCTION-READY',
-    tagColor: 'green',
-    description:
-      'Production-grade Flask + MySQL platform with Argon2id auth, Prometheus monitoring, and CI/CD.',
-    bullets: [
-      'Production-grade Flask + MySQL platform with Argon2id auth, CSRF protection, brute-force lockout, breached-password scanning, JWT sessions, and strict CSP/HSTS headers',
-      'Deployed Prometheus metrics, structured JSON logging, Chart.js analytics, FullCalendar scheduling, Docker Compose, and GitHub Actions CI/CD; 101 automated pytest tests',
-    ],
-    tech: ['Python', 'Flask', 'MySQL', 'Bootstrap', 'Chart.js', 'Docker', 'GitHub Actions'],
-    tests: 101,
-    github: `${GITHUB_BASE}/AIM`,
-    docs: '/docs/projects/aim',
-  },
-  {
-    title: 'FWRS — Food Waste Reduction System',
-    tag: 'PRODUCTION-READY',
-    tagColor: 'green',
-    description:
-      'Optimizes surplus-food allocation to NGOs with a 3-stage lexicographic linear program (fairness → priority → cost) and expiry-aware routing.',
-    bullets: [
-      'Built a 3-stage lexicographic LP solver (fairness → priority → cost) to allocate surplus food to NGOs while minimizing waste',
-      'Added expiry-aware routing that penalizes allocations where travel time exceeds food shelf life',
-      'Integrated Folium/Leaflet interactive maps with animated routes, heatmaps, and priority-colored markers',
-      'Shipped a Flask web dashboard plus a desktop Tkinter GUI with charts and CSV export',
-    ],
-    tech: ['Python', 'PuLP', 'Folium', 'Flask', 'MySQL', 'Bootstrap'],
-    tests: 1,
-    github: `${GITHUB_BASE}/FWRS`,
-    docs: '/docs/projects/fwrs',
-  },
-  {
     title: 'RAG Service — Production RAG + Vector Search',
     tag: 'Gen AI',
     tagColor: 'primary',
@@ -208,5 +175,38 @@ export const PROJECTS: Project[] = [
     tests: 15,
     github: `${GITHUB_BASE}/llm-eval-harness`,
     docs: '/docs/projects/llm-eval-harness',
+  },
+  {
+    title: 'AIM — Attendance Information Manager',
+    featured: true,
+    tag: 'PRODUCTION-READY',
+    tagColor: 'green',
+    description:
+      'Production-grade Flask + MySQL platform with Argon2id auth, Prometheus monitoring, and CI/CD.',
+    bullets: [
+      'Production-grade Flask + MySQL platform with Argon2id auth, CSRF protection, brute-force lockout, breached-password scanning, JWT sessions, and strict CSP/HSTS headers',
+      'Deployed Prometheus metrics, structured JSON logging, Chart.js analytics, FullCalendar scheduling, Docker Compose, and GitHub Actions CI/CD; 101 automated pytest tests',
+    ],
+    tech: ['Python', 'Flask', 'MySQL', 'Bootstrap', 'Chart.js', 'Docker', 'GitHub Actions'],
+    tests: 101,
+    github: `${GITHUB_BASE}/AIM`,
+    docs: '/docs/projects/aim',
+  },
+  {
+    title: 'FWRS — Food Waste Reduction System',
+    tag: 'PRODUCTION-READY',
+    tagColor: 'green',
+    description:
+      'Optimizes surplus-food allocation to NGOs with a 3-stage lexicographic linear program (fairness → priority → cost) and expiry-aware routing.',
+    bullets: [
+      'Built a 3-stage lexicographic LP solver (fairness → priority → cost) to allocate surplus food to NGOs while minimizing waste',
+      'Added expiry-aware routing that penalizes allocations where travel time exceeds food shelf life',
+      'Integrated Folium/Leaflet interactive maps with animated routes, heatmaps, and priority-colored markers',
+      'Shipped a Flask web dashboard plus a desktop Tkinter GUI with charts and CSV export',
+    ],
+    tech: ['Python', 'PuLP', 'Folium', 'Flask', 'MySQL', 'Bootstrap'],
+    tests: 1,
+    github: `${GITHUB_BASE}/FWRS`,
+    docs: '/docs/projects/fwrs',
   },
 ]
