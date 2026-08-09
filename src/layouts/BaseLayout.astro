@@ -120,7 +120,7 @@ const jsonLd = JSON.stringify({
               <img
                 src="/favicon.svg"
                 alt="Gagan Jain"
-                class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl shadow-md shadow-primary/20"
+                class="w-10 h-10 sm:w-11 sm:h-11 shadow-md shadow-primary/20"
               />
             </a>
 
@@ -143,7 +143,7 @@ const jsonLd = JSON.stringify({
                 Résumé
               </a>
               <button
-                class="theme-toggle ml-1 px-2.5 py-2 rounded-lg text-sm font-medium transition text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
+                class="theme-toggle ml-5 sm:ml-6 px-2.5 py-2 rounded-lg text-sm font-medium transition text-text-muted hover:text-text hover:bg-gradient-to-r hover:from-primary/20 hover:to-accent/20"
                 aria-label="Switch to light mode"
                 type="button"
               >
@@ -191,10 +191,12 @@ const jsonLd = JSON.stringify({
                 aria-label="Switch to light mode"
                 type="button"
               >
-                <span class="flex items-center gap-3">
-                  <Icon name="sun" class="theme-icon-sun w-5 h-5 hidden" />
-                  <Icon name="moon" class="theme-icon-moon w-5 h-5" />
+                <span class="flex items-center justify-between gap-3">
                   <span class="theme-label">Light mode</span>
+                  <span class="flex items-center gap-2">
+                    <Icon name="sun" class="theme-icon-sun w-5 h-5 hidden" />
+                    <Icon name="moon" class="theme-icon-moon w-5 h-5" />
+                  </span>
                 </span>
               </button>
             </div>
@@ -314,6 +316,31 @@ const jsonLd = JSON.stringify({
         })
       })
 
+      // Auto-close the mobile menu when the page scrolls (e.g. swiping content
+      // after a nav link scrolled into view) or when touching outside it.
+      document.addEventListener(
+        'scroll',
+        () => {
+          if (mobileMenu && !mobileMenu.classList.contains('hidden')) closeMenu()
+        },
+        { passive: true },
+      )
+      document.addEventListener(
+        'touchstart',
+        (event) => {
+          if (
+            mobileMenu &&
+            !mobileMenu.classList.contains('hidden') &&
+            mobileMenuBtn &&
+            !mobileMenu.contains(event.target as Node) &&
+            !mobileMenuBtn.contains(event.target as Node)
+          ) {
+            closeMenu()
+          }
+        },
+        { passive: true },
+      )
+
       const sections = document.querySelectorAll<HTMLElement>('section[id]')
       const navItems = [...document.querySelectorAll('nav .nav-link')]
 
@@ -381,7 +408,17 @@ const jsonLd = JSON.stringify({
       const backToTop = document.getElementById('back-to-top')
       if (backToTop) {
         backToTop.addEventListener('click', () => {
-          window.scrollTo({ top: 0, behavior: 'smooth' })
+          // The site sets `scroll-behavior: smooth` on <html>; combining that
+          // with a JS smooth scrollTo can stall partway down the hero on some
+          // browsers. Temporarily disable the CSS behavior so JS owns the
+          // smooth scroll and always lands at exactly y = 0, then restore it.
+          const root = document.scrollingElement || document.documentElement
+          const prev = root.style.scrollBehavior
+          root.style.scrollBehavior = 'auto'
+          root.scrollTo({ top: 0, behavior: 'smooth' })
+          window.setTimeout(() => {
+            root.style.scrollBehavior = prev
+          }, 900)
         })
       }
 

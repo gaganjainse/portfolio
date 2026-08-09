@@ -138,20 +138,23 @@ body::before {
   top: 0;
 }
 
+/* Orb animation animates opacity only — the orbs are large blurred fixed
+   elements, so a transform scale repaints every frame and feels jittery on
+   phones. Opacity-only keeps it butter smooth. */
 @keyframes pulse-glow {
   0%,
   100% {
     opacity: 0.45;
-    transform: scale(1);
   }
   50% {
     opacity: 0.8;
-    transform: scale(1.12);
   }
 }
 
 .animate-pulse-glow {
   animation: pulse-glow 4s ease-in-out infinite;
+  will-change: opacity;
+  transform: translateZ(0);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -260,6 +263,38 @@ body::before {
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
+}
+
+/* Content cards inside docs pages (e.g. the Site Map card grids, ADRs, the
+   shared-layout card) must NOT glow/transform on hover or tap — on touch
+   devices that movement makes short swipes jittery. Only the outer
+   `.docs-sheet` wrapper keeps its glow. */
+.docs-sheet .gradient-border,
+.docs-sheet .glow-card {
+  transition: none !important;
+}
+.docs-sheet .gradient-border:hover,
+.docs-sheet .glow-card:hover,
+.docs-sheet .gradient-border:active,
+.docs-sheet .glow-card:active,
+.docs-sheet .gradient-border.touch-glow,
+.docs-sheet .glow-card.touch-glow {
+  box-shadow: none !important;
+  transform: none !important;
+}
+.docs-sheet .gradient-border::before,
+.docs-sheet .glow-card::before {
+  display: none !important;
+}
+
+/* Long inline code tokens (paths, routes, backticks) must wrap instead of
+   overflowing the card. */
+.docs-sheet p code,
+.docs-sheet li code,
+.docs-sheet span code,
+.docs-sheet strong code {
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 /* ---- markdown tables in docs sheets (Site Map etc.) ---- */
