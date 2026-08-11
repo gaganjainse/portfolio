@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 /**
- * Auto-update projects.ts from GitHub API — completely automatic portfolio
- * Fetches all gaganjainse repos, filters important ones, counts tests, generates PROJECTS array
- * Runs in CI daily via GitHub Action, commits if changed
- * No manual editing needed — portfolio updates itself when you push new repo
+ * Auto-update projects.ts — SMART, no forks, proper priority for AI/LLM portfolio
+ * Understands portfolio IS personal site for AI/LLM Engineer, WHY: showcase production-grade GenAI
+ * Proper order: flagship AI OS > GenAI production > production-ready
  */
 
 import fs from 'fs'
@@ -12,164 +11,177 @@ import { fileURLToPath } from 'url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const GITHUB_USERNAME = 'gaganjainse'
-const GITHUB_BASE = `https://github.com/${GITHUB_USERNAME}`
 
-// Repos to always include (flagship)
-const FLAGSHIP = [
-  'NexusAOS',
-  'Vyakrti',
-  'AIM',
-  'FWRS',
-  'rag-service',
-  'llm-eval-harness',
-  'shesh-ecosystem',
-  'shesh-audit',
-  'shesh-memory',
-  'shesh-orchestrator',
-  'shesh-mind',
-  'shesh-voice',
-  'shesh-desktop',
-  'shesh-omniroute',
-  'OmniRoute',
+const PRIORITY_ORDER = [
+  'SheshaAOS',        // 1: Governance-first AI OS Rust 12 crates 981 tests
+  'shesh-ecosystem',  // 2: Federated AI body 22 components — represents entire shesh family, not 10 separate cards
+  'Vyakrti',          // 3: Sanskrit programming language 123 tests — flagship lang
+  'rag-service',      // 4: Production RAG API hybrid retrieval
+  'llm-eval-harness', // 5: LLM eval harness golden-set
+  'AIM',              // 6: Production Flask MySQL Argon2id 101 tests
+  'FWRS',             // 7: Food waste LP
+  'shesh-omniroute',  // 8: AI Gateway 291 providers free — optional to local
 ]
 
-// Mapping for tag colors and tags
+const ACCURATE_TESTS = {
+  'SheshaAOS': 981,
+  'shesh-ecosystem': 30,
+  'Vyakrti': 123,
+  'rag-service': 28,
+  'llm-eval-harness': 15,
+  'AIM': 101,
+  'FWRS': 1,
+  'shesh-omniroute': 0,
+}
+
 const TAG_MAP = {
-  'NexusAOS': { tag: 'AI/AGENTIC', tagColor: 'pink' },
-  'Vyakrti': { tag: 'FLAGSHIP', tagColor: 'primary' },
-  'AIM': { tag: 'PRODUCTION-READY', tagColor: 'green' },
-  'FWRS': { tag: 'PRODUCTION-READY', tagColor: 'green' },
-  'rag-service': { tag: 'Gen AI', tagColor: 'primary' },
-  'llm-eval-harness': { tag: 'Gen AI', tagColor: 'primary' },
-  'shesh-': { tag: 'SHESH', tagColor: 'pink' },
-  'OmniRoute': { tag: 'AI GATEWAY', tagColor: 'primary' },
-  'portfolio': { tag: 'META', tagColor: 'green' },
+  'SheshaAOS': { tag: 'AI/AGENTIC OS', tagColor: 'pink' },
+  'shesh-ecosystem': { tag: 'AGENTIC BODY', tagColor: 'pink' },
+  'Vyakrti': { tag: 'FLAGSHIP LANG', tagColor: 'primary' },
+  'rag-service': { tag: 'RAG / VECTOR', tagColor: 'primary' },
+  'llm-eval-harness': { tag: 'LLM EVAL', tagColor: 'primary' },
+  'AIM': { tag: 'PRODUCTION', tagColor: 'green' },
+  'FWRS': { tag: 'PRODUCTION', tagColor: 'green' },
+  'shesh-omniroute': { tag: 'AI GATEWAY', tagColor: 'primary' },
 }
 
-function getTagInfo(repoName) {
-  for (const [key, info] of Object.entries(TAG_MAP)) {
-    if (repoName.startsWith(key) || repoName.includes(key)) return info
-  }
-  if (repoName.startsWith('shesh-')) return { tag: 'SHESH', tagColor: 'pink' }
-  return { tag: 'OPEN SOURCE', tagColor: 'primary' }
+function getTagInfo(name) {
+  return TAG_MAP[name] || { tag: 'OPEN SOURCE', tagColor: 'primary' }
 }
 
-// Fetch GitHub repos
 async function fetchRepos() {
   const token = process.env.GITHUB_TOKEN || process.env.GITHUB_PAT
-  const headers = {
-    'Accept': 'application/vnd.github+json',
-    'User-Agent': 'portfolio-auto-update',
-  }
+  const headers = { 'Accept': 'application/vnd.github+json', 'User-Agent': 'portfolio-auto' }
   if (token) headers['Authorization'] = `Bearer ${token}`
-
-  let allRepos = []
+  let all = []
   let page = 1
   while (true) {
     const url = `https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100&page=${page}&sort=updated`
-    console.log(`Fetching ${url}`)
     const res = await fetch(url, { headers })
-    if (!res.ok) {
-      console.error(`GitHub API failed ${res.status}: ${await res.text()}`)
-      break
-    }
+    if (!res.ok) break
     const repos = await res.json()
     if (repos.length === 0) break
-    allRepos.push(...repos)
+    all.push(...repos)
     if (repos.length < 100) break
     page++
   }
-  return allRepos
-}
-
-// Count tests in repo (approx) — for now use static map + fetch from raw? We approximate via GitHub API languages + size
-// For accurate count, we would need to clone shallow and count pytest functions, but for automation we use existing test counts + try to fetch
-function estimateTests(repoName, existing) {
-  // If existing has tests count, keep it unless we can improve
-  if (existing && existing.tests) return existing.tests
-  // Default estimates
-  if (repoName === 'NexusAOS' || repoName === 'SheshaAOS') return 981
-  if (repoName.includes('shesh-')) return 8 // avg
-  return 0
+  return all
 }
 
 async function main() {
   const repos = await fetchRepos()
   console.log(`Fetched ${repos.length} repos`)
 
-  // Filter: exclude forks unless shesh-*, include flagship, exclude personal small?
   const filtered = repos.filter(r => {
-    if (r.name === 'gaganjainse') return false
-    if (r.fork && !r.name.startsWith('shesh-') && !FLAGSHIP.includes(r.name) && !r.name.startsWith('OmniRoute')) return false
-    if (r.private) return false
+    if (['gaganjainse','portfolio'].includes(r.name)) return false
+    if (r.private || r.archived) return false
+    if (r.fork) {
+      console.log(`Skipping fork: ${r.name}`)
+      return false
+    }
     return true
   })
+  console.log(`Filtered no-forks to ${filtered.length}`)
 
-  console.log(`Filtered to ${filtered.length} repos`)
-
-  // Load existing projects.ts to keep bullets/description if exists
-  const existingPath = path.join(__dirname, '../src/data/projects.ts')
-  let existingMap = new Map()
-  try {
-    const content = fs.readFileSync(existingPath, 'utf-8')
-    // Simple parse — extract title and tests via regex
-    const regex = /title:\s*['\"]([^'\"]+)['\"][\s\S]*?tests:\s*(\d+)/g
-    let m
-    while ((m = regex.exec(content)) !== null) {
-      existingMap.set(m[1].toLowerCase(), { title: m[1], tests: parseInt(m[2], 10) })
-    }
-  } catch (e) {
-    console.log('No existing projects.ts or parse failed', e.message)
+  const byName = new Map(filtered.map(r => [r.name.toLowerCase(), r]))
+  let ordered = []
+  for (const name of PRIORITY_ORDER) {
+    const repo = byName.get(name.toLowerCase())
+    if (repo) ordered.push(repo)
   }
 
-  // Generate PROJECTS array — sort by flagship first, then by updated_at desc, then stars
-  const sorted = filtered.sort((a, b) => {
-    const aFlag = FLAGSHIP.includes(a.name) ? 0 : 1
-    const bFlag = FLAGSHIP.includes(b.name) ? 0 : 1
-    if (aFlag !== bFlag) return aFlag - bFlag
-    return new Date(b.updated_at) - new Date(a.updated_at)
-  })
+  console.log(`Final curated ${ordered.length} in proper priority order (no forks, flagship first):`)
+  ordered.forEach((r,i) => console.log(`${i+1}. ${r.name} stars=${r.stargazers_count} lang=${r.language} tests=${ACCURATE_TESTS[r.name]||0}`))
 
-  // Take top 20 to avoid too many
-  const top = sorted.slice(0, 20)
-
-  const projects = top.map(repo => {
+  const projects = ordered.map(repo => {
     const tagInfo = getTagInfo(repo.name)
-    const existing = existingMap.get(repo.name.toLowerCase()) || existingMap.get(repo.name.toLowerCase().replace(/-/g, ' '))
-    const isFlagship = FLAGSHIP.includes(repo.name)
-    const isShesh = repo.name.startsWith('shesh-')
+    const tests = ACCURATE_TESTS[repo.name] ?? 0
 
-    // Generate bullets from description + topics
-    const bullets = []
-    if (repo.description) bullets.push(repo.description)
-    else bullets.push(`${repo.name} — ${repo.language || 'Open Source'} project`)
+    let bullets = []
+    let description = repo.description || `${repo.name} — project by Gagan Jain`
+    let tech = []
 
-    if (repo.language) bullets.push(`Primary language: ${repo.language}`)
-    if (repo.stargazers_count > 0) bullets.push(`${repo.stargazers_count} stars, updated ${new Date(repo.updated_at).toLocaleDateString()}`)
-    if (repo.topics && repo.topics.length) bullets.push(`Topics: ${repo.topics.slice(0, 5).join(', ')}`)
-    if (isShesh) bullets.push(`Part of Shesh ecosystem — federated AI body for CachyOS/Hyprland, brain/mind/soma layers`)
-
-    // Tech from language + topics — ensure at least one
-    const tech = [repo.language].filter(Boolean)
-    if (repo.topics) tech.push(...repo.topics.slice(0, 5))
-    if (isShesh) tech.push('Shesh', 'MCP', 'Rust/Python')
-    if (tech.length === 0) tech.push('Open Source')
+    if (repo.name === 'shesh-ecosystem') {
+      description = 'Federated, local-first AI body (Brain+Mind+Soma) for CachyOS/Hyprland — orchestrator, manifests, gates, 22 components'
+      bullets = [
+        'Federated, local-first AI body for CachyOS/Hyprland — Brain (governance kernel), Mind (models/planning/memory), Soma (sensors/actuators)',
+        'Orchestrator manifest with 22 components, 3 channels stable/canary/devel, SHA256 audited locks, 30 ecosystem tests GATE OK',
+        'Local-first: Ollama phi4-mini/qwen2.5-coder:3b/moondream2/nomic-embed-text 6GB VRAM offline, optional OmniRoute free big models gateway where user choice',
+        'Governance: shesh-audit GuardedMCP policy allow/confirm/deny + hash-chained audit + Nexus bridge, swarm via GitHub Issues atomic lock',
+      ]
+      tech = ['Python','Rust','MCP','Agentic AI','Ollama','Governance']
+    } else if (repo.name === 'SheshaAOS') {
+      bullets = [
+        'Governance-first, event-sourced AI OS in Rust: 12 workspace crates, 981 passing tests, 0 clippy warnings, full GitHub Actions CI/CD',
+        'Policy-enforced agent kernel where LLMs propose actions and kernel validates/records every state change in append-only audit trail',
+        'Provider-agnostic LLM layer with OpenAI-compatible and Anthropic streaming, LiteLLM routing, local-first inference fully offline',
+        'Native terminal emulation (PTY + VT100), SSH multiplexing, secrets vault, 4 interfaces: CLI, TUI, GUI, RPC',
+      ]
+      tech = ['Rust','Tokio','Event Sourcing','LiteLLM','OpenAI','Anthropic','SSH']
+    } else if (repo.name.toLowerCase() === 'vyakrti') {
+      bullets = [
+        'Complete compiler pipeline: lexer → parser → type checker → bytecode compiler — all built from scratch in Rust',
+        'Browser-based IDE with React, Monaco Editor, syntax highlighting, autocomplete, diagnostics',
+        'Rust (axum) backend with compile, REPL, LSP, file management via REST + WebSocket',
+        '123 tests covering full pipeline, including self-hosting corpus',
+      ]
+      tech = ['Rust','React','TypeScript','Monaco','Axum']
+    } else if (repo.name === 'rag-service') {
+      bullets = [
+        'FastAPI RAG service with hybrid retrieval (dense embeddings + BM25 keyword, merged via Reciprocal Rank Fusion) over ChromaDB',
+        'Chunking strategies (recursive, semantic), embedding pipelines, /ask endpoint that streams grounded answers with citations',
+        'LLM-as-judge evaluation harness (faithfulness, answer relevance, correctness) with golden-set CI gate',
+        'Docker Compose, OpenAI-compatible LLM interface with local-first fallback',
+      ]
+      tech = ['Python','FastAPI','ChromaDB','RAG','Hybrid Search','LLM-as-Judge']
+    } else if (repo.name === 'llm-eval-harness') {
+      bullets = [
+        'Golden-set-driven evaluation harness with faithfulness, answer-relevance, correctness metrics (LLM-as-judge + lexical fallbacks)',
+        'Offline heuristic scorers so evals run in CI without API keys; JSON + Markdown reports',
+        'Golden-set YAML format (question, golden answer, context) and CLI: python -m eval_harness',
+        'Containerized and CI-ready; used to gate RAG service pipeline',
+      ]
+      tech = ['Python','LLM-as-Judge','Golden Sets','RAGAS','Pytest']
+    } else if (repo.name === 'AIM') {
+      bullets = [
+        'Production-grade Flask + MySQL platform with Argon2id auth, CSRF protection, brute-force lockout, breached-password scanning, JWT sessions, strict CSP/HSTS',
+        'Prometheus metrics, structured JSON logging, Chart.js analytics, FullCalendar scheduling, Docker Compose, GitHub Actions CI/CD; 101 automated pytest tests',
+      ]
+      tech = ['Python','Flask','MySQL','Bootstrap','Chart.js','Docker','GitHub Actions']
+    } else if (repo.name === 'FWRS') {
+      bullets = [
+        '3-stage lexicographic LP solver (fairness → priority → cost) to allocate surplus food to NGOs while minimizing waste',
+        'Expiry-aware routing that penalizes allocations where travel time exceeds food shelf life',
+        'Folium/Leaflet interactive maps with animated routes, heatmaps, priority-colored markers',
+        'Flask web dashboard plus desktop Tkinter GUI with charts and CSV export',
+      ]
+      tech = ['Python','PuLP','Folium','Flask','MySQL']
+    } else if (repo.name === 'shesh-omniroute') {
+      bullets = [
+        'Shesh wrapper for OmniRoute — free MIT gateway 291 providers 90+ free 500+ models, optional to local Ollama primary in final Shesh product',
+        '1.53B free tokens/month documented, RTK+Caveman compression 15-95% tokens (~89% avg) stretches free tiers',
+        'One endpoint http://localhost:20128/v1 OpenAI-compatible — any tool (Claude Code, Cursor, Cline) points there, auto-fallback Tier1 Sub → Tier2 API → Tier3 Cheap → Tier4 Free',
+        '19 routing strategies, 105 MCP tools, A2A v0.3, Desktop/PWA, 43 i18n, MIT self-hosted',
+      ]
+      tech = ['TypeScript','OmniRoute','AI Gateway','Free Models','MCP','A2A']
+    } else {
+      if (repo.description) bullets.push(repo.description)
+    }
 
     return {
       title: repo.name,
-      featured: isFlagship || isShesh,
+      featured: true,
       tag: tagInfo.tag,
       tagColor: tagInfo.tagColor,
-      description: repo.description || `${repo.name} — ${repo.language || 'project'} by Gagan Jain`,
-      bullets: bullets.slice(0, 4),
-      tech: [...new Set(tech)].slice(0, 8),
-      tests: estimateTests(repo.name, existing),
+      description,
+      bullets: bullets.slice(0,4),
+      tech: tech.slice(0,8),
+      tests,
       github: repo.html_url,
-      docs: isShesh ? `/docs/projects/${repo.name.toLowerCase()}` : undefined,
+      docs: `/docs/projects/${repo.name.toLowerCase()}`,
     }
   })
 
-  // Generate TS file
   const tsContent = `const GITHUB_BASE = 'https://github.com/${GITHUB_USERNAME}'
 
 export type TagColor = 'pink' | 'green' | 'primary'
@@ -200,23 +212,19 @@ export function getTagClasses(tagColor: string): string {
   return TAG_CLASSES[tagColor as TagColor] || TAG_CLASSES.primary
 }
 
-// AUTO-GENERATED — do not edit manually, run npm run update:projects
-// Generated: ${new Date().toISOString()} from GitHub API ${GITHUB_USERNAME}
-// Source: ${filtered.length} repos filtered from ${projects.length} total, top ${top.length}
+// AUTO-GENERATED SMART — no forks, proper priority for AI/LLM portfolio
+// Portfolio IS personal site for AI/LLM Engineer — WHY: showcase production-grade GenAI systems
+// Priority: SheshaAOS (AI OS 981) > shesh-ecosystem (federated body 22 comps) > Vyakrti (lang 123) > RAG/Eval > AIM/FWRS > omniroute
+// Generated: ${new Date().toISOString()} — no forks ever
 export const PROJECTS: Project[] = ${JSON.stringify(projects, null, 2)}
 `
 
   const outPath = path.join(__dirname, '../src/data/projects.ts')
   fs.writeFileSync(outPath, tsContent)
-  console.log(`Wrote ${outPath} with ${projects.length} projects — auto-generated`)
+  console.log(`Wrote ${outPath} with ${projects.length} curated — no forks, proper priority`)
 
-  // Also generate a JSON summary for debugging
   const jsonPath = path.join(__dirname, '../public/projects.json')
-  fs.writeFileSync(jsonPath, JSON.stringify({ generated_at: new Date().toISOString(), count: projects.length, repos: top.map(r => ({ name: r.name, stars: r.stargazers_count, updated_at: r.updated_at, language: r.language })) }, null, 2))
-  console.log(`Wrote ${jsonPath}`)
+  fs.writeFileSync(jsonPath, JSON.stringify({ generated_at: new Date().toISOString(), count: projects.length, repos: projects.map(p => ({ title: p.title, tests: p.tests })) }, null, 2))
 }
 
-main().catch(err => {
-  console.error(err)
-  process.exit(1)
-})
+main().catch(e => { console.error(e); process.exit(1) })

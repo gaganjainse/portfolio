@@ -1,126 +1,38 @@
 {
-  "generated_at": "2026-08-11T11:56:14.035Z",
-  "count": 20,
+  "generated_at": "2026-08-11T12:20:19.215Z",
+  "count": 8,
   "repos": [
     {
-      "name": "shesh-ecosystem",
-      "stars": 0,
-      "updated_at": "2026-08-11T11:38:52Z",
-      "language": "Python"
+      "title": "SheshaAOS",
+      "tests": 981
     },
     {
-      "name": "shesh-omniroute",
-      "stars": 0,
-      "updated_at": "2026-08-11T11:14:29Z",
-      "language": null
+      "title": "shesh-ecosystem",
+      "tests": 30
     },
     {
-      "name": "OmniRoute",
-      "stars": 0,
-      "updated_at": "2026-08-11T10:59:42Z",
-      "language": null
+      "title": "Vyakrti",
+      "tests": 123
     },
     {
-      "name": "shesh-orchestrator",
-      "stars": 0,
-      "updated_at": "2026-08-10T15:07:01Z",
-      "language": "Python"
+      "title": "rag-service",
+      "tests": 28
     },
     {
-      "name": "shesh-memory",
-      "stars": 0,
-      "updated_at": "2026-08-10T15:05:43Z",
-      "language": "Python"
+      "title": "llm-eval-harness",
+      "tests": 15
     },
     {
-      "name": "shesh-desktop",
-      "stars": 0,
-      "updated_at": "2026-08-10T15:00:34Z",
-      "language": "QML"
+      "title": "AIM",
+      "tests": 101
     },
     {
-      "name": "shesh-voice",
-      "stars": 0,
-      "updated_at": "2026-08-10T15:00:34Z",
-      "language": "Python"
+      "title": "FWRS",
+      "tests": 1
     },
     {
-      "name": "shesh-mind",
-      "stars": 0,
-      "updated_at": "2026-08-10T15:00:27Z",
-      "language": "Python"
-    },
-    {
-      "name": "shesh-audit",
-      "stars": 0,
-      "updated_at": "2026-08-10T15:00:21Z",
-      "language": "Python"
-    },
-    {
-      "name": "llm-eval-harness",
-      "stars": 0,
-      "updated_at": "2026-08-08T18:24:17Z",
-      "language": "Python"
-    },
-    {
-      "name": "rag-service",
-      "stars": 0,
-      "updated_at": "2026-08-08T18:24:16Z",
-      "language": "Python"
-    },
-    {
-      "name": "AIM",
-      "stars": 1,
-      "updated_at": "2026-08-08T16:56:49Z",
-      "language": "Python"
-    },
-    {
-      "name": "FWRS",
-      "stars": 1,
-      "updated_at": "2026-07-11T12:39:19Z",
-      "language": "HTML"
-    },
-    {
-      "name": "Vyakrti",
-      "stars": 1,
-      "updated_at": "2026-07-11T12:38:36Z",
-      "language": "Rust"
-    },
-    {
-      "name": "shesh-workspace",
-      "stars": 0,
-      "updated_at": "2026-08-11T11:39:27Z",
-      "language": "Python"
-    },
-    {
-      "name": "shesh-media",
-      "stars": 0,
-      "updated_at": "2026-08-11T11:34:41Z",
-      "language": "Python"
-    },
-    {
-      "name": "shesh-brain",
-      "stars": 0,
-      "updated_at": "2026-08-11T11:34:17Z",
-      "language": "Python"
-    },
-    {
-      "name": "shesh-messaging",
-      "stars": 0,
-      "updated_at": "2026-08-11T11:34:00Z",
-      "language": "Python"
-    },
-    {
-      "name": "shesh-containers",
-      "stars": 0,
-      "updated_at": "2026-08-10T15:10:25Z",
-      "language": "Python"
-    },
-    {
-      "name": "shesh-harness",
-      "stars": 0,
-      "updated_at": "2026-08-10T15:06:12Z",
-      "language": "Python"
+      "title": "shesh-omniroute",
+      "tests": 0
     }
   ]
 }
