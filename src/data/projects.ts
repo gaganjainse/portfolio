@@ -28,185 +28,433 @@ export function getTagClasses(tagColor: string): string {
   return TAG_CLASSES[tagColor as TagColor] || TAG_CLASSES.primary
 }
 
+// AUTO-GENERATED — do not edit manually, run npm run update:projects
+// Generated: 2026-08-11T11:56:14.035Z from GitHub API gaganjainse
+// Source: 41 repos filtered from 20 total, top 20
 export const PROJECTS: Project[] = [
   {
-    title: 'NexusAOS',
-    featured: true,
-    tag: 'AI/AGENTIC',
-    tagColor: 'pink',
-    description:
-      'Governance-first, event-sourced AI operating environment in Rust — 12 workspace crates, 981 tests, provider-agnostic LLM streaming.',
-    bullets: [
-      'Designed a governance-first, event-sourced AI OS in Rust: 12 workspace crates, 981 passing tests, 0 clippy warnings, full GitHub Actions CI/CD',
-      'Built a policy-enforced agent kernel where LLMs propose actions and the kernel validates and records every state change in an append-only audit trail',
-      'Implemented a provider-agnostic LLM layer with OpenAI-compatible and Anthropic streaming, LiteLLM routing, and local-first inference that runs fully offline',
-      'Delivered native terminal emulation (PTY + VT100), SSH multiplexing, a secrets vault, and four interfaces: CLI, TUI, GUI, RPC',
+    "title": "shesh-ecosystem",
+    "featured": true,
+    "tag": "SHESH",
+    "tagColor": "pink",
+    "description": "Federated, local-first AI body (Brain+Mind+Soma) for CachyOS/Hyprland — orchestrator, manifests, gates",
+    "bullets": [
+      "Federated, local-first AI body (Brain+Mind+Soma) for CachyOS/Hyprland — orchestrator, manifests, gates",
+      "Primary language: Python",
+      "Part of Shesh ecosystem — federated AI body for CachyOS/Hyprland, brain/mind/soma layers"
     ],
-    tech: [
-      'Rust',
-      'Tokio',
-      'Event Sourcing',
-      'LiteLLM',
-      'OpenAI',
-      'Anthropic',
-      'SSH',
-      'PTY',
-      'TUI',
-      'GUI',
+    "tech": [
+      "Python",
+      "Shesh",
+      "MCP",
+      "Rust/Python"
     ],
-    tests: 981,
-    github: `${GITHUB_BASE}/NexusAOS`,
-    docs: '/docs/projects/nexusaos',
+    "tests": 8,
+    "github": "https://github.com/gaganjainse/shesh-ecosystem",
+    "docs": "/docs/projects/shesh-ecosystem"
   },
   {
-    title: 'nexus-kernel',
-    tag: 'AI/AGENTIC',
-    tagColor: 'pink',
-    companionOf: 'NexusAOS',
-    description:
-      'Companion repo to NexusAOS — the alpha-track sibling of the same 12-crate Rust workspace, focused on the microkernel layer (event-sourced governance, provider-swappable model interface).',
-    bullets: [
-      'Companion to NexusAOS: shares the same 12-crate Rust workspace and its 981-test suite (tracked under NexusAOS)',
-      'Implemented event-sourced append-only audit trail, policy engine with trust tiers, and provider-swappable model interface',
-      'Integrated OpenAI-compatible and Anthropic streaming with real-time token streaming into TUI/GUI',
-      'Delivered native terminal emulation (PTY + VT100 + Zig parser), SSH multiplexing, and multi-interface CLI/TUI/GUI/RPC',
+    "title": "shesh-omniroute",
+    "featured": true,
+    "tag": "SHESH",
+    "tagColor": "pink",
+    "description": "Shesh wrapper for OmniRoute — free MIT gateway 291 providers 90+ free 500+ models, optional to local Ollama primary in final Shesh product, where enable is user choice. Forked from diegosouzapw/OmniRoute",
+    "bullets": [
+      "Shesh wrapper for OmniRoute — free MIT gateway 291 providers 90+ free 500+ models, optional to local Ollama primary in final Shesh product, where enable is user choice. Forked from diegosouzapw/OmniRoute",
+      "Part of Shesh ecosystem — federated AI body for CachyOS/Hyprland, brain/mind/soma layers"
     ],
-    tech: [
-      'Rust',
-      'Tokio',
-      'OpenAI',
-      'Anthropic',
-      'SQLite',
-      'Ratatui',
-      'Iced',
-      'SSH',
-      'Event Sourcing',
+    "tech": [
+      "Shesh",
+      "MCP",
+      "Rust/Python"
     ],
-    tests: 0,
-    github: `${GITHUB_BASE}/nexus-kernel`,
-    docs: '/docs/projects/nexus-kernel',
+    "tests": 8,
+    "github": "https://github.com/gaganjainse/shesh-omniroute",
+    "docs": "/docs/projects/shesh-omniroute"
   },
   {
-    title: 'SeshaOS',
-    featured: true,
-    tag: 'AI/AGENTIC',
-    tagColor: 'pink',
-    description:
-      'NexusAOS v2 — governance-first, local-first AI OS with specialist local models and LiteLLM-compatible routing.',
-    bullets: [
-      'Architected specialist model stack: Gemma 4 12B (Planner), Qwen3-Coder 30B (Implementation), Qwen3.5 9B (Vision)',
-      'Designed kernel-centric governance where models propose actions and the kernel validates/records every state change',
-      'Built a LiteLLM-compatible proxy for NVIDIA NIM and other model providers',
-      'Maintained event-sourced architecture with reversible, permissioned actions and offline-first execution',
+    "title": "OmniRoute",
+    "featured": true,
+    "tag": "AI GATEWAY",
+    "tagColor": "primary",
+    "description": "Never stop coding. Free MIT AI gateway: one endpoint, 290+ providers (90+ free), 500+ models — Kimi, Claude, GPT, OpenAI, Gemini, GLM, DeepSeek, MiniMax. Works with Claude Code, Codex, Cursor, OpenCode, Cline & Copilot. Quota-aware auto-fallback, RTK+Caveman compression saves 15-95% tokens, MCP/A2A, Desktop/PWA. Built by 500+ contributors",
+    "bullets": [
+      "Never stop coding. Free MIT AI gateway: one endpoint, 290+ providers (90+ free), 500+ models — Kimi, Claude, GPT, OpenAI, Gemini, GLM, DeepSeek, MiniMax. Works with Claude Code, Codex, Cursor, OpenCode, Cline & Copilot. Quota-aware auto-fallback, RTK+Caveman compression saves 15-95% tokens, MCP/A2A, Desktop/PWA. Built by 500+ contributors"
     ],
-    tech: [
-      'Rust',
-      'LiteLLM',
-      'Gemma',
-      'Qwen',
-      'Local LLMs',
-      'Governance',
-      'Event Sourcing',
-      'Ubuntu',
+    "tech": [
+      "Open Source"
     ],
-    tests: 0,
-    github: `${GITHUB_BASE}/SeshaOS`,
-    docs: '/docs/projects/seshaos',
+    "tests": 0,
+    "github": "https://github.com/gaganjainse/OmniRoute"
   },
   {
-    title: 'Vyākṛti',
-    featured: true,
-    tag: 'FLAGSHIP',
-    tagColor: 'primary',
-    description:
-      'Sanskrit-oriented programming language with complete compiler pipeline and browser-based IDE. 123 tests.',
-    bullets: [
-      'Complete compiler pipeline: lexer → parser → type checker → bytecode compiler — all built from scratch in Rust',
-      'Browser-based IDE with React, Monaco Editor, syntax highlighting, autocomplete, and diagnostics',
-      'Rust (axum) backend with compile, REPL, LSP, and file management endpoints via REST + WebSocket',
-      '123 tests covering the full pipeline, including a self-hosting corpus',
+    "title": "shesh-orchestrator",
+    "featured": true,
+    "tag": "SHESH",
+    "tagColor": "pink",
+    "description": "Sesha Mind: multi-agent RLM runtime with role routing, A2A bus, and budgeted autonomy",
+    "bullets": [
+      "Sesha Mind: multi-agent RLM runtime with role routing, A2A bus, and budgeted autonomy",
+      "Primary language: Python",
+      "Part of Shesh ecosystem — federated AI body for CachyOS/Hyprland, brain/mind/soma layers"
     ],
-    tech: ['Rust', 'React', 'TypeScript', 'Monaco Editor', 'Zustand', 'Tailwind CSS', 'Axum'],
-    tests: 123,
-    github: `${GITHUB_BASE}/Vyakrti`,
-    docs: '/docs/projects/vyakrti',
+    "tech": [
+      "Python",
+      "Shesh",
+      "MCP",
+      "Rust/Python"
+    ],
+    "tests": 8,
+    "github": "https://github.com/gaganjainse/shesh-orchestrator",
+    "docs": "/docs/projects/shesh-orchestrator"
   },
   {
-    title: 'RAG Service — Production RAG + Vector Search',
-    tag: 'Gen AI',
-    tagColor: 'primary',
-    featured: true,
-    description:
-      'Production RAG API service: hybrid retrieval (vector + keyword), embeddings, reranking-ready, and an LLM-as-judge eval harness.',
-    bullets: [
-      'Built a FastAPI RAG service with hybrid retrieval (dense embeddings + BM25 keyword, merged via Reciprocal Rank Fusion) over ChromaDB',
-      'Implemented chunking strategies (recursive, semantic), embedding pipelines, and an /ask endpoint that streams grounded answers with citations',
-      'Shipped LLM-as-judge evaluation harness (faithfulness, answer relevance, correctness) with golden-set CI gate and RAGAS-style reports',
-      'Containerized with Docker Compose; OpenAI-compatible LLM interface with local-first fallback',
+    "title": "shesh-memory",
+    "featured": true,
+    "tag": "SHESH",
+    "tagColor": "pink",
+    "description": "Sesha Mind: hierarchical memory, habit learning, and token-bounded context assembly",
+    "bullets": [
+      "Sesha Mind: hierarchical memory, habit learning, and token-bounded context assembly",
+      "Primary language: Python",
+      "Part of Shesh ecosystem — federated AI body for CachyOS/Hyprland, brain/mind/soma layers"
     ],
-    tech: [
-      'Python',
-      'FastAPI',
-      'ChromaDB',
-      'Embeddings',
-      'Hybrid Search',
-      'RAG',
-      'LLM-as-Judge',
-      'Docker',
+    "tech": [
+      "Python",
+      "Shesh",
+      "MCP",
+      "Rust/Python"
     ],
-    tests: 28,
-    github: `${GITHUB_BASE}/rag-service`,
-    docs: '/docs/projects/rag-service',
+    "tests": 8,
+    "github": "https://github.com/gaganjainse/shesh-memory",
+    "docs": "/docs/projects/shesh-memory"
   },
   {
-    title: 'LLM Eval Harness',
-    tag: 'Gen AI',
-    tagColor: 'primary',
-    featured: true,
-    description:
-      'Reusable LLM evaluation harness: golden-set YAML, LLM-as-judge metrics, offline heuristic fallbacks, and CI-ready reports.',
-    bullets: [
-      'Built a golden-set-driven evaluation harness with faithfulness, answer-relevance, and correctness metrics (LLM-as-judge + lexical fallbacks)',
-      'Added offline heuristic scorers so evals run in CI without API keys; JSON + Markdown reports for regression tracking',
-      'Designed golden-set YAML format (question, golden answer, context) and a CLI: python -m eval_harness --golden-set ...',
-      'Containerized and CI-ready; used to gate the RAG service pipeline',
+    "title": "shesh-desktop",
+    "featured": true,
+    "tag": "SHESH",
+    "tagColor": "pink",
+    "description": "Usability-first Hyprland dotfiles with automated desktop environment setup for Arch-based systems.",
+    "bullets": [
+      "Usability-first Hyprland dotfiles with automated desktop environment setup for Arch-based systems.",
+      "Primary language: QML",
+      "Topics: arch-linux, dotfiles, hyprland, linux, ricing",
+      "Part of Shesh ecosystem — federated AI body for CachyOS/Hyprland, brain/mind/soma layers"
     ],
-    tech: ['Python', 'LLM-as-Judge', 'Golden Sets', 'RAGAS', 'CLI', 'CI/CD', 'Pytest'],
-    tests: 15,
-    github: `${GITHUB_BASE}/llm-eval-harness`,
-    docs: '/docs/projects/llm-eval-harness',
+    "tech": [
+      "QML",
+      "arch-linux",
+      "dotfiles",
+      "hyprland",
+      "linux",
+      "ricing",
+      "Shesh",
+      "MCP"
+    ],
+    "tests": 8,
+    "github": "https://github.com/gaganjainse/shesh-desktop",
+    "docs": "/docs/projects/shesh-desktop"
   },
   {
-    title: 'AIM — Attendance Information Manager',
-    featured: true,
-    tag: 'PRODUCTION-READY',
-    tagColor: 'green',
-    description:
-      'Production-grade Flask + MySQL platform with Argon2id auth, Prometheus monitoring, and CI/CD.',
-    bullets: [
-      'Production-grade Flask + MySQL platform with Argon2id auth, CSRF protection, brute-force lockout, breached-password scanning, JWT sessions, and strict CSP/HSTS headers',
-      'Deployed Prometheus metrics, structured JSON logging, Chart.js analytics, FullCalendar scheduling, Docker Compose, and GitHub Actions CI/CD; 101 automated pytest tests',
+    "title": "shesh-voice",
+    "featured": true,
+    "tag": "SHESH",
+    "tagColor": "pink",
+    "description": "Newelle - Your Ultimate Virtual Assistant",
+    "bullets": [
+      "Newelle - Your Ultimate Virtual Assistant",
+      "Primary language: Python",
+      "Part of Shesh ecosystem — federated AI body for CachyOS/Hyprland, brain/mind/soma layers"
     ],
-    tech: ['Python', 'Flask', 'MySQL', 'Bootstrap', 'Chart.js', 'Docker', 'GitHub Actions'],
-    tests: 101,
-    github: `${GITHUB_BASE}/AIM`,
-    docs: '/docs/projects/aim',
+    "tech": [
+      "Python",
+      "Shesh",
+      "MCP",
+      "Rust/Python"
+    ],
+    "tests": 8,
+    "github": "https://github.com/gaganjainse/shesh-voice",
+    "docs": "/docs/projects/shesh-voice"
   },
   {
-    title: 'FWRS — Food Waste Reduction System',
-    tag: 'PRODUCTION-READY',
-    tagColor: 'green',
-    description:
-      'Optimizes surplus-food allocation to NGOs with a 3-stage lexicographic linear program (fairness → priority → cost) and expiry-aware routing.',
-    bullets: [
-      'Built a 3-stage lexicographic LP solver (fairness → priority → cost) to allocate surplus food to NGOs while minimizing waste',
-      'Added expiry-aware routing that penalizes allocations where travel time exceeds food shelf life',
-      'Integrated Folium/Leaflet interactive maps with animated routes, heatmaps, and priority-colored markers',
-      'Shipped a Flask web dashboard plus a desktop Tkinter GUI with charts and CSV export',
+    "title": "shesh-mind",
+    "featured": true,
+    "tag": "SHESH",
+    "tagColor": "pink",
+    "description": "Shesha Mind: role-to-model routing for the 6GB local LLM stack",
+    "bullets": [
+      "Shesha Mind: role-to-model routing for the 6GB local LLM stack",
+      "Primary language: Python",
+      "Part of Shesh ecosystem — federated AI body for CachyOS/Hyprland, brain/mind/soma layers"
     ],
-    tech: ['Python', 'PuLP', 'Folium', 'Flask', 'MySQL', 'Bootstrap'],
-    tests: 1,
-    github: `${GITHUB_BASE}/FWRS`,
-    docs: '/docs/projects/fwrs',
+    "tech": [
+      "Python",
+      "Shesh",
+      "MCP",
+      "Rust/Python"
+    ],
+    "tests": 8,
+    "github": "https://github.com/gaganjainse/shesh-mind",
+    "docs": "/docs/projects/shesh-mind"
   },
+  {
+    "title": "shesh-audit",
+    "featured": true,
+    "tag": "SHESH",
+    "tagColor": "pink",
+    "description": "Shesha Brain: append-only hash-chained audit log and policy gate",
+    "bullets": [
+      "Shesha Brain: append-only hash-chained audit log and policy gate",
+      "Primary language: Python",
+      "Part of Shesh ecosystem — federated AI body for CachyOS/Hyprland, brain/mind/soma layers"
+    ],
+    "tech": [
+      "Python",
+      "Shesh",
+      "MCP",
+      "Rust/Python"
+    ],
+    "tests": 8,
+    "github": "https://github.com/gaganjainse/shesh-audit",
+    "docs": "/docs/projects/shesh-audit"
+  },
+  {
+    "title": "llm-eval-harness",
+    "featured": true,
+    "tag": "Gen AI",
+    "tagColor": "primary",
+    "description": "Golden-set LLM evaluation harness: faithfulness, answer relevance, and correctness with LLM-as-judge and offline fallbacks. CI-ready reports.",
+    "bullets": [
+      "Golden-set LLM evaluation harness: faithfulness, answer relevance, and correctness with LLM-as-judge and offline fallbacks. CI-ready reports.",
+      "Primary language: Python",
+      "Topics: ci, evals, golden-set, llm-as-judge, llm-evaluation"
+    ],
+    "tech": [
+      "Python",
+      "ci",
+      "evals",
+      "golden-set",
+      "llm-as-judge",
+      "llm-evaluation"
+    ],
+    "tests": 0,
+    "github": "https://github.com/gaganjainse/llm-eval-harness"
+  },
+  {
+    "title": "rag-service",
+    "featured": true,
+    "tag": "Gen AI",
+    "tagColor": "primary",
+    "description": "Production RAG API: hybrid retrieval (dense embeddings + BM25, fused with Reciprocal Rank Fusion) over ChromaDB, with FastAPI and grounded answers with citations.",
+    "bullets": [
+      "Production RAG API: hybrid retrieval (dense embeddings + BM25, fused with Reciprocal Rank Fusion) over ChromaDB, with FastAPI and grounded answers with citations.",
+      "Primary language: Python",
+      "Topics: chromadb, docker, embeddings, fastapi, genai"
+    ],
+    "tech": [
+      "Python",
+      "chromadb",
+      "docker",
+      "embeddings",
+      "fastapi",
+      "genai"
+    ],
+    "tests": 0,
+    "github": "https://github.com/gaganjainse/rag-service"
+  },
+  {
+    "title": "AIM",
+    "featured": true,
+    "tag": "PRODUCTION-READY",
+    "tagColor": "green",
+    "description": "Full-stack attendance management system built with Flask and MySQL. Features Argon2id hashing, CSRF protection, Prometheus metrics, and 84 automated tests.",
+    "bullets": [
+      "Full-stack attendance management system built with Flask and MySQL. Features Argon2id hashing, CSRF protection, Prometheus metrics, and 84 automated tests.",
+      "Primary language: Python",
+      "1 stars, updated 8/8/2026",
+      "Topics: attendance, ci-cd, docker, flask, mysql"
+    ],
+    "tech": [
+      "Python",
+      "attendance",
+      "ci-cd",
+      "docker",
+      "flask",
+      "mysql"
+    ],
+    "tests": 0,
+    "github": "https://github.com/gaganjainse/AIM"
+  },
+  {
+    "title": "FWRS",
+    "featured": true,
+    "tag": "PRODUCTION-READY",
+    "tagColor": "green",
+    "description": "Optimizes surplus food allocation to NGOs using 3-stage linear programming (fairness → priority → cost). Python, PuLP, Flask, Folium.",
+    "bullets": [
+      "Optimizes surplus food allocation to NGOs using 3-stage linear programming (fairness → priority → cost). Python, PuLP, Flask, Folium.",
+      "Primary language: HTML",
+      "1 stars, updated 7/11/2026",
+      "Topics: docker, flask, folium, linear-programming, optimization"
+    ],
+    "tech": [
+      "HTML",
+      "docker",
+      "flask",
+      "folium",
+      "linear-programming",
+      "optimization"
+    ],
+    "tests": 0,
+    "github": "https://github.com/gaganjainse/FWRS"
+  },
+  {
+    "title": "Vyakrti",
+    "featured": true,
+    "tag": "FLAGSHIP",
+    "tagColor": "primary",
+    "description": "Sanskrit-oriented programming language with complete compiler pipeline (lexer, parser, type checker, bytecode) and browser-based IDE.",
+    "bullets": [
+      "Sanskrit-oriented programming language with complete compiler pipeline (lexer, parser, type checker, bytecode) and browser-based IDE.",
+      "Primary language: Rust",
+      "1 stars, updated 7/11/2026",
+      "Topics: axum, compiler, programming-language, react, rust"
+    ],
+    "tech": [
+      "Rust",
+      "axum",
+      "compiler",
+      "programming-language",
+      "react",
+      "rust"
+    ],
+    "tests": 0,
+    "github": "https://github.com/gaganjainse/Vyakrti"
+  },
+  {
+    "title": "shesh-workspace",
+    "featured": true,
+    "tag": "SHESH",
+    "tagColor": "pink",
+    "description": "Messy workspace handling session protocol, swarm, secure PAT, efficiency, dev tooling for shesh-ecosystem — keeps ecosystem repo clean",
+    "bullets": [
+      "Messy workspace handling session protocol, swarm, secure PAT, efficiency, dev tooling for shesh-ecosystem — keeps ecosystem repo clean",
+      "Primary language: Python",
+      "Part of Shesh ecosystem — federated AI body for CachyOS/Hyprland, brain/mind/soma layers"
+    ],
+    "tech": [
+      "Python",
+      "Shesh",
+      "MCP",
+      "Rust/Python"
+    ],
+    "tests": 8,
+    "github": "https://github.com/gaganjainse/shesh-workspace",
+    "docs": "/docs/projects/shesh-workspace"
+  },
+  {
+    "title": "shesh-media",
+    "featured": true,
+    "tag": "SHESH",
+    "tagColor": "pink",
+    "description": "Shesh shesh-media — shesh-media tools for Soma layer, part of shesh-ecosystem federation",
+    "bullets": [
+      "Shesh shesh-media — shesh-media tools for Soma layer, part of shesh-ecosystem federation",
+      "Primary language: Python",
+      "Part of Shesh ecosystem — federated AI body for CachyOS/Hyprland, brain/mind/soma layers"
+    ],
+    "tech": [
+      "Python",
+      "Shesh",
+      "MCP",
+      "Rust/Python"
+    ],
+    "tests": 8,
+    "github": "https://github.com/gaganjainse/shesh-media",
+    "docs": "/docs/projects/shesh-media"
+  },
+  {
+    "title": "shesh-brain",
+    "featured": true,
+    "tag": "SHESH",
+    "tagColor": "pink",
+    "description": "Packaged SheshaAOS kernel for desktop — routes tool calls through policy Guard, brain layer",
+    "bullets": [
+      "Packaged SheshaAOS kernel for desktop — routes tool calls through policy Guard, brain layer",
+      "Primary language: Python",
+      "Part of Shesh ecosystem — federated AI body for CachyOS/Hyprland, brain/mind/soma layers"
+    ],
+    "tech": [
+      "Python",
+      "Shesh",
+      "MCP",
+      "Rust/Python"
+    ],
+    "tests": 8,
+    "github": "https://github.com/gaganjainse/shesh-brain",
+    "docs": "/docs/projects/shesh-brain"
+  },
+  {
+    "title": "shesh-messaging",
+    "featured": true,
+    "tag": "SHESH",
+    "tagColor": "pink",
+    "description": "Shesh shesh-messaging — shesh-messaging tools for Soma layer, part of shesh-ecosystem federation",
+    "bullets": [
+      "Shesh shesh-messaging — shesh-messaging tools for Soma layer, part of shesh-ecosystem federation",
+      "Primary language: Python",
+      "Part of Shesh ecosystem — federated AI body for CachyOS/Hyprland, brain/mind/soma layers"
+    ],
+    "tech": [
+      "Python",
+      "Shesh",
+      "MCP",
+      "Rust/Python"
+    ],
+    "tests": 8,
+    "github": "https://github.com/gaganjainse/shesh-messaging",
+    "docs": "/docs/projects/shesh-messaging"
+  },
+  {
+    "title": "shesh-containers",
+    "featured": true,
+    "tag": "SHESH",
+    "tagColor": "pink",
+    "description": "Shesha Soma: podman/distrobox sandboxed command execution over MCP",
+    "bullets": [
+      "Shesha Soma: podman/distrobox sandboxed command execution over MCP",
+      "Primary language: Python",
+      "Part of Shesh ecosystem — federated AI body for CachyOS/Hyprland, brain/mind/soma layers"
+    ],
+    "tech": [
+      "Python",
+      "Shesh",
+      "MCP",
+      "Rust/Python"
+    ],
+    "tests": 8,
+    "github": "https://github.com/gaganjainse/shesh-containers",
+    "docs": "/docs/projects/shesh-containers"
+  },
+  {
+    "title": "shesh-harness",
+    "featured": true,
+    "tag": "SHESH",
+    "tagColor": "pink",
+    "description": "Sesha Mind: Continual Harness for safe evidence-backed self-improvement",
+    "bullets": [
+      "Sesha Mind: Continual Harness for safe evidence-backed self-improvement",
+      "Primary language: Python",
+      "Part of Shesh ecosystem — federated AI body for CachyOS/Hyprland, brain/mind/soma layers"
+    ],
+    "tech": [
+      "Python",
+      "Shesh",
+      "MCP",
+      "Rust/Python"
+    ],
+    "tests": 8,
+    "github": "https://github.com/gaganjainse/shesh-harness",
+    "docs": "/docs/projects/shesh-harness"
+  }
 ]
