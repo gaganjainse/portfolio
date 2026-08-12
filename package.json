@@ -20,7 +20,7 @@
     "resume:pdf": "node scripts/generate-résumé-pdf.js",
     "favicons": "python3 scripts/generate-favicons.py",
     "og-image": "python3 scripts/generate-og-image.py",
-    "generate:all": "npm run favicons && npm run og-image && npm run resume:pdf || true",
+    "generate:all": "npm run favicons && npm run og-image && npm run resume:pdf",
     "update:projects": "node scripts/auto-update-projects.mjs",
     "auto": "npm run update:projects && npm run generate:all && npm run check && npm run lint && npm test && npm run build"
   },
