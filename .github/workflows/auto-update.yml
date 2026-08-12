@@ -11,16 +11,16 @@ name: Auto-Update Portfolio (Completely Automatic)
 
 on:
   schedule:
-    - cron: "0 0 * * *" # daily midnight UTC
+    - cron: '0 0 * * *' # daily midnight UTC
   workflow_dispatch: # manual trigger from GitHub UI (useful on mobile)
   push:
     branches: [main]
     paths-ignore:
-      - "src/data/projects.ts" # avoid loop when auto-update commits
-      - "public/projects.json"
-      - "public/resume.pdf"
-      - "public/favicon.ico"
-      - "public/og-image.png"
+      - 'src/data/projects.ts' # avoid loop when auto-update commits
+      - 'public/projects.json'
+      - 'public/resume.pdf'
+      - 'public/favicon.ico'
+      - 'public/og-image.png'
 
 permissions:
   contents: write
@@ -42,7 +42,7 @@ jobs:
       - name: Setup Python for generators
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: '3.11'
 
       - name: Install Python deps for favicons/OG
         run: pip install pillow -q

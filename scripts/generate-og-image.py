@@ -23,15 +23,16 @@ FONT_DIR = os.environ.get(
     "FONT_DIR",
     next(
         (
-            str(p)
-            for p in (
-                Path.home() / ".fonts",
+        str(p)
+        for p in (
+            Path(__file__).resolve().parent.parent / "assets" / "fonts" / "inter",
+            Path.home() / ".fonts",
                 Path.home() / ".local/share/fonts",
                 Path("/usr/share/fonts"),
             )
             if (p / "Inter-Bold.ttf").exists()
         ),
-        "/home/user/.fonts",
+        "assets/fonts/inter",  # leaves a readable trail if the vendored font is ever moved
     ),
 )
 OUT = os.environ.get("OUT_DIR", str(Path(__file__).resolve().parent.parent / "public"))

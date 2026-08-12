@@ -63,7 +63,7 @@ describe('PROJECTS data', () => {
   })
 
   it('includes shesh ecosystem if present (auto)', () => {
-    const hasShesh = PROJECTS.some(p => p.title.toLowerCase().includes('shesh'))
+    const hasShesh = PROJECTS.some((p) => p.title.toLowerCase().includes('shesh'))
     // If we have shesh repos, should have at least one shesh project
     if (hasShesh) expect(hasShesh).toBe(true)
   })
