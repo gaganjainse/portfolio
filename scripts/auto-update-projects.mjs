@@ -25,8 +25,8 @@ const PRIORITY_ORDER = [
 
 const ACCURATE_TESTS = {
   SheshAOS: 877,
-  'shesh-ecosystem': 30,
-  Vyakrti: 123,
+  'shesh-ecosystem': 63,
+  Vyakrti: 122,
   'rag-service': 28,
   'llm-eval-harness': 15,
   AIM: 101,
@@ -115,7 +115,7 @@ async function main() {
         'Federated, local-first AI body (Brain+Mind+Soma) for CachyOS/Hyprland — orchestrator, manifests, gates, 22 components'
       bullets = [
         'Federated, local-first AI body for CachyOS/Hyprland — Brain (governance kernel), Mind (models/planning/memory), Soma (sensors/actuators)',
-        'Orchestrator manifest with 22 components, 3 channels stable/canary/devel, SHA256 audited locks, 30 ecosystem tests GATE OK',
+        'Orchestrator manifest with 22 components, 3 channels stable/canary/devel, SHA256 audited locks, 63 ecosystem tests GATE OK',
         'Local-first: Ollama phi4-mini/qwen2.5-coder:3b/moondream2/nomic-embed-text 6GB VRAM offline, optional OmniRoute free big models gateway where user choice',
         'Governance: shesh-audit GuardedMCP policy allow/confirm/deny + hash-chained audit + Kernel bridge, swarm via GitHub Issues atomic lock',
       ]
@@ -135,7 +135,7 @@ async function main() {
         'Complete compiler pipeline: lexer → parser → type checker → bytecode compiler — all built from scratch in Rust',
         'Browser-based IDE with React, Monaco Editor, syntax highlighting, autocomplete, diagnostics',
         'Rust (axum) backend with compile, REPL, LSP, file management via REST + WebSocket',
-        '123 tests covering full pipeline, including self-hosting corpus',
+        '122 tests covering full pipeline, including self-hosting corpus',
       ]
       tech = ['Rust', 'React', 'TypeScript', 'Monaco', 'Axum']
     } else if (repo.name === 'rag-service') {
@@ -226,7 +226,7 @@ export function getTagClasses(tagColor: string): string {
 
 // AUTO-GENERATED SMART — no forks, proper priority for AI/LLM portfolio
 // Portfolio IS personal site for AI/LLM Engineer — WHY: showcase production-grade GenAI systems
-// Priority: SheshAOS (AI OS 877+) > shesh-ecosystem (federated body 22 comps) > Vyakrti (lang 123) > RAG/Eval > AIM/FWRS > omniroute
+// Priority: SheshAOS (AI OS 877+) > shesh-ecosystem (federated body 22 comps) > Vyakrti (lang 122) > RAG/Eval > AIM/FWRS > omniroute
 // Generated: ${new Date().toISOString()} — no forks ever
 export const PROJECTS: Project[] = ${JSON.stringify(projects, null, 2)}
 `

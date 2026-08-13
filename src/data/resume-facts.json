@@ -1,5 +1,5 @@
 {
-  "verified_at": "2026-08-13",
+  "verified_at": "2026-08-13 (fleet audit: cargo test + pytest --collect-only + grep counts)",
   "verified_by": "cargo test --workspace on SheshAOS@b69df77 (sandbox run) + Cargo.toml members read + GitHub API public_repos",
   "SheshAOS": {
     "workspace_members": 10,
@@ -9,5 +9,15 @@
     "tests_floor": 850
   },
   "public_repos_min": 55,
-  "defaultRepoCount": 60
+  "defaultRepoCount": 60,
+  "projects": {
+    "SheshAOS": 877,
+    "shesh-ecosystem": 63,
+    "Vyakrti": 122,
+    "rag-service": 28,
+    "llm-eval-harness": 15,
+    "AIM": 101,
+    "FWRS": 1,
+    "shesh-omniroute": 0
+  }
 }

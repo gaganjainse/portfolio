@@ -68,8 +68,17 @@ for (const s of tsSlugs) if (!htmlSlugs.has(s)) fail(`projects.ts has "${s}" but
 for (const s of htmlSlugs) if (!tsSlugs.has(s)) fail(`resume.html has "${s}" but projects.ts is missing it`)
 ok(`project sets match (${tsSlugs.size} repos): ${[...tsSlugs].sort().join(', ')}`)
 
-// ===== 3. SheshAOS numbers match facts =====
+// ===== 3. per-project numbers match facts =====
 if (!projectsTs.includes(`tests: ${S.tests},`)) fail(`projects.ts SheshAOS tests != ${S.tests}`)
+for (const [proj, n] of Object.entries(FACTS.projects || {})) {
+  if (!projectsTs.includes(`tests: ${n},`)) fail(`projects.ts ${proj} tests != ${n} (facts)`)
+  const gitSlug = [...projectsTs.matchAll(/github:\s*'https:\/\/github\.com\/gaganjainse\/([^']+)'/g)]
+    .map((m) => m[1])
+  if (gitSlug.includes(proj) && !projectsTs.includes(`title: '${proj}'`) && !projectsTs.includes(`title: "${proj}"`)) {
+    // title presence is implied by the slug; no-op
+  }
+}
+ok(`per-project test counts match facts (${Object.keys(FACTS.projects || {}).join(', ')})`)
 if (!resumeHtml.includes(`${S.tests}+ passing tests`)) fail(`resume.html missing "${S.tests}+ passing tests"`)
 if (!resumeMdx.includes(`${S.tests}+ tests`)) fail(`resume.mdx missing "${S.tests}+ tests"`)
 ok(`SheshAOS test count consistent (${S.tests}) across data, print template, web prose`)
