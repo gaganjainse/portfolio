@@ -17,7 +17,7 @@
     "test:watch": "vitest",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "resume:pdf": "node scripts/generate-résumé-pdf.js",
+    "resume:pdf": "node scripts/generate-r\u00e9sum\u00e9-pdf.js",
     "favicons": "python3 scripts/generate-favicons.py",
     "og-image": "python3 scripts/generate-og-image.py",
     "generate:all": "npm run favicons && npm run og-image && npm run resume:pdf",
@@ -48,5 +48,8 @@
   },
   "optionalDependencies": {
     "puppeteer": "^25.5.0"
+  },
+  "overrides": {
+    "path-to-regexp": "^6.3.0"
   }
 }
