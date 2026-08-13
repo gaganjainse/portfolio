@@ -13,7 +13,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const GITHUB_USERNAME = 'gaganjainse'
 
 const PRIORITY_ORDER = [
-  'SheshaAOS', // 1: Governance-first AI OS Rust 12 crates 981 tests
+  'SheshAOS', // 1: Governance-first AI OS Rust 12 crates 981 tests
   'shesh-ecosystem', // 2: Federated AI body 22 components — represents entire shesh family, not 10 separate cards
   'Vyakrti', // 3: Sanskrit programming language 123 tests — flagship lang
   'rag-service', // 4: Production RAG API hybrid retrieval
@@ -24,7 +24,7 @@ const PRIORITY_ORDER = [
 ]
 
 const ACCURATE_TESTS = {
-  SheshaAOS: 981,
+  SheshAOS: 981,
   'shesh-ecosystem': 30,
   Vyakrti: 123,
   'rag-service': 28,
@@ -34,8 +34,11 @@ const ACCURATE_TESTS = {
   'shesh-omniroute': 0,
 }
 
+// Legacy page slug for the renamed AI-OS repo (page filename still seshaos.mdx)
+const DOCS_URLS = { SheshAOS: '/docs/projects/seshaos' }
+
 const TAG_MAP = {
-  SheshaAOS: { tag: 'AI/AGENTIC OS', tagColor: 'pink' },
+  SheshAOS: { tag: 'AI/AGENTIC OS', tagColor: 'pink' },
   'shesh-ecosystem': { tag: 'AGENTIC BODY', tagColor: 'pink' },
   Vyakrti: { tag: 'FLAGSHIP LANG', tagColor: 'primary' },
   'rag-service': { tag: 'RAG / VECTOR', tagColor: 'primary' },
@@ -117,7 +120,7 @@ async function main() {
         'Governance: shesh-audit GuardedMCP policy allow/confirm/deny + hash-chained audit + Nexus bridge, swarm via GitHub Issues atomic lock',
       ]
       tech = ['Python', 'Rust', 'MCP', 'Agentic AI', 'Ollama', 'Governance']
-    } else if (repo.name === 'SheshaAOS') {
+    } else if (repo.name === 'SheshAOS') {
       bullets = [
         'Governance-first, event-sourced AI OS in Rust: 12 workspace crates, 981 passing tests, 0 clippy warnings, full GitHub Actions CI/CD',
         'Policy-enforced agent kernel where LLMs propose actions and kernel validates/records every state change in append-only audit trail',
@@ -185,7 +188,7 @@ async function main() {
       tech: tech.slice(0, 8),
       tests,
       github: repo.html_url,
-      docs: `/docs/projects/${repo.name.toLowerCase()}`,
+      docs: DOCS_URLS[repo.name] || `/docs/projects/${repo.name.toLowerCase()}`,
     }
   })
 
@@ -221,7 +224,7 @@ export function getTagClasses(tagColor: string): string {
 
 // AUTO-GENERATED SMART — no forks, proper priority for AI/LLM portfolio
 // Portfolio IS personal site for AI/LLM Engineer — WHY: showcase production-grade GenAI systems
-// Priority: SheshaAOS (AI OS 981) > shesh-ecosystem (federated body 22 comps) > Vyakrti (lang 123) > RAG/Eval > AIM/FWRS > omniroute
+// Priority: SheshAOS (AI OS 981) > shesh-ecosystem (federated body 22 comps) > Vyakrti (lang 123) > RAG/Eval > AIM/FWRS > omniroute
 // Generated: ${new Date().toISOString()} — no forks ever
 export const PROJECTS: Project[] = ${JSON.stringify(projects, null, 2)}
 `
