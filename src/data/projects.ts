@@ -31,14 +31,15 @@ export function getTagClasses(tagColor: string): string {
 // AUTO-GENERATED SMART — no forks, proper priority for AI/LLM portfolio
 // Portfolio IS personal site for AI/LLM Engineer — WHY: showcase production-grade GenAI systems
 // Priority: SheshAOS (AI OS 981) > shesh-ecosystem (federated body 22 comps) > Vyakrti (lang 123) > RAG/Eval > AIM/FWRS > omniroute
-// Generated: 2026-08-13T12:41:56.248Z — no forks ever
+// Generated: 2026-08-13T14:37:12.223Z — no forks ever
 export const PROJECTS: Project[] = [
   {
     title: 'SheshAOS',
     featured: true,
     tag: 'AI/AGENTIC OS',
     tagColor: 'pink',
-    description: 'Governance-first, event-sourced AI OS in Rust — 12 crates, 872+ tests',
+    description:
+      'Governance-first, event-sourced AI OS in Rust — 12 crates, 872+ tests, provider-agnostic LLM',
     bullets: [
       'Governance-first, event-sourced AI OS in Rust: 12 workspace crates, 981 passing tests, 0 clippy warnings, full GitHub Actions CI/CD',
       'Policy-enforced agent kernel where LLMs propose actions and kernel validates/records every state change in append-only audit trail',
@@ -73,7 +74,7 @@ export const PROJECTS: Project[] = [
     featured: true,
     tag: 'FLAGSHIP LANG',
     tagColor: 'primary',
-    description: 'Sanskrit-oriented programming language with full compiler pipeline',
+    description: 'Sanskrit-oriented programming language with complete compiler pipeline',
     bullets: [
       'Complete compiler pipeline: lexer → parser → type checker → bytecode compiler — all built from scratch in Rust',
       'Browser-based IDE with React, Monaco Editor, syntax highlighting, autocomplete, diagnostics',
@@ -124,7 +125,7 @@ export const PROJECTS: Project[] = [
     featured: true,
     tag: 'PRODUCTION',
     tagColor: 'green',
-    description: 'Production Flask + MySQL platform — Argon2id, CSRF, JWT, Prometheus',
+    description: 'Production Flask + MySQL platform — Argon2id auth, CSRF, JWT, Prometheus',
     bullets: [
       'Production-grade Flask + MySQL platform with Argon2id auth, CSRF protection, brute-force lockout, breached-password scanning, JWT sessions, strict CSP/HSTS',
       'Prometheus metrics, structured JSON logging, Chart.js analytics, FullCalendar scheduling, Docker Compose, GitHub Actions CI/CD; 101 automated pytest tests',
