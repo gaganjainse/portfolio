@@ -61,6 +61,13 @@ jobs:
           echo "Fetching all repos for gaganjainse..."
           npm run update:projects
 
+      - name: Normalize generated data formatting (prettier)
+        run: |
+          # update:projects writes src/data/projects.ts + public/projects.json
+          # non-prettier-formatted → format:check would fail on the regenerated
+          # files. Normalize immediately so the gates stay green.
+          npx prettier --write src/data/projects.ts public/projects.json
+
       - name: Generate all assets (favicons + OG image + resume PDF) — automatic
         run: npm run generate:all
 
