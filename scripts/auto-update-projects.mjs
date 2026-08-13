@@ -112,10 +112,10 @@ async function main() {
 
     if (repo.name === 'shesh-ecosystem') {
       description =
-        'Federated, local-first AI body (Brain+Mind+Soma) for CachyOS/Hyprland — orchestrator, manifests, gates, 22 components'
+        'Federated, local-first AI body (Brain+Mind+Soma) for CachyOS/Hyprland — orchestrator, manifests, gates, 23 components'
       bullets = [
         'Federated, local-first AI body for CachyOS/Hyprland — Brain (governance kernel), Mind (models/planning/memory), Soma (sensors/actuators)',
-        'Orchestrator manifest with 22 components, 3 channels stable/canary/devel, SHA256 audited locks, 63 ecosystem tests GATE OK',
+        'Orchestrator manifest with 23 components, 3 channels stable/canary/devel, SHA256 audited locks, 63 ecosystem tests GATE OK',
         'Local-first: Ollama phi4-mini/qwen2.5-coder:3b/moondream2/nomic-embed-text 6GB VRAM offline, optional OmniRoute free big models gateway where user choice',
         'Governance: shesh-audit GuardedMCP policy allow/confirm/deny + hash-chained audit + Kernel bridge, swarm via GitHub Issues atomic lock',
       ]
@@ -226,7 +226,7 @@ export function getTagClasses(tagColor: string): string {
 
 // AUTO-GENERATED SMART — no forks, proper priority for AI/LLM portfolio
 // Portfolio IS personal site for AI/LLM Engineer — WHY: showcase production-grade GenAI systems
-// Priority: SheshAOS (AI OS 877+) > shesh-ecosystem (federated body 22 comps) > Vyakrti (lang 122) > RAG/Eval > AIM/FWRS > omniroute
+// Priority: SheshAOS (AI OS 877+) > shesh-ecosystem (federated body 23 comps) > Vyakrti (lang 122) > RAG/Eval > AIM/FWRS > omniroute
 // Generated: ${new Date().toISOString()} — no forks ever
 export const PROJECTS: Project[] = ${JSON.stringify(projects, null, 2)}
 `

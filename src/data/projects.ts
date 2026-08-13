@@ -57,10 +57,10 @@ export const PROJECTS: Project[] = [
     tag: 'AGENTIC BODY',
     tagColor: 'pink',
     description:
-      'Federated, local-first AI body (Brain+Mind+Soma) for CachyOS/Hyprland — orchestrator, manifests, gates, 22 components',
+      'Federated, local-first AI body (Brain+Mind+Soma) for CachyOS/Hyprland — orchestrator, manifests, gates, 23 components',
     bullets: [
       'Federated, local-first AI body for CachyOS/Hyprland — Brain (governance kernel), Mind (models/planning/memory), Soma (sensors/actuators)',
-      'Orchestrator manifest with 22 components, 3 channels stable/canary/devel, SHA256 audited locks, 63 ecosystem tests GATE OK',
+      'Orchestrator manifest with 23 components, 3 channels stable/canary/devel, SHA256 audited locks, 63 ecosystem tests GATE OK',
       'Local-first: Ollama phi4-mini/qwen2.5-coder:3b/moondream2/nomic-embed-text 6GB VRAM offline, optional OmniRoute free big models gateway where user choice',
       'Governance: shesh-audit GuardedMCP policy allow/confirm/deny + hash-chained audit + Kernel bridge, swarm via GitHub Issues atomic lock',
     ],
