@@ -1,0 +1,41 @@
+---
+layout: ../../../layouts/DocsLayout.astro
+title: shesh-omniroute
+description: 'shesh-omniroute project documentation'
+---
+
+import TechChip from '../../../components/TechChip.astro'
+
+<h1 class="text-4xl font-bold mb-6 gradient-text">shesh-omniroute</h1>
+{/* prettier-ignore */}
+<p class="text-text-muted mb-8">Shesh wrapper for OmniRoute — a free, MIT-licensed AI gateway (291 providers, 90+ free, 500+ models) with automatic tier fallback.</p>
+
+<div class="gradient-border p-6 mb-6">
+  <h2 class="text-2xl font-bold text-text mb-3">Overview</h2>
+  {/* prettier-ignore */}
+  <p class="text-text-muted mb-4">A single OpenAI-compatible endpoint (<code>http://localhost:20128/v1</code>) that any tool — Claude Code, Cursor, Cline — can point at, with automatic fallback across tiers: Tier1 Sub → Tier2 API → Tier3 Cheap → Tier4 Free. Optional alongside a local Ollama primary in the final Shesh product.</p>
+</div>
+
+<div class="gradient-border p-6 mb-6">
+  <h2 class="text-2xl font-bold text-text mb-3">Free-tier engineering</h2>
+  {/* prettier-ignore */}
+  <p class="text-text-muted mb-4">Documented 1.53B free tokens/month. RTK + Caveman compression reduces 15–95% of tokens (~89% average), stretching free tiers further.</p>
+</div>
+
+<div class="gradient-border p-6">
+  <h2 class="text-2xl font-bold text-text mb-3">Tech Stack</h2>
+  <div class="flex flex-wrap gap-2">
+    {[
+      'TypeScript',
+      'OmniRoute',
+      'AI Gateway',
+      'Free Models',
+      'MCP',
+      'A2A',
+      'PWA',
+      'MIT',
+    ].map((tech) => (
+      <TechChip label={tech} />
+    ))}
+  </div>
+</div>

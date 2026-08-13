@@ -3,10 +3,11 @@
 GenAI systems, agentic AI, RAG, multi-agent orchestration, LLM fine-tuning, Rust, Python.
 
 ## Key Projects
-- NexusAOS: Governance-first, event-sourced AI operating environment in Rust (12 workspace crates, 981 tests).
+- SheshAOS: Governance-first, event-sourced AI operating environment in Rust (9 workspace crates + CLI, 877+ tests).
+- shesh-ecosystem: Federated, local-first AI body (Brain + Mind + Soma) for CachyOS/Hyprland — orchestrator, manifests, gates.
 - RAG Service: Production RAG API with hybrid retrieval (dense + BM25, RRF) over ChromaDB.
 - LLM Eval Harness: Golden-set evaluation with LLM-as-judge and offline fallbacks.
-- SeshaOS: Local-first AI OS with specialist models (Gemma 4, Qwen3) and LiteLLM routing.
+- shesh-omniroute: Shesh wrapper for OmniRoute — free MIT AI gateway (291 providers, 500+ models) with automatic tier fallback.
 - Vyākṛti: Sanskrit-oriented programming language with complete compiler pipeline and browser IDE (companion: vyakrti-ide).
 - AIM: Production-grade attendance system (Flask + MySQL, 101 tests).
 - FWRS: Food-waste optimization with a 3-stage lexicographic LP (fairness → priority → cost) and expiry-aware routing.

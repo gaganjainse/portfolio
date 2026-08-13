@@ -31,17 +31,10 @@ describe('PROJECTS data', () => {
     }
   })
 
-  it('attribution: if NexusAOS and nexus-kernel both exist, 981 tests belong to NexusAOS', () => {
-    const kernel = PROJECTS.find((p) => p.title === 'nexus-kernel')
-    const nexusAOS = PROJECTS.find((p) => p.title === 'NexusAOS')
-    if (kernel && nexusAOS) {
-      expect(nexusAOS?.tests).toBe(981)
-      expect(kernel?.tests).toBe(0)
-      expect(kernel?.companionOf).toBe('NexusAOS')
-    } else {
-      // Auto-generated mode may not have NexusAOS, skip
-      expect(true).toBe(true)
-    }
+  it('flagship SheshAOS carries the verified test count', () => {
+    const sheshaos = PROJECTS.find((p) => p.title === 'SheshAOS')
+    expect(sheshaos).toBeDefined()
+    expect(sheshaos?.tests).toBeGreaterThanOrEqual(800)
   })
 
   it('every companion project points at an existing project', () => {

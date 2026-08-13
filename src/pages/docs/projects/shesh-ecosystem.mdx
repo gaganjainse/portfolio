@@ -1,0 +1,47 @@
+---
+layout: ../../../layouts/DocsLayout.astro
+title: shesh-ecosystem
+description: 'shesh-ecosystem project documentation'
+---
+
+import TechChip from '../../../components/TechChip.astro'
+
+<h1 class="text-4xl font-bold mb-6 gradient-text">shesh-ecosystem</h1>
+{/* prettier-ignore */}
+<p class="text-text-muted mb-8">Federated, local-first AI body (Brain + Mind + Soma) for CachyOS/Hyprland — orchestrator, manifests, gates, and 22 components.</p>
+
+<div class="gradient-border p-6 mb-6">
+  <h2 class="text-2xl font-bold text-text mb-3">Overview</h2>
+  {/* prettier-ignore */}
+  <p class="text-text-muted mb-4">A local-first AI body with three layers: <strong>Brain</strong> (governance kernel), <strong>Mind</strong> (models/planning/memory), and <strong>Soma</strong> (sensors/actuators). Everything runs offline on a single machine, with an optional gateway to free big models via OmniRoute.</p>
+</div>
+
+<div class="gradient-border p-6 mb-6">
+  <h2 class="text-2xl font-bold text-text mb-3">Orchestration &amp; Channels</h2>
+  {/* prettier-ignore */}
+  <p class="text-text-muted mb-4">The orchestrator manifest manages 22 components across 3 channels — stable, canary, and devel — with SHA256-audited locks and a 30-test ecosystem gate.</p>
+</div>
+
+<div class="gradient-border p-6 mb-6">
+  <h2 class="text-2xl font-bold text-text mb-3">Governance</h2>
+  {/* prettier-ignore */}
+  <p class="text-text-muted mb-4"><strong>shesh-audit</strong> enforces a GuardedMCP policy (allow/confirm/deny) with a hash-chained audit trail, the Kernel bridge, and swarm coordination via GitHub Issues atomic locks.</p>
+</div>
+
+<div class="gradient-border p-6">
+  <h2 class="text-2xl font-bold text-text mb-3">Tech Stack</h2>
+  <div class="flex flex-wrap gap-2">
+    {[
+      'Python',
+      'Rust',
+      'MCP',
+      'Agentic AI',
+      'Ollama',
+      'Governance',
+      'Hyprland',
+      'CachyOS',
+    ].map((tech) => (
+      <TechChip label={tech} />
+    ))}
+  </div>
+</div>

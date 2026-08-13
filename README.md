@@ -42,9 +42,9 @@ CS @ VIT Vellore (Graduated 2025, CGPA 7.7/10). I build practical AI systems: LL
 
 ### AI / LLM Projects
 
-- **NexusAOS** — Governance-first, event-sourced AI operating environment in Rust (12 workspace crates, 981 tests)
-- **nexus-kernel** — Companion repo: the alpha-track microkernel sibling of the NexusAOS workspace
-- **SeshaOS** — Local-first AI OS with specialist models (Gemma 4, Qwen3) and LiteLLM-compatible routing
+- **SheshAOS** — Governance-first, event-sourced AI operating environment in Rust (9 workspace crates + CLI, 877+ tests)
+- **shesh-ecosystem** — Federated, local-first AI body (Brain + Mind + Soma) for CachyOS/Hyprland
+- **shesh-omniroute** — Shesh wrapper for OmniRoute — free MIT AI gateway (291 providers, 500+ models)
 - **RAG Service** — Production RAG API: hybrid retrieval (dense + BM25, RRF) over ChromaDB
 - **LLM Eval Harness** — Golden-set evaluation: faithfulness, answer relevance, correctness
 
@@ -150,7 +150,7 @@ Vitest unit tests cover the data layer (`src/data/*.test.ts`): skill categorizat
 - [Architecture](/docs/architecture) — system design patterns
 - [ADRs](/docs/adr) — architecture decision records
 - [Site Map](/docs/site-map) — every page and route in the repo
-- [RAG Service](/docs/projects/rag-service) · [LLM Eval Harness](/docs/projects/llm-eval-harness) · [NexusAOS](/docs/projects/nexusaos) · [nexus-kernel](/docs/projects/nexus-kernel) · [SeshaOS](/docs/projects/seshaos) · [Vyākṛti](/docs/projects/vyakrti)
+- [RAG Service](/docs/projects/rag-service) · [LLM Eval Harness](/docs/projects/llm-eval-harness) · [SheshAOS](/docs/projects/seshaos) · [shesh-ecosystem](/docs/projects/shesh-ecosystem) · [shesh-omniroute](/docs/projects/shesh-omniroute) · [Vyākṛti](/docs/projects/vyakrti)
 
 ## 🌐 Live Site
 

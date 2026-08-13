@@ -1,0 +1,39 @@
+name: Proofread (facts + grammar)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    # Daily, after the auto-update job (00:00 UTC). Runs even when the
+    # auto-update commit uses [skip ci], so drift is still caught.
+    - cron: '30 0 * * *'
+  workflow_dispatch:
+
+# Least privilege; both jobs only read the repo + public GitHub endpoints.
+permissions: read-all
+
+jobs:
+  facts:
+    name: Résumé facts gate (blocking)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+      - name: Check résumé facts (forbidden terms, cross-file, live counts)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/check-resume-consistency.mjs
+
+  grammar:
+    name: Résumé grammar (advisory)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+      - name: Run LanguageTool prose pass (reports; never flaky-blocking)
+        run: node scripts/check-resume-grammar.mjs

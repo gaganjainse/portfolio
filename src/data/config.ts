@@ -3,7 +3,7 @@ export const SITE_CONFIG = {
   siteUrl: 'https://gaganjain.vercel.app',
   siteTitle: 'Gagan Jain — AI / LLM Engineer',
   githubUsername: 'gaganjainse',
-  defaultRepoCount: 19,
+  defaultRepoCount: 60,
   tagline:
     'CS graduate from VIT Vellore building production-grade GenAI systems — from multi-agent orchestration and LLM fine-tuning to RAG pipelines and agentic AI platforms.',
   description:

@@ -13,7 +13,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const GITHUB_USERNAME = 'gaganjainse'
 
 const PRIORITY_ORDER = [
-  'SheshAOS', // 1: Governance-first AI OS Rust 12 crates 981 tests
+  'SheshAOS', // 1: Governance-first AI OS Rust 9 crates + CLI 877+ tests
   'shesh-ecosystem', // 2: Federated AI body 22 components — represents entire shesh family, not 10 separate cards
   'Vyakrti', // 3: Sanskrit programming language 123 tests — flagship lang
   'rag-service', // 4: Production RAG API hybrid retrieval
@@ -24,7 +24,7 @@ const PRIORITY_ORDER = [
 ]
 
 const ACCURATE_TESTS = {
-  SheshAOS: 981,
+  SheshAOS: 877,
   'shesh-ecosystem': 30,
   Vyakrti: 123,
   'rag-service': 28,
@@ -117,12 +117,14 @@ async function main() {
         'Federated, local-first AI body for CachyOS/Hyprland — Brain (governance kernel), Mind (models/planning/memory), Soma (sensors/actuators)',
         'Orchestrator manifest with 22 components, 3 channels stable/canary/devel, SHA256 audited locks, 30 ecosystem tests GATE OK',
         'Local-first: Ollama phi4-mini/qwen2.5-coder:3b/moondream2/nomic-embed-text 6GB VRAM offline, optional OmniRoute free big models gateway where user choice',
-        'Governance: shesh-audit GuardedMCP policy allow/confirm/deny + hash-chained audit + Nexus bridge, swarm via GitHub Issues atomic lock',
+        'Governance: shesh-audit GuardedMCP policy allow/confirm/deny + hash-chained audit + Kernel bridge, swarm via GitHub Issues atomic lock',
       ]
       tech = ['Python', 'Rust', 'MCP', 'Agentic AI', 'Ollama', 'Governance']
     } else if (repo.name === 'SheshAOS') {
+      description =
+        'Governance-first, event-sourced AI OS in Rust — 9 crates + CLI, 877+ tests, provider-agnostic LLM'
       bullets = [
-        'Governance-first, event-sourced AI OS in Rust: 12 workspace crates, 981 passing tests, 0 clippy warnings, full GitHub Actions CI/CD',
+        'Governance-first, event-sourced AI OS in Rust: 9 workspace crates + CLI, 877+ passing tests, 0 clippy warnings, full GitHub Actions CI/CD',
         'Policy-enforced agent kernel where LLMs propose actions and kernel validates/records every state change in append-only audit trail',
         'Provider-agnostic LLM layer with OpenAI-compatible and Anthropic streaming, LiteLLM routing, local-first inference fully offline',
         'Native terminal emulation (PTY + VT100), SSH multiplexing, secrets vault, 4 interfaces: CLI, TUI, GUI, RPC',
@@ -224,7 +226,7 @@ export function getTagClasses(tagColor: string): string {
 
 // AUTO-GENERATED SMART — no forks, proper priority for AI/LLM portfolio
 // Portfolio IS personal site for AI/LLM Engineer — WHY: showcase production-grade GenAI systems
-// Priority: SheshAOS (AI OS 981) > shesh-ecosystem (federated body 22 comps) > Vyakrti (lang 123) > RAG/Eval > AIM/FWRS > omniroute
+// Priority: SheshAOS (AI OS 877+) > shesh-ecosystem (federated body 22 comps) > Vyakrti (lang 123) > RAG/Eval > AIM/FWRS > omniroute
 // Generated: ${new Date().toISOString()} — no forks ever
 export const PROJECTS: Project[] = ${JSON.stringify(projects, null, 2)}
 `

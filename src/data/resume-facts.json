@@ -1,0 +1,13 @@
+{
+  "verified_at": "2026-08-13",
+  "verified_by": "cargo test --workspace on SheshAOS@b69df77 (sandbox run) + Cargo.toml members read + GitHub API public_repos",
+  "SheshAOS": {
+    "workspace_members": 10,
+    "crates": 9,
+    "cli_bins": 1,
+    "tests": 877,
+    "tests_floor": 850
+  },
+  "public_repos_min": 55,
+  "defaultRepoCount": 60
+}

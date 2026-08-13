@@ -30,7 +30,7 @@ export function getTagClasses(tagColor: string): string {
 
 // AUTO-GENERATED SMART — no forks, proper priority for AI/LLM portfolio
 // Portfolio IS personal site for AI/LLM Engineer — WHY: showcase production-grade GenAI systems
-// Priority: SheshAOS (AI OS 981) > shesh-ecosystem (federated body 22 comps) > Vyakrti (lang 123) > RAG/Eval > AIM/FWRS > omniroute
+// Priority: SheshAOS (AI OS 877+) > shesh-ecosystem (federated body 22 comps) > Vyakrti (lang 123) > RAG/Eval > AIM/FWRS > omniroute
 // Generated: 2026-08-13T14:37:12.223Z — no forks ever
 export const PROJECTS: Project[] = [
   {
@@ -39,15 +39,15 @@ export const PROJECTS: Project[] = [
     tag: 'AI/AGENTIC OS',
     tagColor: 'pink',
     description:
-      'Governance-first, event-sourced AI OS in Rust — 12 crates, 872+ tests, provider-agnostic LLM',
+      'Governance-first, event-sourced AI OS in Rust — 9 crates + CLI, 877+ tests, provider-agnostic LLM',
     bullets: [
-      'Governance-first, event-sourced AI OS in Rust: 12 workspace crates, 981 passing tests, 0 clippy warnings, full GitHub Actions CI/CD',
+      'Governance-first, event-sourced AI OS in Rust: 9 workspace crates + CLI, 877+ passing tests, 0 clippy warnings, full GitHub Actions CI/CD',
       'Policy-enforced agent kernel where LLMs propose actions and kernel validates/records every state change in append-only audit trail',
       'Provider-agnostic LLM layer with OpenAI-compatible and Anthropic streaming, LiteLLM routing, local-first inference fully offline',
       'Native terminal emulation (PTY + VT100), SSH multiplexing, secrets vault, 4 interfaces: CLI, TUI, GUI, RPC',
     ],
     tech: ['Rust', 'Tokio', 'Event Sourcing', 'LiteLLM', 'OpenAI', 'Anthropic', 'SSH'],
-    tests: 981,
+    tests: 877,
     github: 'https://github.com/gaganjainse/SheshAOS',
     docs: '/docs/projects/seshaos',
   },
@@ -62,7 +62,7 @@ export const PROJECTS: Project[] = [
       'Federated, local-first AI body for CachyOS/Hyprland — Brain (governance kernel), Mind (models/planning/memory), Soma (sensors/actuators)',
       'Orchestrator manifest with 22 components, 3 channels stable/canary/devel, SHA256 audited locks, 30 ecosystem tests GATE OK',
       'Local-first: Ollama phi4-mini/qwen2.5-coder:3b/moondream2/nomic-embed-text 6GB VRAM offline, optional OmniRoute free big models gateway where user choice',
-      'Governance: shesh-audit GuardedMCP policy allow/confirm/deny + hash-chained audit + Nexus bridge, swarm via GitHub Issues atomic lock',
+      'Governance: shesh-audit GuardedMCP policy allow/confirm/deny + hash-chained audit + Kernel bridge, swarm via GitHub Issues atomic lock',
     ],
     tech: ['Python', 'Rust', 'MCP', 'Agentic AI', 'Ollama', 'Governance'],
     tests: 30,

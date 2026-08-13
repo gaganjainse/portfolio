@@ -4,104 +4,133 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
-    <title>Gagan Jain — AI / LLM Engineer</title>
+    <title>Gagan Jain — AI Engineer</title>
     <!-- Printable résumé source — used only to generate public/resume.pdf -->
     <style>
       @page {
         size: A4;
-        margin: 13mm 15mm 13mm 15mm;
+        margin: 10mm 12mm 10mm 12mm;
       }
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
+      :root {
+        --ink: #0f172a;
+        --muted: #475569;
+        --soft: #64748b;
+        --violet: #7c3aed;
+        --cyan: #0891b2;
+        --rule: #e2e8f0;
+      }
       body {
-        font-family:
-          'Inter',
-          system-ui,
-          -apple-system,
-          sans-serif;
-        font-size: 9.2pt;
-        line-height: 1.33;
-        color: #1a1a2e;
+        font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+        font-size: 9.45pt;
+        line-height: 1.37;
+        color: var(--ink);
         background: #ffffff;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }
-      .container {
-        max-width: 210mm;
-        margin: 0 auto;
+      a {
+        color: var(--cyan);
+        text-decoration: none;
       }
+      .container {
+        max-width: 100%;
+      }
+
       header {
-        border-bottom: none;
-        padding-bottom: 8px;
-        margin-bottom: 10px;
-        background-image: linear-gradient(90deg, #8b5cf6 0%, #06b6d4 100%);
-        background-size: 100% 2px;
-        background-position: bottom;
-        background-repeat: no-repeat;
+        border-bottom: 2.5px solid transparent;
+        border-image: linear-gradient(90deg, var(--violet), var(--cyan)) 1;
+        padding-bottom: 5px;
+        margin-bottom: 7px;
       }
       h1 {
-        font-size: 18pt;
+        font-size: 19pt;
         font-weight: 700;
-        color: #0f172a;
-        letter-spacing: 0.3px;
+        letter-spacing: -0.4px;
+        color: var(--ink);
+        line-height: 1.05;
       }
       .title {
         font-size: 10pt;
         font-weight: 600;
-        margin-top: 2px;
+        color: var(--violet);
+        margin-top: 1px;
       }
       .contact {
-        font-size: 8.5pt;
-        color: #475569;
+        font-size: 8.1pt;
+        color: var(--muted);
+        margin-top: 3px;
+        line-height: 1.4;
+      }
+      .contact .sep {
+        color: #cbd5e1;
+        padding: 0 4px;
+      }
+      .contact .phone {
+        white-space: nowrap;
+      }
+      .competencies {
+        font-size: 7.9pt;
+        color: var(--soft);
         margin-top: 4px;
-        line-height: 1.35;
+        letter-spacing: 0.2px;
       }
-      .contact a {
-        color: #06b6d4;
-        text-decoration: none;
-        font-weight: 600;
-      }
+
       section {
-        margin-bottom: 4px;
+        margin-bottom: 8px;
       }
       h2 {
-        font-size: 10.5pt;
+        font-size: 9.6pt;
         font-weight: 700;
         text-transform: uppercase;
-        letter-spacing: 0.7px;
+        letter-spacing: 1.1px;
+        color: var(--ink);
         margin-bottom: 4px;
         padding-bottom: 2px;
-        border-bottom: 1px solid #e2e8f0;
+        border-bottom: 1px solid var(--rule);
+        display: flex;
+        align-items: center;
+        gap: 6px;
       }
-      h2 svg {
-        display: block;
+      h2::before {
+        content: '';
+        display: inline-block;
+        width: 3px;
+        height: 9px;
+        border-radius: 1.5px;
+        background: linear-gradient(180deg, var(--violet), var(--cyan));
       }
+
       .summary {
-        font-size: 9.3pt;
+        font-size: 9.4pt;
         color: #334155;
-        line-height: 1.45;
+        line-height: 1.46;
+        text-align: justify;
       }
+
       .skills-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 2px 16px;
+        gap: 2px 18px;
       }
       .skill-item {
-        font-size: 9.1pt;
+        font-size: 8.9pt;
         color: #1e293b;
-        line-height: 1.35;
+        line-height: 1.38;
       }
       .skill-item strong {
-        color: #0f172a;
+        color: var(--ink);
         font-weight: 600;
       }
+
       .project {
-        margin-bottom: 5px;
-        padding-bottom: 3px;
-        border-bottom: 1px dashed #e2e8f0;
+        margin-bottom: 8px;
+        padding-bottom: 6px;
+        border-bottom: 1px dashed var(--rule);
       }
       .project:last-child {
         border-bottom: none;
@@ -110,157 +139,122 @@
       }
       .project-header {
         display: flex;
-        align-items: baseline;
+        align-items: center;
+        justify-content: space-between;
         gap: 8px;
-        margin-bottom: 4px;
+        margin-bottom: 1px;
       }
       .project-title {
         font-weight: 700;
-        font-size: 10pt;
-        color: #0f172a;
+        font-size: 10.2pt;
+        color: var(--ink);
       }
       .project-tag {
-        font-size: 7.5pt;
+        font-size: 6.9pt;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.5px;
-        padding: 2px 6px;
+        padding: 1.5px 6px;
         border-radius: 3px;
-        background: #fce7f3;
-        color: #be185d;
-        border: 1px solid #fbcfe8;
-      }
-      .project-tag.rust {
-        background: #fef3c7;
-        color: #92400e;
-        border-color: #fde68a;
-      }
-      .project-tag.production {
-        background: #d1fae5;
-        color: #065f46;
-        border-color: #a7f3d0;
-      }
-      .project-tag.genai {
-        background: #ede9fe;
-        color: #5b21b6;
-        border-color: #ddd6fe;
+        white-space: nowrap;
+        background: #f5f3ff;
+        color: #6d28d9;
+        border: 1px solid #ddd6fe;
       }
       .project-meta {
-        font-size: 8.6pt;
-        color: #64748b;
-        margin-bottom: 3px;
+        font-size: 8.3pt;
+        color: var(--soft);
+        margin-bottom: 2px;
+        letter-spacing: 0.2px;
       }
       .project-list {
-        list-style: disc;
-        padding-left: 16px;
+        list-style: none;
         color: #334155;
-        font-size: 8.9pt;
-        line-height: 1.36;
+        font-size: 9.1pt;
+        line-height: 1.43;
       }
       .project-list li {
         margin-bottom: 1px;
+        padding-left: 10px;
+        position: relative;
       }
-      .project-buttons {
-        display: flex;
-        gap: 6px;
-        margin-top: 4px;
-        flex-wrap: wrap;
+      .project-list li::before {
+        content: '';
+        position: absolute;
+        left: 1px;
+        top: 4.5px;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--violet), var(--cyan));
       }
-      .project-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 4px;
-        font-size: 8pt;
+      .project-links {
+        font-size: 7.9pt;
+        margin-top: 2px;
+      }
+      .project-links a {
+        color: #6d28d9;
         font-weight: 600;
-        padding: 2px 8px;
-        border-radius: 4px;
-        text-decoration: none;
-        color: #4c1d95;
-        background: #f5f3ff;
-        border: 1px solid #ddd6fe;
       }
-      .project-btn:hover {
-        background: #ede9fe;
-      }
-      .project-btn .ic {
-        font-size: 8pt;
-        line-height: 1;
-      }
-      .experience {
-        margin-bottom: 3px;
-        padding-bottom: 2px;
-        border-bottom: 1px dashed #e2e8f0;
-      }
-      .experience:last-child {
-        border-bottom: none;
-        margin-bottom: 0;
-        padding-bottom: 0;
-      }
-      .experience-header {
+
+      .exp-header {
         display: flex;
         justify-content: space-between;
         align-items: baseline;
-        margin-bottom: 3px;
+        margin-bottom: 1px;
       }
-      .experience-role {
+      .exp-role {
         font-weight: 700;
-        font-size: 10.5pt;
-        color: #0f172a;
+        font-size: 9.6pt;
+        color: var(--ink);
       }
-      .experience-date {
-        font-size: 9pt;
-        color: #64748b;
-        font-weight: 500;
-      }
-      .experience-company {
-        font-size: 10pt;
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
-      .experience-list {
-        list-style: disc;
-        padding-left: 16px;
-        color: #334155;
-        font-size: 9pt;
-        line-height: 1.4;
-      }
-      .experience-list li {
-        margin-bottom: 3px;
-      }
-      .education {
-        margin-bottom: 3px;
-        padding-bottom: 2px;
-        border-bottom: 1px dashed #e2e8f0;
-      }
-      .education:last-child {
-        border-bottom: none;
-        margin-bottom: 0;
-        padding-bottom: 0;
-      }
-      .education-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        margin-bottom: 3px;
-      }
-      .education-school {
-        font-weight: 700;
-        font-size: 10pt;
-        color: #0f172a;
-      }
-      .education-date {
-        font-size: 9pt;
-        color: #64748b;
-        font-weight: 500;
-      }
-      .education-degree {
-        font-size: 9.5pt;
-        font-weight: 600;
-        margin-bottom: 3px;
-      }
-      .education-details {
+      .exp-date {
         font-size: 8.4pt;
-        color: #475569;
+        color: var(--soft);
+        font-weight: 500;
+        white-space: nowrap;
+      }
+      .exp-company {
+        font-size: 8.9pt;
+        font-weight: 600;
+        color: var(--violet);
+        margin-bottom: 2px;
+      }
+      .exp-list {
+        list-style: none;
+        color: #334155;
+        font-size: 9.1pt;
+        line-height: 1.44;
+      }
+      .exp-list li {
+        margin-bottom: 1px;
+        padding-left: 10px;
+        position: relative;
+      }
+      .exp-list li::before {
+        content: '';
+        position: absolute;
+        left: 1px;
+        top: 4.5px;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--violet), var(--cyan));
+      }
+      .edu-school {
+        font-weight: 700;
+        font-size: 9.6pt;
+        color: var(--ink);
+      }
+      .edu-degree {
+        font-size: 8.9pt;
+        font-weight: 600;
+        color: var(--violet);
+        margin-bottom: 1px;
+      }
+      .edu-details {
+        font-size: 8.3pt;
+        color: var(--muted);
       }
     </style>
   </head>
@@ -268,112 +262,38 @@
     <div class="container">
       <header>
         <h1>Gagan Jain</h1>
-        <div class="title">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="110"
-            height="15"
-            viewBox="0 0 110 15"
-            role="img"
-            aria-label="AI / LLM Engineer"
-          >
-            <defs>
-              <linearGradient id="gtitle" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#8b5cf6" />
-                <stop offset="100%" stop-color="#06b6d4" />
-              </linearGradient>
-            </defs>
-            <text
-              x="0"
-              y="12"
-              font-family="Inter, system-ui, sans-serif"
-              font-size="11"
-              font-weight="600"
-              letter-spacing="0.5"
-              fill="url(#gtitle)"
-            >
-              AI / LLM Engineer
-            </text>
-          </svg>
-        </div>
+        <div class="title">AI Engineer — GenAI · LLM · Agentic AI</div>
         <div class="contact">
-          Jaipur, India (Open to Relocation) &nbsp;|&nbsp; +91 95872 55792 &nbsp;|&nbsp;
-          gagan.jain.se@gmail.com &nbsp;|&nbsp;
-          <a href="https://linkedin.com/in/gaganjainse">LinkedIn</a> &nbsp;|&nbsp;
-          <a href="https://github.com/gaganjainse">GitHub</a> &nbsp;|&nbsp;
-          <a href="https://gaganjain.vercel.app">Portfolio</a>
+          Jaipur, India (Open to Relocation)<span class="sep">|</span><span class="phone"
+            >+91 95872 55792</span
+          ><span class="sep">|</span><a href="mailto:gagan.jain.se@gmail.com"
+            >gagan.jain.se@gmail.com</a
+          ><span class="sep">|</span><a href="https://linkedin.com/in/gaganjainse">LinkedIn</a
+          ><span class="sep">|</span><a href="https://github.com/gaganjainse">GitHub</a
+          ><span class="sep">|</span><a href="https://gaganjain.vercel.app">Portfolio</a>
+        </div>
+        <div class="competencies">
+          Agentic AI · RAG Pipelines · LLM Fine-tuning (LoRA/QLoRA) · Multi-Agent Systems · MCP
+          Tooling · Prompt &amp; Context Engineering · LangChain · LlamaIndex · Vector Databases ·
+          OpenAI / Anthropic APIs · LiteLLM · Docker · CI/CD
         </div>
       </header>
 
       <section>
-        <h2>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="203"
-            height="17"
-            viewBox="0 0 203 17"
-            role="img"
-            aria-label="PROFESSIONAL SUMMARY"
-          >
-            <defs>
-              <linearGradient id="gsummary" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#8b5cf6" />
-                <stop offset="100%" stop-color="#06b6d4" />
-              </linearGradient>
-            </defs>
-            <text
-              x="0"
-              y="13.5"
-              font-family="Inter, system-ui, sans-serif"
-              font-size="14"
-              font-weight="700"
-              letter-spacing="0.9"
-              fill="url(#gsummary)"
-            >
-              PROFESSIONAL SUMMARY
-            </text>
-          </svg>
-        </h2>
+        <h2>Summary</h2>
         <p class="summary">
-          AI Engineer focused on production-grade GenAI systems: agentic AI orchestration, RAG
+          AI Engineer building production-grade GenAI systems: agentic AI orchestration, RAG
           pipelines, LLM fine-tuning (QLoRA/LoRA), MCP tooling, and local-first LLM deployment.
-          Author of NexusAOS, a governance-first, event-sourced AI operating environment written in
-          Rust (12 workspace crates, 981 tests, full CI/CD) with provider-agnostic LLM streaming
-          (OpenAI/Anthropic), policy-enforced agent actions, and terminal/SSH integration. Strong
-          Python + Rust foundation with end-to-end deployment: Docker, GitHub Actions,
-          observability, and AI governance.
+          Author of SheshAOS, a governance-first, event-sourced AI operating system in Rust (9
+          workspace crates + CLI, 877+ tests, full CI/CD) with provider-agnostic LLM streaming,
+          policy-enforced agent actions, and terminal/SSH integration. Strong Python + Rust
+          foundation with end-to-end deployment: Docker, GitHub Actions, observability, and AI
+          governance.
         </p>
       </section>
 
       <section>
-        <h2>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="146"
-            height="17"
-            viewBox="0 0 146 17"
-            role="img"
-            aria-label="TECHNICAL SKILLS"
-          >
-            <defs>
-              <linearGradient id="gskills" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#8b5cf6" />
-                <stop offset="100%" stop-color="#06b6d4" />
-              </linearGradient>
-            </defs>
-            <text
-              x="0"
-              y="13.5"
-              font-family="Inter, system-ui, sans-serif"
-              font-size="14"
-              font-weight="700"
-              letter-spacing="0.9"
-              fill="url(#gskills)"
-            >
-              TECHNICAL SKILLS
-            </text>
-          </svg>
-        </h2>
+        <h2>Skills</h2>
         <div class="skills-grid">
           <div class="skill-item">
             <strong>AI / LLM:</strong> LLM Integration, RAG Pipelines, Agentic AI Frameworks, Prompt
@@ -405,217 +325,124 @@
       </section>
 
       <section>
-        <h2>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="81"
-            height="17"
-            viewBox="0 0 81 17"
-            role="img"
-            aria-label="PROJECTS"
-          >
-            <defs>
-              <linearGradient id="gprojects" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#8b5cf6" />
-                <stop offset="100%" stop-color="#06b6d4" />
-              </linearGradient>
-            </defs>
-            <text
-              x="0"
-              y="13.5"
-              font-family="Inter, system-ui, sans-serif"
-              font-size="14"
-              font-weight="700"
-              letter-spacing="0.9"
-              fill="url(#gprojects)"
-            >
-              PROJECTS
-            </text>
-          </svg>
-        </h2>
+        <h2>Projects</h2>
 
         <div class="project">
           <div class="project-header">
-            <span class="project-title">NexusAOS</span>
-            <span class="project-tag">AI/AGENTIC</span>
+            <span class="project-title">SheshAOS</span>
+            <span class="project-tag">AI / Agentic OS</span>
           </div>
-          <div class="project-meta">
-            Rust, Tokio, Event Sourcing, LiteLLM, OpenAI, Anthropic, SSH, PTY, TUI, GUI
-          </div>
+          <div class="project-meta">Rust · Tokio · Event Sourcing · LiteLLM · OpenAI · Anthropic · SSH</div>
           <ul class="project-list">
             <li>
-              Designed a governance-first, event-sourced AI OS in Rust: 12 workspace crates, 981
+              Built a governance-first, event-sourced AI OS in Rust — 9 workspace crates + CLI, 877+
               passing tests, 0 clippy warnings, full GitHub Actions CI/CD
             </li>
             <li>
-              Built a policy-enforced agent kernel where LLMs propose actions and the kernel
-              validates and records every state change in an append-only audit trail
+              Engineered a policy-enforced agent kernel where LLMs propose actions and the kernel
+              validates/records every state change in an append-only audit trail
             </li>
             <li>
               Implemented a provider-agnostic LLM layer with OpenAI-compatible and Anthropic
-              streaming, LiteLLM routing, and local-first inference that runs fully offline
+              streaming, LiteLLM routing, and fully offline local-first inference
             </li>
             <li>
               Delivered native terminal emulation (PTY + VT100), SSH multiplexing, a secrets vault,
-              and four interfaces: CLI, TUI, GUI, RPC
+              and 4 interfaces: CLI, TUI, GUI, RPC
             </li>
           </ul>
-          <div class="project-buttons">
-            <a class="project-btn" href="https://github.com/gaganjainse/NexusAOS"
-              ><span class="ic">⌥</span> Source Code</a
-            >
-            <a class="project-btn" href="https://gaganjain.vercel.app/docs/projects/nexusaos"
-              ><span class="ic">▤</span> Documentation</a
-            >
+          <div class="project-links">
+            <a href="https://github.com/gaganjainse/SheshAOS">Source Code</a> &middot; <a href="https://gaganjain.vercel.app/docs/projects/seshaos">Documentation</a>
           </div>
         </div>
 
         <div class="project">
           <div class="project-header">
-            <span class="project-title">nexus-kernel</span>
-            <span class="project-tag rust">RUST</span>
+            <span class="project-title">shesh-ecosystem</span>
+            <span class="project-tag">Agentic Body</span>
           </div>
-          <div class="project-meta">
-            Rust, Tokio, OpenAI, Anthropic, SQLite, Ratatui, Iced, SSH, Event Sourcing
-          </div>
+          <div class="project-meta">Python · Rust · MCP · Agentic AI · Ollama · Governance</div>
           <ul class="project-list">
             <li>
-              Companion to NexusAOS: shares the same 12-crate Rust workspace and its 981-test suite
-              (tracked under NexusAOS)
+              Built a federated, local-first AI body for CachyOS/Hyprland — Brain (governance
+              kernel), Mind (models/planning/memory), Soma (sensors/actuators)
             </li>
             <li>
-              Implemented event-sourced append-only audit trail, policy engine with trust tiers, and
-              provider-swappable model interface
+              Designed the orchestrator manifest: 22 components, 3 channels (stable/canary/devel),
+              SHA256-audited locks, 30-test ecosystem gate
             </li>
             <li>
-              Integrated OpenAI-compatible and Anthropic streaming with real-time token streaming
-              into TUI/GUI
+              Enabled local-first inference — Ollama phi4-mini / qwen2.5-coder:3b / moondream2 /
+              nomic-embed-text in 6GB VRAM, fully offline
             </li>
             <li>
-              Delivered native terminal emulation (PTY + VT100 + Zig parser), SSH multiplexing, and
-              multi-interface CLI/TUI/GUI/RPC
+              Enforced governance via shesh-audit GuardedMCP policy (allow/confirm/deny) +
+              hash-chained audit + Kernel bridge; swarm through GitHub Issues atomic locks
             </li>
           </ul>
-          <div class="project-buttons">
-            <a class="project-btn" href="https://github.com/gaganjainse/nexus-kernel"
-              ><span class="ic">⌥</span> Source Code</a
-            >
-            <a class="project-btn" href="https://gaganjain.vercel.app/docs/projects/nexus-kernel"
-              ><span class="ic">▤</span> Documentation</a
-            >
+          <div class="project-links">
+            <a href="https://github.com/gaganjainse/shesh-ecosystem">Source Code</a> &middot; <a href="https://gaganjain.vercel.app/docs/projects/shesh-ecosystem">Documentation</a>
           </div>
         </div>
 
         <div class="project">
           <div class="project-header">
-            <span class="project-title">SeshaOS</span>
-            <span class="project-tag">AI/AGENTIC</span>
+            <span class="project-title">Vyakrti</span>
+            <span class="project-tag">Compiler</span>
           </div>
-          <div class="project-meta">
-            Rust, LiteLLM, Gemma, Qwen, Local LLMs, Governance, Event Sourcing, Ubuntu
-          </div>
+          <div class="project-meta">Rust · React · TypeScript · Monaco · Axum</div>
           <ul class="project-list">
             <li>
-              Architected specialist model stack: Gemma 4 12B (Planner), Qwen3-Coder 30B
-              (Implementation), Qwen3.5 9B (Vision)
+              Built a complete compiler pipeline from scratch in Rust: lexer → parser → type checker
+              → bytecode compiler
             </li>
             <li>
-              Designed kernel-centric governance where models propose actions and the kernel
-              validates/records every state change
+              Developed a browser-based IDE (React + Monaco Editor) with syntax highlighting,
+              autocomplete, and diagnostics
             </li>
-            <li>Built a LiteLLM-compatible proxy for NVIDIA NIM and other model providers</li>
             <li>
-              Maintained event-sourced architecture with reversible, permissioned actions and
-              offline-first execution
+              Implemented a Rust (axum) backend with compile, REPL, LSP, and file management via
+              REST + WebSocket
             </li>
+            <li>Wrote 123 tests covering the full pipeline, including a self-hosting corpus</li>
           </ul>
-          <div class="project-buttons">
-            <a class="project-btn" href="https://github.com/gaganjainse/SeshaOS"
-              ><span class="ic">⌥</span> Source Code</a
-            >
-            <a class="project-btn" href="https://gaganjain.vercel.app/docs/projects/seshaos"
-              ><span class="ic">▤</span> Documentation</a
-            >
+          <div class="project-links">
+            <a href="https://github.com/gaganjainse/Vyakrti">Source Code</a> &middot; <a href="https://gaganjain.vercel.app/docs/projects/vyakrti">Documentation</a>
           </div>
         </div>
 
         <div class="project">
           <div class="project-header">
-            <span class="project-title">Vyākṛti</span>
-            <span class="project-tag rust">COMPILER</span>
+            <span class="project-title">rag-service</span>
+            <span class="project-tag">RAG / Vector</span>
           </div>
-          <div class="project-meta">
-            Rust, React, TypeScript, Monaco Editor, Zustand, Tailwind CSS, Axum
-          </div>
+          <div class="project-meta">Python · FastAPI · ChromaDB · Hybrid Search · LLM-as-Judge</div>
           <ul class="project-list">
             <li>
-              Complete compiler pipeline: lexer → parser → type checker → bytecode compiler — all
-              built from scratch in Rust
+              Built a FastAPI RAG service with hybrid retrieval (dense embeddings + BM25, merged via
+              Reciprocal Rank Fusion) over ChromaDB
             </li>
             <li>
-              Browser-based IDE with React, Monaco Editor, syntax highlighting, autocomplete, and
-              diagnostics
+              Implemented chunking strategies (recursive, semantic) and embedding pipelines; /ask
+              endpoint streams grounded answers with citations
             </li>
             <li>
-              Rust (axum) backend with compile, REPL, LSP, and file management endpoints via REST +
-              WebSocket
+              Shipped an LLM-as-judge evaluation harness (faithfulness, answer relevance,
+              correctness) with a golden-set CI gate
             </li>
-            <li>123 tests covering the full pipeline, including a self-hosting corpus</li>
+            <li>Containerized with Docker Compose; OpenAI-compatible LLM interface with local-first fallback</li>
           </ul>
-          <div class="project-buttons">
-            <a class="project-btn" href="https://github.com/gaganjainse/Vyakrti"
-              ><span class="ic">⌥</span> Source Code</a
-            >
-            <a class="project-btn" href="https://gaganjain.vercel.app/docs/projects/vyakrti"
-              ><span class="ic">▤</span> Documentation</a
-            >
+          <div class="project-links">
+            <a href="https://github.com/gaganjainse/rag-service">Source Code</a> &middot; <a href="https://gaganjain.vercel.app/docs/projects/rag-service">Documentation</a>
           </div>
         </div>
 
         <div class="project">
           <div class="project-header">
-            <span class="project-title">RAG Service</span>
-            <span class="project-tag genai">GEN AI</span>
+            <span class="project-title">llm-eval-harness</span>
+            <span class="project-tag">LLM Eval</span>
           </div>
-          <div class="project-meta">
-            Python, FastAPI, ChromaDB, Embeddings, Hybrid Search, RAG, LLM-as-Judge, Docker
-          </div>
-          <ul class="project-list">
-            <li>
-              Built a FastAPI RAG service with hybrid retrieval (dense embeddings + BM25 keyword,
-              merged via Reciprocal Rank Fusion) over ChromaDB
-            </li>
-            <li>
-              Implemented chunking strategies (recursive, semantic), embedding pipelines, and an
-              /ask endpoint that streams grounded answers with citations
-            </li>
-            <li>
-              Shipped LLM-as-judge evaluation harness (faithfulness, answer relevance, correctness)
-              with golden-set CI gate and RAGAS-style reports
-            </li>
-            <li>
-              Containerized with Docker Compose; OpenAI-compatible LLM interface with local-first
-              fallback
-            </li>
-          </ul>
-          <div class="project-buttons">
-            <a class="project-btn" href="https://github.com/gaganjainse/rag-service"
-              ><span class="ic">⌥</span> Source Code</a
-            >
-            <a class="project-btn" href="https://gaganjain.vercel.app/docs/projects/rag-service"
-              ><span class="ic">▤</span> Documentation</a
-            >
-          </div>
-        </div>
-
-        <div class="project">
-          <div class="project-header">
-            <span class="project-title">LLM Eval Harness</span>
-            <span class="project-tag genai">GEN AI</span>
-          </div>
-          <div class="project-meta">
-            Python, LLM-as-Judge, Golden Sets, RAGAS, CLI, CI/CD, Pytest
-          </div>
+          <div class="project-meta">Python · LLM-as-Judge · Golden Sets · RAGAS · Pytest</div>
           <ul class="project-list">
             <li>
               Built a golden-set-driven evaluation harness with faithfulness, answer-relevance, and
@@ -623,64 +450,46 @@
             </li>
             <li>
               Added offline heuristic scorers so evals run in CI without API keys; JSON + Markdown
-              reports for regression tracking
+              reports
             </li>
-            <li>
-              Designed golden-set YAML format (question, golden answer, context) and a CLI: python
-              -m eval_harness --golden-set ...
-            </li>
+            <li>Designed a golden-set YAML format (question, golden answer, context) and a CLI (python -m eval_harness)</li>
             <li>Containerized and CI-ready; used to gate the RAG service pipeline</li>
           </ul>
-          <div class="project-buttons">
-            <a class="project-btn" href="https://github.com/gaganjainse/llm-eval-harness"
-              ><span class="ic">⌥</span> Source Code</a
-            >
-            <a
-              class="project-btn"
-              href="https://gaganjain.vercel.app/docs/projects/llm-eval-harness"
-              ><span class="ic">▤</span> Documentation</a
-            >
+          <div class="project-links">
+            <a href="https://github.com/gaganjainse/llm-eval-harness">Source Code</a> &middot; <a href="https://gaganjain.vercel.app/docs/projects/llm-eval-harness">Documentation</a>
           </div>
         </div>
 
         <div class="project">
           <div class="project-header">
-            <span class="project-title">AIM — Attendance Information Manager</span>
-            <span class="project-tag production">PRODUCTION-READY</span>
+            <span class="project-title">AIM</span>
+            <span class="project-tag">Production</span>
           </div>
-          <div class="project-meta">
-            Python, Flask, MySQL, Bootstrap, Chart.js, Docker, GitHub Actions
-          </div>
+          <div class="project-meta">Python · Flask · MySQL · Bootstrap · Chart.js · Docker</div>
           <ul class="project-list">
             <li>
-              Production-grade Flask + MySQL platform with Argon2id auth, CSRF protection,
-              brute-force lockout, breached-password scanning, JWT sessions, and strict CSP/HSTS
-              headers
+              Built a production-grade Flask + MySQL platform: Argon2id auth, CSRF protection,
+              brute-force lockout, breached-password scanning, JWT sessions, strict CSP/HSTS
             </li>
             <li>
-              Deployed Prometheus metrics, structured JSON logging, Chart.js analytics, FullCalendar
-              scheduling, Docker Compose, and GitHub Actions CI/CD; 101 automated pytest tests
+              Shipped Prometheus metrics, structured JSON logging, Chart.js analytics, FullCalendar
+              scheduling, Docker Compose, and CI/CD — 101 automated pytest tests
             </li>
           </ul>
-          <div class="project-buttons">
-            <a class="project-btn" href="https://github.com/gaganjainse/AIM"
-              ><span class="ic">⌥</span> Source Code</a
-            >
-            <a class="project-btn" href="https://gaganjain.vercel.app/docs/projects/aim"
-              ><span class="ic">▤</span> Documentation</a
-            >
+          <div class="project-links">
+            <a href="https://github.com/gaganjainse/AIM">Source Code</a> &middot; <a href="https://gaganjain.vercel.app/docs/projects/aim">Documentation</a>
           </div>
         </div>
 
         <div class="project">
           <div class="project-header">
-            <span class="project-title">FWRS — Food Waste Reduction System</span>
-            <span class="project-tag production">PRODUCTION-READY</span>
+            <span class="project-title">FWRS</span>
+            <span class="project-tag">Production</span>
           </div>
-          <div class="project-meta">Python, PuLP, Folium, Flask, MySQL, Bootstrap</div>
+          <div class="project-meta">Python · PuLP · Folium · Flask · MySQL</div>
           <ul class="project-list">
             <li>
-              Built a 3-stage lexicographic LP solver (fairness → priority → cost) to allocate
+              Built a 3-stage lexicographic LP solver (fairness → priority → cost) that allocates
               surplus food to NGOs while minimizing waste
             </li>
             <li>
@@ -691,164 +500,66 @@
               Integrated Folium/Leaflet interactive maps with animated routes, heatmaps, and
               priority-colored markers
             </li>
-            <li>
-              Shipped a Flask web dashboard plus a desktop Tkinter GUI with charts and CSV export
-            </li>
+            <li>Shipped a Flask web dashboard plus a desktop Tkinter GUI with charts and CSV export</li>
           </ul>
-          <div class="project-buttons">
-            <a class="project-btn" href="https://github.com/gaganjainse/FWRS"
-              ><span class="ic">⌥</span> Source Code</a
-            >
-            <a class="project-btn" href="https://gaganjain.vercel.app/docs/projects/fwrs"
-              ><span class="ic">▤</span> Documentation</a
-            >
+          <div class="project-links">
+            <a href="https://github.com/gaganjainse/FWRS">Source Code</a> &middot; <a href="https://gaganjain.vercel.app/docs/projects/fwrs">Documentation</a>
+          </div>
+        </div>
+
+        <div class="project">
+          <div class="project-header">
+            <span class="project-title">shesh-omniroute</span>
+            <span class="project-tag">AI Gateway</span>
+          </div>
+          <div class="project-meta">TypeScript · OmniRoute · AI Gateway · Free Models · MCP · A2A</div>
+          <ul class="project-list">
+            <li>
+              Wrapped OmniRoute — a free, MIT-licensed AI gateway (291 providers, 90+ free, 500+
+              models) — as a Shesh component, optional alongside a local Ollama primary
+            </li>
+            <li>Documented 1.53B free tokens/month; RTK+Caveman compression cuts 15–95% of tokens (~89% average)</li>
+            <li>
+              Exposed one OpenAI-compatible endpoint (http://localhost:20128/v1) with auto-fallback
+              across tiers: Sub → API → Cheap → Free
+            </li>
+            <li>Surfaced 19 routing strategies, 105 MCP tools, A2A v0.3, Desktop/PWA, 43 i18n locales, MIT self-hosted</li>
+          </ul>
+          <div class="project-links">
+            <a href="https://github.com/gaganjainse/shesh-omniroute">Source Code</a> &middot; <a href="https://gaganjain.vercel.app/docs/projects/shesh-omniroute">Documentation</a>
           </div>
         </div>
       </section>
 
       <section>
-        <h2>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="96"
-            height="17"
-            viewBox="0 0 96 17"
-            role="img"
-            aria-label="EXPERIENCE"
-          >
-            <defs>
-              <linearGradient id="gexperience" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#8b5cf6" />
-                <stop offset="100%" stop-color="#06b6d4" />
-              </linearGradient>
-            </defs>
-            <text
-              x="0"
-              y="13.5"
-              font-family="Inter, system-ui, sans-serif"
-              font-size="14"
-              font-weight="700"
-              letter-spacing="0.9"
-              fill="url(#gexperience)"
-            >
-              EXPERIENCE
-            </text>
-          </svg>
-        </h2>
-        <div class="experience">
-          <div class="experience-header">
-            <span class="experience-role">Industry 5.0 Industrial Automation Trainee</span>
-            <span class="experience-date">Aug 2025 – Nov 2025</span>
-          </div>
-          <div class="experience-company">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="118"
-              height="15"
-              viewBox="0 0 118 15"
-              role="img"
-              aria-label="CodenPlay Robotics"
-            >
-              <defs>
-                <linearGradient id="gcompany" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stop-color="#8b5cf6" />
-                  <stop offset="100%" stop-color="#06b6d4" />
-                </linearGradient>
-              </defs>
-              <text
-                x="0"
-                y="11.5"
-                font-family="Inter, system-ui, sans-serif"
-                font-size="10"
-                font-weight="600"
-                letter-spacing="0.3"
-                fill="url(#gcompany)"
-              >
-                CodenPlay Robotics
-              </text>
-            </svg>
-          </div>
-          <ul class="experience-list">
-            <li>
-              Built and debugged PLC automation logic (ladder logic, structured text) in CODESYS
-            </li>
-            <li>Simulated industrial process workflows in Factory I/O</li>
-            <li>Implemented flow-based control/integration in Node-RED</li>
-            <li>
-              Covered HMI design, industrial communication, process monitoring, and the
-              debugging→testing→deployment workflow
-            </li>
-          </ul>
+        <h2>Experience</h2>
+        <div class="exp-header">
+          <span class="exp-role">Industry 5.0 Industrial Automation Trainee</span>
+          <span class="exp-date">Aug 2025 – Nov 2025</span>
         </div>
+        <div class="exp-company">CodenPlay Robotics · VIT Vellore / Online</div>
+        <ul class="exp-list">
+          <li>Built and debugged PLC automation logic (ladder logic, structured text) in CODESYS</li>
+          <li>Simulated industrial process workflows in Factory I/O</li>
+          <li>Implemented flow-based control/integration in Node-RED</li>
+          <li>
+            Covered HMI design, industrial communication, process monitoring, and the
+            debugging → testing → deployment workflow
+          </li>
+        </ul>
       </section>
 
       <section>
-        <h2>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="90"
-            height="17"
-            viewBox="0 0 90 17"
-            role="img"
-            aria-label="EDUCATION"
-          >
-            <defs>
-              <linearGradient id="geducation" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#8b5cf6" />
-                <stop offset="100%" stop-color="#06b6d4" />
-              </linearGradient>
-            </defs>
-            <text
-              x="0"
-              y="13.5"
-              font-family="Inter, system-ui, sans-serif"
-              font-size="14"
-              font-weight="700"
-              letter-spacing="0.9"
-              fill="url(#geducation)"
-            >
-              EDUCATION
-            </text>
-          </svg>
-        </h2>
-        <div class="education">
-          <div class="education-header">
-            <span class="education-school">Vellore Institute of Technology, Vellore</span>
-            <span class="education-date">Graduated 2025</span>
-          </div>
-          <div class="education-degree">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="252"
-              height="15"
-              viewBox="0 0 252 15"
-              role="img"
-              aria-label="B.Tech in Computer Science and Engineering"
-            >
-              <defs>
-                <linearGradient id="gdegree" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stop-color="#8b5cf6" />
-                  <stop offset="100%" stop-color="#06b6d4" />
-                </linearGradient>
-              </defs>
-              <text
-                x="0"
-                y="11.5"
-                font-family="Inter, system-ui, sans-serif"
-                font-size="10"
-                font-weight="600"
-                letter-spacing="0.3"
-                fill="url(#gdegree)"
-              >
-                B.Tech in Computer Science and Engineering
-              </text>
-            </svg>
-          </div>
-          <div class="education-details">
-            CGPA: 7.7 / 10.0 | Relevant Coursework: Data Structures &amp; Algorithms, Operating
-            Systems, Database Systems, Computer Networks, Web Technologies, Artificial Intelligence,
-            Machine Learning
-          </div>
+        <h2>Education</h2>
+        <div class="exp-header">
+          <span class="edu-school">Vellore Institute of Technology, Vellore</span>
+          <span class="exp-date">Graduated 2025</span>
+        </div>
+        <div class="edu-degree">B.Tech in Computer Science and Engineering</div>
+        <div class="edu-details">
+          CGPA: 7.7 / 10.0 · Relevant Coursework: Data Structures &amp; Algorithms, Operating
+          Systems, Database Systems, Computer Networks, Web Technologies, Artificial Intelligence,
+          Machine Learning
         </div>
       </section>
     </div>

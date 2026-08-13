@@ -1,31 +1,25 @@
 ---
 layout: ../../../layouts/DocsLayout.astro
-title: SeshaOS
-description: 'SeshaOS project documentation'
+title: SheshAOS
+description: 'SheshAOS project documentation'
 ---
 
 import TechChip from '../../../components/TechChip.astro'
 
-<h1 class="text-4xl font-bold mb-6 gradient-text">SeshaOS</h1>
+<h1 class="text-4xl font-bold mb-6 gradient-text">SheshAOS</h1>
 {/* prettier-ignore */}
-<p class="text-text-muted mb-8">NexusAOS v2 — governance-first, local-first AI OS with specialist local models (Gemma 4, Qwen3) and LiteLLM-compatible routing.</p>
+<p class="text-text-muted mb-8">Governance-first, event-sourced AI operating environment written in Rust — 9 workspace crates + CLI, 877+ passing tests, full CI/CD.</p>
 
 <div class="gradient-border p-6 mb-6">
   <h2 class="text-2xl font-bold text-text mb-3">Overview</h2>
   {/* prettier-ignore */}
-  <p class="text-text-muted mb-4">SeshaOS is the evolution of NexusAOS, designed as a governance-first, local-first AI OS. It uses specialist local models and maintains offline-first execution with reversible, permissioned actions.</p>
+  <p class="text-text-muted mb-4">A governance-first AI OS where LLMs propose actions and the kernel validates and records every state change in an append-only audit trail. Provider-agnostic streaming (OpenAI-compatible + Anthropic) with local-first inference that runs fully offline.</p>
 </div>
 
 <div class="gradient-border p-6 mb-6">
-  <h2 class="text-2xl font-bold text-text mb-3">Specialist Models</h2>
+  <h2 class="text-2xl font-bold text-text mb-3">Architecture</h2>
   {/* prettier-ignore */}
-  <p class="text-text-muted mb-4"><strong>Gemma 4 12B</strong> serves as the Planner, <strong>Qwen3-Coder 30B</strong> handles Implementation, and <strong>Qwen3.5 9B</strong> manages Vision tasks. This separation of concerns improves reliability and performance.</p>
-</div>
-
-<div class="gradient-border p-6 mb-6">
-  <h2 class="text-2xl font-bold text-text mb-3">Governance & Routing</h2>
-  {/* prettier-ignore */}
-  <p class="text-text-muted mb-4">Kernel-centric governance where models propose actions and the kernel validates/records every state change. LiteLLM-compatible proxy support enables seamless integration with NVIDIA NIM and other providers.</p>
+  <p class="text-text-muted mb-4">9 workspace crates plus the <code>shesh</code> CLI: kernel, wave-object store, workspace processes, block control, AI layer, remote/SSH, RPC, vault, and config. LiteLLM routing, native terminal emulation (PTY + VT100), SSH multiplexing, and four interfaces: CLI, TUI, GUI, RPC.</p>
 </div>
 
 <div class="gradient-border p-6">
@@ -33,13 +27,13 @@ import TechChip from '../../../components/TechChip.astro'
   <div class="flex flex-wrap gap-2">
     {[
       'Rust',
-      'LiteLLM',
-      'Gemma',
-      'Qwen',
-      'Local LLMs',
-      'Governance',
+      'Tokio',
       'Event Sourcing',
-      'Ubuntu',
+      'LiteLLM',
+      'OpenAI',
+      'Anthropic',
+      'SSH',
+      'PTY',
     ].map((tech) => (
       <TechChip label={tech} />
     ))}
