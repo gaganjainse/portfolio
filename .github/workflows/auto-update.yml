@@ -8,6 +8,11 @@ name: Auto-Update Portfolio (Completely Automatic)
 # - If projects.ts or public/ assets changed, commits and pushes to main
 # - Vercel auto-deploys on push to main (already configured via vercel.json)
 # - No manual editing needed — portfolio updates itself when you push new repo
+#
+# 2026-08-13: every `|| true`/`|| echo continuing` removed. A daily job that
+# forgives its own core step is how the OG image silently never regenerated
+# (fonts missing for an unknown time). Failures now fail the run — the next
+# schedule retries, and the failure is visible in Actions.
 
 on:
   schedule:
@@ -23,43 +28,41 @@ on:
       - 'public/og-image.png'
 
 permissions:
-  contents: write
+  contents: write # this job's whole job is committing refreshed data to main
 
 jobs:
   auto-update:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0
+          fetch-depth: 0 # full history; the push back needs it
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 24
           cache: npm
 
       - name: Setup Python for generators
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
-          python-version: '3.11'
+          python-version: '3.13'
 
       - name: Install Python deps for favicons/OG
         run: pip install pillow -q
 
       - name: Install Node deps
-        run: npm ci --legacy-peer-deps || npm install --legacy-peer-deps
+        run: npm ci --legacy-peer-deps
 
       - name: Update projects from GitHub API (auto)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "Fetching all repos for gaganjainse..."
-          npm run update:projects || echo "update:projects failed, continuing with existing data"
+          npm run update:projects
 
       - name: Generate all assets (favicons + OG image + resume PDF) — automatic
-        run: |
-          npm run generate:all || echo "generate:all had warnings, continuing"
+        run: npm run generate:all
 
       - name: Type-check, lint, format check, tests, build — automatic gates
         run: |
@@ -73,8 +76,8 @@ jobs:
         run: |
           git config user.name "portfolio-bot[bot]"
           git config user.email "portfolio-bot@users.noreply.github.com"
-          git add src/data/projects.ts public/projects.json public/resume.pdf public/favicon.ico public/og-image.png public/apple-touch-icon.png public/favicon-*.png 2>/dev/null || true
-          git add src/data/ public/ || true
+          git add src/data/projects.ts public/projects.json public/resume.pdf public/favicon.ico public/og-image.png public/apple-touch-icon.png public/favicon-*.png
+          git add src/data/ public/
           if git diff --cached --quiet; then
             echo "No changes to commit — portfolio already up-to-date"
             exit 0
@@ -86,10 +89,12 @@ jobs:
 
       - name: Summary
         run: |
-          echo "### Portfolio Auto-Update $(date -u +%Y-%m-%dT%H:%M:%SZ)" >> $GITHUB_STEP_SUMMARY
-          echo "- Fetched all repos via GitHub API (auto)" >> $GITHUB_STEP_SUMMARY
-          echo "- Updated src/data/projects.ts with latest stars/description/tech" >> $GITHUB_STEP_SUMMARY
-          echo "- Generated favicons, OG image, resume PDF (auto)" >> $GITHUB_STEP_SUMMARY
-          echo "- Ran type-check, lint, format, tests, build (gates)" >> $GITHUB_STEP_SUMMARY
-          echo "- Pushed if changed — Vercel auto-deploys" >> $GITHUB_STEP_SUMMARY
-          echo "- Completely automatic — no manual editing needed" >> $GITHUB_STEP_SUMMARY
+          {
+            echo "### Portfolio Auto-Update $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo "- Fetched all repos via GitHub API (auto)"
+            echo "- Updated src/data/projects.ts with latest stars/description/tech"
+            echo "- Generated favicons, OG image, resume PDF (auto)"
+            echo "- Ran type-check, lint, format, tests, build (gates)"
+            echo "- Pushed if changed — Vercel auto-deploys"
+            echo "- Completely automatic — no manual editing needed"
+          } >> "$GITHUB_STEP_SUMMARY"

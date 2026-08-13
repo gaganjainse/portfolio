@@ -5,19 +5,31 @@ on:
     branches: [main]
   pull_request:
 
+# Least privilege by default; this workflow only reads.
+permissions: read-all
+
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 24
           cache: npm
 
       - name: Install dependencies (legacy-peer-deps for TS7 compat)
-        run: npm ci --legacy-peer-deps || npm install --legacy-peer-deps
+        # npm ci is the lockfile-contract install; a fallback to npm install
+        # would silently forgive lockfile drift — removed 2026-08-13.
+        run: npm ci --legacy-peer-deps
+
+      - name: Python imaging for asset generators (favicons/OG in build)
+        run: |
+          python3 -m pip install --upgrade pip pillow
+          python3 -c "import PIL; print('Pillow', PIL.__version__)"
 
       - name: Type-check
         run: npm run check
