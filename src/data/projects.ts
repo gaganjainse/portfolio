@@ -31,15 +31,14 @@ export function getTagClasses(tagColor: string): string {
 // AUTO-GENERATED SMART — no forks, proper priority for AI/LLM portfolio
 // Portfolio IS personal site for AI/LLM Engineer — WHY: showcase production-grade GenAI systems
 // Priority: SheshAOS (AI OS 981) > shesh-ecosystem (federated body 22 comps) > Vyakrti (lang 123) > RAG/Eval > AIM/FWRS > omniroute
-// Generated: 2026-08-13T10:34:42.800Z — no forks ever
+// Generated: 2026-08-13T12:41:56.248Z — no forks ever
 export const PROJECTS: Project[] = [
   {
     title: 'SheshAOS',
     featured: true,
     tag: 'AI/AGENTIC OS',
     tagColor: 'pink',
-    description:
-      'Governance-first, event-sourced AI operating environment for Ubuntu Linux — Rust workspace, 12 crates, 981 tests, provider-agnostic LLM streaming.',
+    description: 'Governance-first, event-sourced AI OS in Rust — 12 crates, 872+ tests',
     bullets: [
       'Governance-first, event-sourced AI OS in Rust: 12 workspace crates, 981 passing tests, 0 clippy warnings, full GitHub Actions CI/CD',
       'Policy-enforced agent kernel where LLMs propose actions and kernel validates/records every state change in append-only audit trail',
@@ -74,8 +73,7 @@ export const PROJECTS: Project[] = [
     featured: true,
     tag: 'FLAGSHIP LANG',
     tagColor: 'primary',
-    description:
-      'Sanskrit-oriented programming language with complete compiler pipeline (lexer, parser, type checker, bytecode) and browser-based IDE.',
+    description: 'Sanskrit-oriented programming language with full compiler pipeline',
     bullets: [
       'Complete compiler pipeline: lexer → parser → type checker → bytecode compiler — all built from scratch in Rust',
       'Browser-based IDE with React, Monaco Editor, syntax highlighting, autocomplete, diagnostics',
@@ -92,8 +90,7 @@ export const PROJECTS: Project[] = [
     featured: true,
     tag: 'RAG / VECTOR',
     tagColor: 'primary',
-    description:
-      'Production RAG API: hybrid retrieval (dense embeddings + BM25, fused with Reciprocal Rank Fusion) over ChromaDB, with FastAPI and grounded answers with citations.',
+    description: 'FastAPI RAG with hybrid retrieval (dense + BM25, RRF)',
     bullets: [
       'FastAPI RAG service with hybrid retrieval (dense embeddings + BM25 keyword, merged via Reciprocal Rank Fusion) over ChromaDB',
       'Chunking strategies (recursive, semantic), embedding pipelines, /ask endpoint that streams grounded answers with citations',
@@ -110,8 +107,7 @@ export const PROJECTS: Project[] = [
     featured: true,
     tag: 'LLM EVAL',
     tagColor: 'primary',
-    description:
-      'Golden-set LLM evaluation harness: faithfulness, answer relevance, and correctness with LLM-as-judge and offline fallbacks. CI-ready reports.',
+    description: 'Golden-set LLM evaluation harness — LLM-as-judge + lexical fallbacks',
     bullets: [
       'Golden-set-driven evaluation harness with faithfulness, answer-relevance, correctness metrics (LLM-as-judge + lexical fallbacks)',
       'Offline heuristic scorers so evals run in CI without API keys; JSON + Markdown reports',
@@ -128,8 +124,7 @@ export const PROJECTS: Project[] = [
     featured: true,
     tag: 'PRODUCTION',
     tagColor: 'green',
-    description:
-      'Full-stack attendance management system built with Flask and MySQL. Features Argon2id hashing, CSRF protection, Prometheus metrics, and 84 automated tests.',
+    description: 'Production Flask + MySQL platform — Argon2id, CSRF, JWT, Prometheus',
     bullets: [
       'Production-grade Flask + MySQL platform with Argon2id auth, CSRF protection, brute-force lockout, breached-password scanning, JWT sessions, strict CSP/HSTS',
       'Prometheus metrics, structured JSON logging, Chart.js analytics, FullCalendar scheduling, Docker Compose, GitHub Actions CI/CD; 101 automated pytest tests',
@@ -144,8 +139,7 @@ export const PROJECTS: Project[] = [
     featured: true,
     tag: 'PRODUCTION',
     tagColor: 'green',
-    description:
-      'Optimizes surplus food allocation to NGOs using 3-stage linear programming (fairness → priority → cost). Python, PuLP, Flask, Folium.',
+    description: 'Food waste redistribution — 3-stage lexicographic LP solver',
     bullets: [
       '3-stage lexicographic LP solver (fairness → priority → cost) to allocate surplus food to NGOs while minimizing waste',
       'Expiry-aware routing that penalizes allocations where travel time exceeds food shelf life',
@@ -162,8 +156,7 @@ export const PROJECTS: Project[] = [
     featured: true,
     tag: 'AI GATEWAY',
     tagColor: 'primary',
-    description:
-      'Shesh wrapper for OmniRoute — free MIT gateway 291 providers 90+ free 500+ models, optional to local Ollama primary in final Shesh product, where enable is user choice. Forked from diegosouzapw/OmniRoute',
+    description: 'Shesh wrapper for OmniRoute — free AI gateway (291 providers)',
     bullets: [
       'Shesh wrapper for OmniRoute — free MIT gateway 291 providers 90+ free 500+ models, optional to local Ollama primary in final Shesh product',
       '1.53B free tokens/month documented, RTK+Caveman compression 15-95% tokens (~89% avg) stretches free tiers',
