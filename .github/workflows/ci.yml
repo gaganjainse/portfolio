@@ -44,4 +44,4 @@ jobs:
         run: npm test
 
       - name: Build
-        run: npm run build:full  # regenerates assets (pillow installed above)
+        run: npm run build:full # regenerates assets (pillow installed above)
