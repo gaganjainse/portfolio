@@ -31,7 +31,7 @@ export function getTagClasses(tagColor: string): string {
 // AUTO-GENERATED SMART — no forks, proper priority for AI/LLM portfolio
 // Portfolio IS personal site for AI/LLM Engineer — WHY: showcase production-grade GenAI systems
 // Priority: SheshAOS (AI OS 877+) > shesh-ecosystem (federated body 23 comps) > Vyakrti (lang 122) > RAG/Eval > AIM/FWRS > omniroute
-// Generated: 2026-08-14T06:28:38.029Z — no forks ever
+// Generated: 2026-08-14T06:55:20.953Z — no forks ever
 export const PROJECTS: Project[] = [
   {
     title: 'SheshAOS',
@@ -74,7 +74,7 @@ export const PROJECTS: Project[] = [
     featured: true,
     tag: 'FLAGSHIP LANG',
     tagColor: 'primary',
-    description: 'Sanskrit-oriented programming language with complete compiler pipeline',
+    description: 'Sanskrit-oriented programming language with a complete compiler pipeline (Rust)',
     bullets: [
       'Complete compiler pipeline: lexer → parser → type checker → bytecode compiler — all built from scratch in Rust',
       'Browser-based IDE with React, Monaco Editor, syntax highlighting, autocomplete, diagnostics',
@@ -91,7 +91,7 @@ export const PROJECTS: Project[] = [
     featured: true,
     tag: 'RAG / VECTOR',
     tagColor: 'primary',
-    description: 'FastAPI RAG with hybrid retrieval (dense + BM25, RRF)',
+    description: 'FastAPI RAG with hybrid retrieval (dense + BM25, RRF) over ChromaDB',
     bullets: [
       'FastAPI RAG service with hybrid retrieval (dense embeddings + BM25 keyword, merged via Reciprocal Rank Fusion) over ChromaDB',
       'Chunking strategies (recursive, semantic), embedding pipelines, /ask endpoint that streams grounded answers with citations',
@@ -108,7 +108,7 @@ export const PROJECTS: Project[] = [
     featured: true,
     tag: 'LLM EVAL',
     tagColor: 'primary',
-    description: 'Golden-set LLM evaluation harness — LLM-as-judge + lexical fallbacks',
+    description: 'Golden-set LLM evaluation harness — LLM-as-judge + offline fallbacks',
     bullets: [
       'Golden-set-driven evaluation harness with faithfulness, answer-relevance, correctness metrics (LLM-as-judge + lexical fallbacks)',
       'Offline heuristic scorers so evals run in CI without API keys; JSON + Markdown reports',
@@ -125,7 +125,7 @@ export const PROJECTS: Project[] = [
     featured: true,
     tag: 'PRODUCTION',
     tagColor: 'green',
-    description: 'Production Flask + MySQL platform — Argon2id auth, CSRF, JWT, Prometheus',
+    description: 'Attendance Information Manager — Flask + MySQL, Argon2id auth, Prometheus',
     bullets: [
       'Production-grade Flask + MySQL platform with Argon2id auth, CSRF protection, brute-force lockout, breached-password scanning, JWT sessions, strict CSP/HSTS',
       'Prometheus metrics, structured JSON logging, Chart.js analytics, FullCalendar scheduling, Docker Compose, GitHub Actions CI/CD; 101 automated pytest tests',
@@ -140,7 +140,8 @@ export const PROJECTS: Project[] = [
     featured: true,
     tag: 'PRODUCTION',
     tagColor: 'green',
-    description: 'Food waste redistribution — 3-stage lexicographic LP solver',
+    description:
+      'Food waste redistribution — 3-stage lexicographic LP solver (fairness → priority → cost)',
     bullets: [
       '3-stage lexicographic LP solver (fairness → priority → cost) to allocate surplus food to NGOs while minimizing waste',
       'Expiry-aware routing that penalizes allocations where travel time exceeds food shelf life',
@@ -157,7 +158,7 @@ export const PROJECTS: Project[] = [
     featured: true,
     tag: 'AI GATEWAY',
     tagColor: 'primary',
-    description: 'Shesh wrapper for OmniRoute — free AI gateway (291 providers)',
+    description: 'Shesh wrapper for OmniRoute — self-hosted OpenAI-compatible LLM gateway',
     bullets: [
       'Shesh wrapper for OmniRoute — free open-source gateway 291 providers 90+ free 500+ models, optional to local Ollama primary in final Shesh product',
       '1.53B free tokens/month documented, RTK+Caveman compression 15-95% tokens (~89% avg) stretches free tiers',
