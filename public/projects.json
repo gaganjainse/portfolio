@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14T04:11:10.669Z",
+  "generated_at": "2026-08-14T05:27:26.816Z",
   "count": 8,
   "repos": [
     {
@@ -16,7 +16,7 @@
     },
     {
       "title": "rag-service",
-      "tests": 28
+      "tests": 22
     },
     {
       "title": "llm-eval-harness",
@@ -28,11 +28,11 @@
     },
     {
       "title": "FWRS",
-      "tests": 1
+      "tests": 18
     },
     {
       "title": "shesh-omniroute",
-      "tests": 0
+      "tests": 17
     }
   ]
 }
