@@ -159,6 +159,7 @@ Vitest unit tests cover the data layer (`src/data/*.test.ts`): skill categorizat
 ## 📄 License
 
 [GPL-3.0-or-later](./LICENSE) — Copyright © 2026 Gagan Jain
+
 ## 📚 Docs
 
 Fleet-wide reading compilation: [shesh-docs](https://github.com/gaganjainse/shesh-docs).
