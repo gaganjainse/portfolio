@@ -44,7 +44,7 @@ CS @ VIT Vellore (Graduated 2025, CGPA 7.7/10). I build practical AI systems: LL
 
 - **SheshAOS** — Governance-first, event-sourced AI operating environment in Rust (9 workspace crates + CLI, 877+ tests)
 - **shesh-ecosystem** — Federated, local-first AI body (Brain + Mind + Soma) for CachyOS/Hyprland
-- **shesh-omniroute** — Shesh wrapper for OmniRoute — free MIT AI gateway (291 providers, 500+ models)
+- **shesh-omniroute** — Shesh wrapper for OmniRoute — free open-source AI gateway (291 providers, 500+ models)
 - **RAG Service** — Production RAG API: hybrid retrieval (dense + BM25, RRF) over ChromaDB
 - **LLM Eval Harness** — Golden-set evaluation: faithfulness, answer relevance, correctness
 
@@ -158,4 +158,4 @@ Vitest unit tests cover the data layer (`src/data/*.test.ts`): skill categorizat
 
 ## 📄 License
 
-[MIT](./LICENSE) — Copyright © 2026 Gagan Jain
+[GPL-3.0-or-later](./LICENSE) — Copyright © 2026 Gagan Jain

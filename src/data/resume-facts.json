@@ -1,6 +1,6 @@
 {
-  "verified_at": "2026-08-13 (fleet audit: cargo test + pytest --collect-only + grep counts)",
-  "verified_by": "cargo test --workspace on SheshAOS@b69df77 (sandbox run) + Cargo.toml members read + GitHub API public_repos",
+  "verified_at": "2026-08-14 (re-verified in sandbox: pytest 22/18/17 for rag-service/FWRS/shesh-omniroute)",
+  "verified_by": "pytest -q runs in sandbox + cargo test --workspace (SheshAOS 877) + GitHub API",
   "SheshAOS": {
     "workspace_members": 10,
     "crates": 9,
@@ -14,10 +14,10 @@
     "SheshAOS": 877,
     "shesh-ecosystem": 63,
     "Vyakrti": 122,
-    "rag-service": 28,
+    "rag-service": 22,
     "llm-eval-harness": 15,
     "AIM": 101,
-    "FWRS": 1,
-    "shesh-omniroute": 0
+    "FWRS": 18,
+    "shesh-omniroute": 17
   }
 }

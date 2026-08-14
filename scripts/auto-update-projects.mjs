@@ -27,11 +27,11 @@ const ACCURATE_TESTS = {
   SheshAOS: 877,
   'shesh-ecosystem': 63,
   Vyakrti: 122,
-  'rag-service': 28,
+  'rag-service': 22,
   'llm-eval-harness': 15,
   AIM: 101,
-  FWRS: 1,
-  'shesh-omniroute': 0,
+  FWRS: 18,
+  'shesh-omniroute': 17,
 }
 
 // Legacy page slug for the renamed AI-OS repo (page filename still sheshaos.mdx)
@@ -170,10 +170,10 @@ async function main() {
       tech = ['Python', 'PuLP', 'Folium', 'Flask', 'MySQL']
     } else if (repo.name === 'shesh-omniroute') {
       bullets = [
-        'Shesh wrapper for OmniRoute — free MIT gateway 291 providers 90+ free 500+ models, optional to local Ollama primary in final Shesh product',
+        'Shesh wrapper for OmniRoute — free open-source gateway 291 providers 90+ free 500+ models, optional to local Ollama primary in final Shesh product',
         '1.53B free tokens/month documented, RTK+Caveman compression 15-95% tokens (~89% avg) stretches free tiers',
         'One endpoint http://localhost:20128/v1 OpenAI-compatible — any tool (Claude Code, Cursor, Cline) points there, auto-fallback Tier1 Sub → Tier2 API → Tier3 Cheap → Tier4 Free',
-        '19 routing strategies, 105 MCP tools, A2A v0.3, Desktop/PWA, 43 i18n, MIT self-hosted',
+        '19 routing strategies, 105 MCP tools, A2A v0.3, Desktop/PWA, 43 i18n, self-hosted',
       ]
       tech = ['TypeScript', 'OmniRoute', 'AI Gateway', 'Free Models', 'MCP', 'A2A']
     } else {
