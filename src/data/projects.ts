@@ -49,7 +49,7 @@ export const PROJECTS: Project[] = [
     tech: ['Rust', 'Tokio', 'Event Sourcing', 'LiteLLM', 'OpenAI', 'Anthropic', 'SSH'],
     tests: 877,
     github: 'https://github.com/gaganjainse/SheshAOS',
-    docs: '/docs/projects/seshaos',
+    docs: '/docs/projects/sheshaos',
   },
   {
     title: 'shesh-ecosystem',

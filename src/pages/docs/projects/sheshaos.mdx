@@ -25,17 +25,10 @@ import TechChip from '../../../components/TechChip.astro'
 <div class="gradient-border p-6">
   <h2 class="text-2xl font-bold text-text mb-3">Tech Stack</h2>
   <div class="flex flex-wrap gap-2">
-    {[
-      'Rust',
-      'Tokio',
-      'Event Sourcing',
-      'LiteLLM',
-      'OpenAI',
-      'Anthropic',
-      'SSH',
-      'PTY',
-    ].map((tech) => (
-      <TechChip label={tech} />
-    ))}
+    {['Rust', 'Tokio', 'Event Sourcing', 'LiteLLM', 'OpenAI', 'Anthropic', 'SSH', 'PTY'].map(
+      (tech) => (
+        <TechChip label={tech} />
+      ),
+    )}
   </div>
 </div>

@@ -150,7 +150,7 @@ Vitest unit tests cover the data layer (`src/data/*.test.ts`): skill categorizat
 - [Architecture](/docs/architecture) — system design patterns
 - [ADRs](/docs/adr) — architecture decision records
 - [Site Map](/docs/site-map) — every page and route in the repo
-- [RAG Service](/docs/projects/rag-service) · [LLM Eval Harness](/docs/projects/llm-eval-harness) · [SheshAOS](/docs/projects/seshaos) · [shesh-ecosystem](/docs/projects/shesh-ecosystem) · [shesh-omniroute](/docs/projects/shesh-omniroute) · [Vyākṛti](/docs/projects/vyakrti)
+- [RAG Service](/docs/projects/rag-service) · [LLM Eval Harness](/docs/projects/llm-eval-harness) · [SheshAOS](/docs/projects/sheshaos) · [shesh-ecosystem](/docs/projects/shesh-ecosystem) · [shesh-omniroute](/docs/projects/shesh-omniroute) · [Vyākṛti](/docs/projects/vyakrti)
 
 ## 🌐 Live Site
 

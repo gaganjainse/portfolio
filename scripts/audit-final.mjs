@@ -31,7 +31,7 @@ const pages = [
   '/docs/site-map/',
   '/docs/projects/nexusaos/',
   '/docs/projects/nexus-kernel/',
-  '/docs/projects/seshaos/',
+  '/docs/projects/sheshaos/',
   '/docs/projects/rag-service/',
   '/docs/projects/llm-eval-harness/',
   '/docs/projects/vyakrti/',

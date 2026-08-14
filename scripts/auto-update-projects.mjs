@@ -34,8 +34,8 @@ const ACCURATE_TESTS = {
   'shesh-omniroute': 0,
 }
 
-// Legacy page slug for the renamed AI-OS repo (page filename still seshaos.mdx)
-const DOCS_URLS = { SheshAOS: '/docs/projects/seshaos' }
+// Legacy page slug for the renamed AI-OS repo (page filename still sheshaos.mdx)
+const DOCS_URLS = { SheshAOS: '/docs/projects/sheshaos' }
 
 const TAG_MAP = {
   SheshAOS: { tag: 'AI/AGENTIC OS', tagColor: 'pink' },
