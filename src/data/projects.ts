@@ -30,7 +30,7 @@ export function getTagClasses(tagColor: string): string {
 
 // AUTO-GENERATED SMART — no forks, proper priority for AI/LLM portfolio
 // Portfolio IS personal site for AI/LLM Engineer — WHY: showcase production-grade GenAI systems
-// Priority: SheshAOS (AI OS 877+) > shesh-ecosystem (federated body 23 comps) > Vyakrti (lang 122) > RAG/Eval > AIM/FWRS > omniroute
+// Priority: SheshAOS (AI OS 877+) > shesh-ecosystem (federated body 23 comps) > Vyakrti (lang 127) > RAG/Eval > AIM/FWRS > omniroute
 // Generated: 2026-08-14T09:29:36.792Z — no forks ever
 export const PROJECTS: Project[] = [
   {
@@ -79,10 +79,10 @@ export const PROJECTS: Project[] = [
       'Complete compiler pipeline: lexer → parser → type checker → bytecode compiler — all built from scratch in Rust',
       'Browser-based IDE with React, Monaco Editor, syntax highlighting, autocomplete, diagnostics',
       'Rust (axum) backend with compile, REPL, LSP, file management via REST + WebSocket',
-      '122 tests covering full pipeline, including self-hosting corpus',
+      '127 tests covering full pipeline, including self-hosting corpus',
     ],
     tech: ['Rust', 'React', 'TypeScript', 'Monaco', 'Axum'],
-    tests: 122,
+    tests: 127,
     github: 'https://github.com/gaganjainse/Vyakrti',
     docs: '/docs/projects/vyakrti',
   },
