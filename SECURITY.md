@@ -2,8 +2,7 @@
 
 ## Reporting a Vulnerability
 
-If you find a security vulnerability in this project, please report it
-**privately** to `gagan.jain.se@gmail.com`. Do not open a public issue.
+If you find a security vulnerability in this project, please report it **privately** to `gagan.jain.se@gmail.com`. Do not open a public issue.
 
 Please include:
 
@@ -13,11 +12,8 @@ Please include:
 
 ## Response
 
-I treat security reports as high priority and aim to acknowledge within
-48 hours and ship a fix for confirmed vulnerabilities promptly.
+I treat security reports as high priority and aim to acknowledge within 48 hours and ship a fix for confirmed vulnerabilities promptly.
 
 ## Scope
 
-This policy covers the code and deployment configuration in this repository.
-Dependency vulnerabilities are tracked via Dependabot alerts and fixed on a
-rolling basis.
+This policy covers the code and deployment configuration in this repository. Dependency vulnerabilities are tracked via Dependabot alerts and fixed on a rolling basis.
