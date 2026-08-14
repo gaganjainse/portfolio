@@ -4,7 +4,7 @@
   <img src="screenshots/home-dark.png" alt="Home — dark mode" width="62%" />
 </p>
 
-![Astro](https://img.shields.io/badge/Astro-7.2.0-FF5D01?logo=astro) ![Tailwind](https://img.shields.io/badge/Tailwind-v4.3-06B6D4?logo=tailwindcss) ![GSAP](https://img.shields.io/badge/GSAP-3.15-88CE02?logo=greensock) ![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178C6?logo=typescript) ![Vercel](https://img.shields.io/badge/Deploy-Vercel-000?logo=vercel) ![CI](https://github.com/gaganjainse/portfolio/actions/workflows/ci.yml/badge.svg)
+![Astro](https://img.shields.io/badge/Astro-7.2.0-FF5D01?logo=astro) ![Tailwind](https://img.shields.io/badge/Tailwind-v4.3-06B6D4?logo=tailwindcss) ![GSAP](https://img.shields.io/badge/GSAP-3.15-88CE02?logo=greensock) ![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178C6?logo=typescript) ![Vercel](https://img.shields.io/badge/Deploy-Vercel-000?logo=vercel) ![CI](https://img.shields.io/github/actions/workflow/status/gaganjainse/portfolio/ci.yml?style=for-the-badge&label=CI)
 
 - **License:** GPL-3.0-or-later
 - **Owner:** Gagan Jain ([@gaganjainse](https://github.com/gaganjainse))
