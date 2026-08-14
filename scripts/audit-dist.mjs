@@ -95,7 +95,7 @@ if (/Sitemap:\s*https:\/\/gaganjain\.vercel\.app\/sitemap-index\.xml/.test(robot
   ok('robots.txt sitemap line')
 else fail('robots.txt sitemap line missing')
 const llms = fs.readFileSync(path.join(DIST, 'llms.txt'), 'utf8')
-if (llms.includes('Gagan Jain') && /github\.com\/gaganjainse/.test(llms)) ok('llms.txt content')
+if (llms.includes('Gagan Jain') && /github\.com\/gaganjainse\b/.test(llms)) ok('llms.txt content')
 else fail('llms.txt content unexpected')
 
 // ---------- head / meta audit on every html ----------
