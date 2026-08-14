@@ -6,6 +6,10 @@
 
 ![Astro](https://img.shields.io/badge/Astro-7.2.0-FF5D01?logo=astro) ![Tailwind](https://img.shields.io/badge/Tailwind-v4.3-06B6D4?logo=tailwindcss) ![GSAP](https://img.shields.io/badge/GSAP-3.15-88CE02?logo=greensock) ![TypeScript](https://img.shields.io/badge/TypeScript-6.0-3178C6?logo=typescript) ![Vercel](https://img.shields.io/badge/Deploy-Vercel-000?logo=vercel) ![CI](https://github.com/gaganjainse/portfolio/actions/workflows/ci.yml/badge.svg)
 
+- **License:** GPL-3.0-or-later
+- **Owner:** Gagan Jain ([@gaganjainse](https://github.com/gaganjainse))
+- **Stack:** Astro · TypeScript · Tailwind · Vercel
+
 Personal portfolio website of **Gagan Jain** — AI / LLM Engineer. Built with [Astro 7](https://astro.build), [Tailwind CSS v4](https://tailwindcss.com), and [GSAP](https://gsap.com). Focused on production-grade GenAI systems: multi-agent orchestration, LLM fine-tuning, RAG pipelines, agentic AI platforms, and AI governance.
 
 **Live:** [gaganjain.vercel.app](https://gaganjain.vercel.app)
@@ -160,6 +164,6 @@ Vitest unit tests cover the data layer (`src/data/*.test.ts`): skill categorizat
 
 [GPL-3.0-or-later](./LICENSE) — Copyright © 2026 Gagan Jain
 
-## 📚 Docs
+## Status
 
-Fleet-wide reading compilation: [shesh-docs](https://github.com/gaganjainse/shesh-docs).
+CI green. Security: [SECURITY.md](SECURITY.md). Compiled reading: [shesh-docs](https://github.com/gaganjainse/shesh-docs).
