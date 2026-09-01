@@ -29,7 +29,7 @@
     "build:full": "npm run generate:all && astro build"
   },
   "dependencies": {
-    "@astrojs/mdx": "^7.0.5",
+    "@astrojs/mdx": "^7.0.8",
     "@astrojs/sitemap": "^3.7.3",
     "@astrojs/vercel": "^11.0.5",
     "@tailwindcss/vite": "^4.3.3",
