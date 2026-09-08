@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^7.0.5",
-    "@astrojs/sitemap": "^3.7.3",
+    "@astrojs/sitemap": "^3.7.4",
     "@astrojs/vercel": "^11.0.5",
     "@tailwindcss/vite": "^4.3.3",
     "@vercel/analytics": "^2.0.1",
